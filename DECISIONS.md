@@ -26,11 +26,11 @@ unblock v1; change freely, but update this file).
 | 10 | A skill is due `x` lessons after it was last practised (or taught, for the first practice), where `x` doubles after the first steps: 1, 3, 6, 12, 24, ... | agreed |
 | 11 | The interval list is capped at **24** and the last value repeats until the exam: `[1, 3, 6, 12, 24]`. The list is a config value (per class later). | default |
 | 12 | No RAG feedback in v1. The schedule is a pure function of the practice count. | agreed |
-| 13 | A Do Now has **4** questions (config). | agreed (Barton's size) |
+| 13 | A Do Now has **5** questions by default; the teacher can choose 4-6 (config `size`). The owner's own Do Nows use 5, sometimes 6. | agreed |
 | 14 | Selection: reserve one slot for a newly taught skill (never practised, from the latest teaching batch), then fill by most overdue first. | agreed |
 | 15 | Tie-break for equal overdue: earlier taught first, then bank order. Deterministic, no randomness. | default |
 | 16 | At most one question per skill per Do Now. | default |
-| 17 | If fewer than 4 skills are due, pad with not-yet-due skills (`fillToSize`, default on), least recently shown first. Padding is bonus retrieval only: it does **not** advance the skill's practice count or due date. (Found in simulation: counting padding as practice collapsed the spacing, taking skills to the 24-lesson cap within a few weeks.) | default |
+| 17 | If fewer skills are due than the Do Now size, pad with not-yet-due skills (`fillToSize`, default on), least recently shown first. Padding is bonus retrieval only: it does **not** advance the skill's practice count or due date. (Found in simulation: counting padding as practice collapsed the spacing, taking skills to the 24-lesson cap within a few weeks.) | default |
 | 18 | If no skill is taught yet, generating does nothing (no empty Do Now, lesson counter unchanged). If skills are taught but none is due and padding is off, the lesson still advances with an empty Do Now (otherwise the schedule would deadlock). | default |
 | 19 | Question rotation within a skill: never-used-by-this-class first, then least recently used, then bank order. | agreed (unseen first) |
 | 20 | A teacher can untick a skill on the checklist. This deletes its schedule state. Re-ticking starts it from scratch. | default |
@@ -54,6 +54,10 @@ Known risks to watch in the simulation (`npm run simulate`):
 | 26 | Taught tracking: a checklist of skills per class that the teacher ticks and unticks. No scheme-of-work import in v1. | agreed |
 | 27 | Outputs: fullscreen projector view (questions only), printable one-page sheet, teacher-only answer key. | agreed |
 | 28 | No student-facing side in v1 (no QR, no home practice). | agreed |
+| 33 | Projector view design = hybrid of three prototypes (`prototypes/hybrid`): clean paper look and big type from `one-at-a-time`; Think -> Check two-phase flow and mood change from `step-reveal`; command-word badge plus highlighted command word from `four-grid`. | agreed |
+| 34 | Think phase: all questions listed at once, timer visible, answers cannot be seen. Check phase: one question at a time, answer revealed on a separate keypress in a reserved panel (layout does not shift), then next question; a final summary lists every question with its answer. `O` shows an overview mid-check. | agreed (flow) / default (details) |
+| 35 | Class-facing screen shows only topic, question number, command word and prompt. No skill name (it can hint at the answer) and no scheduling jargon. | default |
+| 36 | Text auto-shrinks to fit its box (down to a legibility floor) rather than scrolling, so any prompt/answer length fits at 4-6 questions. Keyboard-driven: Space/arrows, `O`, timer keys, `F` fullscreen, `?` hides key hints. | default |
 
 ## Engineering
 

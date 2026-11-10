@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do Now (hybrid prototype)</title>
+<style>
+:root {
+  --u: min(1vw, 1.7778vh);          /* 1 unit = 1% of a 16:9 screen width */
+  --paper: #fcfbf6;
+  --ink: #0b0f1a;
+  --ink-2: #2a3350;                 /* secondary text, still AAA on paper */
+  --navy: #0d2b5c;
+  --navy-deep: #08183a;
+  --yellow: #ffd23f;
+  --green: #0f3d2e;
+  --rule: #c9c4b4;
+  --font: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: var(--font); font-weight: 700; color: var(--ink);
+  background: var(--paper); overflow: hidden;
+  transition: background-color .5s ease, color .5s ease;
+}
+body[data-phase="check"] { background: var(--navy-deep); color: #fff; }
+
+.stage {
+  position: fixed; inset: 0; display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: calc(var(--u) * 1.6) calc(var(--u) * 3) calc(var(--u) * 1.2);
+  gap: calc(var(--u) * 1.2);
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: calc(var(--u) * .3) solid var(--yellow); outline-offset: calc(var(--u) * .2); }
+body[data-phase="think"] :focus-visible { outline-color: var(--navy); }
+
+/* ---------- header ---------- */
+header { display: flex; align-items: center; gap: calc(var(--u) * 2); min-height: calc(var(--u) * 7); }
+.phase {
+  display: flex; align-items: center; gap: calc(var(--u) * 1); padding: calc(var(--u) * .7) calc(var(--u) * 1.6);
+  border-radius: calc(var(--u) * 5); background: var(--ink); color: #fff; line-height: 1.1;
+  transition: background-color .5s, color .5s;
+}
+body[data-phase="check"] .phase { background: var(--yellow); color: var(--ink); }
+.phase svg { width: calc(var(--u) * 2.2); height: calc(var(--u) * 2.2); flex: none; }
+.phase b { font-size: calc(var(--u) * 1.9); letter-spacing: .12em; }
+.phase small { font-size: calc(var(--u) * 1.5); font-weight: 700; }
+h1 { margin: 0; font-size: calc(var(--u) * 3.6); line-height: 1; letter-spacing: -.01em; }
+h1 span { font-size: calc(var(--u) * 2.2); color: var(--ink-2); margin-left: calc(var(--u) * 1); }
+body[data-phase="check"] h1 span { color: #dbe4ff; }
+.spacer { flex: 1; }
+
+/* ---------- timer ---------- */
+.timer { display: flex; align-items: center; gap: calc(var(--u) * 1); }
+body[data-phase="check"] .timer { display: none; }
+.ring { position: relative; width: calc(var(--u) * 7); height: calc(var(--u) * 7); }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 9; }
+.ring .track { stroke: var(--rule); }
+.ring .bar { stroke: var(--navy); stroke-linecap: round; transition: stroke-dashoffset 1s linear; }
+.ring output { position: absolute; inset: 0; display: grid; place-items: center; font-size: calc(var(--u) * 1.9); font-variant-numeric: tabular-nums; }
+.tbtn {
+  width: calc(var(--u) * 3.4); height: calc(var(--u) * 3.4); border-radius: 50%;
+  border: calc(var(--u) * .2) solid var(--ink); background: var(--paper); font-size: calc(var(--u) * 1.8); line-height: 1; display: grid; place-items: center; padding: 0;
+}
+.tbtn.play { background: var(--navy); border-color: var(--navy); color: #fff; }
+.tbtn svg { width: 50%; height: 50%; fill: currentColor; }
+.timer .done { font-size: calc(var(--u) * 1.6); }
+
+/* ---------- command word badge ---------- */
+.badge {
+  display: inline-block; background: var(--navy); color: var(--yellow); text-transform: uppercase;
+  letter-spacing: .1em; border-radius: calc(var(--u) * .7); padding: .28em .7em; line-height: 1.1;
+  font-size: calc(var(--u) * 2);
+}
+.cmd { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); padding: 0 .06em; }
+body[data-phase="check"] .card .cmd { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); }
+
+main { position: relative; min-height: 0; }
+.view { position: absolute; inset: 0; display: flex; flex-direction: column; min-height: 0; }
+.view.enter { animation: rise .35s ease both; }
+@keyframes rise { from { opacity: 0; transform: translateY(calc(var(--u) * 1)); } to { opacity: 1; transform: none; } }
+
+/* ---------- THINK ---------- */
+.lead { margin: 0 0 calc(var(--u) * 1); font-size: calc(var(--u) * 2.2); color: var(--ink-2); }
+.lead b { color: var(--ink); }
+.list { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; margin: 0; padding: 0; list-style: none; }
+.row {
+  display: grid; grid-template-columns: calc(var(--u) * 4) calc(var(--u) * 13) minmax(0, 1fr); align-items: center;
+  column-gap: calc(var(--u) * 1.6); border-top: calc(var(--u) * .15) solid var(--rule); min-height: 0;
+}
+.row:last-child { border-bottom: calc(var(--u) * .15) solid var(--rule); }
+.num {
+  width: calc(var(--u) * 3.8); height: calc(var(--u) * 3.8); border-radius: 50%; border: calc(var(--u) * .22) solid var(--ink);
+  display: grid; place-items: center; font-size: calc(var(--u) * 2); line-height: 1;
+}
+.meta { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--u) * .4); }
+.meta .badge { font-size: calc(var(--u) * 1.8); }
+.topic { font-size: calc(var(--u) * 1.5); color: var(--ink-2); line-height: 1.1; }
+.prompt { margin: 0; line-height: 1.12; letter-spacing: -.012em; font-weight: 800; }
+.row .prompt { font-size: var(--pf); }
+
+/* ---------- CHECK ---------- */
+.pips { flex: none; display: flex; gap: calc(var(--u) * .8); margin-bottom: calc(var(--u) * 1); }
+.pip {
+  min-width: calc(var(--u) * 3.2); height: calc(var(--u) * 3.2); padding: 0 calc(var(--u) * .6); border-radius: calc(var(--u) * 1); white-space: nowrap;
+  border: calc(var(--u) * .22) solid #fff; display: grid; place-items: center; font-size: calc(var(--u) * 1.9); background: transparent; color: #fff;
+}
+.pip[aria-current="step"] { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+.pip.seen { background: #fff; color: var(--navy-deep); display: inline-flex; align-items: center; justify-content: center; }
+.pip.seen::after { content: "\2713"; margin-left: .25em; font-size: .8em; }
+.pip.ovb { margin-left: auto; padding: 0 calc(var(--u) * 1.6); border-style: dashed; display: inline-flex; align-items: center; gap: calc(var(--u) * .6); }
+.pip.ovb kbd { margin: 0; }
+.card {
+  flex: 1 1 0; min-height: 0; overflow: hidden; background: var(--paper); color: var(--ink); border-radius: calc(var(--u) * 1.6);
+  padding: calc(var(--u) * 1.4) calc(var(--u) * 3); display: flex; flex-direction: column; justify-content: center; gap: calc(var(--u) * 1);
+}
+.card .meta { flex-direction: row; align-items: center; gap: calc(var(--u) * 1.4); }
+.card .meta .badge { font-size: calc(var(--u) * 2.2); }
+.card .topic { font-size: calc(var(--u) * 2); }
+.card .prompt { font-size: var(--pf); }
+.answer {
+  flex: 0 0 calc(var(--u) * 13); margin-top: calc(var(--u) * 1); border-radius: calc(var(--u) * 1.6); padding: calc(var(--u) * 1.1) calc(var(--u) * 3);
+  display: flex; flex-direction: column; justify-content: center; gap: calc(var(--u) * .4); min-height: 0; overflow: hidden;
+}
+.answer.hidden { border: calc(var(--u) * .25) dashed #9fb2e0; color: #dbe4ff; }
+.answer.shown { background: var(--green); color: #fff; border: calc(var(--u) * .25) solid #fff; animation: rise .3s ease both; }
+.answer .label { font-size: calc(var(--u) * 1.5); letter-spacing: .14em; text-transform: uppercase; }
+.answer .text { margin: 0; font-size: var(--pf); line-height: 1.12; font-weight: 800; }
+.answer .think { margin: 0; font-size: calc(var(--u) * 2.6); }
+.mark { margin: 0; font-size: calc(var(--u) * 1.7); color: var(--yellow); }
+
+/* ---------- OVERVIEW / SUMMARY ---------- */
+.ov { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; gap: calc(var(--u) * .8); margin: 0; padding: 0; list-style: none; }
+.ov li {
+  background: var(--paper); color: var(--ink); border-radius: calc(var(--u) * 1.2); display: grid; align-items: center; min-height: 0;
+  grid-template-columns: calc(var(--u) * 4.4) calc(var(--u) * 11) minmax(0, 1.15fr) minmax(0, 1fr); column-gap: calc(var(--u) * 1.4);
+  padding: 0 calc(var(--u) * 1.6);
+}
+.ov .badge { font-size: calc(var(--u) * 1.6); }
+.ov .q { font-size: var(--pf); line-height: 1.12; }
+.ov .a { font-size: var(--pf); line-height: 1.12; background: var(--green); color: #fff; border-radius: calc(var(--u) * .9); padding: calc(var(--u) * .5) calc(var(--u) * 1.2); }
+.ov .a.none { background: transparent; color: var(--ink-2); border: calc(var(--u) * .2) dashed var(--ink-2); }
+
+/* ---------- footer ---------- */
+footer { display: flex; align-items: center; gap: calc(var(--u) * 1.5); min-height: calc(var(--u) * 3.6); }
+.hint { display: flex; flex-wrap: wrap; gap: calc(var(--u) * .5) calc(var(--u) * 1.4); font-size: calc(var(--u) * 1.4); align-items: center; }
+.hint.off { visibility: hidden; }
+kbd {
+  font: inherit; font-size: .95em; border: calc(var(--u) * .15) solid currentColor; border-radius: calc(var(--u) * .45); padding: 0 .4em; margin-right: .3em;
+}
+.fbtn { border: calc(var(--u) * .2) solid currentColor; background: transparent; border-radius: calc(var(--u) * .9); padding: calc(var(--u) * .5) calc(var(--u) * 1.2); font-size: calc(var(--u) * 1.5); }
+.cta { background: var(--navy); color: #fff; border-color: var(--navy); font-size: calc(var(--u) * 1.9); padding: calc(var(--u) * .7) calc(var(--u) * 1.8); white-space: nowrap; }
+body[data-phase="check"] .cta { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body data-phase="think" data-n="5">
+<div class="stage">
+  <header>
+    <div class="phase" id="phase" role="status"></div>
+    <h1>Do Now <span id="lesson"></span></h1>
+    <div class="spacer"></div>
+    <div class="timer" id="timer" aria-label="Timer"></div>
+  </header>
+  <main id="main" aria-live="polite"></main>
+  <footer>
+    <div class="hint" id="hint"></div>
+    <div class="spacer"></div>
+    <button class="fbtn" id="fs" type="button">Fullscreen <kbd>F</kbd></button>
+    <button class="fbtn" id="hintBtn" type="button" aria-label="Toggle key hints">?</button>
+    <button class="fbtn cta" id="cta" type="button"></button>
+  </footer>
+</div>
+
+<script>
+/* Sample data: first four are the agreed sample; 5 and 6 are from the draft bank. */
+const doNow = {
+  title: "Do Now",
+  lesson: 12,
+  items: [
+    { n:1, topic:"Energy", skill:"Energy stores", command:"Name", prompt:"Name the energy store that increases when an object is lifted upwards.", answer:"Gravitational potential energy store." },
+    { n:2, topic:"Electricity", skill:"Current and charge", command:"Define", prompt:"Define electric current.", answer:"The rate of flow of electrical charge." },
+    { n:3, topic:"Atomic structure", skill:"Types of nuclear radiation", command:"State", prompt:"State which of alpha, beta and gamma radiation is the most penetrating.", answer:"Gamma." },
+    { n:4, topic:"Forces", skill:"Newton's first and second laws", command:"State", prompt:"State the equation linking resultant force, mass and acceleration.", answer:"Resultant force = mass \u00d7 acceleration (F = ma)." },
+    { n:5, topic:"Energy", skill:"Energy resources", command:"State", prompt:"State two renewable energy resources.", answer:"Any two of: wind, solar, hydroelectric, tides, waves, geothermal, bio-fuel." },
+    { n:6, topic:"Particle model", skill:"Density and states of matter", command:"Describe", prompt:"Describe the arrangement of particles in a solid.", answer:"Closely packed in a regular pattern, vibrating about fixed positions." }
+  ]
+};
+const LONG = "If the resultant force on an object is zero, a stationary object stays at rest and a moving object continues at the same speed in the same direction (constant velocity).";
+const DEFAULT_SECONDS = 240;
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const words = { 4: "four", 5: "five", 6: "six" };
+
+const state = { count: 5, step: 0, overview: false, long: false, hints: true, secs: DEFAULT_SECONDS, total: DEFAULT_SECONDS, running: false };
+let tick = null;
+
+/* Step model: 0 = Think. Check question i (0-based): 1+2i hidden, 2+2i revealed. Last step = summary. */
+const items = () => doNow.items.slice(0, state.count).map((it, i) =>
+  (i === 0 && state.long) ? { ...it, answer: LONG } : it);
+const lastStep = () => 2 * state.count + 1;
+const phase = () => (state.step === 0 ? "think" : "check");
+const isSummary = () => state.step === lastStep();
+const checkIndex = () => Math.floor((state.step - 1) / 2);
+const revealed = (i) => state.step >= 2 + 2 * i;
+
+function promptHTML(it) {
+  const p = it.prompt;
+  return p.startsWith(it.command) ? `<span class="cmd">${esc(it.command)}</span>${esc(p.slice(it.command.length))}` : esc(p);
+}
+const sizeClass = (t, a, b) => (t.length > b ? "l" : t.length > a ? "m" : "");
+
+/* ---------- views ---------- */
+function thinkView(its) {
+  return `<section class="view enter" aria-label="Questions">
+    <p class="lead">Answer all <b>${words[state.count]}</b> questions in your books. Use the <b>command word</b>.</p>
+    <ol class="list">${its.map((it) => `
+      <li class="row">
+        <span class="num" aria-label="Question ${it.n}">${it.n}</span>
+        <span class="meta"><span class="badge">${esc(it.command)}</span><span class="topic">${esc(it.topic)}</span></span>
+        <p class="prompt">${promptHTML(it)}</p>
+      </li>`).join("")}</ol>
+  </section>`;
+}
+
+function pipsHTML(its) {
+  const cur = state.overview || isSummary() ? -1 : checkIndex();
+  return `<div class="pips" role="group" aria-label="Question progress">${its.map((it, i) =>
+    `<button class="pip${revealed(i) && i !== cur ? " seen" : ""}" type="button" data-q="${i}" ${i === cur ? 'aria-current="step"' : ""} aria-label="Question ${it.n}">${it.n}</button>`).join("")}
+    <button class="pip ovb" type="button" data-ov="1" aria-pressed="${state.overview || isSummary()}">Overview <kbd>O</kbd></button></div>`;
+}
+
+function checkView(its) {
+  const i = checkIndex(), it = its[i], shown = revealed(i);
+  return `<section class="view" aria-label="Checking question ${it.n}">
+    ${pipsHTML(its)}
+    <div class="card">
+      <div class="meta"><span class="badge">${esc(it.command)}</span><span class="topic">${esc(it.topic)}</span></div>
+      <p class="prompt">${promptHTML(it)}</p>
+    </div>
+    ${shown
+      ? `<div class="answer shown"><span class="label">Answer</span><p class="text">${esc(it.answer)}</p><p class="mark">Tick it, or correct it in a different colour.</p></div>`
+      : `<div class="answer hidden"><span class="label">Answer</span><p class="think">Think first&hellip;</p></div>`}
+  </section>`;
+}
+
+function overviewView(its) {
+  const all = isSummary();
+  return `<section class="view" aria-label="${all ? "Summary" : "Overview"}">
+    ${pipsHTML(its)}
+    <ul class="ov">${its.map((it, i) => `
+      <li><span class="num">${it.n}</span><span class="badge">${esc(it.command)}</span>
+        <span class="q">${promptHTML(it)}</span>
+        ${revealed(i) ? `<span class="a">${esc(it.answer)}</span>` : `<span class="a none">Answer not yet shown</span>`}
+      </li>`).join("")}</ul>
+  </section>`;
+}
+
+/* ---------- render ---------- */
+let lastKey = "";
+function render() {
+  const its = items();
+  document.body.dataset.phase = phase();
+  document.body.dataset.n = state.count;
+  $("lesson").textContent = `Lesson ${doNow.lesson}`;
+
+  const ph = phase() === "think"
+    ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-5L16 4l4 4L9 19z"/></svg><b>THINK</b><small>answers hidden</small>`
+    : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg><b>CHECK</b><small>${isSummary() ? "all answers" : `question ${checkIndex() + 1} of ${state.count}`}</small>`;
+  $("phase").innerHTML = ph;
+
+  const view = state.overview && phase() === "check" && !isSummary() ? "ov" : isSummary() ? "sum" : phase() === "think" ? "think" : `q${checkIndex()}${revealed(checkIndex()) ? "r" : ""}`;
+  const key = `${view}|${state.count}|${state.long}`;
+  const html = view === "think" ? thinkView(its) : view === "ov" || view === "sum" ? overviewView(its) : checkView(its);
+  $("main").innerHTML = html;
+  if (key === lastKey) $("main").firstElementChild.classList.remove("enter");
+  lastKey = key;
+
+  $("cta").innerHTML = state.step === 0 ? "Start checking <kbd>Space</kbd>"
+    : isSummary() ? "Back to start <kbd>Space</kbd>"
+    : revealed(checkIndex()) ? (checkIndex() === state.count - 1 ? "Finish <kbd>Space</kbd>" : "Next question <kbd>Space</kbd>")
+    : "Reveal answer <kbd>Space</kbd>";
+
+  $("hint").className = "hint" + (state.hints ? "" : " off");
+  $("hint").innerHTML = `<span><kbd>Space</kbd>/<kbd>\u2192</kbd> next</span><span><kbd>\u2190</kbd> back</span><span><kbd>O</kbd> overview</span><span><kbd>T</kbd> timer</span><span><kbd>+</kbd><kbd>\u2212</kbd> 30s</span><span><kbd>0</kbd> reset</span><span><kbd>L</kbd> long answer</span><span><kbd>4</kbd><kbd>5</kbd><kbd>6</kbd> questions (test)</span>`;
+  fit();
+  renderTimer();
+}
+
+/* Shrink text until it fits its box; sizes are in units of --u (1% of screen width, capped by height). */
+function fit() {
+  const u = Math.min(innerWidth / 100, innerHeight / 56.25);
+  const run = (box, start, min, overflows) => {
+    let s = start;
+    box.style.setProperty("--pf", `${s * u}px`);
+    while (s > min && overflows()) { s *= 0.95; box.style.setProperty("--pf", `${s * u}px`); }
+  };
+  const list = document.querySelector(".list");
+  if (list) {
+    const rows = [...list.children];
+    run(list, { 4: 3.5, 5: 3.2, 6: 2.9 }[state.count], 2.2, () => rows.some((r) => r.querySelector(".prompt").offsetHeight > r.clientHeight - 2));
+  }
+  const card = document.querySelector(".card");
+  if (card) run(card, 5.4, 2.6, () => card.scrollHeight > card.clientHeight + 1);
+  const ans = document.querySelector(".answer.shown");
+  if (ans) run(ans, 4.4, 2.2, () => ans.scrollHeight > ans.clientHeight + 1);
+  const ov = document.querySelector(".ov");
+  if (ov) {
+    const lis = [...ov.children];
+    run(ov, 2.4, 1.6, () => lis.some((li) => [...li.querySelectorAll(".q,.a")].some((e) => e.offsetHeight > li.clientHeight - 2)));
+  }
+}
+addEventListener("resize", fit);
+
+function fmt(s) { return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; }
+function renderTimer() {
+  const C = 2 * Math.PI * 45;
+  const frac = state.total ? Math.max(0, state.secs / state.total) : 0;
+  $("timer").innerHTML = `
+    <button class="tbtn" type="button" data-t="-" aria-label="Minus 30 seconds">\u2212</button>
+    <div class="ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="45"/><circle class="bar" cx="50" cy="50" r="45" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - frac)}"/></svg><output>${fmt(state.secs)}</output></div>
+    <button class="tbtn play" type="button" data-t="p" aria-label="${state.running ? "Pause timer" : "Start timer"}">${state.running
+      ? '<svg viewBox="0 0 10 10" aria-hidden="true"><rect x="1.5" y="1" width="2.4" height="8"/><rect x="6.1" y="1" width="2.4" height="8"/></svg>'
+      : '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z"/></svg>'}</button>
+    <button class="tbtn" type="button" data-t="+" aria-label="Plus 30 seconds">+</button>
+    ${state.secs === 0 ? '<span class="done">Time</span>' : ""}`;
+}
+
+/* ---------- actions ---------- */
+function setStep(s) {
+  state.step = Math.max(0, Math.min(lastStep(), s));
+  if (state.step === 0 || isSummary()) state.overview = false;
+  render();
+}
+function next() { if (isSummary()) setStep(0); else setStep(state.step + 1); }
+function back() { if (state.overview) { state.overview = false; render(); } else setStep(state.step - 1); }
+function toggleOverview() {
+  if (phase() === "think") return;
+  if (isSummary()) { setStep(lastStep() - 1); return; }
+  state.overview = !state.overview; render();
+}
+function jump(i) { state.overview = false; setStep(revealed(i) ? 2 + 2 * i : 1 + 2 * i); }
+
+function adjust(d) {
+  state.secs = Math.max(0, state.secs + d);
+  state.total = Math.max(state.total, state.secs, 30);
+  if (!state.running) state.total = state.secs || state.total;
+  renderTimer();
+}
+function toggleTimer() {
+  if (state.running) { clearInterval(tick); state.running = false; }
+  else {
+    if (state.secs === 0) { state.secs = state.total = DEFAULT_SECONDS; }
+    state.running = true;
+    tick = setInterval(() => { state.secs = Math.max(0, state.secs - 1); if (state.secs === 0) { clearInterval(tick); state.running = false; } renderTimer(); }, 1000);
+  }
+  renderTimer();
+}
+function resetTimer() { clearInterval(tick); state.running = false; state.secs = state.total = DEFAULT_SECONDS; renderTimer(); }
+function setCount(n) { state.count = n; state.step = Math.min(state.step, lastStep()); state.overview = false; render(); }
+function toggleFS() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.(); }
+
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key;
+  if (k === " " || k === "ArrowRight" || k === "PageDown") { e.preventDefault(); next(); }
+  else if (k === "ArrowLeft" || k === "Backspace" || k === "PageUp") { e.preventDefault(); back(); }
+  else if (k === "o" || k === "O") toggleOverview();
+  else if (k === "Escape" && state.overview) { state.overview = false; render(); }
+  else if (k === "t" || k === "T") toggleTimer();
+  else if (k === "+" || k === "=") adjust(30);
+  else if (k === "-" || k === "_") adjust(-30);
+  else if (k === "0") resetTimer();
+  else if (k === "l" || k === "L") { state.long = !state.long; render(); }
+  else if (k === "f" || k === "F") toggleFS();
+  else if (k === "?" || k === "/") { state.hints = !state.hints; render(); }
+  else if (k === "4" || k === "5" || k === "6") setCount(Number(k));
+});
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-t],[data-q],[data-ov]");
+  if (!t) return;
+  if (t.dataset.t === "+") adjust(30);
+  else if (t.dataset.t === "-") adjust(-30);
+  else if (t.dataset.t === "p") toggleTimer();
+  else if (t.dataset.q !== undefined) jump(Number(t.dataset.q));
+  else if (t.dataset.ov) toggleOverview();
+});
+$("cta").addEventListener("click", next);
+$("fs").addEventListener("click", toggleFS);
+$("hintBtn").addEventListener("click", () => { state.hints = !state.hints; render(); });
+
+render();
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@ import type { Bank, ClassState, Config, DoNow, DoNowItem, Question, Reason, Skil
 
 export const DEFAULT_CONFIG: Config = {
 	intervals: [1, 3, 6, 12, 24],
-	size: 4,
+	size: 5,
 	fillToSize: true
 };
 

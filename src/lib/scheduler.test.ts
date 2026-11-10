@@ -4,6 +4,9 @@ import { buildBank } from './bank.ts';
 import { DEFAULT_CONFIG, generateDoNow, markTaught, newClass, unmarkTaught } from './scheduler.ts';
 import type { Bank, ClassState, Config } from './types.ts';
 
+/** Several tests reason about exactly four slots; the default size is 5. */
+const SIZE4: Config = { ...DEFAULT_CONFIG, size: 4 };
+
 function makeBank(n: number, questionsPerSkill = 3): Bank {
 	return {
 		skills: Array.from({ length: n }, (_, i) => ({
@@ -54,14 +57,14 @@ test('with fillToSize, early skills pad the quiz soonest-due first and are marke
 	const bank = makeBank(6);
 	let state = newClass();
 	state = markTaught(bank, state, 's0');
-	state = generateDoNow(bank, state).state; // lesson 1: s0 practised, next due lesson 4
+	state = generateDoNow(bank, state, SIZE4).state; // lesson 1: s0 practised, next due lesson 4
 	for (const id of ['s1', 's2', 's3', 's4']) state = markTaught(bank, state, id);
-	const { doNow } = generateDoNow(bank, state); // lesson 2: s1..s4 due (overdue 0), s0 not due
+	const { doNow } = generateDoNow(bank, state, SIZE4); // lesson 2: s1..s4 due (overdue 0), s0 not due
 	assert.deepEqual(doNow.items.map((i) => i.skillId).sort(), ['s1', 's2', 's3', 's4']);
 	assert.ok(doNow.items.every((i) => i.reason !== 'early'));
 
-	const small = markTaught(bank, generateDoNow(bank, markTaught(bank, newClass(), 's0')).state, 's1');
-	const padded = generateDoNow(bank, small).doNow; // s1 due, s0 early
+	const small = markTaught(bank, generateDoNow(bank, markTaught(bank, newClass(), 's0'), SIZE4).state, 's1');
+	const padded = generateDoNow(bank, small, SIZE4).doNow; // s1 due, s0 early
 	assert.deepEqual(
 		padded.items.map((i) => [i.skillId, i.reason]),
 		[
@@ -75,10 +78,10 @@ test('early padding does not advance a skill schedule and rotates by least recen
 	const bank = makeBank(6);
 	let state = newClass();
 	for (const s of bank.skills) state = markTaught(bank, state, s.id);
-	state = generateDoNow(bank, state).state; // lesson 1: s0..s3 practised, s4/s5 not
-	state = generateDoNow(bank, state).state; // lesson 2: s4, s5 due; s0, s1 padded early
+	state = generateDoNow(bank, state, SIZE4).state; // lesson 1: s0..s3 practised, s4/s5 not
+	state = generateDoNow(bank, state, SIZE4).state; // lesson 2: s4, s5 due; s0, s1 padded early
 	const before = structuredClone(state);
-	const { state: after, doNow } = generateDoNow(bank, state); // lesson 3: only early items
+	const { state: after, doNow } = generateDoNow(bank, state, SIZE4); // lesson 3: only early items
 	assert.ok(doNow.items.every((i) => i.reason === 'early'));
 	for (const item of doNow.items) {
 		assert.deepEqual(after.skills[item.skillId], before.skills[item.skillId]);
@@ -151,7 +154,7 @@ test('never more than one question per skill and never more than size', () => {
 	const bank = makeBank(10);
 	let state = newClass();
 	for (const s of bank.skills) state = markTaught(bank, state, s.id);
-	const { doNow } = generateDoNow(bank, state);
+	const { doNow } = generateDoNow(bank, state, SIZE4);
 	assert.equal(doNow.items.length, 4);
 	assert.equal(new Set(doNow.items.map((i) => i.skillId)).size, 4);
 });
