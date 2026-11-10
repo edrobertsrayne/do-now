@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FCFAF4">
+<title>Do Now · Lesson 12</title>
+<style>
+  /* ------------------------------------------------------------------
+     One question at a time — huge type.
+     Paper + ink palette, AAA text contrast, no colour-only meaning.
+     All type scales with both vw and vh so 16:9 never scrolls.
+     ------------------------------------------------------------------ */
+  :root{
+    --paper:#FCFAF4;
+    --surface:#FFFFFF;
+    --ink:#0B0D10;
+    --soft:#39424E;          /* ~9.7:1 on paper */
+    --navy:#0F2E5C;          /* white text ~13.8:1 */
+    --panel:#0B1320;
+    --panel-soft:#D7DFEA;    /* ~14:1 on panel */
+    --accent:#FFCF3D;
+    --focus:#1B57D6;
+    --line:rgba(11,13,16,.16);
+    --ease:cubic-bezier(.22,.8,.24,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{color-scheme:light;height:100%;}
+  body{
+    margin:0;
+    min-height:100%;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    font-weight:500;
+    overflow:hidden;
+  }
+  button{font:inherit;font-weight:700;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  kbd{font:inherit;font-weight:800;}
+  p,h1,h2{margin:0;}
+  [hidden]{display:none !important;}
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+  :focus-visible{outline:4px solid var(--focus);outline-offset:3px;}
+
+  /* ---------- app frame ---------- */
+  .app{
+    height:100vh;
+    height:100dvh;
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto;
+    gap:clamp(6px,1vh,14px);
+    padding:clamp(12px,2vh,24px) clamp(16px,2.4vw,40px) clamp(10px,1.6vh,20px);
+  }
+  .app:focus{outline:none;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:clamp(16px,2vw,40px);
+  }
+  .brand{
+    display:flex;align-items:center;gap:clamp(9px,.85vw,16px);
+    font-size:clamp(17px,1.85vw,36px);
+    letter-spacing:-.015em;
+    line-height:1;
+    white-space:nowrap;
+  }
+  .brand-mark{width:.48em;height:.48em;background:var(--ink);border-radius:2px;flex:none;}
+  .brand-name{font-weight:800;}
+  .brand-lesson{font-weight:600;color:var(--soft);}
+  .brand-dot{color:var(--soft);font-weight:700;}
+
+  .pips{display:flex;align-items:center;gap:clamp(6px,.7vw,12px);}
+  .pip{
+    position:relative;
+    width:clamp(30px,2.75vw,52px);
+    height:clamp(30px,2.75vw,52px);
+    border:2.5px solid var(--ink);
+    border-radius:9px;
+    background:var(--surface);
+    color:var(--ink);
+    display:grid;place-items:center;
+    font-size:clamp(13px,1.3vw,25px);
+    font-weight:800;
+    font-variant-numeric:tabular-nums;
+    transition:background-color .18s var(--ease),color .18s var(--ease);
+  }
+  .pip:hover{background:#FFF3C8;}
+  .pip.is-current,.pip.is-current:hover{background:var(--ink);color:var(--paper);}
+  .pip.is-revealed::after{
+    content:"";position:absolute;left:18%;right:18%;
+    bottom:calc(-1 * clamp(3px,.5vh,7px));
+    height:3px;border-radius:2px;background:var(--ink);
+  }
+
+  /* ---------- stage ---------- */
+  .stage{
+    position:relative;
+    min-height:0;
+    display:flex;flex-direction:column;
+    padding:clamp(4px,.8vh,10px) clamp(56px,4.8vw,104px) clamp(10px,1.6vh,20px);
+  }
+  .nav-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:clamp(38px,3.2vw,62px);
+    height:clamp(38px,3.2vw,62px);
+    border:3px solid var(--ink);
+    border-radius:50%;
+    display:grid;place-items:center;
+    color:var(--ink);background:transparent;
+    transition:background-color .18s var(--ease),color .18s var(--ease),opacity .18s;
+  }
+  .nav-arrow::before{
+    content:"";width:26%;height:26%;
+    border-style:solid;border-color:currentColor;
+    border-width:0 3.5px 3.5px 0;
+    transform:rotate(-45deg);
+  }
+  .nav-arrow.prev{left:0;}
+  .nav-arrow.next{right:0;}
+  .nav-arrow.prev::before{transform:rotate(135deg);}
+  .nav-arrow:hover:not(:disabled){background:var(--ink);color:var(--paper);}
+  .nav-arrow:disabled{opacity:.22;cursor:default;}
+
+  .qwrap{
+    flex:1 1 auto;min-height:0;
+    display:flex;align-items:center;
+    overflow:hidden;
+  }
+  .qinner{flex:0 0 auto;width:100%;}
+
+  .qmeta{
+    display:flex;align-items:center;flex-wrap:wrap;
+    gap:clamp(8px,1vh,16px) clamp(12px,1.4vw,26px);
+    margin-bottom:clamp(10px,2.1vh,28px);
+  }
+  .badge{
+    display:inline-block;
+    background:var(--navy);color:#fff;
+    font-size:clamp(18px,2.2vw,44px);
+    font-weight:800;
+    line-height:1;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:.28em .55em .32em;
+    border-radius:6px;
+  }
+  .topicline{
+    display:flex;align-items:baseline;flex-wrap:wrap;
+    gap:.15em .55em;
+    font-size:clamp(17px,2vw,40px);
+    line-height:1.15;
+  }
+  .topic{font-weight:800;letter-spacing:-.01em;}
+  .skill{font-weight:600;color:var(--soft);font-size:.93em;}
+  .qcount{
+    margin-left:auto;
+    font-size:clamp(13px,1.25vw,25px);
+    font-weight:700;
+    letter-spacing:.03em;
+    color:var(--soft);
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+
+  .prompt{
+    max-width:30ch;
+    font-size:calc(clamp(30px,min(5.3vw,9.2vh),112px) * var(--qfit,1));
+    line-height:1.06;
+    font-weight:800;
+    letter-spacing:-.022em;
+    text-wrap:balance;
+    overflow-wrap:break-word;
+    hyphens:none;
+  }
+  sup{font-size:.56em;line-height:0;position:relative;top:-.5em;font-weight:700;}
+
+  /* ---------- answer panel ---------- */
+  .answer{
+    flex:0 0 auto;
+    height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:height .3s var(--ease),opacity .18s linear;
+  }
+  .answer.open{opacity:1;}
+  .answer-inner{padding-top:clamp(10px,1.8vh,22px);}
+  .answer-card{
+    position:relative;
+    background:var(--panel);
+    color:#fff;
+    border-radius:clamp(10px,1vw,18px);
+    border-left:8px solid var(--accent);
+    padding:clamp(14px,2.1vh,26px) clamp(18px,2.2vw,34px) clamp(16px,2.3vh,30px);
+    overflow:hidden;
+  }
+  .answer-head{
+    display:flex;align-items:center;flex-wrap:wrap;
+    gap:.55em .8em;
+    margin-bottom:.35em;
+  }
+  .answer-label{
+    background:var(--accent);color:#0B1320;
+    font-size:clamp(14px,1.4vw,28px);
+    font-weight:900;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    line-height:1.1;
+    padding:.25em .5em .28em;
+    border-radius:4px;
+  }
+  .answer-context{
+    font-size:clamp(13px,1.25vw,25px);
+    font-weight:600;color:var(--panel-soft);
+  }
+  .answer-keys{
+    margin-left:auto;
+    display:flex;align-items:center;gap:.45em;
+    font-size:clamp(12px,1.1vw,22px);
+    font-weight:600;color:var(--panel-soft);
+    white-space:nowrap;
+  }
+  .answer-keys kbd{
+    border:1.5px solid #8EA0B8;border-radius:4px;
+    padding:.08em .38em;color:#fff;
+  }
+  .answer-text{
+    max-width:44ch;
+    font-size:calc(clamp(21px,min(3vw,5vh),56px) * var(--afit,1));
+    line-height:1.24;
+    font-weight:600;
+    letter-spacing:-.008em;
+    text-wrap:pretty;
+    overflow-wrap:break-word;
+  }
+
+  /* ---------- footer ---------- */
+  .footer{
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr) auto;
+    align-items:center;
+    gap:clamp(10px,1.2vw,22px);
+    padding-top:clamp(8px,1.1vh,14px);
+    border-top:1.5px solid var(--line);
+  }
+  .timer{
+    display:flex;align-items:stretch;
+    border:2.5px solid var(--ink);
+    border-radius:10px;
+    background:var(--surface);
+    overflow:hidden;
+  }
+  .timer-main{
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+    gap:.12em;
+    padding:clamp(4px,.55vh,8px) clamp(10px,1vw,18px);
+    min-width:clamp(92px,7.6vw,144px);
+  }
+  .timer-main:hover{background:#FFF3C8;}
+  .timer-clock{
+    font-size:clamp(19px,2.15vw,41px);
+    font-weight:800;
+    line-height:1;
+    letter-spacing:-.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .timer-state{
+    font-size:clamp(12px,1.15vw,21px);
+    font-weight:700;color:var(--soft);
+    letter-spacing:.02em;white-space:nowrap;
+  }
+  .timer.is-done .timer-state{color:var(--ink);font-weight:800;text-decoration:underline;text-underline-offset:.18em;}
+  .timer-steps{display:flex;flex-direction:column;border-left:2.5px solid var(--ink);}
+  .timer-steps button{
+    flex:1;
+    width:clamp(30px,2.5vw,46px);
+    display:grid;place-items:center;
+    font-size:clamp(16px,1.45vw,27px);
+    font-weight:800;
+    line-height:1;
+  }
+  .timer-steps button + button{border-top:2.5px solid var(--ink);}
+  .timer-steps button:hover{background:var(--ink);color:var(--paper);}
+
+  .hint{
+    display:flex;flex-direction:column;align-items:center;
+    gap:.18em;
+    font-size:clamp(14px,1.15vw,23px);
+    font-weight:600;color:var(--soft);
+    line-height:1.4;
+  }
+  .hint-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.2em .85em;}
+  .hint.is-hidden{visibility:hidden;}
+  .hint-item{display:inline-flex;align-items:center;gap:.38em;white-space:nowrap;}
+  .hint kbd{
+    display:inline-block;
+    border:1.5px solid var(--ink);
+    border-bottom-width:2.5px;
+    border-radius:4px;
+    background:var(--surface);
+    color:var(--ink);
+    font-size:.9em;
+    font-weight:800;
+    line-height:1.35;
+    padding:.06em .36em;
+  }
+
+  .actions{display:flex;align-items:center;gap:clamp(6px,.65vw,11px);}
+  .reveal-btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    background:var(--navy);color:#fff;
+    border:2.5px solid var(--navy);
+    border-radius:10px;
+    padding:.42em .68em;
+    font-size:clamp(14px,1.4vw,27px);
+    font-weight:800;
+    white-space:nowrap;
+    transition:background-color .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease);
+  }
+  .reveal-btn:hover{background:#1A4380;}
+  .reveal-glyph{font-size:1.15em;line-height:1;margin-top:-.05em;}
+  .reveal-btn kbd{
+    border:1.5px solid rgba(255,255,255,.7);
+    border-radius:4px;
+    padding:.06em .34em;
+    font-size:.8em;
+  }
+  .reveal-btn.is-open{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .reveal-btn.is-open:hover{background:#FFF3C8;}
+  .reveal-btn.is-open kbd{border-color:var(--ink);}
+  .icon-btn{
+    width:clamp(38px,3vw,52px);
+    height:clamp(38px,3vw,52px);
+    border:2.5px solid var(--ink);
+    border-radius:10px;
+    background:var(--surface);
+    display:grid;place-items:center;
+    font-size:clamp(16px,1.4vw,26px);
+    font-weight:800;
+    transition:background-color .18s var(--ease),color .18s var(--ease);
+  }
+  .icon-btn:hover{background:var(--ink);color:var(--paper);}
+  .icon-btn svg{width:1.15em;height:1.15em;display:block;}
+
+  /* ---------- overview ---------- */
+  .overview{
+    position:fixed;inset:0;z-index:40;
+    background:var(--paper);color:var(--ink);
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr);
+    gap:clamp(10px,1.6vh,20px);
+    padding:clamp(14px,2.4vh,28px) clamp(18px,2.6vw,44px) clamp(16px,2.6vh,32px);
+  }
+  .overview[hidden]{display:none;}
+  .overview:focus{outline:none;}
+  .ov-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    flex-wrap:wrap;
+    gap:clamp(12px,1.4vw,24px);
+  }
+  .ov-title{font-size:clamp(22px,2.4vw,46px);font-weight:800;line-height:1;letter-spacing:-.02em;}
+  .ov-sub{margin-top:.22em;font-size:clamp(13px,1.2vw,24px);font-weight:600;color:var(--soft);}
+  .ov-actions{display:flex;align-items:center;gap:clamp(7px,.7vw,12px);flex-wrap:wrap;}
+  .ov-btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    border:2.5px solid var(--ink);
+    border-radius:9px;
+    background:var(--surface);
+    padding:.42em .7em;
+    font-size:clamp(12px,1.15vw,23px);
+    font-weight:800;
+    white-space:nowrap;
+  }
+  .ov-btn:hover{background:#FFF3C8;}
+  .ov-btn.primary{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .ov-btn.primary:hover{background:#1A4380;}
+  .ov-btn kbd{
+    border:1.5px solid currentColor;border-radius:4px;
+    padding:.05em .32em;font-size:.82em;
+  }
+  .ov-grid{
+    list-style:none;margin:0;padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap:clamp(8px,1vw,18px);
+    min-height:0;
+  }
+  .ov-grid > li{min-height:0;display:flex;min-width:0;}
+  .ov-card{
+    flex:1 1 auto;
+    display:flex;flex-direction:column;align-items:stretch;
+    gap:.18em;
+    text-align:left;
+    background:var(--surface);
+    border:2.5px solid var(--ink);
+    border-radius:12px;
+    padding:clamp(9px,1.4vh,18px) clamp(12px,1.1vw,20px);
+    overflow:hidden;
+    min-width:0;
+    transition:background-color .16s var(--ease);
+  }
+  .ov-card:hover{background:#FFF6D8;}
+  .ov-top{
+    display:flex;align-items:center;flex-wrap:wrap;
+    gap:.3em .55em;
+    font-size:clamp(11px,1vw,19px);
+    font-weight:700;
+    line-height:1.3;
+  }
+  .ov-num{font-weight:800;font-size:1.15em;font-variant-numeric:tabular-nums;}
+  .ov-badge{
+    background:var(--navy);color:#fff;
+    text-transform:uppercase;letter-spacing:.08em;
+    font-weight:800;font-size:.95em;
+    padding:.16em .45em .2em;border-radius:3px;
+  }
+  .ov-topic{font-weight:800;}
+  .ov-skill{color:var(--soft);font-weight:600;}
+  .ov-prompt{
+    display:block;
+    margin-top:.28em;
+    font-size:clamp(14px,2.05vw,40px);
+    font-weight:700;
+    line-height:1.18;
+    letter-spacing:-.012em;
+    text-wrap:pretty;
+  }
+  .ov-ans{
+    display:block;
+    margin-top:auto;
+    border-left:5px solid var(--accent);
+    padding-left:.6em;
+    font-size:clamp(13px,1.8vw,35px);
+    font-weight:600;
+    line-height:1.28;
+    letter-spacing:-.005em;
+    text-wrap:pretty;
+  }
+  .ov-ans-kicker{
+    display:block;
+    font-size:.6em;
+    font-weight:800;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--soft);
+    margin-bottom:.18em;
+  }
+  .ov-ans.is-hidden{color:var(--soft);font-weight:600;font-style:italic;}
+
+  /* ---------- motion preferences ---------- */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      transition-duration:.001ms !important;
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      scroll-behavior:auto !important;
+    }
+  }
+  @media (prefers-contrast: more){
+    :root{--soft:#1C242E;}
+    .pip{border-width:3px;}
+    .footer{border-top-color:rgba(11,13,16,.4);}
+  }
+</style>
+</head>
+<body>
+
+<div class="app" id="app" tabindex="-1">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name" id="brandName">Do Now</span>
+      <span class="brand-dot" aria-hidden="true">·</span>
+      <span class="brand-lesson" id="brandLesson">Lesson 12</span>
+    </div>
+    <nav class="pips" id="pips" aria-label="Question progress"></nav>
+  </header>
+
+  <main class="stage" id="stage">
+    <button class="nav-arrow prev" id="prevBtn" type="button" aria-label="Previous question"></button>
+
+    <div class="qwrap" id="qwrap">
+      <div class="qinner" id="qinner">
+        <div class="qmeta">
+          <span class="badge" id="badge">State</span>
+          <p class="topicline">
+            <span class="topic" id="topic">Forces</span>
+            <span class="skill" id="skill">Newton's first and second laws</span>
+          </p>
+          <span class="qcount" id="qcount">1 / 4</span>
+        </div>
+        <h1 class="prompt" id="prompt"></h1>
+      </div>
+    </div>
+
+    <section class="answer" id="answer" aria-labelledby="answerLabel" aria-hidden="true">
+      <div class="answer-inner" id="answerInner">
+        <div class="answer-card">
+          <div class="answer-head">
+            <span class="answer-label" id="answerLabel">Answer</span>
+            <span class="answer-context" id="answerContext"></span>
+            <span class="answer-keys"><kbd>A</kbd> hide</span>
+          </div>
+          <p class="answer-text" id="answerText"></p>
+        </div>
+      </div>
+    </section>
+
+    <button class="nav-arrow next" id="nextBtn" type="button" aria-label="Next question"></button>
+  </main>
+
+  <footer class="footer">
+    <div class="timer" id="timer" role="group" aria-label="Countdown timer">
+      <button class="timer-main" id="timerMain" type="button" aria-label="Start timer, 4:00 remaining">
+        <span class="timer-clock" id="clock">4:00</span>
+        <span class="timer-state" id="timerState">Timer paused</span>
+      </button>
+      <div class="timer-steps">
+        <button id="minus" type="button" aria-label="Take 30 seconds off the timer">−</button>
+        <button id="plus" type="button" aria-label="Add 30 seconds to the timer">+</button>
+      </div>
+    </div>
+
+    <div class="hint" id="hint">
+      <div class="hint-row">
+        <span class="hint-item"><kbd>Space</kbd><kbd>→</kbd> next</span>
+        <span class="hint-item"><kbd>←</kbd> back</span>
+        <span class="hint-item"><kbd>A</kbd> answer</span>
+        <span class="hint-item"><kbd>O</kbd> review</span>
+      </div>
+      <div class="hint-row">
+        <span class="hint-item"><kbd>T</kbd> timer</span>
+        <span class="hint-item"><kbd>+</kbd><kbd>−</kbd> 30s</span>
+        <span class="hint-item"><kbd>0</kbd> reset</span>
+        <span class="hint-item"><kbd>F</kbd> full</span>
+        <span class="hint-item"><kbd>L</kbd> long answer</span>
+        <span class="hint-item"><kbd>?</kbd> hide</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="reveal-btn" id="revealBtn" type="button" aria-controls="answer" aria-expanded="false">
+        <span class="reveal-glyph" id="revealGlyph" aria-hidden="true">+</span>
+        <span id="revealLabel">Reveal answer</span>
+        <kbd aria-hidden="true">A</kbd>
+      </button>
+      <button class="icon-btn" id="fsBtn" type="button" aria-label="Enter fullscreen">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"
+                fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/>
+        </svg>
+      </button>
+      <button class="icon-btn" id="helpBtn" type="button" aria-label="Hide keyboard shortcuts" aria-expanded="true">?</button>
+    </div>
+  </footer>
+</div>
+
+<section class="overview" id="overview" role="dialog" aria-modal="true" aria-labelledby="ovTitle" tabindex="-1" hidden>
+  <header class="ov-head">
+    <div>
+      <h2 class="ov-title" id="ovTitle">Review</h2>
+      <p class="ov-sub" id="ovSub">Do Now · Lesson 12 · all four questions</p>
+    </div>
+    <div class="ov-actions">
+      <button class="ov-btn" id="ovReveal" type="button">Show all answers <kbd aria-hidden="true">A</kbd></button>
+      <button class="ov-btn primary" id="ovClose" type="button">Back to question <kbd aria-hidden="true">O</kbd></button>
+    </div>
+  </header>
+  <ol class="ov-grid" id="ovGrid"></ol>
+</section>
+
+<p class="sr-only" id="live" aria-live="polite" aria-atomic="true"></p>
+
+<script>
+(function(){
+  'use strict';
+
+  /* Exact sample data. Plain text only; ^2 / ^3 in any field renders as a real superscript. */
+  const doNow = {
+    title: "Do Now",
+    lesson: 12,
+    items: [
+      { n:1, topic:"Energy", skill:"Energy stores", command:"Name", prompt:"Name the energy store that increases when an object is lifted upwards.", answer:"Gravitational potential energy store." },
+      { n:2, topic:"Electricity", skill:"Current and charge", command:"Define", prompt:"Define electric current.", answer:"The rate of flow of electrical charge." },
+      { n:3, topic:"Atomic structure", skill:"Types of nuclear radiation", command:"State", prompt:"State which of alpha, beta and gamma radiation is the most penetrating.", answer:"Gamma." },
+      { n:4, topic:"Forces", skill:"Newton's first and second laws", command:"State", prompt:"State the equation linking resultant force, mass and acceleration.", answer:"Resultant force = mass \u00d7 acceleration (F = ma)." }
+    ]
+  };
+
+  const LONG_ANSWER = "If the resultant force on an object is zero, a stationary object stays at rest and a moving object continues at the same speed in the same direction (constant velocity).";
+  const DURATION_MS = 4 * 60 * 1000;
+  const TIMER_MAX_MS = 20 * 60 * 1000;
+
+  const el = {
+    app: document.getElementById('app'),
+    qwrap: document.getElementById('qwrap'),
+    qinner: document.getElementById('qinner'),
+    badge: document.getElementById('badge'),
+    topic: document.getElementById('topic'),
+    skill: document.getElementById('skill'),
+    qcount: document.getElementById('qcount'),
+    prompt: document.getElementById('prompt'),
+    pipsBox: document.getElementById('pips'),
+    prev: document.getElementById('prevBtn'),
+    next: document.getElementById('nextBtn'),
+    answer: document.getElementById('answer'),
+    answerInner: document.getElementById('answerInner'),
+    answerText: document.getElementById('answerText'),
+    answerContext: document.getElementById('answerContext'),
+    reveal: document.getElementById('revealBtn'),
+    revealLabel: document.getElementById('revealLabel'),
+    revealGlyph: document.getElementById('revealGlyph'),
+    timerBox: document.getElementById('timer'),
+    clock: document.getElementById('clock'),
+    timerState: document.getElementById('timerState'),
+    timerMain: document.getElementById('timerMain'),
+    minus: document.getElementById('minus'),
+    plus: document.getElementById('plus'),
+    hint: document.getElementById('hint'),
+    help: document.getElementById('helpBtn'),
+    fs: document.getElementById('fsBtn'),
+    overview: document.getElementById('overview'),
+    ovGrid: document.getElementById('ovGrid'),
+    ovReveal: document.getElementById('ovReveal'),
+    ovClose: document.getElementById('ovClose'),
+    ovSub: document.getElementById('ovSub'),
+    live: document.getElementById('live'),
+    brandName: document.getElementById('brandName'),
+    brandLesson: document.getElementById('brandLesson')
+  };
+
+  const state = {
+    i: 0,
+    revealed: doNow.items.map(function(){ return false; }),
+    overview: false,
+    hint: true,
+    longAnswer: false,
+    timer: { ms: DURATION_MS, running: false, endAt: 0, iv: null }
+  };
+
+  let pips = [];
+  let answerWasOpen = false;
+  let answerOpenTimer = 0;
+  let liveTimer = 0;
+  let resizeRaf = 0;
+
+  /* ---------------- text helpers ---------------- */
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return c === '&' ? '&amp;' : c === '<' ? '&lt;' : c === '>' ? '&gt;' : '&quot;';
+    });
+  }
+
+  /* Escape, then turn ^2 into a real superscript. Times signs and units are already unicode. */
+  function phys(s){
+    return esc(s).replace(/\^(\d+)/g, '<sup>$1</sup>');
+  }
+
+  function answerFor(i){
+    return (state.longAnswer && i === 0) ? LONG_ANSWER : doNow.items[i].answer;
+  }
+
+  function live(text){
+    clearTimeout(liveTimer);
+    el.live.textContent = '';
+    liveTimer = setTimeout(function(){ el.live.textContent = text; }, 40);
+  }
+
+  /* ---------------- question rendering ---------------- */
+
+  function buildPips(){
+    el.pipsBox.innerHTML = doNow.items.map(function(q, i){
+      return '<button class="pip" type="button" data-i="' + i + '" aria-label="Question ' + (i + 1) + '">' + (i + 1) + '</button>';
+    }).join('');
+    pips = Array.prototype.slice.call(el.pipsBox.querySelectorAll('.pip'));
+  }
+
+  function updatePips(){
+    pips.forEach(function(p, i){
+      const isCurrent = i === state.i;
+      const isRevealed = state.revealed[i];
+      p.classList.toggle('is-current', isCurrent);
+      p.classList.toggle('is-revealed', isRevealed);
+      if (isCurrent) p.setAttribute('aria-current', 'step');
+      else p.removeAttribute('aria-current');
+      p.setAttribute('aria-label', 'Question ' + (i + 1) + (isRevealed ? ', answer shown' : ''));
+    });
+  }
+
+  function renderQuestion(){
+    const q = doNow.items[state.i];
+
+    el.badge.textContent = q.command;
+    el.topic.textContent = q.topic;
+    el.skill.textContent = q.skill;
+    el.qcount.textContent = (state.i + 1) + ' / ' + doNow.items.length;
+    el.prompt.innerHTML = phys(q.prompt);
+
+    updatePips();
+
+    el.prev.disabled = state.i === 0;
+    el.next.disabled = state.i === doNow.items.length - 1;
+
+    renderAnswer();
+    requestAnimationFrame(fitPrompt);
+  }
+
+  function renderAnswer(){
+    const on = state.revealed[state.i];
+    const q = doNow.items[state.i];
+
+    el.answerText.innerHTML = phys(answerFor(state.i));
+    el.answerContext.textContent = 'Question ' + (state.i + 1) + ' · ' + q.topic;
+
+    el.answer.classList.toggle('open', on);
+    el.answer.setAttribute('aria-hidden', String(!on));
+    el.reveal.classList.toggle('is-open', on);
+    el.reveal.setAttribute('aria-expanded', String(on));
+    el.revealLabel.textContent = on ? 'Hide answer' : 'Reveal answer';
+    el.revealGlyph.textContent = on ? '−' : '+';
+
+    if (on){
+      clearTimeout(answerOpenTimer);
+      el.answer.style.height = 'auto';       /* measure natural height */
+      fitAnswer();
+      const h = el.answerInner.offsetHeight;
+      if (!answerWasOpen){
+        el.answer.style.height = '0px';      /* commit the 0 start frame */
+        void el.answer.offsetHeight;
+      }
+      el.answer.style.height = h + 'px';
+      answerOpenTimer = setTimeout(function(){
+        if (!state.revealed[state.i] || !el.answer.classList.contains('open')) return;
+        if (el.answer.getBoundingClientRect().height < h - 1){
+          /* Transition never advanced (backgrounded tab): commit final height. */
+          el.answer.style.transition = 'none';
+          el.answer.style.height = h + 'px';
+          void el.answer.offsetHeight;
+          el.answer.style.transition = '';
+        }
+      }, 380);
+    } else {
+      clearTimeout(answerOpenTimer);
+      el.answer.style.height = '0px';
+    }
+    answerWasOpen = on;
+  }
+
+  /* Shrink the prompt only if it would overflow its stage. */
+  function fitPrompt(){
+    el.prompt.style.setProperty('--qfit', '1');
+    let scale = 1;
+    for (let guard = 0; guard < 14; guard++){
+      if (el.qinner.offsetHeight <= el.qwrap.clientHeight - 4) break;
+      if (scale <= 0.6) break;
+      scale = Math.max(0.6, scale - 0.05);
+      el.prompt.style.setProperty('--qfit', String(scale));
+    }
+  }
+
+  /* Keep the revealed answer inside roughly 42% of the viewport. */
+  function fitAnswer(){
+    el.answerText.style.setProperty('--afit', '1');
+    const limit = Math.round(window.innerHeight * 0.42);
+    let scale = 1;
+    for (let guard = 0; guard < 7; guard++){
+      if (el.answerInner.offsetHeight <= limit) break;
+      if (scale <= 0.66) break;
+      scale = Math.max(0.66, scale - 0.06);
+      el.answerText.style.setProperty('--afit', String(scale));
+    }
+  }
+
+  function go(i){
+    const n = Math.max(0, Math.min(doNow.items.length - 1, i));
+    if (n === state.i) return;
+    state.i = n;
+    renderQuestion();
+    announceQuestion();
+  }
+
+  function announceQuestion(){
+    const q = doNow.items[state.i];
+    live('Question ' + (state.i + 1) + ' of ' + doNow.items.length + '. ' + q.command + '. ' + q.prompt);
+  }
+
+  function toggleReveal(){
+    state.revealed[state.i] = !state.revealed[state.i];
+    renderAnswer();
+    updatePips();
+    if (state.revealed[state.i]) live('Answer: ' + answerFor(state.i));
+    else live('Answer hidden.');
+  }
+
+  function toggleLongAnswer(){
+    state.longAnswer = !state.longAnswer;
+    if (state.longAnswer){
+      state.i = 0;
+      state.revealed[0] = true;   /* so the fit can actually be inspected */
+    }
+    renderQuestion();
+    live(state.longAnswer
+      ? 'Long answer test on. Question 1 answer revealed.'
+      : 'Long answer test off.');
+  }
+
+  /* ---------------- timer ---------------- */
+
+  function clockText(ms){
+    const total = Math.max(0, Math.ceil(ms / 1000));
+    return Math.floor(total / 60) + ':' + String(total % 60).padStart(2, '0');
+  }
+
+  function renderTimer(){
+    const t = state.timer;
+    const done = t.ms <= 0;
+    el.clock.textContent = clockText(t.ms);
+    el.timerState.textContent = done ? 'Time up' : (t.running ? 'Timer running' : 'Timer paused');
+    el.timerBox.classList.toggle('is-done', done);
+    el.timerMain.setAttribute('aria-label', done
+      ? 'Restart timer, 4 minutes'
+      : (t.running ? 'Pause timer, ' : 'Start timer, ') + clockText(t.ms) + ' remaining');
+  }
+
+  function stopTimer(){
+    const t = state.timer;
+    t.running = false;
+    if (t.iv) { clearInterval(t.iv); t.iv = null; }
+  }
+
+  function tick(){
+    const t = state.timer;
+    if (!t.running) return;
+    t.ms = Math.max(0, t.endAt - performance.now());
+    if (t.ms <= 0){
+      stopTimer();
+      renderTimer();
+      live('Time up.');
+      return;
+    }
+    renderTimer();
+  }
+
+  function toggleTimer(){
+    const t = state.timer;
+    if (t.running){ stopTimer(); renderTimer(); return; }
+    if (t.ms <= 0) t.ms = DURATION_MS;
+    t.running = true;
+    t.endAt = performance.now() + t.ms;
+    t.iv = setInterval(tick, 200);
+    renderTimer();
+  }
+
+  function adjustTimer(seconds){
+    const t = state.timer;
+    t.ms = Math.min(TIMER_MAX_MS, Math.max(0, t.ms + seconds * 1000));
+    if (t.running){
+      if (t.ms <= 0) stopTimer();
+      else t.endAt = performance.now() + t.ms;
+    }
+    renderTimer();
+  }
+
+  function resetTimer(){
+    stopTimer();
+    state.timer.ms = DURATION_MS;
+    renderTimer();
+  }
+
+  /* ---------------- fullscreen / hint ---------------- */
+
+  function toggleFullscreen(){
+    try {
+      if (document.fullscreenElement){
+        const p = document.exitFullscreen();
+        if (p && p.catch) p.catch(function(){});
+      } else {
+        const p = document.documentElement.requestFullscreen();
+        if (p && p.catch) p.catch(function(){});
+      }
+    } catch (err) { /* fullscreen unavailable: ignore */ }
+  }
+
+  function toggleHint(force){
+    state.hint = (typeof force === 'boolean') ? force : !state.hint;
+    el.hint.classList.toggle('is-hidden', !state.hint);
+    el.help.setAttribute('aria-expanded', String(state.hint));
+    el.help.setAttribute('aria-label', state.hint ? 'Hide keyboard shortcuts' : 'Show keyboard shortcuts');
+    requestAnimationFrame(fitPrompt);
+  }
+
+  /* ---------------- overview ---------------- */
+
+  function renderOverview(){
+    el.ovGrid.innerHTML = doNow.items.map(function(q, i){
+      const rev = state.revealed[i];
+      const ans = rev
+        ? '<span class="ov-ans-kicker">Answer</span>' + phys(answerFor(i))
+        : '<span class="ov-ans-kicker">Answer</span>Hidden';
+      return '<li>' +
+        '<button class="ov-card" type="button" data-goto="' + i + '" aria-label="Open question ' + (i + 1) + '">' +
+          '<span class="ov-top">' +
+            '<span class="ov-num">' + (i + 1) + '</span>' +
+            '<span class="ov-badge">' + esc(q.command) + '</span>' +
+            '<span class="ov-topic">' + esc(q.topic) + '</span>' +
+            '<span class="ov-skill">' + esc(q.skill) + '</span>' +
+          '</span>' +
+          '<span class="ov-prompt">' + phys(q.prompt) + '</span>' +
+          '<span class="ov-ans' + (rev ? '' : ' is-hidden') + '">' + ans + '</span>' +
+        '</button>' +
+      '</li>';
+    }).join('');
+    updateOvReveal();
+  }
+
+  function updateOvReveal(){
+    const all = state.revealed.every(Boolean);
+    el.ovReveal.innerHTML = (all ? 'Hide all answers' : 'Show all answers') + ' <kbd aria-hidden="true">A</kbd>';
+  }
+
+  function setOverview(on){
+    if (on === state.overview) return;
+    state.overview = on;
+    if (on){
+      renderOverview();
+      el.overview.hidden = false;
+      el.app.inert = true;
+      el.overview.focus({ preventScroll: true });
+    } else {
+      el.overview.hidden = true;
+      el.app.inert = false;
+      el.app.focus({ preventScroll: true });
+      if (state.revealed[state.i]) renderAnswer();
+      requestAnimationFrame(fitPrompt);
+      announceQuestion();
+    }
+  }
+
+  function toggleAllAnswers(){
+    const allShown = state.revealed.every(Boolean);
+    state.revealed = state.revealed.map(function(){ return !allShown; });
+    renderOverview();
+    renderAnswer();
+    updatePips();
+    live(allShown ? 'All answers hidden.' : 'All four answers shown.');
+  }
+
+  /* ---------------- events ---------------- */
+
+  el.pipsBox.addEventListener('click', function(e){
+    const b = e.target.closest('.pip');
+    if (b) go(Number(b.dataset.i));
+  });
+
+  el.prev.addEventListener('click', function(){ go(state.i - 1); });
+  el.next.addEventListener('click', function(){ go(state.i + 1); });
+  el.reveal.addEventListener('click', toggleReveal);
+  el.timerMain.addEventListener('click', toggleTimer);
+  el.minus.addEventListener('click', function(){ adjustTimer(-30); });
+  el.plus.addEventListener('click', function(){ adjustTimer(30); });
+  el.help.addEventListener('click', function(){ toggleHint(); });
+  el.fs.addEventListener('click', toggleFullscreen);
+
+  el.ovReveal.addEventListener('click', toggleAllAnswers);
+  el.ovClose.addEventListener('click', function(){
+    setOverview(false);
+  });
+
+  el.ovGrid.addEventListener('click', function(e){
+    const card = e.target.closest('[data-goto]');
+    if (!card) return;
+    const i = Number(card.dataset.goto);
+    state.i = Math.max(0, Math.min(doNow.items.length - 1, i));
+    renderQuestion();
+    setOverview(false);
+    announceQuestion();
+  });
+
+  /* Tab stays inside the overview while it is open. */
+  el.overview.addEventListener('keydown', function(e){
+    if (e.key !== 'Tab' || !state.overview) return;
+    const focusables = Array.prototype.slice.call(el.overview.querySelectorAll('button:not([disabled])'));
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && (active === first || active === el.overview)){
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && (active === last || active === el.overview)){
+      e.preventDefault(); first.focus();
+    }
+  });
+
+  el.answer.addEventListener('transitionend', function(e){
+    if (e.propertyName === 'height') fitPrompt();
+  });
+
+  document.addEventListener('fullscreenchange', function(){
+    el.fs.setAttribute('aria-label', document.fullscreenElement ? 'Exit fullscreen' : 'Enter fullscreen');
+  });
+
+  /* A mouse click should not leave a button focused, so Space keeps meaning "next". */
+  document.addEventListener('pointerup', function(e){
+    const b = e.target.closest ? e.target.closest('button') : null;
+    if (b) b.blur();
+  }, true);
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+      if (state.overview){ e.preventDefault(); setOverview(false); }
+      return;
+    }
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.repeat) return;
+
+    const key = e.key;
+    const onButton = document.activeElement && document.activeElement.tagName === 'BUTTON';
+
+    /* Overview is a mode of its own: Esc/O out, A reveals all. */
+    if (key === 'o' || key === 'O'){
+      e.preventDefault();
+      setOverview(!state.overview);
+      return;
+    }
+    if (state.overview){
+      if (key === 'a' || key === 'A'){ e.preventDefault(); toggleAllAnswers(); }
+      return;
+    }
+
+    if (key === '?' ){
+      e.preventDefault();
+      toggleHint();
+      return;
+    }
+    if (key === 'ArrowRight'){
+      e.preventDefault();
+      go(state.i + 1);
+      return;
+    }
+    if (key === 'ArrowLeft'){
+      e.preventDefault();
+      go(state.i - 1);
+      return;
+    }
+    if (key === ' '){
+      if (onButton) return;            /* native button activation */
+      e.preventDefault();
+      go(state.i + 1);
+      return;
+    }
+    if (key === 'Enter'){
+      if (onButton) return;
+      e.preventDefault();
+      toggleReveal();
+      return;
+    }
+    if (key === 'a' || key === 'A'){ e.preventDefault(); toggleReveal(); return; }
+    if (key === 't' || key === 'T'){ e.preventDefault(); toggleTimer(); return; }
+    if (key === '+' || key === '='){ e.preventDefault(); adjustTimer(30); return; }
+    if (key === '-' || key === '_'){ e.preventDefault(); adjustTimer(-30); return; }
+    if (key === '0'){ e.preventDefault(); resetTimer(); return; }
+    if (key === 'f' || key === 'F'){ e.preventDefault(); toggleFullscreen(); return; }
+    if (key === 'l' || key === 'L'){ e.preventDefault(); toggleLongAnswer(); return; }
+  });
+
+  window.addEventListener('resize', function(){
+    cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(function(){
+      if (state.revealed[state.i]) renderAnswer();
+      fitPrompt();
+    });
+  });
+
+  /* ---------------- boot ---------------- */
+
+  el.brandName.textContent = doNow.title;
+  el.brandLesson.textContent = 'Lesson ' + doNow.lesson;
+  el.ovSub.textContent = doNow.title + ' · Lesson ' + doNow.lesson + ' · all four questions';
+  document.title = doNow.title + ' · Lesson ' + doNow.lesson;
+
+  buildPips();
+  renderQuestion();
+  renderTimer();
+  requestAnimationFrame(fitPrompt);
+})();
+</script>
+</body>
+</html>

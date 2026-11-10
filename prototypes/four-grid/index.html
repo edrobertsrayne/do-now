@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do Now · Lesson 12</title>
+<style>
+  :root {
+    --bg: #05182b;
+    --bg-glow: #103a5c;
+    --chalk: #f4f8fd;
+    --chalk-dim: #d8e5f1;
+    --yellow: #ffd43b;
+    --yellow-soft: #ffe27a;
+    --paper: #fffaf0;
+    --ink: #0a1927;
+    --ink-soft: #34495e;
+    --answer: #093b2c;
+    --answer-ink: #f2fff9;
+    --line: #3c6184;
+    --gap: clamp(8px, min(1vw, 1.4vh), 16px);
+    --pad: clamp(8px, min(1.1vw, 1.4vh), 18px);
+    --radius: clamp(10px, min(1vw, 1.6vh), 18px);
+    --card-pad: clamp(9px, min(1.05vw, 1.5vh), 18px);
+    --q: clamp(1.25rem, min(2.2vw, 4vh), 2.75rem);
+    --a: clamp(1.15rem, min(1.95vw, 3.4vh), 2.4rem);
+    --meta: clamp(.92rem, min(1.25vw, 2.2vh), 1.45rem);
+    --demo: clamp(1.5rem, min(2.7vw, 5vh), 3.2rem);
+    --small: clamp(.9rem, min(1.12vw, 2vh), 1.2rem);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    overflow: hidden;
+    min-width: 320px;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--chalk);
+    background:
+      radial-gradient(110% 80% at 50% -12%, var(--bg-glow) 0%, transparent 58%),
+      var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  [hidden] { display: none !important; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  button { font-family: inherit; }
+  button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px #06182b, 0 0 0 7px var(--yellow);
+  }
+
+  .app {
+    height: 100vh;
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: var(--gap);
+    padding: var(--pad);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    min-width: 0;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: clamp(7px, .85vw, 15px);
+    min-width: 0;
+  }
+  h1 {
+    margin: 0;
+    font-size: var(--demo);
+    line-height: .98;
+    font-weight: 900;
+    letter-spacing: -.02em;
+    color: #fff8e8;
+    white-space: nowrap;
+  }
+  .lesson-pill {
+    display: inline-block;
+    font-size: clamp(.95rem, min(1.12vw, 2vh), 1.3rem);
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: .035em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #081725;
+    background: var(--yellow);
+    border-radius: .36em;
+    padding: .38em .55em .34em;
+  }
+  .subject {
+    font-size: clamp(.9rem, min(1.05vw, 1.9vh), 1.1rem);
+    font-weight: 700;
+    letter-spacing: .045em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--chalk-dim);
+    border-left: 2px solid #5b82a6;
+    padding-left: clamp(7px, .8vw, 14px);
+  }
+  .top-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(6px, .65vw, 12px);
+    flex: 0 0 auto;
+  }
+
+  .timer {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    min-height: clamp(38px, min(4.6vw, 5.4vh), 58px);
+    padding: .22em .66em;
+    font: inherit;
+    color: #fff8e8;
+    background: #0a233a;
+    border: 2px solid var(--line);
+    border-radius: .55em;
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+    transition: border-color .15s ease, background-color .15s ease;
+  }
+  .timer:hover { border-color: var(--yellow); background: #0d2b46; }
+  .timer-glyph {
+    display: grid;
+    place-items: center;
+    width: clamp(1rem, min(1.35vw, 2.5vh), 1.35rem);
+    height: clamp(1rem, min(1.35vw, 2.5vh), 1.35rem);
+    flex: 0 0 auto;
+    color: var(--yellow);
+  }
+  .timer-glyph svg { width: 100%; height: 100%; display: block; }
+  .timer-digits {
+    display: inline-block;
+    min-width: 3.9ch;
+    text-align: right;
+    font-size: clamp(1.35rem, min(2.45vw, 4.4vh), 2.85rem);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: .015em;
+  }
+  .timer.is-running { background: #0f3452; border-color: #81abd1; }
+  .timer.is-done { border-color: var(--yellow); }
+  .timer.is-done .timer-digits { color: var(--yellow); }
+
+  .iconbtn {
+    display: grid;
+    place-items: center;
+    width: clamp(38px, min(2.9vw, 5.4vh), 56px);
+    aspect-ratio: 1;
+    padding: 0;
+    color: #fff8e8;
+    background: transparent;
+    border: 2px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+    font: inherit;
+    font-size: clamp(1rem, min(1.35vw, 2.5vh), 1.3rem);
+    font-weight: 850;
+    line-height: 1;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+  }
+  .iconbtn:hover { color: var(--yellow); border-color: var(--yellow); background: #0d2a45; }
+  .iconbtn svg { display: block; width: 52%; height: 52%; }
+  .helpbtn { border-style: dashed; }
+
+  /* ---------- question grid ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: var(--gap);
+    min-height: 0;
+    min-width: 0;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4px, min(.55vw, .9vh), 10px);
+    min-width: 0;
+    min-height: 0;
+    padding: var(--card-pad);
+    color: var(--ink);
+    background: var(--paper);
+    border-top: clamp(5px, .7vh, 8px) solid var(--yellow);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .2);
+    overflow: hidden;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: clamp(7px, .8vw, 15px);
+    min-width: 0;
+    flex: 0 0 auto;
+  }
+  .qnum {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: clamp(2.25rem, min(3.2vw, 6vh), 3.4rem);
+    aspect-ratio: 1;
+    font-size: clamp(1.3rem, min(1.8vw, 3.5vh), 2.05rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #081725;
+    background: var(--yellow);
+    border-radius: .38em;
+    box-shadow: 0 .1em 0 #b88a00;
+  }
+  .topicblock {
+    display: flex;
+    flex-direction: column;
+    gap: .08em;
+    min-width: 0;
+  }
+  .topic {
+    font-size: var(--meta);
+    font-weight: 850;
+    line-height: 1.08;
+    letter-spacing: -.008em;
+  }
+  .skill {
+    font-size: var(--meta);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink-soft);
+    overflow-wrap: break-word;
+  }
+  .cmdbadge {
+    flex: 0 0 auto;
+    margin-left: auto;
+    align-self: center;
+    padding: .34em .55em .28em;
+    font-size: clamp(.8rem, min(1.3vw, 2.4vh), 1.25rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: .055em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    background: #0a2238;
+    border: 2px solid #0a2238;
+    border-radius: .34em;
+    white-space: nowrap;
+  }
+
+  .prompt-wrap {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    min-height: 0;
+    min-width: 0;
+    padding: clamp(2px, .35vh, 5px) 0;
+    overflow: hidden;
+  }
+  .prompt {
+    width: 100%;
+    margin: 0;
+    font-size: var(--q);
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: -.016em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+  .cmd {
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-color: #9c7200;
+    text-decoration-thickness: .13em;
+    text-underline-offset: .1em;
+    background-image: linear-gradient(transparent 68%, var(--yellow-soft) 0);
+    padding: 0 .035em;
+  }
+
+  /* ---------- answer strip ---------- */
+  .answer {
+    flex: 0 0 52%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3px, .5vh, 7px);
+    min-height: 0;
+    padding: clamp(6px, min(.7vw, 1.1vh), 13px) clamp(8px, min(.8vw, 1.25vh), 15px);
+    color: var(--ink);
+    background: #efe6d4;
+    border: 2px dashed #627383;
+    border-radius: calc(var(--radius) - 3px);
+    overflow: hidden;
+    transition: background-color .18s ease, border-color .18s ease, border-style .18s step-end, box-shadow .18s ease;
+  }
+  .answer.is-shown {
+    background: var(--answer);
+    border-color: var(--yellow);
+    border-style: solid;
+    box-shadow: inset 0 0 0 1px var(--yellow);
+  }
+  .answer-head {
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, .5vw, 10px);
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+  .answer-label {
+    flex: 0 0 auto;
+    font-size: var(--small);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+    color: #263c51;
+  }
+  .answer.is-shown .answer-label { color: var(--yellow); }
+  .answer-state {
+    flex: 0 0 auto;
+    padding: .12em .42em .08em;
+    font-size: var(--small);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: .01em;
+    white-space: nowrap;
+    color: #2e4357;
+    border: 1.5px solid currentColor;
+    border-radius: 999px;
+  }
+  .answer.is-shown .answer-state { color: #d8f7e8; }
+
+  .revealbtn {
+    flex: 0 0 auto;
+    margin-left: auto;
+    min-height: clamp(32px, min(2.5vw, 4.6vh), 46px);
+    padding: .32em .62em;
+    font: inherit;
+    font-size: clamp(.95rem, min(1.15vw, 2.1vh), 1.25rem);
+    font-weight: 800;
+    line-height: 1.1;
+    white-space: nowrap;
+    color: #fffaf0;
+    background: #10283e;
+    border: 2px solid #10283e;
+    border-radius: .38em;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .revealbtn:hover { background: #1d405f; border-color: #1d405f; }
+  .answer.is-shown .revealbtn {
+    color: #0b1a29;
+    background: var(--yellow);
+    border-color: var(--yellow);
+  }
+  .answer.is-shown .revealbtn:hover { background: #ffe375; border-color: #ffe375; }
+
+  .answer-text {
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0;
+    font-size: var(--a);
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: -.006em;
+    color: var(--answer-ink);
+    overflow: hidden;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(.4em);
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .answer.is-shown .answer-text {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---------- shortcut hint ---------- */
+  .shortcuts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: clamp(5px, .65vw, 12px);
+    min-width: 0;
+    padding-top: clamp(3px, .5vh, 7px);
+    border-top: 1px solid #355574;
+    font-size: clamp(.9rem, min(1.15vw, 2vh), 1.2rem);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--chalk-dim);
+    white-space: nowrap;
+  }
+  .shortcuts[hidden] { display: none; }
+  .hints-label {
+    flex: 0 0 auto;
+    font-size: .86em;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  .shortcut {
+    display: inline-flex;
+    align-items: center;
+    gap: .3em;
+    min-width: 0;
+  }
+  .shortcut kbd {
+    font: inherit;
+    font-weight: 850;
+    color: #0a1927;
+    background: var(--yellow);
+    border: 1px solid #a87e00;
+    border-radius: .25em;
+    padding: .04em .32em .01em;
+    line-height: 1.2;
+  }
+  .sep { color: #7694ae; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .subject { display: none; }
+    .shortcuts { flex-wrap: wrap; white-space: normal; }
+    .app { grid-template-rows: auto minmax(0, 1fr) auto; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <h1 id="title">Do Now</h1>
+      <span class="lesson-pill" id="lessonPill">Lesson 12</span>
+      <span class="subject">GCSE Physics</span>
+    </div>
+
+    <div class="top-actions">
+      <button class="timer" id="timerBtn" type="button" aria-pressed="false"
+              aria-keyshortcuts="T" aria-label="Countdown timer: 4 minutes, paused. Press T or click to start.">
+        <span class="timer-glyph" id="timerGlyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.2v13.6L19 12 8 5.2Z" fill="currentColor"/></svg>
+        </span>
+        <span class="timer-digits" id="timerDigits">4:00</span>
+      </button>
+
+      <button class="iconbtn" id="fullscreenBtn" type="button"
+              aria-keyshortcuts="F" aria-pressed="false" aria-label="Enter fullscreen (F)" title="Fullscreen (F)">
+        <svg id="fsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
+          <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"/>
+        </svg>
+      </button>
+
+      <button class="iconbtn helpbtn" id="hintBtn" type="button"
+              aria-keyshortcuts="?" aria-expanded="true" aria-controls="shortcuts"
+              aria-label="Hide keyboard shortcuts (?)" title="Keyboard shortcuts (?)">?</button>
+    </div>
+  </header>
+
+  <main class="grid" id="grid" aria-label="Do Now questions"></main>
+
+  <footer class="shortcuts" id="shortcuts" aria-label="Keyboard shortcuts">
+    <span class="hints-label">Keys</span>
+    <span class="shortcut"><kbd>1–4</kbd> answer one</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="shortcut"><kbd>A</kbd> all answers</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="shortcut"><kbd>L</kbd> long answer</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="shortcut"><kbd>T</kbd> timer</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="shortcut"><kbd>+ −</kbd> 30 s</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="shortcut"><kbd>R</kbd> reset</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="shortcut"><kbd>F</kbd> fullscreen</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="shortcut"><kbd>?</kbd> hide</span>
+  </footer>
+</div>
+
+<script>
+  "use strict";
+
+  const doNow = {
+    title: "Do Now",
+    lesson: 12,
+    items: [
+      { n:1, topic:"Energy", skill:"Energy stores", command:"Name", prompt:"Name the energy store that increases when an object is lifted upwards.", answer:"Gravitational potential energy store." },
+      { n:2, topic:"Electricity", skill:"Current and charge", command:"Define", prompt:"Define electric current.", answer:"The rate of flow of electrical charge." },
+      { n:3, topic:"Atomic structure", skill:"Types of nuclear radiation", command:"State", prompt:"State which of alpha, beta and gamma radiation is the most penetrating.", answer:"Gamma." },
+      { n:4, topic:"Forces", skill:"Newton's first and second laws", command:"State", prompt:"State the equation linking resultant force, mass and acceleration.", answer:"Resultant force = mass \u00d7 acceleration (F = ma)." }
+    ]
+  };
+
+  const LONG_ANSWER =
+    "If the resultant force on an object is zero, a stationary object stays at rest and a moving object continues at the same speed in the same direction (constant velocity).";
+
+  const DEFAULT_MS = 4 * 60 * 1000;
+  const MAX_MS = 60 * 60 * 1000;
+
+  const state = {
+    shown: new Map(doNow.items.map(item => [item.n, false])),
+    longAnswer: false,
+    timer: {
+      remaining: DEFAULT_MS,
+      running: false,
+      endAt: 0,
+      interval: null
+    }
+  };
+
+  const grid = document.getElementById("grid");
+  const titleEl = document.getElementById("title");
+  const lessonPill = document.getElementById("lessonPill");
+  const timerBtn = document.getElementById("timerBtn");
+  const timerDigits = document.getElementById("timerDigits");
+  const timerGlyph = document.getElementById("timerGlyph");
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
+  const hintBtn = document.getElementById("hintBtn");
+  const shortcuts = document.getElementById("shortcuts");
+
+  const svgPlay = '<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M8 5.2v13.6L19 12 8 5.2Z" fill="currentColor"/></svg>';
+  const svgPause = '<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>';
+  const svgRestart = '<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 1-2.3-5.7"/><path d="M20 4v7h-7"/></svg>';
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
+  function promptMarkup(item) {
+    const prompt = item.prompt;
+    if (prompt.toLowerCase().startsWith(item.command.toLowerCase() + " ")) {
+      return '<strong class="cmd">' + escapeHtml(prompt.slice(0, item.command.length)) +
+             "</strong>" + escapeHtml(prompt.slice(item.command.length));
+    }
+    return escapeHtml(prompt);
+  }
+
+  function renderCards() {
+    titleEl.textContent = doNow.title;
+    document.title = doNow.title + " · Lesson " + doNow.lesson;
+    lessonPill.textContent = "Lesson " + doNow.lesson;
+
+    grid.innerHTML = doNow.items.map(item => `
+      <article class="card" data-n="${item.n}">
+        <header class="card-head">
+          <span class="qnum" aria-hidden="true">${item.n}</span>
+          <div class="topicblock">
+            <span class="topic">${escapeHtml(item.topic)}</span>
+            <span class="skill">${escapeHtml(item.skill)}</span>
+          </div>
+          <span class="cmdbadge">${escapeHtml(item.command)}</span>
+        </header>
+
+        <div class="prompt-wrap">
+          <h2 class="prompt" id="prompt-${item.n}">${promptMarkup(item)}</h2>
+        </div>
+
+        <div class="answer" id="answer-${item.n}" role="group" aria-label="Answer to question ${item.n}">
+          <div class="answer-head">
+            <span class="answer-label">Answer</span>
+            <span class="answer-state">Hidden</span>
+            <button class="revealbtn" type="button" aria-expanded="false"
+                    aria-controls="answertext-${item.n}" aria-keyshortcuts="${item.n}"
+                    aria-label="Show answer to question ${item.n}">
+              <span class="reveal-label">Show answer</span>
+            </button>
+          </div>
+          <p class="answer-text" id="answertext-${item.n}" aria-hidden="true">${escapeHtml(item.answer)}</p>
+        </div>
+      </article>
+    `).join("");
+
+    grid.querySelectorAll(".revealbtn").forEach(btn => {
+      const card = btn.closest(".card");
+      btn.addEventListener("click", () => {
+        setShown(Number(card.dataset.n), !state.shown.get(Number(card.dataset.n)));
+      });
+    });
+  }
+
+  function getItem(n) {
+    return doNow.items.find(item => item.n === n);
+  }
+
+  function setShown(n, shown) {
+    if (!state.shown.has(n)) return;
+    state.shown.set(n, shown);
+
+    const card = grid.querySelector('.card[data-n="' + n + '"]');
+    if (!card) return;
+    const answer = card.querySelector(".answer");
+    const answerText = card.querySelector(".answer-text");
+    const button = card.querySelector(".revealbtn");
+    const buttonLabel = card.querySelector(".reveal-label");
+    const stateLabel = card.querySelector(".answer-state");
+
+    answer.classList.toggle("is-shown", shown);
+    answerText.setAttribute("aria-hidden", String(!shown));
+    button.setAttribute("aria-expanded", String(shown));
+    button.setAttribute("aria-label", (shown ? "Hide" : "Show") + " answer to question " + n);
+    buttonLabel.textContent = shown ? "Hide answer" : "Show answer";
+    stateLabel.textContent = shown ? "Revealed" : "Hidden";
+
+    fitCard(card);
+  }
+
+  function setAllShown(shown) {
+    doNow.items.forEach(item => setShown(item.n, shown));
+  }
+
+  function toggleAll() {
+    const anyHidden = doNow.items.some(item => !state.shown.get(item.n));
+    setAllShown(anyHidden);
+  }
+
+  function toggleLongAnswer() {
+    state.longAnswer = !state.longAnswer;
+    const item = getItem(1);
+    if (!item) return;
+    const card = grid.querySelector('.card[data-n="1"]');
+    if (!card) return;
+    const text = card.querySelector(".answer-text");
+    text.textContent = state.longAnswer ? LONG_ANSWER : item.answer;
+    fitCard(card);
+  }
+
+  /* Keep prompt and answer inside their fixed regions. Normal text sizes fit;
+     this only shrinks a card that would otherwise clip. Existing layout never moves. */
+  function fitBox(el, minPx) {
+    if (!el) return;
+    el.style.fontSize = "";
+    if (!el.clientHeight) return;
+    const base = parseFloat(getComputedStyle(el).fontSize);
+    if (!Number.isFinite(base)) return;
+    let size = base;
+    let guard = 0;
+    while (el.scrollHeight > el.clientHeight + 1 && size > minPx && guard < 160) {
+      size = Math.max(minPx, size - 0.5);
+      el.style.fontSize = size + "px";
+      guard += 1;
+    }
+  }
+
+  function fitCard(card) {
+    if (!card) return;
+    const prompt = card.querySelector(".prompt");
+    const wrap = card.querySelector(".prompt-wrap");
+    const promptMin = Math.max(17, parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.05);
+    prompt.style.fontSize = "";
+    if (wrap && prompt) {
+      let size = parseFloat(getComputedStyle(prompt).fontSize);
+      let guard = 0;
+      while (prompt.scrollHeight > wrap.clientHeight - 2 && size > promptMin && guard < 160) {
+        size = Math.max(promptMin, size - 0.5);
+        prompt.style.fontSize = size + "px";
+        guard += 1;
+      }
+    }
+    const answerText = card.querySelector(".answer-text");
+    fitBox(answerText, 15);
+  }
+
+  function fitAll() {
+    grid.querySelectorAll(".card").forEach(fitCard);
+  }
+
+  /* ---------- timer ---------- */
+  function formatTime(ms) {
+    const total = Math.max(0, Math.ceil(ms / 1000));
+    const minutes = Math.floor(total / 60);
+    const seconds = total % 60;
+    return minutes + ":" + String(seconds).padStart(2, "0");
+  }
+
+  function timerAriaLabel() {
+    if (state.timer.running) {
+      return "Countdown timer running. Press T or click to pause.";
+    }
+    if (state.timer.remaining <= 0) {
+      return "Countdown timer finished. Press T or click to reset and start again.";
+    }
+    return "Countdown timer paused at " + formatTime(state.timer.remaining) +
+      ". Press T or click to start.";
+  }
+
+  function renderTimer(updateLabel = true) {
+    const t = state.timer;
+    timerDigits.textContent = formatTime(t.remaining);
+    timerBtn.classList.toggle("is-running", t.running);
+    timerBtn.classList.toggle("is-done", !t.running && t.remaining <= 0);
+    timerBtn.setAttribute("aria-pressed", String(t.running));
+    if (updateLabel) timerBtn.setAttribute("aria-label", timerAriaLabel());
+    timerGlyph.innerHTML = t.running ? svgPause : (t.remaining <= 0 ? svgRestart : svgPlay);
+  }
+
+  function stopTicking() {
+    if (state.timer.interval !== null) {
+      clearInterval(state.timer.interval);
+      state.timer.interval = null;
+    }
+  }
+
+  function tickTimer() {
+    const t = state.timer;
+    if (!t.running) return;
+    t.remaining = Math.max(0, t.endAt - performance.now());
+    if (t.remaining <= 0) {
+      t.remaining = 0;
+      t.running = false;
+      stopTicking();
+      renderTimer(true);
+      return;
+    }
+    renderTimer(false);
+  }
+
+  function startTimer() {
+    const t = state.timer;
+    if (t.remaining <= 0) t.remaining = DEFAULT_MS;
+    t.running = true;
+    t.endAt = performance.now() + t.remaining;
+    stopTicking();
+    t.interval = window.setInterval(tickTimer, 200);
+    renderTimer();
+  }
+
+  function pauseTimer() {
+    const t = state.timer;
+    t.remaining = Math.max(0, t.endAt - performance.now());
+    t.running = false;
+    stopTicking();
+    renderTimer();
+  }
+
+  function toggleTimer() {
+    if (state.timer.running) pauseTimer();
+    else startTimer();
+  }
+
+  function resetTimer() {
+    stopTicking();
+    state.timer.running = false;
+    state.timer.remaining = DEFAULT_MS;
+    renderTimer();
+  }
+
+  function adjustTimer(deltaMs) {
+    const t = state.timer;
+    t.remaining = Math.min(MAX_MS, Math.max(0, t.remaining + deltaMs));
+    if (t.running) {
+      if (t.remaining <= 0) {
+        t.running = false;
+        stopTicking();
+      } else {
+        t.endAt = performance.now() + t.remaining;
+      }
+    }
+    renderTimer();
+  }
+
+  timerBtn.addEventListener("click", toggleTimer);
+
+  /* ---------- fullscreen ---------- */
+  function inFullscreen() {
+    return Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+  }
+
+  async function toggleFullscreen() {
+    try {
+      if (!inFullscreen()) {
+        const target = document.documentElement;
+        if (target.requestFullscreen) await target.requestFullscreen();
+        else if (target.webkitRequestFullscreen) target.webkitRequestFullscreen();
+      } else {
+        if (document.exitFullscreen) await document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+      }
+    } catch (error) {
+      /* Some embedded browsers refuse fullscreen; the keyboard layout still works. */
+    }
+    updateFullscreenButton();
+  }
+
+  function updateFullscreenButton() {
+    const active = inFullscreen();
+    fullscreenBtn.setAttribute("aria-pressed", String(active));
+    fullscreenBtn.setAttribute("aria-label", active ? "Exit fullscreen (F)" : "Enter fullscreen (F)");
+    fullscreenBtn.title = active ? "Exit fullscreen (F)" : "Fullscreen (F)";
+  }
+
+  fullscreenBtn.addEventListener("click", toggleFullscreen);
+  document.addEventListener("fullscreenchange", updateFullscreenButton);
+  document.addEventListener("webkitfullscreenchange", updateFullscreenButton);
+
+  /* ---------- shortcut hint ---------- */
+  let hintVisible = true;
+
+  function setHintVisible(visible) {
+    hintVisible = visible;
+    shortcuts.hidden = !visible;
+    hintBtn.setAttribute("aria-expanded", String(visible));
+    hintBtn.setAttribute("aria-label", (visible ? "Hide" : "Show") + " keyboard shortcuts (?)");
+    hintBtn.title = (visible ? "Hide" : "Show") + " keyboard shortcuts (?)";
+  }
+
+  hintBtn.addEventListener("click", () => setHintVisible(!hintVisible));
+
+  /* ---------- keyboard ---------- */
+  document.addEventListener("keydown", event => {
+    if (event.defaultPrevented) return;
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+    if (event.repeat) return;
+
+    const target = event.target;
+    if (target && (target.tagName === "TEXTAREA" || target.tagName === "SELECT" ||
+        (target.tagName === "INPUT" && target.type !== "button"))) return;
+
+    const key = event.key;
+    const lower = key.toLowerCase();
+
+    if (lower >= "1" && lower <= "4") {
+      const n = Number(lower);
+      if (state.shown.has(n)) {
+        event.preventDefault();
+        setShown(n, !state.shown.get(n));
+      }
+      return;
+    }
+
+    if (lower === "a") {
+      event.preventDefault();
+      toggleAll();
+    } else if (lower === "l") {
+      event.preventDefault();
+      toggleLongAnswer();
+    } else if (lower === "t") {
+      event.preventDefault();
+      toggleTimer();
+    } else if (lower === "r") {
+      event.preventDefault();
+      resetTimer();
+    } else if (key === "+" || key === "=") {
+      event.preventDefault();
+      adjustTimer(30 * 1000);
+    } else if (key === "-" || key === "_") {
+      event.preventDefault();
+      adjustTimer(-30 * 1000);
+    } else if (lower === "f") {
+      event.preventDefault();
+      toggleFullscreen();
+    } else if (key === "?" || (key === "/" && event.shiftKey)) {
+      event.preventDefault();
+      setHintVisible(!hintVisible);
+    }
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && state.timer.running) tickTimer();
+  });
+
+  let resizeFrame = 0;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(fitAll);
+  });
+
+  renderCards();
+  renderTimer();
+  updateFullscreenButton();
+  setHintVisible(true);
+
+  requestAnimationFrame(() => {
+    fitAll();
+    requestAnimationFrame(fitAll);
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitAll);
+  }
+</script>
+</body>
+</html>

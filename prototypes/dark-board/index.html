@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Do Now — Lesson 12</title>
+<style>
+  :root {
+    --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
+    --pad-x: clamp(20px, 2.6vw, 56px);
+    --card-pad-x: clamp(14px, 1.5vw, 30px);
+    --gutter: clamp(48px, 4.2vw, 84px);
+    --col-gap: clamp(10px, 1.6vw, 32px);
+    --title: clamp(32px, 3vw, 60px);
+    --q: clamp(24px, min(2.2vw, 4vh), 50px);
+    --meta: clamp(14px, 1.05vw, 21px);
+    --meta-sm: clamp(13px, 0.82vw, 16px);
+    --cmd: clamp(16px, 1.15vw, 24px);
+    --hint: clamp(14px, 0.88vw, 17px);
+    --timer: clamp(24px, 2vw, 40px);
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #07120e;
+    --surface: #0e2018;
+    --surface-2: #12261d;
+    --current-bg: #142b20;
+    --current-border: #406b54;
+    --ink: #f8f6ec;
+    --ink-dim: #b9c8be;
+    --ink-mute: #b2c4b9;
+    --num-dim: #b2c4b9;
+    --num-line: #3b5748;
+    --accent: #ffd166;
+    --accent-ink: #0c1711;
+    --line: #22382d;
+    --line-strong: #355043;
+    --answer-bg: #0b1b14;
+    --glow-1: rgba(255, 209, 102, 0.065);
+    --glow-2: rgba(83, 160, 122, 0.055);
+    --toast-bg: #183326;
+  }
+
+  html[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f3eee1;
+    --surface: #faf6ea;
+    --surface-2: #fffdf4;
+    --current-bg: #fffdf4;
+    --current-border: #b7a677;
+    --ink: #101713;
+    --ink-dim: #3b4a42;
+    --ink-mute: #435147;
+    --num-dim: #435147;
+    --num-line: #a99a7a;
+    --accent: #6b3400;
+    --accent-ink: #fff8e8;
+    --line: #d8cfba;
+    --line-strong: #bba97f;
+    --answer-bg: #ece3cd;
+    --glow-1: rgba(107, 52, 0, 0.045);
+    --glow-2: rgba(11, 93, 59, 0.035);
+    --toast-bg: #fff9ec;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior: none;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(92% 72% at 16% -12%, var(--glow-1), transparent 62%),
+      radial-gradient(82% 82% at 108% 118%, var(--glow-2), transparent 58%);
+  }
+
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+
+  button { font-family: inherit; }
+
+  .stage {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* ---------- Header ---------- */
+
+  .topbar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2vw;
+    padding: clamp(12px, 2vh, 28px) var(--pad-x) clamp(10px, 1.5vh, 20px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand { min-width: 0; }
+
+  .eyebrow {
+    margin: 0;
+    font-size: var(--meta-sm);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .eyebrow .dotsep {
+    color: var(--accent);
+    margin: 0 0.4em;
+    font-weight: 800;
+  }
+
+  h1 {
+    margin: clamp(4px, 0.6vh, 9px) 0 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.42em;
+    font-size: var(--title);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .title-mark {
+    align-self: center;
+    flex: 0 0 auto;
+    width: 0.14em;
+    height: 0.68em;
+    border-radius: 0.04em;
+    background: var(--accent);
+  }
+
+  .lesson {
+    font-size: clamp(14px, 0.95vw, 18px);
+    line-height: 1.1;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--ink-dim);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 0.42em 0.7em;
+    background: var(--surface);
+    white-space: nowrap;
+  }
+
+  .topmeta {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.4vw, 28px);
+  }
+
+  .status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: clamp(2px, 0.4vh, 6px);
+    text-align: right;
+  }
+
+  .progress {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.55em;
+    font-size: var(--meta);
+    font-weight: 650;
+    color: var(--ink-mute);
+    white-space: nowrap;
+  }
+
+  .progress strong {
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  .dots {
+    display: flex;
+    gap: 3px;
+    margin-right: 0.15em;
+  }
+
+  .dot {
+    display: block;
+    width: clamp(8px, 0.85vw, 16px);
+    height: 4px;
+    border-radius: 99px;
+    background: var(--line-strong);
+  }
+
+  .dot.is-on { background: var(--accent); }
+
+  .answers-state {
+    margin: 0;
+    font-size: var(--meta);
+    font-weight: 650;
+    color: var(--ink-mute);
+    letter-spacing: 0.01em;
+  }
+
+  .timer {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "label time"
+      "state time";
+    align-items: center;
+    column-gap: 0.8em;
+    min-width: clamp(128px, 10.5vw, 200px);
+    padding: clamp(6px, 0.7vh, 10px) clamp(9px, 0.8vw, 14px);
+    text-align: left;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .timer:hover { background: var(--surface-2); }
+
+  .timer:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .timer-label {
+    grid-area: label;
+    font-size: var(--meta-sm);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .timer-state {
+    grid-area: state;
+    font-size: var(--meta-sm);
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .timer-time {
+    grid-area: time;
+    font-size: var(--timer);
+    font-weight: 750;
+    line-height: 1;
+    letter-spacing: 0.015em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .timer.is-running { border-color: var(--accent); }
+  .timer.is-running .timer-state { color: var(--accent); }
+  .timer.is-done { border-color: var(--accent); }
+  .timer.is-done .timer-time,
+  .timer.is-done .timer-state { color: var(--accent); }
+
+  /* ---------- Questions ---------- */
+
+  .board {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: clamp(8px, 1.4vh, 20px) var(--pad-x) clamp(6px, 1vh, 14px);
+  }
+
+  .questions {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4px, 0.6vh, 12px);
+  }
+
+  .q {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .q:not(.is-current):hover { background: var(--surface); }
+
+  .q.is-current {
+    background: var(--current-bg);
+    border-color: var(--current-border);
+  }
+
+  .q::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 6px;
+    border-radius: 0 6px 6px 0;
+    background: var(--accent);
+    opacity: 0;
+    transform: scaleY(0.55);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
+
+  .q.is-current::before {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .qrow {
+    flex: 1 1 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: var(--gutter) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--col-gap);
+    padding: clamp(6px, 1vh, 22px) var(--card-pad-x);
+    text-align: left;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    border-radius: 14px;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .qrow:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: -3px;
+  }
+
+  .q:not(.is-current) .qrow:hover { background: transparent; }
+
+  .num {
+    display: grid;
+    place-items: center;
+    width: clamp(48px, 4.2vw, 84px);
+    aspect-ratio: 1;
+    border: 2px solid var(--num-line);
+    border-radius: 50%;
+    color: var(--num-dim);
+    font-size: clamp(24px, 2.2vw, 44px);
+    font-weight: 800;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .q.is-current .num {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .qbody {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4px, 0.6vh, 10px);
+    min-width: 0;
+  }
+
+  .qmeta {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 0.8vw, 16px);
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .cmd {
+    flex: 0 0 auto;
+    font-size: var(--cmd);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    padding: 0.12em 0.45em 0.16em;
+  }
+
+  .topic {
+    font-size: var(--meta);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--ink-mute);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .prompt {
+    display: block;
+    font-size: var(--q);
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: -0.008em;
+    color: var(--ink-dim);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .q.is-current .prompt { color: var(--ink); }
+
+  .cue {
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    min-width: clamp(88px, 6vw, 120px);
+    padding: 0.35em 0.75em;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: var(--meta);
+    font-weight: 750;
+    color: var(--ink-mute);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .q.is-current .cue {
+    opacity: 1;
+    transform: none;
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .q.is-current.is-revealed .cue {
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .cue .key {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    line-height: 1;
+    opacity: 0.95;
+  }
+
+  /* ---------- Answers ---------- */
+
+  .answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.3s ease, opacity 0.18s ease;
+  }
+
+  .q.is-revealed .answer {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .answer-clip {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .answer-panel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(10px, 0.9vw, 18px);
+    margin: 0 var(--card-pad-x) clamp(4px, 0.7vh, 16px) calc(var(--card-pad-x) + var(--gutter) + var(--col-gap));
+    padding: clamp(6px, 0.7vh, 13px) clamp(12px, 1vw, 20px);
+    background: var(--answer-bg);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: var(--q);
+  }
+
+  .a-label {
+    padding-top: 0.1em;
+    font-size: 0.55em;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .a-text {
+    font-size: 0.88em;
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+  }
+
+  /* ---------- Footer / shortcut hint ---------- */
+
+  .hint-wrap {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(6px, 0.6vw, 12px);
+    padding: 0 var(--pad-x) clamp(6px, 1.1vh, 14px);
+  }
+
+  .hintbar {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vw;
+    padding: clamp(3px, 0.35vh, 6px) clamp(8px, 0.7vw, 14px);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+
+  .hintbar[hidden] { display: none; }
+
+  .shortcuts {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(5px, 0.7vw, 14px);
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: var(--hint);
+    font-weight: 600;
+    color: var(--ink-dim);
+  }
+
+  .shortcut {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32em;
+  }
+
+  kbd {
+    display: inline-block;
+    min-width: 1.55em;
+    padding: 0.08em 0.34em 0.12em;
+    font-family: var(--mono);
+    font-size: 0.92em;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line-strong);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+  }
+
+  .actions {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.4vw, 8px);
+  }
+
+  .btn {
+    appearance: none;
+    padding: 0.34em 0.62em;
+    font-size: var(--hint);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink-dim);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: 7px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    background: var(--surface-2);
+    color: var(--ink);
+    border-color: var(--ink-mute);
+  }
+
+  .btn:focus-visible,
+  .help:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .help {
+    flex: 0 0 auto;
+    width: clamp(32px, 2.2vw, 42px);
+    height: clamp(32px, 2.2vw, 42px);
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: var(--hint);
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .help:hover { background: var(--surface-2); }
+
+  /* ---------- Toast / live region ---------- */
+
+  .toast {
+    position: fixed;
+    z-index: 20;
+    left: 50%;
+    bottom: clamp(56px, 9vh, 110px);
+    transform: translate(-50%, 8px);
+    max-width: min(80vw, 900px);
+    padding: 0.55em 1em;
+    text-align: center;
+    font-size: var(--meta);
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--toast-bg);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  .toast.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  .sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-height: 700px) {
+    :root {
+      --q: clamp(22px, 3.65vh, 50px);
+      --title: clamp(30px, 5.2vh, 60px);
+    }
+
+    .topbar {
+      padding-top: 8px;
+      padding-bottom: 6px;
+    }
+
+    .board {
+      padding-top: 4px;
+      padding-bottom: 2px;
+    }
+
+    .questions { gap: 2px; }
+
+    .qrow {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    .answer-panel {
+      margin-bottom: 2px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+
+    .hint-wrap { padding-bottom: 4px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <header class="topbar">
+    <div class="brand">
+      <p class="eyebrow">GCSE Physics <span class="dotsep" aria-hidden="true">·</span> AQA</p>
+      <h1>
+        <span class="title-mark" aria-hidden="true"></span>
+        <span id="doNowTitle">Do Now</span>
+        <span class="lesson" id="lessonLabel">Lesson 12</span>
+      </h1>
+    </div>
+
+    <div class="topmeta">
+      <div class="status">
+        <div class="progress">
+          <span class="dots" aria-hidden="true">
+            <span class="dot is-on"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </span>
+          <span>Question <strong id="currentNumber">1</strong> of 4</span>
+        </div>
+        <p class="answers-state" id="answersState">Answers hidden</p>
+      </div>
+
+      <button class="timer" id="timerButton" type="button" aria-keyshortcuts="S" title="Start or pause the timer">
+        <span class="timer-label">Timer</span>
+        <span class="timer-state" id="timerState">Paused</span>
+        <span class="timer-time" id="timerTime">4:00</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="board">
+    <ol class="questions" id="questions" aria-label="Do Now questions"></ol>
+  </main>
+
+  <footer class="hint-wrap">
+    <div class="hintbar" id="hintBar">
+      <div class="shortcuts" id="shortcuts" aria-label="Keyboard shortcuts">
+        <span class="shortcut"><kbd>↑</kbd><kbd>↓</kbd> select</span>
+        <span class="shortcut"><kbd>Enter</kbd> reveal</span>
+        <span class="shortcut"><kbd>A</kbd> all</span>
+        <span class="shortcut"><kbd>S</kbd> timer</span>
+        <span class="shortcut"><kbd>[</kbd><kbd>]</kbd> ±30s</span>
+        <span class="shortcut"><kbd>R</kbd> reset</span>
+        <span class="shortcut"><kbd>T</kbd> theme</span>
+        <span class="shortcut"><kbd>F</kbd> full</span>
+        <span class="shortcut"><kbd>L</kbd> long answer</span>
+        <span class="shortcut"><kbd>?</kbd> hide</span>
+      </div>
+      <div class="actions">
+        <button class="btn" id="revealButton" type="button">Reveal</button>
+        <button class="btn" id="allButton" type="button">Show all</button>
+        <button class="btn" id="themeButton" type="button" aria-keyshortcuts="T">Light theme</button>
+        <button class="btn" id="fullButton" type="button" aria-keyshortcuts="F">Fullscreen</button>
+      </div>
+    </div>
+    <button class="help" id="helpButton" type="button" aria-expanded="true" aria-controls="hintBar" aria-keyshortcuts="?" aria-label="Hide keyboard shortcuts" title="Hide shortcuts (?)">?</button>
+  </footer>
+</div>
+
+<div class="toast" id="toast" aria-hidden="true"></div>
+<p class="sr-only" id="live" role="status" aria-live="polite"></p>
+
+<script>
+  const doNow = {
+    title: "Do Now",
+    lesson: 12,
+    items: [
+      { n:1, topic:"Energy", skill:"Energy stores", command:"Name", prompt:"Name the energy store that increases when an object is lifted upwards.", answer:"Gravitational potential energy store." },
+      { n:2, topic:"Electricity", skill:"Current and charge", command:"Define", prompt:"Define electric current.", answer:"The rate of flow of electrical charge." },
+      { n:3, topic:"Atomic structure", skill:"Types of nuclear radiation", command:"State", prompt:"State which of alpha, beta and gamma radiation is the most penetrating.", answer:"Gamma." },
+      { n:4, topic:"Forces", skill:"Newton's first and second laws", command:"State", prompt:"State the equation linking resultant force, mass and acceleration.", answer:"Resultant force = mass \u00d7 acceleration (F = ma)." }
+    ]
+  };
+
+  const longAnswer = "If the resultant force on an object is zero, a stationary object stays at rest and a moving object continues at the same speed in the same direction (constant velocity).";
+  const DEFAULT_SECONDS = 240;
+
+  const answers = doNow.items.map(function (item) { return item.answer; });
+  const revealed = doNow.items.map(function () { return false; });
+  let current = 0;
+  let longMode = false;
+  let hintVisible = true;
+
+  const list = document.getElementById("questions");
+  const currentNumberEl = document.getElementById("currentNumber");
+  const answersStateEl = document.getElementById("answersState");
+  const revealButton = document.getElementById("revealButton");
+  const allButton = document.getElementById("allButton");
+  const themeButton = document.getElementById("themeButton");
+  const fullButton = document.getElementById("fullButton");
+  const helpButton = document.getElementById("helpButton");
+  const hintBar = document.getElementById("hintBar");
+  const shortcutsEl = document.getElementById("shortcuts");
+  const liveEl = document.getElementById("live");
+  const toastEl = document.getElementById("toast");
+  const timerButton = document.getElementById("timerButton");
+  const timerTime = document.getElementById("timerTime");
+  const timerState = document.getElementById("timerState");
+  const dots = Array.from(document.querySelectorAll(".dot"));
+
+  const rows = [];
+  const rowButtons = [];
+  const answerEls = [];
+  const answerTextEls = [];
+  const cueEls = [];
+
+  function makeEl(tag, className, text) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = text;
+    return el;
+  }
+
+  doNow.items.forEach(function (item, index) {
+    const li = makeEl("li", "q");
+    li.dataset.index = String(index);
+
+    const btn = makeEl("button", "qrow");
+    btn.type = "button";
+    btn.id = "question-" + item.n;
+    btn.setAttribute("aria-controls", "answer-" + item.n);
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-keyshortcuts", "Enter");
+    btn.setAttribute("aria-label", "Question " + item.n + ", " + item.topic + ", " + item.command + ": " + item.prompt);
+
+    const num = makeEl("span", "num", String(item.n).padStart(2, "0"));
+    num.setAttribute("aria-hidden", "true");
+
+    const body = makeEl("span", "qbody");
+    const meta = makeEl("span", "qmeta");
+    const cmd = makeEl("span", "cmd", item.command);
+    const topic = makeEl("span", "topic", item.topic);
+    meta.append(cmd, topic);
+
+    const prompt = makeEl("span", "prompt", item.prompt);
+    body.append(meta, prompt);
+
+    const cue = makeEl("span", "cue");
+    cue.setAttribute("aria-hidden", "true");
+    cue.innerHTML = 'Show <span class="key">↵</span>';
+
+    btn.append(num, body, cue);
+
+    const answer = makeEl("div", "answer");
+    answer.id = "answer-" + item.n;
+    answer.setAttribute("aria-hidden", "true");
+
+    const clip = makeEl("div", "answer-clip");
+    const panel = makeEl("div", "answer-panel");
+    const label = makeEl("span", "a-label", "Answer");
+    const text = makeEl("span", "a-text", answers[index]);
+    panel.append(label, text);
+    clip.append(panel);
+    answer.append(clip);
+
+    li.append(btn, answer);
+    list.append(li);
+
+    rows.push(li);
+    rowButtons.push(btn);
+    answerEls.push(answer);
+    answerTextEls.push(text);
+    cueEls.push(cue);
+
+    btn.addEventListener("click", function () {
+      if (current !== index) {
+        setCurrent(index);
+        return;
+      }
+      toggleReveal(index);
+    });
+  });
+
+  function announce(message) {
+    liveEl.textContent = "";
+    window.setTimeout(function () { liveEl.textContent = message; }, 20);
+  }
+
+  function formatTime(seconds) {
+    const whole = Math.max(0, Math.ceil(seconds));
+    const m = Math.floor(whole / 60);
+    const s = whole % 60;
+    return m + ":" + String(s).padStart(2, "0");
+  }
+
+  function setCurrent(index, moveFocus) {
+    current = index;
+    rows.forEach(function (row, i) {
+      const on = i === index;
+      row.classList.toggle("is-current", on);
+      if (on) rowButtons[i].setAttribute("aria-current", "step");
+      else rowButtons[i].removeAttribute("aria-current");
+    });
+    currentNumberEl.textContent = String(index + 1);
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("is-on", i === index);
+    });
+    updateControls();
+    if (moveFocus) rowButtons[index].focus({ preventScroll: true });
+  }
+
+  function updateControls() {
+    const shown = revealed.filter(Boolean).length;
+
+    if (shown === 0) answersStateEl.textContent = "Answers hidden";
+    else if (shown === doNow.items.length) answersStateEl.textContent = "All answers shown";
+    else answersStateEl.textContent = shown + " of 4 answers shown";
+
+    rows.forEach(function (row, i) {
+      cueEls[i].innerHTML = revealed[i] ? 'Hide <span class="key">↵</span>' : 'Show <span class="key">↵</span>';
+    });
+
+    revealButton.textContent = revealed[current] ? "Hide" : "Reveal";
+    revealButton.setAttribute("aria-label", (revealed[current] ? "Hide" : "Show") + " answer for question " + (current + 1));
+
+    const allShown = shown === doNow.items.length;
+    allButton.textContent = allShown ? "Hide all" : "Show all";
+    allButton.setAttribute("aria-label", allShown ? "Hide all answers" : "Show all answers");
+  }
+
+  function setReveal(index, value) {
+    revealed[index] = value;
+    rows[index].classList.toggle("is-revealed", value);
+    rowButtons[index].setAttribute("aria-expanded", String(value));
+    answerEls[index].setAttribute("aria-hidden", String(!value));
+  }
+
+  function toggleReveal(index) {
+    const next = !revealed[index];
+    setReveal(index, next);
+    updateControls();
+    announce((next ? "Answer shown" : "Answer hidden") + " for question " + (index + 1) + ".");
+  }
+
+  function toggleAll() {
+    const target = revealed.some(function (value) { return !value; });
+    revealed.forEach(function (_, i) { setReveal(i, target); });
+    updateControls();
+    announce(target ? "All answers shown." : "All answers hidden.");
+  }
+
+  function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const next = theme === "dark" ? "light" : "dark";
+    themeButton.textContent = next === "light" ? "Light theme" : "Dark theme";
+    themeButton.setAttribute("aria-label", "Switch to " + next + " theme");
+  }
+
+  function toggleTheme() {
+    const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    setTheme(theme);
+    announce((theme === "dark" ? "Dark" : "Light") + " theme.");
+  }
+
+  let toastTimeout = null;
+  function toast(message) {
+    toastEl.textContent = message;
+    toastEl.classList.add("is-visible");
+    window.clearTimeout(toastTimeout);
+    toastTimeout = window.setTimeout(function () {
+      toastEl.classList.remove("is-visible");
+    }, 2800);
+  }
+
+  function toggleLongAnswer() {
+    longMode = !longMode;
+    answers[0] = longMode ? longAnswer : doNow.items[0].answer;
+    answerTextEls[0].textContent = answers[0];
+    setCurrent(0, true);
+    if (revealed[0]) {
+      toast(longMode ? "Question 1 long answer is showing." : "Question 1 original answer restored.");
+    } else {
+      toast(longMode ? "Question 1 long answer loaded — press Enter to show it." : "Question 1 original answer restored.");
+    }
+    announce(longMode ? "Long test answer loaded for question 1." : "Original answer restored for question 1.");
+  }
+
+  function setHint(show) {
+    hintVisible = show;
+    hintBar.hidden = !show;
+    helpButton.setAttribute("aria-expanded", String(show));
+    helpButton.setAttribute("aria-label", (show ? "Hide" : "Show") + " keyboard shortcuts");
+    helpButton.title = (show ? "Hide" : "Show") + " shortcuts (?)";
+    announce(show ? "Keyboard shortcuts shown." : "Keyboard shortcuts hidden.");
+  }
+
+  function toggleHint() {
+    setHint(!hintVisible);
+  }
+
+  async function toggleFullscreen() {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch (error) {
+      toast("Fullscreen is not available in this browser.");
+      announce("Fullscreen is not available in this browser.");
+    }
+  }
+
+  document.addEventListener("fullscreenchange", function () {
+    const active = Boolean(document.fullscreenElement);
+    fullButton.textContent = active ? "Exit fullscreen" : "Fullscreen";
+    fullButton.setAttribute("aria-label", active ? "Exit fullscreen" : "Enter fullscreen");
+  });
+
+  /* ---------- Timer ---------- */
+
+  let remaining = DEFAULT_SECONDS;
+  let lastSetSeconds = DEFAULT_SECONDS;
+  let running = false;
+  let timerId = null;
+  let lastTick = 0;
+
+  function renderTimer() {
+    const display = formatTime(remaining);
+    timerTime.textContent = display;
+    const done = remaining <= 0;
+    timerState.textContent = done ? "Time up" : running ? "Running" : "Paused";
+    timerButton.classList.toggle("is-running", running);
+    timerButton.classList.toggle("is-done", done);
+    timerButton.setAttribute(
+      "aria-label",
+      "Timer: " + display + ", " + (done ? "time up" : running ? "running" : "paused") +
+      ". Activate to " + (running ? "pause" : done ? "restart" : "start") + "."
+    );
+  }
+
+  function stopInterval() {
+    if (timerId !== null) {
+      window.clearInterval(timerId);
+      timerId = null;
+    }
+  }
+
+  function tick() {
+    const now = performance.now();
+    const delta = (now - lastTick) / 1000;
+    lastTick = now;
+    remaining = Math.max(0, remaining - delta);
+    if (remaining <= 0) {
+      running = false;
+      stopInterval();
+      announce("Time is up.");
+    }
+    renderTimer();
+  }
+
+  function startTimer() {
+    if (remaining <= 0) {
+      remaining = lastSetSeconds;
+    }
+    running = true;
+    lastTick = performance.now();
+    stopInterval();
+    timerId = window.setInterval(tick, 200);
+    renderTimer();
+  }
+
+  function pauseTimer() {
+    running = false;
+    stopInterval();
+    renderTimer();
+  }
+
+  function toggleTimer() {
+    if (running) pauseTimer();
+    else startTimer();
+  }
+
+  function adjustTimer(delta) {
+    remaining = Math.min(15 * 60, Math.max(30, remaining + delta));
+    lastSetSeconds = remaining;
+    renderTimer();
+    const whole = Math.ceil(remaining);
+    announce("Timer set to " + Math.floor(whole / 60) + " minutes " + (whole % 60) + " seconds.");
+  }
+
+  function resetTimer() {
+    running = false;
+    stopInterval();
+    remaining = DEFAULT_SECONDS;
+    lastSetSeconds = DEFAULT_SECONDS;
+    renderTimer();
+    announce("Timer reset to 4 minutes.");
+  }
+
+  timerButton.addEventListener("click", function () {
+    if (remaining <= 0) {
+      remaining = lastSetSeconds;
+      startTimer();
+    } else {
+      toggleTimer();
+    }
+  });
+
+  themeButton.addEventListener("click", toggleTheme);
+  fullButton.addEventListener("click", toggleFullscreen);
+  helpButton.addEventListener("click", toggleHint);
+  revealButton.addEventListener("click", function () { toggleReveal(current); });
+  allButton.addEventListener("click", toggleAll);
+
+  /* ---------- Keyboard ---------- */
+
+  document.addEventListener("keydown", function (event) {
+    const target = event.target;
+    const isFormField = target && (
+      target.tagName === "INPUT" ||
+      target.tagName === "TEXTAREA" ||
+      target.tagName === "SELECT" ||
+      target.isContentEditable
+    );
+    if (isFormField) return;
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+    const key = event.key;
+
+    if (key === "Enter") {
+      if (target && target.closest && target.closest("button")) return;
+      event.preventDefault();
+      toggleReveal(current);
+      return;
+    }
+
+    switch (key) {
+      case "ArrowDown":
+        event.preventDefault();
+        setCurrent((current + 1) % doNow.items.length, true);
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        setCurrent((current - 1 + doNow.items.length) % doNow.items.length, true);
+        break;
+      case "a": case "A":
+        event.preventDefault();
+        toggleAll();
+        break;
+      case "s": case "S":
+        event.preventDefault();
+        toggleTimer();
+        break;
+      case "t": case "T":
+        event.preventDefault();
+        toggleTheme();
+        break;
+      case "f": case "F":
+        event.preventDefault();
+        toggleFullscreen();
+        break;
+      case "r": case "R":
+        event.preventDefault();
+        resetTimer();
+        break;
+      case "l": case "L":
+        event.preventDefault();
+        toggleLongAnswer();
+        break;
+      case "?":
+        event.preventDefault();
+        toggleHint();
+        break;
+      case "[":
+        event.preventDefault();
+        adjustTimer(-30);
+        break;
+      case "]":
+        event.preventDefault();
+        adjustTimer(30);
+        break;
+      case "1": case "2": case "3": case "4":
+        event.preventDefault();
+        setCurrent(Number(key) - 1, true);
+        break;
+      default:
+        break;
+    }
+  });
+
+  setTheme("dark");
+  document.getElementById("doNowTitle").textContent = doNow.title;
+  document.getElementById("lessonLabel").textContent = "Lesson " + doNow.lesson;
+  document.title = doNow.title + " — Lesson " + doNow.lesson;
+  setCurrent(0, false);
+  updateControls();
+  renderTimer();
+  setHint(true);
+</script>
+</body>
+</html>
