@@ -1,0 +1,14 @@
+{
+  "name": "gcse-physics-retrieval",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "typecheck": "tsc --noEmit",
+    "simulate": "node cli/simulate.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

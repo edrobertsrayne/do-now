@@ -1,0 +1,95 @@
+[
+	{
+		"id": "energy-stores",
+		"title": "Energy stores",
+		"topic": "Energy",
+		"specRefs": [
+			"4.1.1.1"
+		],
+		"questions": [
+			{
+				"id": "energy-stores-1",
+				"command": "Name",
+				"prompt": "Name the energy store that increases when an object is lifted upwards.",
+				"answer": "Gravitational potential energy store.",
+				"status": "draft"
+			},
+			{
+				"id": "energy-stores-2",
+				"command": "State",
+				"prompt": "State the energy store that a stretched spring has.",
+				"answer": "Elastic potential energy store.",
+				"status": "draft"
+			},
+			{
+				"id": "energy-stores-3",
+				"command": "Name",
+				"prompt": "Name the energy store that decreases when a fuel is burned.",
+				"answer": "Chemical energy store.",
+				"status": "draft"
+			}
+		]
+	},
+	{
+		"id": "energy-conservation",
+		"title": "Conservation and dissipation of energy",
+		"topic": "Energy",
+		"specRefs": [
+			"4.1.2.1"
+		],
+		"questions": [
+			{
+				"id": "energy-conservation-1",
+				"command": "State",
+				"prompt": "State the principle of conservation of energy.",
+				"answer": "Energy can be transferred usefully, stored or dissipated, but cannot be created or destroyed.",
+				"status": "draft"
+			},
+			{
+				"id": "energy-conservation-2",
+				"command": "Define",
+				"prompt": "Define what is meant by energy being 'dissipated'.",
+				"answer": "Energy is transferred to the surroundings in less useful ways (stored in less useful stores), so it is wasted.",
+				"status": "draft"
+			},
+			{
+				"id": "energy-conservation-3",
+				"command": "Name",
+				"prompt": "Name the energy store that wasted energy is usually transferred to.",
+				"answer": "The thermal energy store of the surroundings.",
+				"status": "draft"
+			}
+		]
+	},
+	{
+		"id": "energy-resources",
+		"title": "Renewable and non-renewable energy resources",
+		"topic": "Energy",
+		"specRefs": [
+			"4.1.3"
+		],
+		"questions": [
+			{
+				"id": "energy-resources-1",
+				"command": "Define",
+				"prompt": "Define 'renewable energy resource'.",
+				"answer": "An energy resource that is being (or can be) replenished as it is used.",
+				"status": "draft"
+			},
+			{
+				"id": "energy-resources-2",
+				"command": "State",
+				"prompt": "State two renewable energy resources.",
+				"answer": "Any two of: wind, solar, hydroelectric, tides, waves, geothermal, bio-fuel.",
+				"status": "draft"
+			},
+			{
+				"id": "energy-resources-3",
+				"command": "State",
+				"prompt": "State two non-renewable energy resources.",
+				"answer": "Any two of: coal, oil, gas (fossil fuels), nuclear fuel.",
+				"status": "draft"
+			}
+		]
+	}
+]

@@ -1,0 +1,65 @@
+[
+	{
+		"id": "scalar-vector",
+		"title": "Scalar and vector quantities",
+		"topic": "Forces",
+		"specRefs": [
+			"4.5.1.1"
+		],
+		"questions": [
+			{
+				"id": "scalar-vector-1",
+				"command": "Define",
+				"prompt": "Define a scalar quantity.",
+				"answer": "A quantity that has magnitude only.",
+				"status": "draft"
+			},
+			{
+				"id": "scalar-vector-2",
+				"command": "Define",
+				"prompt": "Define a vector quantity.",
+				"answer": "A quantity that has both magnitude and direction.",
+				"status": "draft"
+			},
+			{
+				"id": "scalar-vector-3",
+				"command": "State",
+				"prompt": "State one scalar and one vector quantity.",
+				"answer": "Scalar: any of distance, speed, mass, energy, time, temperature. Vector: any of displacement, velocity, force, acceleration, momentum.",
+				"status": "draft"
+			}
+		]
+	},
+	{
+		"id": "newtons-laws",
+		"title": "Newton's first and second laws",
+		"topic": "Forces",
+		"specRefs": [
+			"4.5.6.1",
+			"4.5.6.2"
+		],
+		"questions": [
+			{
+				"id": "newtons-laws-1",
+				"command": "State",
+				"prompt": "State Newton's first law.",
+				"answer": "If the resultant force on an object is zero, a stationary object stays at rest and a moving object continues at the same speed in the same direction (constant velocity).",
+				"status": "draft"
+			},
+			{
+				"id": "newtons-laws-2",
+				"command": "State",
+				"prompt": "State the resultant force on an object moving at constant velocity.",
+				"answer": "Zero.",
+				"status": "draft"
+			},
+			{
+				"id": "newtons-laws-3",
+				"command": "State",
+				"prompt": "State the equation linking resultant force, mass and acceleration.",
+				"answer": "Resultant force = mass x acceleration (F = ma).",
+				"status": "draft"
+			}
+		]
+	}
+]

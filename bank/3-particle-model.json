@@ -1,0 +1,33 @@
+[
+	{
+		"id": "density-states",
+		"title": "Density and states of matter",
+		"topic": "Particle model of matter",
+		"specRefs": [
+			"4.3.1.1"
+		],
+		"questions": [
+			{
+				"id": "density-states-1",
+				"command": "State",
+				"prompt": "State the equation linking density, mass and volume.",
+				"answer": "Density = mass / volume.",
+				"status": "draft"
+			},
+			{
+				"id": "density-states-2",
+				"command": "State",
+				"prompt": "State the SI unit of density.",
+				"answer": "Kilograms per cubic metre (kg/m^3).",
+				"status": "draft"
+			},
+			{
+				"id": "density-states-3",
+				"command": "Describe",
+				"prompt": "Describe the arrangement of particles in a solid.",
+				"answer": "Particles are closely packed in a regular pattern and vibrate about fixed positions.",
+				"status": "draft"
+			}
+		]
+	}
+]

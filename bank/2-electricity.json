@@ -1,0 +1,64 @@
+[
+	{
+		"id": "current-charge",
+		"title": "Electric current and charge",
+		"topic": "Electricity",
+		"specRefs": [
+			"4.2.1.2"
+		],
+		"questions": [
+			{
+				"id": "current-charge-1",
+				"command": "Define",
+				"prompt": "Define electric current.",
+				"answer": "The rate of flow of electrical charge.",
+				"status": "draft"
+			},
+			{
+				"id": "current-charge-2",
+				"command": "State",
+				"prompt": "State the unit of electric charge.",
+				"answer": "The coulomb (C).",
+				"status": "draft"
+			},
+			{
+				"id": "current-charge-3",
+				"command": "State",
+				"prompt": "State the equation linking charge flow, current and time.",
+				"answer": "Charge flow = current x time (Q = It).",
+				"status": "draft"
+			}
+		]
+	},
+	{
+		"id": "series-circuits",
+		"title": "Series circuits",
+		"topic": "Electricity",
+		"specRefs": [
+			"4.2.3"
+		],
+		"questions": [
+			{
+				"id": "series-circuits-1",
+				"command": "State",
+				"prompt": "State how the current compares at different points in a series circuit.",
+				"answer": "It is the same everywhere in the circuit.",
+				"status": "draft"
+			},
+			{
+				"id": "series-circuits-2",
+				"command": "State",
+				"prompt": "State what happens to the total resistance when another resistor is added in series.",
+				"answer": "It increases (the total resistance is the sum of the individual resistances).",
+				"status": "draft"
+			},
+			{
+				"id": "series-circuits-3",
+				"command": "State",
+				"prompt": "State how the potential difference of the supply is shared between components in series.",
+				"answer": "It is shared between the components (the sum of the potential differences equals the supply potential difference).",
+				"status": "draft"
+			}
+		]
+	}
+]

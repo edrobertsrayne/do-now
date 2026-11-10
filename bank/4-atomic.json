@@ -1,0 +1,64 @@
+[
+	{
+		"id": "atomic-structure",
+		"title": "Structure of the atom",
+		"topic": "Atomic structure",
+		"specRefs": [
+			"4.4.1.1"
+		],
+		"questions": [
+			{
+				"id": "atomic-structure-1",
+				"command": "State",
+				"prompt": "State the relative electrical charge of a proton.",
+				"answer": "+1.",
+				"status": "draft"
+			},
+			{
+				"id": "atomic-structure-2",
+				"command": "State",
+				"prompt": "State the relative electrical charge of a neutron.",
+				"answer": "0 (neutral).",
+				"status": "draft"
+			},
+			{
+				"id": "atomic-structure-3",
+				"command": "State",
+				"prompt": "State where most of the mass of an atom is found.",
+				"answer": "In the nucleus.",
+				"status": "draft"
+			}
+		]
+	},
+	{
+		"id": "nuclear-radiation",
+		"title": "Types of nuclear radiation",
+		"topic": "Atomic structure",
+		"specRefs": [
+			"4.4.2.1"
+		],
+		"questions": [
+			{
+				"id": "nuclear-radiation-1",
+				"command": "Name",
+				"prompt": "Name the three types of nuclear radiation emitted by radioactive nuclei (other than neutrons).",
+				"answer": "Alpha, beta and gamma.",
+				"status": "draft"
+			},
+			{
+				"id": "nuclear-radiation-2",
+				"command": "State",
+				"prompt": "State what an alpha particle is made of.",
+				"answer": "Two neutrons and two protons (a helium nucleus).",
+				"status": "draft"
+			},
+			{
+				"id": "nuclear-radiation-3",
+				"command": "State",
+				"prompt": "State which of alpha, beta and gamma radiation is the most penetrating.",
+				"answer": "Gamma.",
+				"status": "draft"
+			}
+		]
+	}
+]
