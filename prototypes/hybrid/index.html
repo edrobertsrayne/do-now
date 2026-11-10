@@ -38,18 +38,7 @@ body[data-phase="think"] :focus-visible { outline-color: var(--navy); }
 
 /* ---------- header ---------- */
 header { display: flex; align-items: center; gap: calc(var(--u) * 2); min-height: calc(var(--u) * 7); }
-.phase {
-  display: flex; align-items: center; gap: calc(var(--u) * 1); padding: calc(var(--u) * .7) calc(var(--u) * 1.6);
-  border-radius: calc(var(--u) * 5); background: var(--ink); color: #fff; line-height: 1.1;
-  transition: background-color .5s, color .5s;
-}
-body[data-phase="check"] .phase { background: var(--yellow); color: var(--ink); }
-.phase svg { width: calc(var(--u) * 2.2); height: calc(var(--u) * 2.2); flex: none; }
-.phase b { font-size: calc(var(--u) * 1.9); letter-spacing: .12em; }
-.phase small { font-size: calc(var(--u) * 1.5); font-weight: 700; }
 h1 { margin: 0; font-size: calc(var(--u) * 3.6); line-height: 1; letter-spacing: -.01em; }
-h1 span { font-size: calc(var(--u) * 2.2); color: var(--ink-2); margin-left: calc(var(--u) * 1); }
-body[data-phase="check"] h1 span { color: #dbe4ff; }
 .spacer { flex: 1; }
 
 /* ---------- timer ---------- */
@@ -69,14 +58,8 @@ body[data-phase="check"] .timer { display: none; }
 .tbtn svg { width: 50%; height: 50%; fill: currentColor; }
 .timer .done { font-size: calc(var(--u) * 1.6); }
 
-/* ---------- command word badge ---------- */
-.badge {
-  display: inline-block; background: var(--navy); color: var(--yellow); text-transform: uppercase;
-  letter-spacing: .1em; border-radius: calc(var(--u) * .7); padding: .28em .7em; line-height: 1.1;
-  font-size: calc(var(--u) * 2);
-}
 .cmd { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); padding: 0 .06em; }
-body[data-phase="check"] .card .cmd { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); }
+
 
 main { position: relative; min-height: 0; }
 .view { position: absolute; inset: 0; display: flex; flex-direction: column; min-height: 0; }
@@ -84,22 +67,18 @@ main { position: relative; min-height: 0; }
 @keyframes rise { from { opacity: 0; transform: translateY(calc(var(--u) * 1)); } to { opacity: 1; transform: none; } }
 
 /* ---------- THINK ---------- */
-.lead { margin: 0 0 calc(var(--u) * 1); font-size: calc(var(--u) * 2.2); color: var(--ink-2); }
-.lead b { color: var(--ink); }
-.list { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; margin: 0; padding: 0; list-style: none; }
+.list { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; gap: calc(var(--u) * 1.4); margin: 0; padding: 0; list-style: none; }
 .row {
-  display: grid; grid-template-columns: calc(var(--u) * 4) calc(var(--u) * 13) minmax(0, 1fr); align-items: center;
-  column-gap: calc(var(--u) * 1.6); border-top: calc(var(--u) * .15) solid var(--rule); min-height: 0;
+  display: grid; grid-template-columns: calc(var(--u) * 4.4) minmax(0, 1fr); align-items: center;
+  column-gap: calc(var(--u) * 2); min-height: 0; overflow: hidden;
+  background: #fff; border: calc(var(--u) * .2) solid var(--rule); border-left: calc(var(--u) * .7) solid var(--navy);
+  border-radius: calc(var(--u) * 1.2); padding: 0 calc(var(--u) * 2.4) 0 calc(var(--u) * 1.6);
 }
-.row:last-child { border-bottom: calc(var(--u) * .15) solid var(--rule); }
 .num {
   width: calc(var(--u) * 3.8); height: calc(var(--u) * 3.8); border-radius: 50%; border: calc(var(--u) * .22) solid var(--ink);
   display: grid; place-items: center; font-size: calc(var(--u) * 2); line-height: 1;
 }
-.meta { display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--u) * .4); }
-.meta .badge { font-size: calc(var(--u) * 1.8); }
-.topic { font-size: calc(var(--u) * 1.5); color: var(--ink-2); line-height: 1.1; }
-.prompt { margin: 0; line-height: 1.12; letter-spacing: -.012em; font-weight: 800; }
+.prompt { margin: 0; line-height: 1.18; font-weight: 400; }
 .row .prompt { font-size: var(--pf); }
 
 /* ---------- CHECK ---------- */
@@ -112,14 +91,10 @@ main { position: relative; min-height: 0; }
 .pip.seen { background: #fff; color: var(--navy-deep); display: inline-flex; align-items: center; justify-content: center; }
 .pip.seen::after { content: "\2713"; margin-left: .25em; font-size: .8em; }
 .pip.ovb { margin-left: auto; padding: 0 calc(var(--u) * 1.6); border-style: dashed; display: inline-flex; align-items: center; gap: calc(var(--u) * .6); }
-.pip.ovb kbd { margin: 0; }
 .card {
   flex: 1 1 0; min-height: 0; overflow: hidden; background: var(--paper); color: var(--ink); border-radius: calc(var(--u) * 1.6);
   padding: calc(var(--u) * 1.4) calc(var(--u) * 3); display: flex; flex-direction: column; justify-content: center; gap: calc(var(--u) * 1);
 }
-.card .meta { flex-direction: row; align-items: center; gap: calc(var(--u) * 1.4); }
-.card .meta .badge { font-size: calc(var(--u) * 2.2); }
-.card .topic { font-size: calc(var(--u) * 2); }
 .card .prompt { font-size: var(--pf); }
 .answer {
   flex: 0 0 calc(var(--u) * 13); margin-top: calc(var(--u) * 1); border-radius: calc(var(--u) * 1.6); padding: calc(var(--u) * 1.1) calc(var(--u) * 3);
@@ -136,21 +111,15 @@ main { position: relative; min-height: 0; }
 .ov { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; gap: calc(var(--u) * .8); margin: 0; padding: 0; list-style: none; }
 .ov li {
   background: var(--paper); color: var(--ink); border-radius: calc(var(--u) * 1.2); display: grid; align-items: center; min-height: 0;
-  grid-template-columns: calc(var(--u) * 4.4) calc(var(--u) * 11) minmax(0, 1.15fr) minmax(0, 1fr); column-gap: calc(var(--u) * 1.4);
+  grid-template-columns: calc(var(--u) * 4.4) minmax(0, 1.15fr) minmax(0, 1fr); column-gap: calc(var(--u) * 1.6);
   padding: 0 calc(var(--u) * 1.6);
 }
-.ov .badge { font-size: calc(var(--u) * 1.6); }
-.ov .q { font-size: var(--pf); line-height: 1.12; }
+.ov .q { font-size: var(--pf); line-height: 1.15; font-weight: 400; }
 .ov .a { font-size: var(--pf); line-height: 1.12; background: var(--green); color: #fff; border-radius: calc(var(--u) * .9); padding: calc(var(--u) * .5) calc(var(--u) * 1.2); }
 .ov .a.none { background: transparent; color: var(--ink-2); border: calc(var(--u) * .2) dashed var(--ink-2); }
 
 /* ---------- footer ---------- */
-footer { display: flex; align-items: center; gap: calc(var(--u) * 1.5); min-height: calc(var(--u) * 3.6); }
-.hint { display: flex; flex-wrap: wrap; gap: calc(var(--u) * .5) calc(var(--u) * 1.4); font-size: calc(var(--u) * 1.4); align-items: center; }
-.hint.off { visibility: hidden; }
-kbd {
-  font: inherit; font-size: .95em; border: calc(var(--u) * .15) solid currentColor; border-radius: calc(var(--u) * .45); padding: 0 .4em; margin-right: .3em;
-}
+footer { display: flex; align-items: center; justify-content: flex-end; min-height: calc(var(--u) * 3.6); }
 .fbtn { border: calc(var(--u) * .2) solid currentColor; background: transparent; border-radius: calc(var(--u) * .9); padding: calc(var(--u) * .5) calc(var(--u) * 1.2); font-size: calc(var(--u) * 1.5); }
 .cta { background: var(--navy); color: #fff; border-color: var(--navy); font-size: calc(var(--u) * 1.9); padding: calc(var(--u) * .7) calc(var(--u) * 1.8); white-space: nowrap; }
 body[data-phase="check"] .cta { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
@@ -163,17 +132,12 @@ body[data-phase="check"] .cta { background: var(--yellow); color: var(--ink); bo
 <body data-phase="think" data-n="5">
 <div class="stage">
   <header>
-    <div class="phase" id="phase" role="status"></div>
-    <h1>Do Now <span id="lesson"></span></h1>
+    <h1>Do Now</h1>
     <div class="spacer"></div>
     <div class="timer" id="timer" aria-label="Timer"></div>
   </header>
   <main id="main" aria-live="polite"></main>
   <footer>
-    <div class="hint" id="hint"></div>
-    <div class="spacer"></div>
-    <button class="fbtn" id="fs" type="button">Fullscreen <kbd>F</kbd></button>
-    <button class="fbtn" id="hintBtn" type="button" aria-label="Toggle key hints">?</button>
     <button class="fbtn cta" id="cta" type="button"></button>
   </footer>
 </div>
@@ -197,9 +161,7 @@ const DEFAULT_SECONDS = 240;
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const words = { 4: "four", 5: "five", 6: "six" };
-
-const state = { count: 5, step: 0, overview: false, long: false, hints: true, secs: DEFAULT_SECONDS, total: DEFAULT_SECONDS, running: false };
+const state = { count: 5, step: 0, overview: false, long: false, secs: DEFAULT_SECONDS, total: DEFAULT_SECONDS, running: false };
 let tick = null;
 
 /* Step model: 0 = Think. Check question i (0-based): 1+2i hidden, 2+2i revealed. Last step = summary. */
@@ -220,11 +182,9 @@ const sizeClass = (t, a, b) => (t.length > b ? "l" : t.length > a ? "m" : "");
 /* ---------- views ---------- */
 function thinkView(its) {
   return `<section class="view enter" aria-label="Questions">
-    <p class="lead">Answer all <b>${words[state.count]}</b> questions in your books. Use the <b>command word</b>.</p>
     <ol class="list">${its.map((it) => `
       <li class="row">
         <span class="num" aria-label="Question ${it.n}">${it.n}</span>
-        <span class="meta"><span class="badge">${esc(it.command)}</span><span class="topic">${esc(it.topic)}</span></span>
         <p class="prompt">${promptHTML(it)}</p>
       </li>`).join("")}</ol>
   </section>`;
@@ -234,7 +194,7 @@ function pipsHTML(its) {
   const cur = state.overview || isSummary() ? -1 : checkIndex();
   return `<div class="pips" role="group" aria-label="Question progress">${its.map((it, i) =>
     `<button class="pip${revealed(i) && i !== cur ? " seen" : ""}" type="button" data-q="${i}" ${i === cur ? 'aria-current="step"' : ""} aria-label="Question ${it.n}">${it.n}</button>`).join("")}
-    <button class="pip ovb" type="button" data-ov="1" aria-pressed="${state.overview || isSummary()}">Overview <kbd>O</kbd></button></div>`;
+    <button class="pip ovb" type="button" data-ov="1" aria-pressed="${state.overview || isSummary()}">Overview</button></div>`;
 }
 
 function checkView(its) {
@@ -242,7 +202,6 @@ function checkView(its) {
   return `<section class="view" aria-label="Checking question ${it.n}">
     ${pipsHTML(its)}
     <div class="card">
-      <div class="meta"><span class="badge">${esc(it.command)}</span><span class="topic">${esc(it.topic)}</span></div>
       <p class="prompt">${promptHTML(it)}</p>
     </div>
     ${shown
@@ -256,7 +215,7 @@ function overviewView(its) {
   return `<section class="view" aria-label="${all ? "Summary" : "Overview"}">
     ${pipsHTML(its)}
     <ul class="ov">${its.map((it, i) => `
-      <li><span class="num">${it.n}</span><span class="badge">${esc(it.command)}</span>
+      <li><span class="num">${it.n}</span>
         <span class="q">${promptHTML(it)}</span>
         ${revealed(i) ? `<span class="a">${esc(it.answer)}</span>` : `<span class="a none">Answer not yet shown</span>`}
       </li>`).join("")}</ul>
@@ -269,12 +228,6 @@ function render() {
   const its = items();
   document.body.dataset.phase = phase();
   document.body.dataset.n = state.count;
-  $("lesson").textContent = `Lesson ${doNow.lesson}`;
-
-  const ph = phase() === "think"
-    ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-5L16 4l4 4L9 19z"/></svg><b>THINK</b><small>answers hidden</small>`
-    : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg><b>CHECK</b><small>${isSummary() ? "all answers" : `question ${checkIndex() + 1} of ${state.count}`}</small>`;
-  $("phase").innerHTML = ph;
 
   const view = state.overview && phase() === "check" && !isSummary() ? "ov" : isSummary() ? "sum" : phase() === "think" ? "think" : `q${checkIndex()}${revealed(checkIndex()) ? "r" : ""}`;
   const key = `${view}|${state.count}|${state.long}`;
@@ -283,13 +236,11 @@ function render() {
   if (key === lastKey) $("main").firstElementChild.classList.remove("enter");
   lastKey = key;
 
-  $("cta").innerHTML = state.step === 0 ? "Start checking <kbd>Space</kbd>"
-    : isSummary() ? "Back to start <kbd>Space</kbd>"
-    : revealed(checkIndex()) ? (checkIndex() === state.count - 1 ? "Finish <kbd>Space</kbd>" : "Next question <kbd>Space</kbd>")
-    : "Reveal answer <kbd>Space</kbd>";
+  $("cta").textContent = state.step === 0 ? "Start checking"
+    : isSummary() ? "Back to start"
+    : revealed(checkIndex()) ? (checkIndex() === state.count - 1 ? "Finish" : "Next question")
+    : "Reveal answer";
 
-  $("hint").className = "hint" + (state.hints ? "" : " off");
-  $("hint").innerHTML = `<span><kbd>Space</kbd>/<kbd>\u2192</kbd> next</span><span><kbd>\u2190</kbd> back</span><span><kbd>O</kbd> overview</span><span><kbd>T</kbd> timer</span><span><kbd>+</kbd><kbd>\u2212</kbd> 30s</span><span><kbd>0</kbd> reset</span><span><kbd>L</kbd> long answer</span><span><kbd>4</kbd><kbd>5</kbd><kbd>6</kbd> questions (test)</span>`;
   fit();
   renderTimer();
 }
@@ -305,7 +256,7 @@ function fit() {
   const list = document.querySelector(".list");
   if (list) {
     const rows = [...list.children];
-    run(list, { 4: 3.5, 5: 3.2, 6: 2.9 }[state.count], 2.2, () => rows.some((r) => r.querySelector(".prompt").offsetHeight > r.clientHeight - 2));
+    run(list, { 4: 3.8, 5: 3.4, 6: 3.0 }[state.count], 2.2, () => rows.some((r) => r.scrollHeight > r.clientHeight + 1));
   }
   const card = document.querySelector(".card");
   if (card) run(card, 5.4, 2.6, () => card.scrollHeight > card.clientHeight + 1);
@@ -380,7 +331,6 @@ document.addEventListener("keydown", (e) => {
   else if (k === "0") resetTimer();
   else if (k === "l" || k === "L") { state.long = !state.long; render(); }
   else if (k === "f" || k === "F") toggleFS();
-  else if (k === "?" || k === "/") { state.hints = !state.hints; render(); }
   else if (k === "4" || k === "5" || k === "6") setCount(Number(k));
 });
 document.addEventListener("click", (e) => {
@@ -393,8 +343,6 @@ document.addEventListener("click", (e) => {
   else if (t.dataset.ov) toggleOverview();
 });
 $("cta").addEventListener("click", next);
-$("fs").addEventListener("click", toggleFS);
-$("hintBtn").addEventListener("click", () => { state.hints = !state.hints; render(); });
 
 render();
 </script>
