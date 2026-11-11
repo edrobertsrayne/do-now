@@ -1,0 +1,57 @@
+[
+	{
+		"id": "solar-system",
+		"title": "Our solar system and galaxy",
+		"topic": "Space physics",
+		"specRefs": ["4.8.1.1"],
+		"questions": [
+			{"id": "solar-system-1", "command": "Name", "prompt": "Name the star at the centre of our solar system.", "answer": "The Sun.", "status": "draft"},
+			{"id": "solar-system-2", "command": "Define", "prompt": "Define a natural satellite.", "answer": "A moon that orbits a planet.", "status": "draft"},
+			{"id": "solar-system-3", "command": "Name", "prompt": "Name the galaxy that our solar system is part of.", "answer": "The Milky Way.", "status": "draft"}
+		]
+	},
+	{
+		"id": "star-formation",
+		"title": "Formation of the Sun and stars",
+		"topic": "Space physics",
+		"specRefs": ["4.8.1.1"],
+		"questions": [
+			{"id": "star-formation-1", "command": "State", "prompt": "State what the Sun was formed from.", "answer": "A cloud of dust and gas (a nebula) pulled together by gravitational attraction.", "status": "draft"},
+			{"id": "star-formation-2", "command": "State", "prompt": "State what causes fusion reactions to start at the beginning of a star's life cycle.", "answer": "Gravity pulling the dust and gas together heats the core until fusion begins.", "status": "draft"},
+			{"id": "star-formation-3", "command": "State", "prompt": "State what balances the gravitational collapse of a star.", "answer": "The outward pressure from the energy released by fusion reactions.", "status": "draft"}
+		]
+	},
+	{
+		"id": "star-life-cycle",
+		"title": "Life cycle of stars",
+		"topic": "Space physics",
+		"specRefs": ["4.8.1.2"],
+		"questions": [
+			{"id": "star-life-cycle-1", "command": "State", "prompt": "State what determines the life cycle of a star.", "answer": "Its size (mass).", "status": "draft"},
+			{"id": "star-life-cycle-2", "command": "State", "prompt": "State where elements heavier than iron are produced.", "answer": "In a supernova (the explosion of a massive star).", "status": "draft"},
+			{"id": "star-life-cycle-3", "command": "State", "prompt": "State the process that produces the naturally occurring elements in stars.", "answer": "Nuclear fusion.", "status": "draft"}
+		]
+	},
+	{
+		"id": "orbits-satellites",
+		"title": "Orbital motion and satellites",
+		"topic": "Space physics",
+		"specRefs": ["4.8.1.3"],
+		"questions": [
+			{"id": "orbits-satellites-1", "command": "State", "prompt": "State the force that keeps planets and satellites in their orbits.", "answer": "Gravity.", "status": "draft"},
+			{"id": "orbits-satellites-2", "command": "State", "prompt": "State how the velocity of an object in a circular orbit changes when its speed is constant.", "answer": "Its velocity changes, because its direction changes.", "status": "draft"},
+			{"id": "orbits-satellites-3", "command": "Name", "prompt": "Name a natural satellite of the Earth and an artificial satellite.", "answer": "The Moon; any man-made satellite (e.g. a communications satellite).", "status": "draft"}
+		]
+	},
+	{
+		"id": "red-shift",
+		"title": "Red-shift and the expanding universe",
+		"topic": "Space physics",
+		"specRefs": ["4.8.2"],
+		"questions": [
+			{"id": "red-shift-1", "command": "Define", "prompt": "Define red-shift.", "answer": "The increase in the observed wavelength of light from distant, receding galaxies.", "status": "draft"},
+			{"id": "red-shift-2", "command": "State", "prompt": "State what red-shift provides evidence for.", "answer": "An expanding universe, which supports the Big Bang theory.", "status": "draft"},
+			{"id": "red-shift-3", "command": "State", "prompt": "State what the Big Bang theory suggests about the early universe.", "answer": "The universe began from a very small, extremely hot and dense region.", "status": "draft"}
+		]
+	}
+]

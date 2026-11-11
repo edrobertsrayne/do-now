@@ -3,62 +3,154 @@
 		"id": "atomic-structure",
 		"title": "Structure of the atom",
 		"topic": "Atomic structure",
-		"specRefs": [
-			"4.4.1.1"
-		],
+		"specRefs": ["4.4.1.1"],
 		"questions": [
-			{
-				"id": "atomic-structure-1",
-				"command": "State",
-				"prompt": "State the relative electrical charge of a proton.",
-				"answer": "+1.",
-				"status": "draft"
-			},
-			{
-				"id": "atomic-structure-2",
-				"command": "State",
-				"prompt": "State the relative electrical charge of a neutron.",
-				"answer": "0 (neutral).",
-				"status": "draft"
-			},
-			{
-				"id": "atomic-structure-3",
-				"command": "State",
-				"prompt": "State where most of the mass of an atom is found.",
-				"answer": "In the nucleus.",
-				"status": "draft"
-			}
+			{"id": "atomic-structure-1", "command": "State", "prompt": "State the relative electrical charge of a proton.", "answer": "+1.", "status": "draft"},
+			{"id": "atomic-structure-2", "command": "State", "prompt": "State the relative electrical charge of a neutron.", "answer": "0 (neutral).", "status": "draft"},
+			{"id": "atomic-structure-3", "command": "State", "prompt": "State where most of the mass of an atom is found.", "answer": "In the nucleus.", "status": "draft"}
+		]
+	},
+	{
+		"id": "atomic-number-isotopes",
+		"title": "Atomic number, mass number and isotopes",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.1.2"],
+		"questions": [
+			{"id": "atomic-number-isotopes-1", "command": "Define", "prompt": "Define atomic number.", "answer": "The number of protons in the nucleus of an atom.", "status": "draft"},
+			{"id": "atomic-number-isotopes-2", "command": "Define", "prompt": "Define mass number.", "answer": "The total number of protons and neutrons in an atom.", "status": "draft"},
+			{"id": "atomic-number-isotopes-3", "command": "Define", "prompt": "Define isotopes.", "answer": "Atoms of the same element that have different numbers of neutrons.", "status": "draft"}
+		]
+	},
+	{
+		"id": "electrons-ions",
+		"title": "Electrons, ions and energy levels",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.1.2"],
+		"questions": [
+			{"id": "electrons-ions-1", "command": "State", "prompt": "State how the number of electrons in a neutral atom compares with the number of protons.", "answer": "They are equal, so the atom has no overall electrical charge.", "status": "draft"},
+			{"id": "electrons-ions-2", "command": "State", "prompt": "State what an atom becomes if it loses one or more outer electrons.", "answer": "A positive ion.", "status": "draft"},
+			{"id": "electrons-ions-3", "command": "State", "prompt": "State what happens to an electron in an atom that absorbs electromagnetic radiation.", "answer": "It moves to a higher energy level, further from the nucleus.", "status": "draft"}
+		]
+	},
+	{
+		"id": "atomic-model-history",
+		"title": "Development of the model of the atom",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.1.3"],
+		"questions": [
+			{"id": "atomic-model-history-1", "command": "Describe", "prompt": "Describe the plum pudding model of the atom.", "answer": "A ball of positive charge with negative electrons embedded in it.", "status": "draft"},
+			{"id": "atomic-model-history-2", "command": "State", "prompt": "State what the alpha particle scattering experiment showed about the atom.", "answer": "The mass of the atom is concentrated at the centre (the nucleus), and the nucleus is charged.", "status": "draft"},
+			{"id": "atomic-model-history-3", "command": "Name", "prompt": "Name the scientist who proposed that electrons orbit the nucleus at specific distances.", "answer": "Niels Bohr.", "status": "draft"}
 		]
 	},
 	{
 		"id": "nuclear-radiation",
 		"title": "Types of nuclear radiation",
 		"topic": "Atomic structure",
-		"specRefs": [
-			"4.4.2.1"
-		],
+		"specRefs": ["4.4.2.1"],
 		"questions": [
-			{
-				"id": "nuclear-radiation-1",
-				"command": "Name",
-				"prompt": "Name the three types of nuclear radiation emitted by radioactive nuclei (other than neutrons).",
-				"answer": "Alpha, beta and gamma.",
-				"status": "draft"
-			},
-			{
-				"id": "nuclear-radiation-2",
-				"command": "State",
-				"prompt": "State what an alpha particle is made of.",
-				"answer": "Two neutrons and two protons (a helium nucleus).",
-				"status": "draft"
-			},
-			{
-				"id": "nuclear-radiation-3",
-				"command": "State",
-				"prompt": "State which of alpha, beta and gamma radiation is the most penetrating.",
-				"answer": "Gamma.",
-				"status": "draft"
-			}
+			{"id": "nuclear-radiation-1", "command": "Name", "prompt": "Name the three types of nuclear radiation emitted by radioactive nuclei (other than neutrons).", "answer": "Alpha, beta and gamma.", "status": "draft"},
+			{"id": "nuclear-radiation-2", "command": "State", "prompt": "State what an alpha particle is made of.", "answer": "Two neutrons and two protons (a helium nucleus).", "status": "draft"},
+			{"id": "nuclear-radiation-3", "command": "State", "prompt": "State which of alpha, beta and gamma radiation is the most penetrating.", "answer": "Gamma.", "status": "draft"}
+		]
+	},
+	{
+		"id": "radiation-ionisation",
+		"title": "Beta particles, gamma rays and ionising power",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.2.1"],
+		"questions": [
+			{"id": "radiation-ionisation-1", "command": "State", "prompt": "State which type of nuclear radiation has the greatest ionising power.", "answer": "Alpha.", "status": "draft"},
+			{"id": "radiation-ionisation-2", "command": "Describe", "prompt": "Describe what a beta particle is.", "answer": "A high-speed electron ejected from the nucleus as a neutron turns into a proton.", "status": "draft"},
+			{"id": "radiation-ionisation-3", "command": "State", "prompt": "State what a gamma ray is.", "answer": "Electromagnetic radiation emitted from the nucleus.", "status": "draft"}
+		]
+	},
+	{
+		"id": "radioactive-decay",
+		"title": "Radioactive decay, activity and count-rate",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.2.1"],
+		"questions": [
+			{"id": "radioactive-decay-1", "command": "Define", "prompt": "Define radioactive decay.", "answer": "A random process in which an unstable nucleus gives out radiation as it changes to become more stable.", "status": "draft"},
+			{"id": "radioactive-decay-2", "command": "State", "prompt": "State the unit of activity.", "answer": "The becquerel (Bq).", "status": "draft"},
+			{"id": "radioactive-decay-3", "command": "Define", "prompt": "Define count-rate.", "answer": "The number of decays recorded each second by a detector.", "status": "draft"}
+		]
+	},
+	{
+		"id": "nuclear-equations",
+		"title": "Nuclear equations",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.2.2"],
+		"questions": [
+			{"id": "nuclear-equations-1", "command": "State", "prompt": "State the symbol used for an alpha particle in a nuclear equation.", "answer": "⁴₂α (equivalently ⁴₂He).", "status": "draft"},
+			{"id": "nuclear-equations-2", "command": "State", "prompt": "State the symbol used for a beta particle in a nuclear equation.", "answer": "⁰₋₁β (equivalently ⁰₋₁e).", "status": "draft"},
+			{"id": "nuclear-equations-3", "command": "State", "prompt": "State what the emission of a gamma ray does to the mass number and charge of the nucleus.", "answer": "Neither changes.", "status": "draft"}
+		]
+	},
+	{
+		"id": "half-life",
+		"title": "Half-life and random decay",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.2.3"],
+		"questions": [
+			{"id": "half-life-1", "command": "Define", "prompt": "Define half-life.", "answer": "The time it takes for the number of nuclei of an isotope in a sample to halve, or for the count rate (or activity) to fall to half its initial level.", "status": "draft"},
+			{"id": "half-life-2", "command": "State", "prompt": "State why it is impossible to predict when one particular nucleus will decay.", "answer": "Radioactive decay is a random process.", "status": "draft"},
+			{"id": "half-life-3", "command": "Calculate", "prompt": "Calculate the number of half-lives needed for a count rate to fall from 800 counts per minute to 100 counts per minute.", "answer": "3 half-lives (800 → 400 → 200 → 100).", "status": "draft"}
+		]
+	},
+	{
+		"id": "radioactive-contamination",
+		"title": "Radioactive contamination and irradiation",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.2.4"],
+		"questions": [
+			{"id": "radioactive-contamination-1", "command": "Define", "prompt": "Define radioactive contamination.", "answer": "The unwanted presence of materials containing radioactive atoms on other materials.", "status": "draft"},
+			{"id": "radioactive-contamination-2", "command": "State", "prompt": "State the difference between contamination and irradiation.", "answer": "Contamination is unwanted radioactive material on another material; irradiation exposes an object to radiation, and the object does not become radioactive.", "status": "draft"},
+			{"id": "radioactive-contamination-3", "command": "State", "prompt": "State why the findings of studies into the effects of radiation on humans should be published.", "answer": "So that other scientists can check them through peer review.", "status": "draft"}
+		]
+	},
+	{
+		"id": "background-radiation",
+		"title": "Background radiation",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.3.1"],
+		"questions": [
+			{"id": "background-radiation-1", "command": "Name", "prompt": "Name a natural source of background radiation.", "answer": "Rocks, or cosmic rays from space.", "status": "draft"},
+			{"id": "background-radiation-2", "command": "Name", "prompt": "Name a man-made source of background radiation.", "answer": "Fallout from nuclear weapons testing or nuclear accidents.", "status": "draft"},
+			{"id": "background-radiation-3", "command": "State", "prompt": "State what can affect the level of background radiation and radiation dose a person receives.", "answer": "Occupation and/or location.", "status": "draft"}
+		]
+	},
+	{
+		"id": "radiation-medical-uses",
+		"title": "Medical uses of nuclear radiation",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.3.3"],
+		"questions": [
+			{"id": "radiation-medical-uses-1", "command": "Name", "prompt": "Name a medical use of nuclear radiation for exploring internal organs.", "answer": "Medical tracers and imaging, e.g. a gamma camera.", "status": "draft"},
+			{"id": "radiation-medical-uses-2", "command": "Name", "prompt": "Name a medical use of nuclear radiation for destroying unwanted tissue.", "answer": "Radiotherapy (treating cancer).", "status": "draft"},
+			{"id": "radiation-medical-uses-3", "command": "Explain", "prompt": "Explain why alpha emitters are unsuitable as tracers inside the body.", "answer": "Alpha is strongly ionising with a very short range, so it is absorbed by tissue and cannot be detected from outside the body.", "status": "draft"}
+		]
+	},
+	{
+		"id": "nuclear-fission",
+		"title": "Nuclear fission",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.4.1"],
+		"questions": [
+			{"id": "nuclear-fission-1", "command": "Define", "prompt": "Define nuclear fission.", "answer": "The splitting of a large, unstable nucleus (such as uranium or plutonium).", "status": "draft"},
+			{"id": "nuclear-fission-2", "command": "State", "prompt": "State what an unstable nucleus usually must do before it undergoes fission.", "answer": "It must first absorb a neutron.", "status": "draft"},
+			{"id": "nuclear-fission-3", "command": "State", "prompt": "State what type of chain reaction causes the explosion of a nuclear weapon.", "answer": "An uncontrolled chain reaction.", "status": "draft"}
+		]
+	},
+	{
+		"id": "nuclear-fusion",
+		"title": "Nuclear fusion",
+		"topic": "Atomic structure",
+		"specRefs": ["4.4.4.2"],
+		"questions": [
+			{"id": "nuclear-fusion-1", "command": "Define", "prompt": "Define nuclear fusion.", "answer": "The joining of two light nuclei to form a heavier nucleus.", "status": "draft"},
+			{"id": "nuclear-fusion-2", "command": "State", "prompt": "State what can happen to some of the mass in a fusion reaction.", "answer": "It may be converted into the energy of radiation.", "status": "draft"},
+			{"id": "nuclear-fusion-3", "command": "Name", "prompt": "Name the process that releases energy in the core of the Sun.", "answer": "Nuclear fusion.", "status": "draft"}
 		]
 	}
 ]

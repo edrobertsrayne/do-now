@@ -3,62 +3,143 @@
 		"id": "current-charge",
 		"title": "Electric current and charge",
 		"topic": "Electricity",
-		"specRefs": [
-			"4.2.1.2"
-		],
+		"specRefs": ["4.2.1.2"],
 		"questions": [
-			{
-				"id": "current-charge-1",
-				"command": "Define",
-				"prompt": "Define electric current.",
-				"answer": "The rate of flow of electrical charge.",
-				"status": "draft"
-			},
-			{
-				"id": "current-charge-2",
-				"command": "State",
-				"prompt": "State the unit of electric charge.",
-				"answer": "The coulomb (C).",
-				"status": "draft"
-			},
-			{
-				"id": "current-charge-3",
-				"command": "State",
-				"prompt": "State the equation linking charge flow, current and time.",
-				"answer": "Charge flow = current x time (Q = It).",
-				"status": "draft"
-			}
+			{"id": "current-charge-1", "command": "Define", "prompt": "Define electric current.", "answer": "The rate of flow of electrical charge.", "status": "draft"},
+			{"id": "current-charge-2", "command": "State", "prompt": "State the unit of electric charge.", "answer": "The coulomb (C).", "status": "draft"},
+			{"id": "current-charge-3", "command": "State", "prompt": "State the equation linking charge flow, current and time.", "answer": "Charge flow = current × time (Q = It).", "status": "draft"}
+		]
+	},
+	{
+		"id": "potential-difference-resistance",
+		"title": "Potential difference, current and resistance",
+		"topic": "Electricity",
+		"specRefs": ["4.2.1.3"],
+		"questions": [
+			{"id": "potential-difference-resistance-1", "command": "State", "prompt": "State the equation linking potential difference, current and resistance.", "answer": "V = I × R.", "status": "draft"},
+			{"id": "potential-difference-resistance-2", "command": "State", "prompt": "State the unit of resistance.", "answer": "The ohm (Ω).", "status": "draft"},
+			{"id": "potential-difference-resistance-3", "command": "State", "prompt": "State how the current through a component changes when its resistance increases, for the same potential difference across it.", "answer": "It decreases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "resistor-characteristics",
+		"title": "Ohmic conductors, filament lamps and diodes",
+		"topic": "Electricity",
+		"specRefs": ["4.2.1.4"],
+		"questions": [
+			{"id": "resistor-characteristics-1", "command": "State", "prompt": "State how the current through an ohmic conductor relates to the potential difference across it, at constant temperature.", "answer": "The current is directly proportional to the potential difference.", "status": "draft"},
+			{"id": "resistor-characteristics-2", "command": "State", "prompt": "State how the resistance of a filament lamp changes as the temperature of its filament increases.", "answer": "It increases.", "status": "draft"},
+			{"id": "resistor-characteristics-3", "command": "State", "prompt": "State the direction in which current can flow through a diode.", "answer": "One direction only; a diode has a very high resistance in the reverse direction.", "status": "draft"}
+		]
+	},
+	{
+		"id": "thermistor-ldr",
+		"title": "Thermistors and LDRs",
+		"topic": "Electricity",
+		"specRefs": ["4.2.1.4"],
+		"questions": [
+			{"id": "thermistor-ldr-1", "command": "State", "prompt": "State how the resistance of a thermistor changes as its temperature increases.", "answer": "It decreases.", "status": "draft"},
+			{"id": "thermistor-ldr-2", "command": "State", "prompt": "State how the resistance of an LDR changes as light intensity increases.", "answer": "It decreases.", "status": "draft"},
+			{"id": "thermistor-ldr-3", "command": "Give", "prompt": "Give one use of an LDR in a circuit.", "answer": "E.g. switching lights on automatically when it gets dark.", "status": "draft"}
 		]
 	},
 	{
 		"id": "series-circuits",
 		"title": "Series circuits",
 		"topic": "Electricity",
-		"specRefs": [
-			"4.2.3"
-		],
+		"specRefs": ["4.2.2"],
 		"questions": [
-			{
-				"id": "series-circuits-1",
-				"command": "State",
-				"prompt": "State how the current compares at different points in a series circuit.",
-				"answer": "It is the same everywhere in the circuit.",
-				"status": "draft"
-			},
-			{
-				"id": "series-circuits-2",
-				"command": "State",
-				"prompt": "State what happens to the total resistance when another resistor is added in series.",
-				"answer": "It increases (the total resistance is the sum of the individual resistances).",
-				"status": "draft"
-			},
-			{
-				"id": "series-circuits-3",
-				"command": "State",
-				"prompt": "State how the potential difference of the supply is shared between components in series.",
-				"answer": "It is shared between the components (the sum of the potential differences equals the supply potential difference).",
-				"status": "draft"
-			}
+			{"id": "series-circuits-1", "command": "State", "prompt": "State how the current compares at different points in a series circuit.", "answer": "It is the same everywhere in the circuit.", "status": "draft"},
+			{"id": "series-circuits-2", "command": "State", "prompt": "State what happens to the total resistance when another resistor is added in series.", "answer": "It increases (the total resistance is the sum of the individual resistances).", "status": "draft"},
+			{"id": "series-circuits-3", "command": "State", "prompt": "State how the potential difference of the supply is shared between components in series.", "answer": "It is shared between the components (the sum of the potential differences equals the supply potential difference).", "status": "draft"}
+		]
+	},
+	{
+		"id": "parallel-circuits",
+		"title": "Parallel circuits",
+		"topic": "Electricity",
+		"specRefs": ["4.2.2"],
+		"questions": [
+			{"id": "parallel-circuits-1", "command": "State", "prompt": "State how the potential difference across components in parallel compares with each other.", "answer": "It is the same across each component.", "status": "draft"},
+			{"id": "parallel-circuits-2", "command": "State", "prompt": "State how the total current in a parallel circuit relates to the currents through the separate branches.", "answer": "The total current is the sum of the currents through the separate components.", "status": "draft"},
+			{"id": "parallel-circuits-3", "command": "State", "prompt": "State what happens to the total resistance when another resistor is added in parallel.", "answer": "It decreases (the total resistance is less than the smallest individual resistance).", "status": "draft"}
+		]
+	},
+	{
+		"id": "mains-electricity",
+		"title": "Direct and alternating potential difference",
+		"topic": "Electricity",
+		"specRefs": ["4.2.3.1"],
+		"questions": [
+			{"id": "mains-electricity-1", "command": "State", "prompt": "State the frequency of the UK domestic electricity supply.", "answer": "50 Hz.", "status": "draft"},
+			{"id": "mains-electricity-2", "command": "State", "prompt": "State the approximate potential difference of the UK domestic electricity supply.", "answer": "About 230 V.", "status": "draft"},
+			{"id": "mains-electricity-3", "command": "State", "prompt": "State the difference between direct and alternating potential difference.", "answer": "Direct potential difference is steady and drives current in one direction; alternating potential difference constantly reverses direction.", "status": "draft"}
+		]
+	},
+	{
+		"id": "mains-wiring",
+		"title": "Three-core cable and mains safety",
+		"topic": "Electricity",
+		"specRefs": ["4.2.3.2"],
+		"questions": [
+			{"id": "mains-wiring-1", "command": "State", "prompt": "State the colour of the live wire in a mains cable.", "answer": "Brown.", "status": "draft"},
+			{"id": "mains-wiring-2", "command": "State", "prompt": "State the colour of the earth wire in a mains cable.", "answer": "Green and yellow stripes.", "status": "draft"},
+			{"id": "mains-wiring-3", "command": "State", "prompt": "State the function of the earth wire.", "answer": "It is a safety wire that carries current only if there is a fault, stopping the appliance becoming live.", "status": "draft"}
+		]
+	},
+	{
+		"id": "electrical-power",
+		"title": "Electrical power",
+		"topic": "Electricity",
+		"specRefs": ["4.2.4.1"],
+		"questions": [
+			{"id": "electrical-power-1", "command": "State", "prompt": "State the equation linking power, potential difference and current.", "answer": "Power = potential difference × current (P = VI).", "status": "draft"},
+			{"id": "electrical-power-2", "command": "State", "prompt": "State the equation linking power, current and resistance.", "answer": "Power = current² × resistance (P = I²R).", "status": "draft"},
+			{"id": "electrical-power-3", "command": "State", "prompt": "State the unit of electrical power.", "answer": "The watt (W).", "status": "draft"}
+		]
+	},
+	{
+		"id": "energy-electrical",
+		"title": "Energy transferred by electrical work",
+		"topic": "Electricity",
+		"specRefs": ["4.2.4.2"],
+		"questions": [
+			{"id": "energy-electrical-1", "command": "State", "prompt": "State the equation linking energy transferred, power and time.", "answer": "Energy transferred = power × time (E = Pt).", "status": "draft"},
+			{"id": "energy-electrical-2", "command": "State", "prompt": "State the equation linking energy transferred, charge flow and potential difference.", "answer": "Energy transferred = charge flow × potential difference (E = QV).", "status": "draft"},
+			{"id": "energy-electrical-3", "command": "State", "prompt": "State when work is done in a circuit.", "answer": "When charge flows through a component that has a potential difference across it.", "status": "draft"}
+		]
+	},
+	{
+		"id": "national-grid",
+		"title": "The National Grid",
+		"topic": "Electricity",
+		"specRefs": ["4.2.4.3"],
+		"questions": [
+			{"id": "national-grid-1", "command": "State", "prompt": "State the purpose of a step-up transformer in the National Grid.", "answer": "It increases the potential difference from the power station for transmission through the cables.", "status": "draft"},
+			{"id": "national-grid-2", "command": "State", "prompt": "State the purpose of a step-down transformer in the National Grid.", "answer": "It decreases the potential difference to a much lower value for domestic use.", "status": "draft"},
+			{"id": "national-grid-3", "command": "State", "prompt": "State why the National Grid transmits electricity at a high potential difference.", "answer": "A high potential difference means a lower current for the same power, so less energy is wasted as heat in the cables.", "status": "draft"}
+		]
+	},
+	{
+		"id": "static-charge",
+		"title": "Static charge",
+		"topic": "Electricity",
+		"specRefs": ["4.2.5.1"],
+		"questions": [
+			{"id": "static-charge-1", "command": "State", "prompt": "State what is transferred between two insulating materials when they are rubbed together to produce static charge.", "answer": "Electrons.", "status": "draft"},
+			{"id": "static-charge-2", "command": "State", "prompt": "State which charge the material that gains electrons is left with.", "answer": "Negative (the material that loses electrons is left with an equal positive charge).", "status": "draft"},
+			{"id": "static-charge-3", "command": "State", "prompt": "State whether two objects carrying the same type of charge attract or repel.", "answer": "Repel.", "status": "draft"}
+		]
+	},
+	{
+		"id": "electric-fields",
+		"title": "Electric fields",
+		"topic": "Electricity",
+		"specRefs": ["4.2.5.2"],
+		"questions": [
+			{"id": "electric-fields-1", "command": "State", "prompt": "State what a charged object creates around itself.", "answer": "An electric field.", "status": "draft"},
+			{"id": "electric-fields-2", "command": "State", "prompt": "State how the strength of an electric field changes with distance from a charged object.", "answer": "It gets weaker the further away from the charged object.", "status": "draft"},
+			{"id": "electric-fields-3", "command": "State", "prompt": "State how the force on a second charged object changes as the distance between the two objects decreases.", "answer": "The force increases.", "status": "draft"}
 		]
 	}
 ]

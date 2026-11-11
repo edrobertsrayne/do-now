@@ -1,0 +1,101 @@
+[
+	{
+		"id": "magnet-poles",
+		"title": "Magnetic poles and induced magnetism",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.1.1"],
+		"questions": [
+			{"id": "magnet-poles-1", "command": "State", "prompt": "State what happens when the like poles of two magnets are brought together.", "answer": "They repel.", "status": "draft"},
+			{"id": "magnet-poles-2", "command": "State", "prompt": "State the difference between a permanent magnet and an induced magnet.", "answer": "A permanent magnet produces its own magnetic field; an induced magnet only becomes magnetic when placed in a magnetic field.", "status": "draft"},
+			{"id": "magnet-poles-3", "command": "State", "prompt": "State what happens to an induced magnet when it is removed from the magnetic field.", "answer": "It loses most or all of its magnetism quickly.", "status": "draft"}
+		]
+	},
+	{
+		"id": "magnetic-fields",
+		"title": "Magnetic fields",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.1.2"],
+		"questions": [
+			{"id": "magnetic-fields-1", "command": "State", "prompt": "State the direction of a magnetic field line outside a bar magnet.", "answer": "From the north pole to the south pole.", "status": "draft"},
+			{"id": "magnetic-fields-2", "command": "State", "prompt": "State where the magnetic field of a bar magnet is strongest.", "answer": "At its poles.", "status": "draft"},
+			{"id": "magnetic-fields-3", "command": "State", "prompt": "State what a compass needle's behaviour suggests about the Earth's core.", "answer": "The Earth's core must be magnetic, since the compass needle points along the Earth's magnetic field.", "status": "draft"}
+		]
+	},
+	{
+		"id": "electromagnetism",
+		"title": "Magnetic fields around current-carrying wires",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.2.1"],
+		"questions": [
+			{"id": "electromagnetism-1", "command": "State", "prompt": "State what surrounds a wire when a current flows through it.", "answer": "A magnetic field.", "status": "draft"},
+			{"id": "electromagnetism-2", "command": "State", "prompt": "State the shape of wire that concentrates the magnetic field of a current into a strong, uniform field inside the coil.", "answer": "A solenoid (coil).", "status": "draft"},
+			{"id": "electromagnetism-3", "command": "State", "prompt": "State what an electromagnet is.", "answer": "A solenoid with an iron core.", "status": "draft"}
+		]
+	},
+	{
+		"id": "fleming-left-hand-rule",
+		"title": "Force on a conductor and Fleming's left-hand rule",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.2.2"],
+		"questions": [
+			{"id": "fleming-left-hand-rule-1", "command": "Name", "prompt": "Name the rule that shows the relative directions of force, current and magnetic field.", "answer": "Fleming's left-hand rule.", "status": "draft"},
+			{"id": "fleming-left-hand-rule-2", "command": "State", "prompt": "State the name of the force on a current-carrying conductor in a magnetic field.", "answer": "The motor effect.", "status": "draft"},
+			{"id": "fleming-left-hand-rule-3", "command": "State", "prompt": "State the equation for the force on a conductor at right angles to a magnetic field.", "answer": "Force = magnetic flux density × current × length (F = BIl).", "status": "draft"}
+		]
+	},
+	{
+		"id": "motor-loudspeaker",
+		"title": "Electric motors and loudspeakers",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.2.3", "4.7.2.4"],
+		"questions": [
+			{"id": "motor-loudspeaker-1", "command": "State", "prompt": "State what a coil of wire carrying a current in a magnetic field tends to do.", "answer": "Rotate.", "status": "draft"},
+			{"id": "motor-loudspeaker-2", "command": "State", "prompt": "State the unit of magnetic flux density.", "answer": "The tesla (T).", "status": "draft"},
+			{"id": "motor-loudspeaker-3", "command": "State", "prompt": "State what a loudspeaker converts variations in current into.", "answer": "Pressure variations in sound waves (using the motor effect).", "status": "draft"}
+		]
+	},
+	{
+		"id": "generator-effect",
+		"title": "The generator effect",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.3.1"],
+		"questions": [
+			{"id": "generator-effect-1", "command": "Name", "prompt": "Name the effect in which a conductor moving through a magnetic field induces a potential difference.", "answer": "The generator effect.", "status": "draft"},
+			{"id": "generator-effect-2", "command": "State", "prompt": "State what an induced current does to the change that causes it.", "answer": "It generates a magnetic field that opposes the original change.", "status": "draft"},
+			{"id": "generator-effect-3", "command": "State", "prompt": "State the condition for an induced potential difference to produce a current.", "answer": "The conductor must be part of a complete circuit.", "status": "draft"}
+		]
+	},
+	{
+		"id": "alternator-dynamo",
+		"title": "Alternators, dynamos and microphones",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.3.2", "4.7.3.3"],
+		"questions": [
+			{"id": "alternator-dynamo-1", "command": "State", "prompt": "State the type of current an alternator generates.", "answer": "Alternating current (ac).", "status": "draft"},
+			{"id": "alternator-dynamo-2", "command": "State", "prompt": "State the type of current a dynamo generates.", "answer": "Direct current (dc).", "status": "draft"},
+			{"id": "alternator-dynamo-3", "command": "State", "prompt": "State the effect a moving-coil microphone uses to convert sound waves into variations in current.", "answer": "The generator effect.", "status": "draft"}
+		]
+	},
+	{
+		"id": "transformers",
+		"title": "Transformers",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.3.4"],
+		"questions": [
+			{"id": "transformers-1", "command": "State", "prompt": "State what a basic transformer consists of.", "answer": "A primary coil and a secondary coil wound on an iron core.", "status": "draft"},
+			{"id": "transformers-2", "command": "State", "prompt": "State why iron is used as the core of a transformer.", "answer": "It is easily magnetised.", "status": "draft"},
+			{"id": "transformers-3", "command": "State", "prompt": "State whether the secondary potential difference is greater or less than the primary potential difference in a step-up transformer.", "answer": "Greater (Vs > Vp).", "status": "draft"}
+		]
+	},
+	{
+		"id": "transformer-equations",
+		"title": "Transformer equations",
+		"topic": "Magnetism and electromagnetism",
+		"specRefs": ["4.7.3.4"],
+		"questions": [
+			{"id": "transformer-equations-1", "command": "State", "prompt": "State the equation linking primary and secondary potential difference to the number of turns on each coil.", "answer": "Vp / Vs = np / ns.", "status": "draft"},
+			{"id": "transformer-equations-2", "command": "State", "prompt": "State the equation linking input and output power in an ideal (100% efficient) transformer.", "answer": "Vs × Is = Vp × Ip.", "status": "draft"},
+			{"id": "transformer-equations-3", "command": "Calculate", "prompt": "Calculate the secondary potential difference of a transformer with 100 primary turns, 1000 secondary turns and a 230 V primary potential difference.", "answer": "2300 V (Vs = 230 × 1000/100).", "status": "draft"}
+		]
+	}
+]

@@ -3,31 +3,88 @@
 		"id": "density-states",
 		"title": "Density and states of matter",
 		"topic": "Particle model of matter",
-		"specRefs": [
-			"4.3.1.1"
-		],
+		"specRefs": ["4.3.1.1"],
 		"questions": [
-			{
-				"id": "density-states-1",
-				"command": "State",
-				"prompt": "State the equation linking density, mass and volume.",
-				"answer": "Density = mass / volume.",
-				"status": "draft"
-			},
-			{
-				"id": "density-states-2",
-				"command": "State",
-				"prompt": "State the SI unit of density.",
-				"answer": "Kilograms per cubic metre (kg/m^3).",
-				"status": "draft"
-			},
-			{
-				"id": "density-states-3",
-				"command": "Describe",
-				"prompt": "Describe the arrangement of particles in a solid.",
-				"answer": "Particles are closely packed in a regular pattern and vibrate about fixed positions.",
-				"status": "draft"
-			}
+			{"id": "density-states-1", "command": "State", "prompt": "State the equation linking density, mass and volume.", "answer": "Density = mass / volume.", "status": "draft"},
+			{"id": "density-states-2", "command": "State", "prompt": "State the SI unit of density.", "answer": "Kilograms per cubic metre (kg/m^3).", "status": "draft"},
+			{"id": "density-states-3", "command": "Describe", "prompt": "Describe the arrangement of particles in a solid.", "answer": "Particles are closely packed in a regular pattern and vibrate about fixed positions.", "status": "draft"}
+		]
+	},
+	{
+		"id": "states-of-matter",
+		"title": "Particle arrangement in liquids and gases",
+		"topic": "Particle model of matter",
+		"specRefs": ["4.3.1.1"],
+		"questions": [
+			{"id": "states-of-matter-1", "command": "Describe", "prompt": "Describe the arrangement of particles in a liquid.", "answer": "Particles are close together with no regular pattern, and they can move past each other.", "status": "draft"},
+			{"id": "states-of-matter-2", "command": "Describe", "prompt": "Describe the arrangement of particles in a gas.", "answer": "Particles are far apart and move quickly and randomly.", "status": "draft"},
+			{"id": "states-of-matter-3", "command": "State", "prompt": "State how the density of a gas compares with the density of the same material as a solid.", "answer": "The gas is much less dense, because its particles are far apart.", "status": "draft"}
+		]
+	},
+	{
+		"id": "changes-of-state",
+		"title": "Changes of state",
+		"topic": "Particle model of matter",
+		"specRefs": ["4.3.1.2"],
+		"questions": [
+			{"id": "changes-of-state-1", "command": "State", "prompt": "State what happens to the mass of a substance when it changes state.", "answer": "Mass is conserved.", "status": "draft"},
+			{"id": "changes-of-state-2", "command": "State", "prompt": "State whether a change of state is a chemical or a physical change.", "answer": "A physical change: the material recovers its original properties if the change is reversed.", "status": "draft"},
+			{"id": "changes-of-state-3", "command": "Name", "prompt": "Name the change of state in which a solid turns directly into a gas.", "answer": "Sublimation.", "status": "draft"}
+		]
+	},
+	{
+		"id": "internal-energy",
+		"title": "Internal energy",
+		"topic": "Particle model of matter",
+		"specRefs": ["4.3.2.1"],
+		"questions": [
+			{"id": "internal-energy-1", "command": "Define", "prompt": "Define internal energy.", "answer": "The total kinetic energy and potential energy of all the particles (atoms and molecules) that make up a system.", "status": "draft"},
+			{"id": "internal-energy-2", "command": "State", "prompt": "State the two possible results of heating a system, in terms of its internal energy.", "answer": "It raises the temperature of the system, or it produces a change of state.", "status": "draft"},
+			{"id": "internal-energy-3", "command": "State", "prompt": "State what happens to the temperature of a substance while it is changing state.", "answer": "It stays constant.", "status": "draft"}
+		]
+	},
+	{
+		"id": "specific-latent-heat",
+		"title": "Specific latent heat",
+		"topic": "Particle model of matter",
+		"specRefs": ["4.3.2.3"],
+		"questions": [
+			{"id": "specific-latent-heat-1", "command": "State", "prompt": "State the equation for the energy needed for a change of state.", "answer": "Energy = mass × specific latent heat (E = mL).", "status": "draft"},
+			{"id": "specific-latent-heat-2", "command": "State", "prompt": "State the unit of specific latent heat.", "answer": "Joules per kilogram (J/kg).", "status": "draft"},
+			{"id": "specific-latent-heat-3", "command": "Define", "prompt": "Define specific latent heat.", "answer": "The energy required to change the state of 1 kg of a substance with no change in temperature.", "status": "draft"}
+		]
+	},
+	{
+		"id": "gas-particle-motion",
+		"title": "Particle motion in gases",
+		"topic": "Particle model of matter",
+		"specRefs": ["4.3.3.1"],
+		"questions": [
+			{"id": "gas-particle-motion-1", "command": "State", "prompt": "State what the temperature of a gas is related to.", "answer": "The average kinetic energy of its molecules.", "status": "draft"},
+			{"id": "gas-particle-motion-2", "command": "Describe", "prompt": "Describe the motion of the molecules in a gas.", "answer": "They are in constant, random motion.", "status": "draft"},
+			{"id": "gas-particle-motion-3", "command": "State", "prompt": "State what happens to the pressure of a gas, at constant volume, when its temperature increases.", "answer": "The pressure increases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "gas-pressure-volume",
+		"title": "Pressure and volume of a gas",
+		"topic": "Particle model of matter",
+		"specRefs": ["4.3.3.2"],
+		"questions": [
+			{"id": "gas-pressure-volume-1", "command": "State", "prompt": "State the equation for a fixed mass of gas held at constant temperature.", "answer": "Pressure × volume = constant (pV = constant).", "status": "draft"},
+			{"id": "gas-pressure-volume-2", "command": "State", "prompt": "State what happens to the pressure of a fixed mass of gas at constant temperature when its volume is halved.", "answer": "The pressure doubles.", "status": "draft"},
+			{"id": "gas-pressure-volume-3", "command": "Explain", "prompt": "Explain, using the particle model, how a gas exerts pressure on the walls of its container.", "answer": "Gas particles collide with the container walls, producing a net force at right angles to the wall.", "status": "draft"}
+		]
+	},
+	{
+		"id": "work-on-gas",
+		"title": "Doing work on a gas",
+		"topic": "Particle model of matter",
+		"specRefs": ["4.3.3.3"],
+		"questions": [
+			{"id": "work-on-gas-1", "command": "State", "prompt": "State what work is.", "answer": "The transfer of energy by a force.", "status": "draft"},
+			{"id": "work-on-gas-2", "command": "State", "prompt": "State what doing work on an enclosed gas does to its internal energy.", "answer": "It increases the internal energy of the gas, and can raise its temperature.", "status": "draft"},
+			{"id": "work-on-gas-3", "command": "Give", "prompt": "Give an everyday example of doing work on an enclosed gas so that its temperature rises.", "answer": "Compressing the air in a bicycle pump makes the pump warm.", "status": "draft"}
 		]
 	}
 ]

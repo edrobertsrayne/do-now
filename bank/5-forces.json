@@ -3,63 +3,275 @@
 		"id": "scalar-vector",
 		"title": "Scalar and vector quantities",
 		"topic": "Forces",
-		"specRefs": [
-			"4.5.1.1"
-		],
+		"specRefs": ["4.5.1.1"],
 		"questions": [
-			{
-				"id": "scalar-vector-1",
-				"command": "Define",
-				"prompt": "Define a scalar quantity.",
-				"answer": "A quantity that has magnitude only.",
-				"status": "draft"
-			},
-			{
-				"id": "scalar-vector-2",
-				"command": "Define",
-				"prompt": "Define a vector quantity.",
-				"answer": "A quantity that has both magnitude and direction.",
-				"status": "draft"
-			},
-			{
-				"id": "scalar-vector-3",
-				"command": "State",
-				"prompt": "State one scalar and one vector quantity.",
-				"answer": "Scalar: any of distance, speed, mass, energy, time, temperature. Vector: any of displacement, velocity, force, acceleration, momentum.",
-				"status": "draft"
-			}
+			{"id": "scalar-vector-1", "command": "Define", "prompt": "Define a scalar quantity.", "answer": "A quantity with magnitude (size) only.", "status": "draft"},
+			{"id": "scalar-vector-2", "command": "Define", "prompt": "Define a vector quantity.", "answer": "A quantity with both magnitude and direction.", "status": "draft"},
+			{"id": "scalar-vector-3", "command": "Name", "prompt": "Name one scalar quantity and one vector quantity.", "answer": "Scalar: e.g. speed, energy, mass, distance. Vector: e.g. force, velocity, displacement, weight.", "status": "draft"}
+		]
+	},
+	{
+		"id": "contact-non-contact",
+		"title": "Contact and non-contact forces",
+		"topic": "Forces",
+		"specRefs": ["4.5.1.2"],
+		"questions": [
+			{"id": "contact-non-contact-1", "command": "State", "prompt": "State the difference between contact and non-contact forces.", "answer": "Contact forces act when objects are physically touching; non-contact forces act when objects are physically separated.", "status": "draft"},
+			{"id": "contact-non-contact-2", "command": "Name", "prompt": "Name one non-contact force.", "answer": "Gravitational, electrostatic or magnetic force.", "status": "draft"},
+			{"id": "contact-non-contact-3", "command": "Name", "prompt": "Name one contact force.", "answer": "Friction, air resistance, tension or the normal contact force.", "status": "draft"}
+		]
+	},
+	{
+		"id": "weight",
+		"title": "Weight and gravitational field strength",
+		"topic": "Forces",
+		"specRefs": ["4.5.1.3"],
+		"questions": [
+			{"id": "weight-1", "command": "State", "prompt": "State the equation linking weight, mass and gravitational field strength.", "answer": "Weight = mass × gravitational field strength (W = mg).", "status": "draft"},
+			{"id": "weight-2", "command": "State", "prompt": "State the unit of weight.", "answer": "The newton (N).", "status": "draft"},
+			{"id": "weight-3", "command": "State", "prompt": "State the instrument used to measure weight.", "answer": "A calibrated spring balance (newtonmeter).", "status": "draft"}
+		]
+	},
+	{
+		"id": "resultant-force",
+		"title": "Resultant force",
+		"topic": "Forces",
+		"specRefs": ["4.5.1.4"],
+		"questions": [
+			{"id": "resultant-force-1", "command": "Define", "prompt": "Define resultant force.", "answer": "A single force that has the same effect as all the original forces acting together.", "status": "draft"},
+			{"id": "resultant-force-2", "command": "Calculate", "prompt": "Calculate the resultant of a 5 N force and a 3 N force acting in a straight line in opposite directions.", "answer": "2 N, in the direction of the 5 N force.", "status": "draft"},
+			{"id": "resultant-force-3", "command": "State", "prompt": "State the resultant force on an object acted on by balanced forces.", "answer": "Zero.", "status": "draft"}
+		]
+	},
+	{
+		"id": "work-done-energy",
+		"title": "Work done by a force",
+		"topic": "Forces",
+		"specRefs": ["4.5.2"],
+		"questions": [
+			{"id": "work-done-energy-1", "command": "State", "prompt": "State the equation for work done by a force.", "answer": "Work done = force × distance moved in the direction of the force (W = Fs).", "status": "draft"},
+			{"id": "work-done-energy-2", "command": "Define", "prompt": "Define one joule of work.", "answer": "The work done when a force of one newton causes a displacement of one metre (1 J = 1 N m).", "status": "draft"},
+			{"id": "work-done-energy-3", "command": "State", "prompt": "State what happens to the temperature of an object when work is done against friction.", "answer": "It increases, as energy is transferred to the thermal energy store.", "status": "draft"}
+		]
+	},
+	{
+		"id": "elasticity",
+		"title": "Elastic and inelastic deformation",
+		"topic": "Forces",
+		"specRefs": ["4.5.3"],
+		"questions": [
+			{"id": "elasticity-1", "command": "State", "prompt": "State the equation linking force, spring constant and extension.", "answer": "Force = spring constant × extension (F = ke).", "status": "draft"},
+			{"id": "elasticity-2", "command": "State", "prompt": "State the condition under which force is proportional to extension.", "answer": "The limit of proportionality is not exceeded.", "status": "draft"},
+			{"id": "elasticity-3", "command": "Describe", "prompt": "Describe the difference between elastic and inelastic deformation.", "answer": "Elastic: the object returns to its original shape when the force is removed. Inelastic: the object is permanently deformed.", "status": "draft"}
+		]
+	},
+	{
+		"id": "moments",
+		"title": "Moments",
+		"topic": "Forces",
+		"specRefs": ["4.5.4"],
+		"questions": [
+			{"id": "moments-1", "command": "State", "prompt": "State the equation for the moment of a force.", "answer": "Moment = force × perpendicular distance from the pivot (M = Fd).", "status": "draft"},
+			{"id": "moments-2", "command": "State", "prompt": "State the unit of moment.", "answer": "The newton metre (N m).", "status": "draft"},
+			{"id": "moments-3", "command": "State", "prompt": "State the condition for an object to be balanced about a pivot.", "answer": "The total clockwise moment equals the total anticlockwise moment.", "status": "draft"}
+		]
+	},
+	{
+		"id": "pressure-fluids",
+		"title": "Pressure in fluids",
+		"topic": "Forces",
+		"specRefs": ["4.5.5.1.1"],
+		"questions": [
+			{"id": "pressure-fluids-1", "command": "State", "prompt": "State the equation for pressure.", "answer": "Pressure = force ÷ area (p = F/A).", "status": "draft"},
+			{"id": "pressure-fluids-2", "command": "State", "prompt": "State the unit of pressure.", "answer": "The pascal (Pa).", "status": "draft"},
+			{"id": "pressure-fluids-3", "command": "State", "prompt": "State the direction of the force a fluid exerts on a surface.", "answer": "Normal to (at right angles to) the surface.", "status": "draft"}
+		]
+	},
+	{
+		"id": "liquid-pressure-depth",
+		"title": "Pressure at depth in a liquid and upthrust",
+		"topic": "Forces",
+		"specRefs": ["4.5.5.1.2"],
+		"questions": [
+			{"id": "liquid-pressure-depth-1", "command": "State", "prompt": "State the equation for pressure at a depth in a liquid.", "answer": "Pressure = height × density × gravitational field strength (p = hρg).", "status": "draft"},
+			{"id": "liquid-pressure-depth-2", "command": "State", "prompt": "State what affects the pressure at a point in a liquid, other than the depth.", "answer": "The density of the liquid.", "status": "draft"},
+			{"id": "liquid-pressure-depth-3", "command": "State", "prompt": "State what upthrust is.", "answer": "The resultant upward force on a submerged object, caused by the greater pressure on its bottom surface than on its top surface.", "status": "draft"}
+		]
+	},
+	{
+		"id": "atmospheric-pressure",
+		"title": "Atmospheric pressure",
+		"topic": "Forces",
+		"specRefs": ["4.5.5.2"],
+		"questions": [
+			{"id": "atmospheric-pressure-1", "command": "State", "prompt": "State how atmospheric pressure changes with increasing height above the ground.", "answer": "It decreases.", "status": "draft"},
+			{"id": "atmospheric-pressure-2", "command": "State", "prompt": "State what causes atmospheric pressure.", "answer": "Air molecules colliding with a surface.", "status": "draft"},
+			{"id": "atmospheric-pressure-3", "command": "State", "prompt": "State how the density of the atmosphere changes with altitude.", "answer": "It decreases; the air gets less dense as altitude increases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "displacement-speed",
+		"title": "Distance, displacement and speed",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.1.1", "4.5.6.1.2"],
+		"questions": [
+			{"id": "displacement-speed-1", "command": "Define", "prompt": "Define displacement.", "answer": "The distance moved in a straight line from the start point to the finish point, together with the direction (a vector).", "status": "draft"},
+			{"id": "displacement-speed-2", "command": "State", "prompt": "State whether speed is a scalar or a vector quantity.", "answer": "Scalar.", "status": "draft"},
+			{"id": "displacement-speed-3", "command": "State", "prompt": "State the typical walking speed.", "answer": "About 1.5 m/s.", "status": "draft"}
+		]
+	},
+	{
+		"id": "speed-distance",
+		"title": "Speed, distance and time",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.1.2"],
+		"questions": [
+			{"id": "speed-distance-1", "command": "State", "prompt": "State the equation for distance travelled at constant speed.", "answer": "Distance = speed × time (s = vt).", "status": "draft"},
+			{"id": "speed-distance-2", "command": "Calculate", "prompt": "Calculate the distance travelled by an object moving at 15 m/s for 10 s.", "answer": "150 m.", "status": "draft"},
+			{"id": "speed-distance-3", "command": "State", "prompt": "State a typical value for the speed of sound in air.", "answer": "About 330 m/s.", "status": "draft"}
+		]
+	},
+	{
+		"id": "velocity-graphs",
+		"title": "Velocity and distance-time graphs",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.1.3", "4.5.6.1.4"],
+		"questions": [
+			{"id": "velocity-graphs-1", "command": "Define", "prompt": "Define velocity.", "answer": "Speed in a given direction (a vector quantity).", "status": "draft"},
+			{"id": "velocity-graphs-2", "command": "State", "prompt": "State what the gradient of a distance-time graph represents.", "answer": "Speed.", "status": "draft"},
+			{"id": "velocity-graphs-3", "command": "State", "prompt": "State what a horizontal line on a distance-time graph represents.", "answer": "The object is stationary.", "status": "draft"}
+		]
+	},
+	{
+		"id": "acceleration",
+		"title": "Acceleration",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.1.5"],
+		"questions": [
+			{"id": "acceleration-1", "command": "State", "prompt": "State the equation for acceleration.", "answer": "Acceleration = change in velocity ÷ time taken (a = Δv/t).", "status": "draft"},
+			{"id": "acceleration-2", "command": "State", "prompt": "State the unit of acceleration.", "answer": "Metres per second squared (m/s²).", "status": "draft"},
+			{"id": "acceleration-3", "command": "State", "prompt": "State what the gradient of a velocity-time graph represents.", "answer": "Acceleration.", "status": "draft"}
+		]
+	},
+	{
+		"id": "suvat",
+		"title": "Equations of motion for uniform acceleration",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.1.5"],
+		"questions": [
+			{"id": "suvat-1", "command": "State", "prompt": "State the equation linking final velocity, initial velocity, acceleration and distance for uniform acceleration.", "answer": "v² − u² = 2 × a × s.", "status": "draft"},
+			{"id": "suvat-2", "command": "State", "prompt": "State what the area under a velocity-time graph represents.", "answer": "Distance travelled (or displacement).", "status": "draft"},
+			{"id": "suvat-3", "command": "State", "prompt": "State the approximate acceleration of a freely falling object near the Earth's surface.", "answer": "About 9.8 m/s².", "status": "draft"}
+		]
+	},
+	{
+		"id": "terminal-velocity",
+		"title": "Terminal velocity",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.1.5"],
+		"questions": [
+			{"id": "terminal-velocity-1", "command": "Define", "prompt": "Define terminal velocity.", "answer": "The constant velocity reached by an object falling through a fluid when the resultant force on it is zero.", "status": "draft"},
+			{"id": "terminal-velocity-2", "command": "State", "prompt": "State why an object falling through a fluid initially accelerates.", "answer": "The force of gravity is greater than the resistive (drag) force.", "status": "draft"},
+			{"id": "terminal-velocity-3", "command": "State", "prompt": "State the resultant force on an object moving at terminal velocity.", "answer": "Zero.", "status": "draft"}
 		]
 	},
 	{
 		"id": "newtons-laws",
-		"title": "Newton's first and second laws",
+		"title": "Newton's laws of motion",
 		"topic": "Forces",
-		"specRefs": [
-			"4.5.6.1",
-			"4.5.6.2"
-		],
+		"specRefs": ["4.5.6.2"],
 		"questions": [
-			{
-				"id": "newtons-laws-1",
-				"command": "State",
-				"prompt": "State Newton's first law.",
-				"answer": "If the resultant force on an object is zero, a stationary object stays at rest and a moving object continues at the same speed in the same direction (constant velocity).",
-				"status": "draft"
-			},
-			{
-				"id": "newtons-laws-2",
-				"command": "State",
-				"prompt": "State the resultant force on an object moving at constant velocity.",
-				"answer": "Zero.",
-				"status": "draft"
-			},
-			{
-				"id": "newtons-laws-3",
-				"command": "State",
-				"prompt": "State the equation linking resultant force, mass and acceleration.",
-				"answer": "Resultant force = mass x acceleration (F = ma).",
-				"status": "draft"
-			}
+			{"id": "newtons-laws-1", "command": "State", "prompt": "State Newton's First Law of motion.", "answer": "An object remains at rest, or continues at a constant velocity, unless acted on by a resultant force.", "status": "draft"},
+			{"id": "newtons-laws-2", "command": "State", "prompt": "State the equation linking resultant force, mass and acceleration.", "answer": "Resultant force = mass × acceleration (F = ma).", "status": "draft"},
+			{"id": "newtons-laws-3", "command": "Calculate", "prompt": "Calculate the resultant force needed to accelerate a 2 kg object at 3 m/s².", "answer": "6 N (F = ma = 2 × 3).", "status": "draft"}
+		]
+	},
+	{
+		"id": "acceleration-mass",
+		"title": "Mass, inertia and acceleration",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.2.2"],
+		"questions": [
+			{"id": "acceleration-mass-1", "command": "State", "prompt": "State how the acceleration of an object changes when its mass is doubled and the resultant force is kept constant.", "answer": "It halves.", "status": "draft"},
+			{"id": "acceleration-mass-2", "command": "Define", "prompt": "Define inertial mass.", "answer": "The ratio of force over acceleration; a measure of how difficult it is to change the velocity of an object.", "status": "draft"},
+			{"id": "acceleration-mass-3", "command": "Calculate", "prompt": "Calculate the resultant force needed to accelerate a 1200 kg car at 2 m/s².", "answer": "2400 N (F = ma).", "status": "draft"}
+		]
+	},
+	{
+		"id": "newtons-third",
+		"title": "Newton's Third Law and inertia",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.2.3"],
+		"questions": [
+			{"id": "newtons-third-1", "command": "State", "prompt": "State Newton's Third Law.", "answer": "When two objects interact, the forces they exert on each other are equal and opposite.", "status": "draft"},
+			{"id": "newtons-third-2", "command": "Define", "prompt": "Define inertia.", "answer": "The tendency of an object to continue in its state of rest or of uniform motion.", "status": "draft"},
+			{"id": "newtons-third-3", "command": "State", "prompt": "State how the two forces in an interaction pair compare in size and direction.", "answer": "They are equal in size and opposite in direction, and act on different objects.", "status": "draft"}
+		]
+	},
+	{
+		"id": "stopping-distance",
+		"title": "Stopping distance",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.3.1"],
+		"questions": [
+			{"id": "stopping-distance-1", "command": "State", "prompt": "State what the stopping distance of a vehicle is made up of.", "answer": "Thinking distance plus braking distance.", "status": "draft"},
+			{"id": "stopping-distance-2", "command": "Define", "prompt": "Define thinking distance.", "answer": "The distance the vehicle travels during the driver's reaction time.", "status": "draft"},
+			{"id": "stopping-distance-3", "command": "State", "prompt": "State how the stopping distance of a vehicle changes as its speed increases, for a given braking force.", "answer": "It increases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "reaction-time",
+		"title": "Reaction time",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.3.2"],
+		"questions": [
+			{"id": "reaction-time-1", "command": "State", "prompt": "State the typical range of human reaction times.", "answer": "About 0.2 s to 0.9 s.", "status": "draft"},
+			{"id": "reaction-time-2", "command": "Name", "prompt": "Name two factors that can affect a driver's reaction time.", "answer": "Tiredness, drugs, alcohol or distractions (any two).", "status": "draft"},
+			{"id": "reaction-time-3", "command": "Describe", "prompt": "Describe a simple method for measuring human reaction time.", "answer": "E.g. the ruler drop test: a ruler is dropped and the distance it falls before it is caught is used to calculate the reaction time.", "status": "draft"}
+		]
+	},
+	{
+		"id": "braking-factors",
+		"title": "Factors affecting braking distance",
+		"topic": "Forces",
+		"specRefs": ["4.5.6.3.3", "4.5.6.3.4"],
+		"questions": [
+			{"id": "braking-factors-1", "command": "Name", "prompt": "Name two adverse road conditions that increase braking distance.", "answer": "Wet or icy roads.", "status": "draft"},
+			{"id": "braking-factors-2", "command": "State", "prompt": "State how worn brakes or tyres affect braking distance.", "answer": "They increase the braking distance.", "status": "draft"},
+			{"id": "braking-factors-3", "command": "State", "prompt": "State what happens to the temperature of a vehicle's brakes when they are applied.", "answer": "It increases, because work done by friction heats the brakes.", "status": "draft"}
+		]
+	},
+	{
+		"id": "momentum",
+		"title": "Momentum",
+		"topic": "Forces",
+		"specRefs": ["4.5.7.1"],
+		"questions": [
+			{"id": "momentum-1", "command": "State", "prompt": "State the equation for momentum.", "answer": "Momentum = mass × velocity (p = mv).", "status": "draft"},
+			{"id": "momentum-2", "command": "State", "prompt": "State the unit of momentum.", "answer": "kg m/s (kilogram metre per second).", "status": "draft"},
+			{"id": "momentum-3", "command": "Calculate", "prompt": "Calculate the momentum of a 1000 kg car travelling at 20 m/s.", "answer": "20 000 kg m/s.", "status": "draft"}
+		]
+	},
+	{
+		"id": "conservation-momentum",
+		"title": "Conservation of momentum",
+		"topic": "Forces",
+		"specRefs": ["4.5.7.2"],
+		"questions": [
+			{"id": "conservation-momentum-1", "command": "State", "prompt": "State the principle of conservation of momentum.", "answer": "In a closed system, the total momentum before an event equals the total momentum after the event.", "status": "draft"},
+			{"id": "conservation-momentum-2", "command": "State", "prompt": "State the total momentum of a system before a collision if all the objects are stationary.", "answer": "Zero.", "status": "draft"},
+			{"id": "conservation-momentum-3", "command": "State", "prompt": "State what must be true of a system for its momentum to be conserved.", "answer": "No external resultant force acts on it (it is a closed system).", "status": "draft"}
+		]
+	},
+	{
+		"id": "momentum-change",
+		"title": "Force and change in momentum",
+		"topic": "Forces",
+		"specRefs": ["4.5.7.3"],
+		"questions": [
+			{"id": "momentum-change-1", "command": "State", "prompt": "State the equation linking force, change in momentum and time.", "answer": "Force = mass × change in velocity ÷ time (F = mΔv/Δt).", "status": "draft"},
+			{"id": "momentum-change-2", "command": "State", "prompt": "State what force is equal to, in words.", "answer": "The rate of change of momentum.", "status": "draft"},
+			{"id": "momentum-change-3", "command": "Explain", "prompt": "Explain how a cushioned surface or air bag reduces the force on a person in a collision.", "answer": "It increases the time over which the momentum changes, so the rate of change of momentum, and therefore the force, is reduced.", "status": "draft"}
 		]
 	}
 ]
