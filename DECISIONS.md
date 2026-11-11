@@ -58,6 +58,9 @@ Known risks to watch in the simulation (`npm run simulate`):
 | 34 | Think phase: all questions listed at once, timer visible, answers cannot be seen. Check phase: one question at a time, answer revealed on a separate keypress in a reserved panel (layout does not shift), then next question; a final summary lists every question with its answer. `O` shows an overview mid-check. | agreed (flow) / default (details) |
 | 35 | Class-facing screen is minimal: "Do Now" title, timer and one action button ("Start checking", then "Reveal answer" / "Next question"). Each question shows only its number and prompt, as a separate card, in regular (non-bold) weight. No command-word badges or highlighting, topic or skill names, phase badge, lesson number or on-screen shortcut hints. | agreed |
 | 36 | Text auto-shrinks to fit its box (down to a legibility floor) rather than scrolling, so any prompt/answer length fits at 4-6 questions. Keyboard still works without on-screen hints: Space/arrows, `O` overview, `T` timer, `+`/`-`, `0`, `F` fullscreen. | default |
+| 37 | Web app shape: `/` creates or opens a class; `/c/CODE` is the checklist and Do Now generator; `/c/CODE/project`, `/print`, `/key` show the latest Do Now. The latest generated Do Now is stored in the class document so the three views are stable across reloads. Do Now size (4-6) is stored per class. No class-facing view links to `/key`. | default |
+| 38 | Projector: timer ring is clickable (start/pause) without any visible hint; no pips or overview button on screen. Overview is the `O` key only. | default |
+| 39 | Tooling: SvelteKit 3 + `adapter-node` configured through the `sveltekit()` Vite plugin. TypeScript pinned to 6.x (Kit needs the TypeScript JS API; TS 7 has none). Bank is loaded from `bank/` at runtime, drafts included. | default |
 
 ## Engineering
 

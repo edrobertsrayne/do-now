@@ -64,3 +64,12 @@ export interface DoNow {
 	lesson: number;
 	items: DoNowItem[];
 }
+
+/** Everything persisted for one class, stored as a single JSON document. */
+export interface ClassDoc {
+	state: ClassState;
+	/** Questions per Do Now (config `size`, 4-6). */
+	size: number;
+	/** The most recently generated Do Now, so projector/print/key views are stable across reloads. */
+	doNow: DoNow | null;
+}
