@@ -32,7 +32,7 @@ async function readJson(req: IncomingMessage): Promise<unknown> {
 	}
 }
 
-const server = createServer(async (req, res) => {
+async function handle(req: IncomingMessage, res: ServerResponse): Promise<void> {
 	try {
 		// DNS-rebinding guard: only answer to our own loopback origin.
 		const hostHeader = req.headers.host ?? '';
@@ -51,15 +51,15 @@ const server = createServer(async (req, res) => {
 
 		const coll = /^\/api\/courses\/([^/]+)\/questions$/.exec(path);
 		if (coll && req.method === 'POST') {
-			const body = (await readJson(req)) as { skillId?: unknown };
+			const body = (await readJson(req)) as { skillId?: unknown } | null;
 			if (typeof body?.skillId !== 'string') throw new HttpError(400, 'skillId required');
-			return send(res, 201, store.add(decodeURIComponent(coll[1]!), body.skillId, body));
+			return send(res, 201, store.add(decodeURIComponent(coll[1] ?? ''), body.skillId, body));
 		}
 
 		const m = /^\/api\/courses\/([^/]+)\/questions\/([^/]+)$/.exec(path);
 		if (m) {
-			const course = decodeURIComponent(m[1]!);
-			const id = decodeURIComponent(m[2]!);
+			const course = decodeURIComponent(m[1] ?? '');
+			const id = decodeURIComponent(m[2] ?? '');
 			if (req.method === 'PUT')
 				return send(res, 200, store.update(course, id, await readJson(req)));
 			if (req.method === 'DELETE') {
@@ -73,6 +73,10 @@ const server = createServer(async (req, res) => {
 		console.error(e);
 		send(res, 500, { error: (e as Error).message });
 	}
+}
+
+const server = createServer((req, res) => {
+	void handle(req, res);
 });
 
 server.listen(port, host, () => console.log(`Bank editor: http://${host}:${port}  (${bankDir})`));

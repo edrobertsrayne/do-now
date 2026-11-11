@@ -131,7 +131,9 @@ export function generateDoNow(
 	const lastUsed = { ...state.lastUsed };
 	const items: DoNowItem[] = [];
 	for (const { c, reason } of picked) {
-		const question = pickQuestion(c.skill, state.lastUsed)!;
+		const question = pickQuestion(c.skill, state.lastUsed);
+		// Candidates without questions are filtered out above.
+		if (!question) throw new Error(`skill ${c.skill.id} has no questions`);
 		items.push({
 			skillId: c.skill.id,
 			question,

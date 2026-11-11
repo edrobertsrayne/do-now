@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	let { data } = $props();
+	import type { PageProps } from './$types.js';
+	let { data }: PageProps = $props();
 </script>
 
 <svelte:head><title>Answer key</title></svelte:head>

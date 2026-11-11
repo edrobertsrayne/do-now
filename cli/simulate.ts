@@ -45,8 +45,9 @@ const repeats: Record<string, number> = {};
 for (let lesson = 1; lesson <= lessons; lesson++) {
 	let taught = '';
 	// Teaching happens after the previous Do Now, so it is ticked at counter = lesson - 1.
-	if ((lesson - 1) % teachEvery === 0 && nextSkill < bank.skills.length) {
-		const skill = bank.skills[nextSkill++]!;
+	const skill = (lesson - 1) % teachEvery === 0 ? bank.skills[nextSkill] : undefined;
+	if (skill) {
+		nextSkill++;
 		state = markTaught(bank, state, skill.id);
 		taught = skill.id;
 	}

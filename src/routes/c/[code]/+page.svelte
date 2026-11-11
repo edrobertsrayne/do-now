@@ -3,7 +3,9 @@
 	import { resolve } from '$app/paths';
 	import { SvelteMap } from 'svelte/reactivity';
 
-	let { data, form } = $props();
+	import type { PageProps } from './$types.js';
+
+	let { data, form }: PageProps = $props();
 
 	const groups = $derived.by(() => {
 		const byTopic = new SvelteMap<string, typeof data.skills>();
@@ -12,7 +14,7 @@
 		}
 		return [...byTopic];
 	});
-	const taughtCount = $derived(data.skills.filter((s: { taught: boolean }) => s.taught).length);
+	const taughtCount = $derived(data.skills.filter((s) => s.taught).length);
 </script>
 
 <svelte:head><title>Class {data.code}</title></svelte:head>
