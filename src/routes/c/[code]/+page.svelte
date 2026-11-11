@@ -70,7 +70,10 @@
 
 	<section>
 		<h2>Skills taught</h2>
-		<p class="muted">Tick a skill when you teach it. Unticking resets its schedule.</p>
+		<p class="muted">
+			Tick a skill when you teach it; each of its questions is then scheduled on its own. Unticking
+			resets them.
+		</p>
 		{#each groups as [topic, skills] (topic)}
 			<h3>{topic}</h3>
 			<ul class="skills">
@@ -89,7 +92,7 @@
 							</label>
 							<span class="muted">
 								{skill.specRefs.join(', ')}
-								{#if skill.taught}· practised {skill.practices}×{/if}
+								{#if skill.taught}· {skill.practised}/{skill.questions} questions practised{/if}
 							</span>
 							<noscript><button type="submit">{skill.taught ? 'Untick' : 'Tick'}</button></noscript>
 						</form>

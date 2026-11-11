@@ -19,8 +19,8 @@ export function load({ params }: { params: { code: string } }) {
 			topic: s.topic,
 			specRefs: s.specRefs,
 			questions: s.questions.length,
-			taught: Object.hasOwn(doc.state.skills, s.id),
-			practices: doc.state.skills[s.id]?.practices ?? 0
+			taught: Object.hasOwn(doc.state.taught, s.id),
+			practised: s.questions.filter((q) => (doc.state.questions[q.id]?.practices ?? 0) > 0).length
 		}))
 	};
 }
@@ -34,7 +34,7 @@ export const actions = {
 			const state =
 				form.get('taught') === '1'
 					? markTaught(getBank(doc.course), doc.state, skillId)
-					: unmarkTaught(doc.state, skillId);
+					: unmarkTaught(getBank(doc.course), doc.state, skillId);
 			getStore().save(code, { ...doc, state });
 		} catch {
 			return fail(400, { message: `Unknown skill: ${skillId}` });
@@ -49,7 +49,7 @@ export const actions = {
 	},
 	generate: async ({ params, request }: Event) => {
 		const { code, doc } = openClass(params.code);
-		if (Object.keys(doc.state.skills).length === 0) {
+		if (Object.keys(doc.state.taught).length === 0) {
 			return fail(400, { message: 'Tick at least one skill you have taught first.' });
 		}
 		const title = formString(await request.formData(), 'title')
