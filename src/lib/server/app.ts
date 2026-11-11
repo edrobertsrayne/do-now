@@ -1,13 +1,13 @@
 import { error } from '@sveltejs/kit';
 import { join } from 'node:path';
-import { loadBank } from '../bank.ts';
+import { loadLibrary } from '../bank.ts';
 import { DEFAULT_CONFIG, newClass } from '../scheduler.ts';
-import type { Bank, ClassDoc } from '../types.ts';
+import type { Bank, ClassDoc, Course, Library } from '../types.ts';
 import { normaliseCode } from './classCode.ts';
 import { createStore, type Store } from './store.ts';
 
 let store: Store | undefined;
-let bank: Bank | undefined;
+let library: Library | undefined;
 
 export function getStore(): Store {
 	return (store ??= createStore(
@@ -15,12 +15,22 @@ export function getStore(): Store {
 	));
 }
 
-export function getBank(): Bank {
-	return (bank ??= loadBank(process.env.BANK_DIR ?? join(process.cwd(), 'bank')));
+export function getLibrary(): Library {
+	return (library ??= loadLibrary(process.env.BANK_DIR ?? join(process.cwd(), 'bank')));
 }
 
-export function newDoc(): ClassDoc {
-	return { state: newClass(), size: DEFAULT_CONFIG.size, doNow: null };
+export function getCourse(id: string): Course {
+	const course = getLibrary().courses.find((c) => c.id === id);
+	if (!course) error(500, `This class's course "${id}" is not in the question bank`);
+	return course;
+}
+
+export function getBank(courseId: string): Bank {
+	return getCourse(courseId).bank;
+}
+
+export function newDoc(course: string): ClassDoc {
+	return { course, state: newClass(), size: DEFAULT_CONFIG.size, doNow: null };
 }
 
 /** Resolve a class code from a URL; 404 if malformed or unknown. */

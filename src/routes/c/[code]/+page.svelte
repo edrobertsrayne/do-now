@@ -19,6 +19,7 @@
 
 <div class="page">
 	<h1>Class <code>{data.code}</code></h1>
+	<p><strong>{data.course}</strong></p>
 	<p class="muted">
 		Anyone with this code or link can edit this class. Bookmark this page. {data.lesson} Do Now{data.lesson ===
 		1

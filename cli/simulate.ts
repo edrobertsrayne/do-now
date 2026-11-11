@@ -1,14 +1,15 @@
 // Simulate a run of lessons: teach one new skill every `--teach-every` lessons
 // (bank order), generate a Do Now each lesson, and report scheduling health.
 //
-//   node cli/simulate.ts [--lessons 40] [--teach-every 2] [--size 4] [--reviewed-only] [--quiet]
+//   node cli/simulate.ts [--course <id>] [--lessons 40] [--teach-every 2] [--size 4] [--reviewed-only] [--quiet]
 
 import { parseArgs } from 'node:util';
-import { loadBank } from '../src/lib/bank.ts';
+import { loadLibrary } from '../src/lib/bank.ts';
 import { DEFAULT_CONFIG, generateDoNow, markTaught, newClass } from '../src/lib/scheduler.ts';
 
 const { values } = parseArgs({
 	options: {
+		course: { type: 'string' },
 		lessons: { type: 'string', default: '40' },
 		'teach-every': { type: 'string', default: '2' },
 		size: { type: 'string', default: String(DEFAULT_CONFIG.size) },
@@ -20,9 +21,19 @@ const { values } = parseArgs({
 const lessons = Number(values.lessons);
 const teachEvery = Number(values['teach-every']);
 const config = { ...DEFAULT_CONFIG, size: Number(values.size) };
-const bank = loadBank(new URL('../bank', import.meta.url).pathname, {
+const library = loadLibrary(new URL('../bank', import.meta.url).pathname, {
 	reviewedOnly: values['reviewed-only']
 });
+const course = values.course
+	? library.courses.find((c) => c.id === values.course)
+	: library.courses[0];
+if (!course) {
+	console.error(
+		`Unknown course "${values.course}". Available: ${library.courses.map((c) => c.id).join(', ')}`
+	);
+	process.exit(1);
+}
+const bank = course.bank;
 
 let state = newClass();
 let nextSkill = 0;

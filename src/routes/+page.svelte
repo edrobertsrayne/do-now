@@ -1,14 +1,22 @@
 <script lang="ts">
-	let { form } = $props();
+	let { data, form } = $props();
 </script>
 
 <svelte:head><title>Do Now</title></svelte:head>
 
 <div class="page">
 	<h1>Do Now</h1>
-	<p class="muted">Spaced retrieval for AQA GCSE Physics. No login: your class code is the key.</p>
+	<p class="muted">Spaced retrieval for physics. No login: your class code is the key.</p>
 
 	<form method="POST" action="?/create">
+		<label>
+			Course
+			<select name="course" required>
+				{#each data.courses as course (course.id)}
+					<option value={course.id}>{course.name}</option>
+				{/each}
+			</select>
+		</label>
 		<button type="submit">Create a new class</button>
 	</form>
 

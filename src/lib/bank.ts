@@ -1,6 +1,9 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { Bank, Question, Skill } from './types.ts';
+import type { Bank, Library, Question, Skill } from './types.ts';
+
+/** Per-course metadata file, beside the course's topic files: `{"name": "OCR A-Level Physics"}`. */
+export const COURSE_FILE = 'course.json';
 
 function fail(file: string, path: string, msg: string): never {
 	throw new Error(`${file}: ${path}: ${msg}`);
@@ -70,11 +73,42 @@ export function buildBank(
 	return { skills };
 }
 
-/** Load every `*.json` in `dir`, in filename order. */
-export function loadBank(dir: string, opts: { reviewedOnly?: boolean } = {}): Bank {
-	const files = readdirSync(dir)
-		.filter((f) => f.endsWith('.json'))
-		.sort()
-		.map((f) => ({ file: f, data: JSON.parse(readFileSync(join(dir, f), 'utf8')) as unknown }));
+/** Topic files of one course directory, in filename order (everything `*.json` except `course.json`). */
+export function topicFiles(courseDir: string): string[] {
+	return readdirSync(courseDir)
+		.filter((f) => f.endsWith('.json') && f !== COURSE_FILE)
+		.sort();
+}
+
+/** Course ids under a bank directory: every subdirectory holding a `course.json`, in name order. */
+export function courseIds(bankDir: string): string[] {
+	return readdirSync(bankDir, { withFileTypes: true })
+		.filter((d) => d.isDirectory() && readdirSync(join(bankDir, d.name)).includes(COURSE_FILE))
+		.map((d) => d.name)
+		.sort();
+}
+
+/** Read and validate a course's display name. */
+export function readCourseName(courseDir: string): string {
+	const raw: unknown = JSON.parse(readFileSync(join(courseDir, COURSE_FILE), 'utf8'));
+	return str(COURSE_FILE, 'name', obj(COURSE_FILE, '$', raw).name);
+}
+
+/** Load every topic file in one course directory. */
+export function loadBank(courseDir: string, opts: { reviewedOnly?: boolean } = {}): Bank {
+	const files = topicFiles(courseDir).map((f) => ({
+		file: f,
+		data: JSON.parse(readFileSync(join(courseDir, f), 'utf8')) as unknown
+	}));
 	return buildBank(files, opts);
+}
+
+/** Load every course under `dir` (`dir/<course-id>/{course.json,*.json}`). */
+export function loadLibrary(dir: string, opts: { reviewedOnly?: boolean } = {}): Library {
+	return {
+		courses: courseIds(dir).map((id) => {
+			const courseDir = join(dir, id);
+			return { id, name: readCourseName(courseDir), bank: loadBank(courseDir, opts) };
+		})
+	};
 }

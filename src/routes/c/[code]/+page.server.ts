@@ -1,5 +1,5 @@
 import { fail } from '@sveltejs/kit';
-import { getBank, getStore, openClass } from '#lib/server/app.ts';
+import { getBank, getCourse, getStore, openClass } from '#lib/server/app.ts';
 import { DEFAULT_CONFIG, generateDoNow, markTaught, unmarkTaught } from '#lib/scheduler.ts';
 
 type Event = { params: { code: string }; request: Request };
@@ -8,10 +8,11 @@ export function load({ params }: { params: { code: string } }) {
 	const { code, doc } = openClass(params.code);
 	return {
 		code,
+		course: getCourse(doc.course).name,
 		lesson: doc.state.lesson,
 		size: doc.size,
 		doNowLesson: doc.doNow?.lesson ?? null,
-		skills: getBank().skills.map((s) => ({
+		skills: getBank(doc.course).skills.map((s) => ({
 			id: s.id,
 			title: s.title,
 			topic: s.topic,
@@ -31,7 +32,7 @@ export const actions = {
 		try {
 			const state =
 				form.get('taught') === '1'
-					? markTaught(getBank(), doc.state, skillId)
+					? markTaught(getBank(doc.course), doc.state, skillId)
 					: unmarkTaught(doc.state, skillId);
 			getStore().save(code, { ...doc, state });
 		} catch {
@@ -53,7 +54,7 @@ export const actions = {
 		const title = String((await request.formData()).get('title') ?? '')
 			.trim()
 			.slice(0, 120);
-		const { state, doNow } = generateDoNow(getBank(), doc.state, {
+		const { state, doNow } = generateDoNow(getBank(doc.course), doc.state, {
 			...DEFAULT_CONFIG,
 			size: doc.size
 		});

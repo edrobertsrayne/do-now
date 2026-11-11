@@ -2,7 +2,7 @@ export type QuestionStatus = 'draft' | 'reviewed';
 
 export interface Question {
 	id: string;
-	/** AQA command word, e.g. "State", "Define", "Name". */
+	/** Command word, e.g. "State", "Define", "Name". */
 	command: string;
 	prompt: string;
 	answer: string;
@@ -13,7 +13,7 @@ export interface Skill {
 	id: string;
 	title: string;
 	topic: string;
-	/** AQA spec point numbers, e.g. "4.1.1.1". */
+	/** Specification point numbers, e.g. "4.1.1.1". */
 	specRefs: string[];
 	questions: Question[];
 }
@@ -21,6 +21,18 @@ export interface Skill {
 export interface Bank {
 	/** Order is significant: used as the final scheduling tie-break. */
 	skills: Skill[];
+}
+
+/** One course's skills; ids need only be unique within the course. */
+export interface Course {
+	/** Directory name under `bank/`; stored on each class. */
+	id: string;
+	name: string;
+	bank: Bank;
+}
+
+export interface Library {
+	courses: Course[];
 }
 
 export interface SkillState {
@@ -69,6 +81,8 @@ export interface DoNow {
 
 /** Everything persisted for one class, stored as a single JSON document. */
 export interface ClassDoc {
+	/** Id of the course (a directory under `bank/`) this class is taught. */
+	course: string;
 	state: ClassState;
 	/** Questions per Do Now (config `size`, 4-6). */
 	size: number;

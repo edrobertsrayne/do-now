@@ -199,6 +199,7 @@
 	<body>
 		<header>
 			<h1>Question bank</h1>
+			<select id="course" aria-label="Course"></select>
 			<input id="search" type="search" placeholder="Search prompt, answer, command, id…" />
 			<select id="status">
 				<option value="">All statuses</option>
@@ -213,11 +214,13 @@
 		<script>
 			const app = document.getElementById('app');
 			const search = document.getElementById('search');
+			const courseSel = document.getElementById('course');
 			const statusSel = document.getElementById('status');
 			const countEl = document.getElementById('count');
 			const toastEl = document.getElementById('toast');
 
-			let files = [];
+			let courses = [];
+			let courseId = localStorage.getItem('bank-editor-course');
 			/** Ids/skills being edited. key: question id, or "new:<skillId>" for an add form. */
 			const editing = new Set();
 			const openSkills = new Set();
@@ -242,8 +245,16 @@
 				return data;
 			}
 
+			const qUrl = (id) =>
+				`/api/courses/${encodeURIComponent(courseId)}/questions${id ? `/${encodeURIComponent(id)}` : ''}`;
+
 			async function load() {
-				files = await api('GET', '/api/bank');
+				courses = await api('GET', '/api/bank');
+				if (!courses.some((c) => c.id === courseId)) courseId = courses[0]?.id ?? null;
+				courseSel.replaceChildren(
+					...courses.map((c) => el('option', { value: c.id, textContent: c.name }))
+				);
+				courseSel.value = courseId ?? '';
 				render();
 			}
 
@@ -296,8 +307,8 @@
 						status: status.value
 					};
 					try {
-						if (isNew) await api('POST', '/api/questions', { skillId: skill.id, ...body });
-						else await api('PUT', `/api/questions/${encodeURIComponent(q.id)}`, body);
+						if (isNew) await api('POST', qUrl(), { skillId: skill.id, ...body });
+						else await api('PUT', qUrl(q.id), body);
 						editing.delete(key);
 						toast('Saved', true);
 						await load();
@@ -342,7 +353,7 @@
 					title: 'Toggle draft / reviewed',
 					onclick: async () => {
 						try {
-							await api('PUT', `/api/questions/${encodeURIComponent(q.id)}`, {
+							await api('PUT', qUrl(q.id), {
 								...q,
 								status: q.status === 'draft' ? 'reviewed' : 'draft'
 							});
@@ -380,7 +391,7 @@
 							onclick: async () => {
 								if (!confirm(`Delete ${q.id}?\n\n${q.prompt}`)) return;
 								try {
-									await api('DELETE', `/api/questions/${encodeURIComponent(q.id)}`);
+									await api('DELETE', qUrl(q.id));
 									toast('Deleted', true);
 									await load();
 								} catch (e) {
@@ -400,7 +411,7 @@
 				let shown = 0,
 					total = 0;
 
-				for (const f of files)
+				for (const f of courses.find((c) => c.id === courseId)?.files ?? [])
 					for (const skill of f.skills) {
 						total += skill.questions.length;
 						const qs = skill.questions.filter((q) => matches(q, term, st));
@@ -452,6 +463,13 @@
 				countEl.textContent = filtering ? `${shown} of ${total} questions` : `${total} questions`;
 			}
 
+			courseSel.addEventListener('change', () => {
+				courseId = courseSel.value;
+				localStorage.setItem('bank-editor-course', courseId);
+				editing.clear();
+				openSkills.clear();
+				render();
+			});
 			search.addEventListener('input', render);
 			statusSel.addEventListener('change', render);
 			load().catch((e) => toast(e.message));

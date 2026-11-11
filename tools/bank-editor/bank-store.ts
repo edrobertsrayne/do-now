@@ -1,10 +1,10 @@
-// Read/modify/write layer for bank/*.json. Every mutation re-reads the files from disk,
-// applies the change, validates the whole bank with the app's own loader, then rewrites
-// only the touched file in the repo's hand-formatted style (one question per line).
+// Read/modify/write layer for bank/<course>/*.json. Every mutation re-reads the course's files
+// from disk, applies the change, validates the whole course with the app's own loader, then
+// rewrites only the touched file in the repo's hand-formatted style (one question per line).
 
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { buildBank } from '../../src/lib/bank.ts';
+import { buildBank, courseIds, readCourseName, topicFiles } from '../../src/lib/bank.ts';
 import type { Question, QuestionStatus, Skill } from '../../src/lib/types.ts';
 
 export interface QuestionInput {
@@ -17,6 +17,12 @@ export interface QuestionInput {
 export interface BankFile {
 	file: string;
 	skills: Skill[];
+}
+
+export interface CourseFiles {
+	id: string;
+	name: string;
+	files: BankFile[];
 }
 
 export class HttpError extends Error {
@@ -76,14 +82,18 @@ export class BankStore {
 		this.#countersPath = countersPath;
 	}
 
-	#read(): BankFile[] {
-		return readdirSync(this.#dir)
-			.filter((f) => f.endsWith('.json'))
-			.sort()
-			.map((file) => ({
-				file,
-				skills: JSON.parse(readFileSync(join(this.#dir, file), 'utf8')) as Skill[]
-			}));
+	#courseDir(course: string): string {
+		// Matching against the directory listing also rules out path traversal.
+		if (!courseIds(this.#dir).includes(course)) throw new HttpError(404, `no course "${course}"`);
+		return join(this.#dir, course);
+	}
+
+	#read(course: string): BankFile[] {
+		const dir = this.#courseDir(course);
+		return topicFiles(dir).map((file) => ({
+			file,
+			skills: JSON.parse(readFileSync(join(dir, file), 'utf8')) as Skill[]
+		}));
 	}
 
 	#validate(files: BankFile[]): void {
@@ -94,41 +104,53 @@ export class BankStore {
 		}
 	}
 
-	#write(f: BankFile): void {
-		writeFileSync(join(this.#dir, f.file), formatBankFile(f.skills));
+	#write(course: string, f: BankFile): void {
+		writeFileSync(join(this.#courseDir(course), f.file), formatBankFile(f.skills));
+	}
+
+	#loadCounters(): Record<string, number> {
+		return existsSync(this.#countersPath)
+			? (JSON.parse(readFileSync(this.#countersPath, 'utf8')) as Record<string, number>)
+			: {};
+	}
+
+	#saveCounters(counters: Record<string, number>): void {
+		writeFileSync(this.#countersPath, j(counters, null, '\t') + '\n');
 	}
 
 	/**
-	 * Highest number ever issued per skill. Raised to the highest number currently on
-	 * disk on every read, so a deleted question's number is never handed out again.
+	 * Highest number ever issued per skill, keyed `<course>/<skill id>` (skill ids are only
+	 * unique within a course). Raised to the highest number currently on disk on every read,
+	 * so a deleted question's number is never handed out again.
 	 */
-	#counters(files: BankFile[]): Record<string, number> {
-		const counters: Record<string, number> = existsSync(this.#countersPath)
-			? (JSON.parse(readFileSync(this.#countersPath, 'utf8')) as Record<string, number>)
-			: {};
+	#counters(course: string, files: BankFile[]): Record<string, number> {
+		const counters = this.#loadCounters();
 		let changed = !existsSync(this.#countersPath);
 		for (const { skills } of files) {
 			for (const s of skills) {
+				const key = `${course}/${s.id}`;
 				const re = new RegExp(`^${s.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}-(\\d+)$`);
-				let max = counters[s.id] ?? 0;
+				let max = counters[key] ?? 0;
 				for (const q of s.questions) {
 					const n = Number(re.exec(q.id)?.[1] ?? 0);
 					if (n > max) max = n;
 				}
-				if (max !== (counters[s.id] ?? 0) || !(s.id in counters)) {
-					counters[s.id] = max;
+				if (max !== (counters[key] ?? 0) || !(key in counters)) {
+					counters[key] = max;
 					changed = true;
 				}
 			}
 		}
-		if (changed) writeFileSync(this.#countersPath, j(counters, null, '\t') + '\n');
+		if (changed) this.#saveCounters(counters);
 		return counters;
 	}
 
-	list(): BankFile[] {
-		const files = this.#read();
-		this.#counters(files);
-		return files;
+	list(): CourseFiles[] {
+		return courseIds(this.#dir).map((id) => {
+			const files = this.#read(id);
+			this.#counters(id, files);
+			return { id, name: readCourseName(join(this.#dir, id)), files };
+		});
 	}
 
 	#find(files: BankFile[], questionId: string) {
@@ -140,40 +162,41 @@ export class BankStore {
 		throw new HttpError(404, `no question "${questionId}"`);
 	}
 
-	add(skillId: string, raw: unknown): Question {
+	add(course: string, skillId: string, raw: unknown): Question {
 		const input = cleanInput(raw);
-		const files = this.#read();
-		const counters = this.#counters(files);
+		const files = this.#read(course);
+		const counters = this.#counters(course, files);
 		const file = files.find((f) => f.skills.some((s) => s.id === skillId));
 		const skill = file?.skills.find((s) => s.id === skillId);
-		if (!file || !skill) throw new HttpError(404, `no skill "${skillId}"`);
-		const n = (counters[skillId] ?? 0) + 1;
+		if (!file || !skill) throw new HttpError(404, `no skill "${skillId}" in course "${course}"`);
+		const key = `${course}/${skillId}`;
+		const n = (counters[key] ?? 0) + 1;
 		const q: Question = { id: `${skillId}-${n}`, ...input };
 		skill.questions.push(q);
 		this.#validate(files);
-		counters[skillId] = n;
-		this.#write(file);
-		writeFileSync(this.#countersPath, j(counters, null, '\t') + '\n');
+		counters[key] = n;
+		this.#write(course, file);
+		this.#saveCounters(counters);
 		return q;
 	}
 
-	update(questionId: string, raw: unknown): Question {
+	update(course: string, questionId: string, raw: unknown): Question {
 		const input = cleanInput(raw);
-		const files = this.#read();
+		const files = this.#read(course);
 		const { file, skill, index } = this.#find(files, questionId);
 		const q: Question = { id: questionId, ...input };
 		skill.questions[index] = q;
 		this.#validate(files);
-		this.#write(file);
+		this.#write(course, file);
 		return q;
 	}
 
-	remove(questionId: string): void {
-		const files = this.#read();
-		this.#counters(files); // record the number before it disappears
+	remove(course: string, questionId: string): void {
+		const files = this.#read(course);
+		this.#counters(course, files); // record the number before it disappears
 		const { file, skill, index } = this.#find(files, questionId);
 		skill.questions.splice(index, 1);
 		this.#validate(files);
-		this.#write(file);
+		this.#write(course, file);
 	}
 }
