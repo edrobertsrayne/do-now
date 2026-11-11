@@ -1,6 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
-import { generateCode, normaliseCode } from '$lib/server/classCode.ts';
-import { getStore, newDoc } from '$lib/server/app.ts';
+import { generateCode, normaliseCode } from '#lib/server/classCode.ts';
+import { getStore, newDoc } from '#lib/server/app.ts';
 
 export const actions = {
 	create: async () => {

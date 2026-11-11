@@ -10,7 +10,7 @@
 		"verbatimModuleSyntax": true,
 		"erasableSyntaxOnly": true,
 		"noUncheckedIndexedAccess": true,
-		"paths": { "$lib/*": ["./src/lib/*"] },
+
 		"skipLibCheck": true,
 		"types": ["$app/types", "node"]
 	},

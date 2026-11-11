@@ -2,6 +2,9 @@
 	"name": "do-now",
 	"private": true,
 	"type": "module",
+	"imports": {
+		"#lib/*": "./src/lib/*"
+	},
 	"scripts": {
 		"test": "node --test",
 		"prepare": "husky",

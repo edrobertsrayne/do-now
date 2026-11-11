@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit';
-import { getBank, getStore, openClass } from '$lib/server/app.ts';
-import { DEFAULT_CONFIG, generateDoNow, markTaught, unmarkTaught } from '$lib/scheduler.ts';
+import { getBank, getStore, openClass } from '#lib/server/app.ts';
+import { DEFAULT_CONFIG, generateDoNow, markTaught, unmarkTaught } from '#lib/scheduler.ts';
 
 type Event = { params: { code: string }; request: Request };
 

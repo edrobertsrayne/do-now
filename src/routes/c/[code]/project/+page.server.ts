@@ -1,4 +1,4 @@
-import { openClass } from '$lib/server/app.ts';
+import { openClass } from '#lib/server/app.ts';
 
 export function load({ params }: { params: { code: string } }) {
 	const { code, doc } = openClass(params.code);
