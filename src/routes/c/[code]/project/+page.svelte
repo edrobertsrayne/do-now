@@ -196,55 +196,60 @@
 		<header>
 			<h1>Do Now</h1>
 			{#if data.title}<span class="lesson-title">{data.title}</span>{/if}
-			<span class="today">{today}</span>
 			<div class="spacer"></div>
-			{#if phase === 'think'}
-				<div class="timer" aria-label="Timer">
-					<button
-						class="tbtn"
-						type="button"
-						onclick={() => adjust(-30)}
-						aria-label="Minus 30 seconds">−</button
-					>
-					<div class="ring">
-						<svg viewBox="0 0 100 100" aria-hidden="true">
-							<circle class="track" cx="50" cy="50" r="45" />
-							<circle
-								class="bar"
-								cx="50"
-								cy="50"
-								r="45"
-								stroke-dasharray={CIRCUMFERENCE}
-								stroke-dashoffset={CIRCUMFERENCE * (1 - fraction)}
-							/>
-						</svg>
-						<output>{clock}</output>
+			<div class="side">
+				<span class="today">{today}</span>
+				{#if phase === 'think'}
+					<div class="timer" aria-label="Timer">
+						<button
+							class="tbtn"
+							type="button"
+							onclick={() => adjust(-30)}
+							aria-label="Minus 30 seconds">−</button
+						>
+						<div class="ring">
+							<svg viewBox="0 0 100 100" aria-hidden="true">
+								<circle class="track" cx="50" cy="50" r="45" />
+								<circle
+									class="bar"
+									cx="50"
+									cy="50"
+									r="45"
+									stroke-dasharray={CIRCUMFERENCE}
+									stroke-dashoffset={CIRCUMFERENCE * (1 - fraction)}
+								/>
+							</svg>
+							<output>{clock}</output>
+						</div>
+						<button
+							class="tbtn play"
+							type="button"
+							onclick={toggleTimer}
+							aria-label={running ? 'Pause timer' : 'Start timer'}
+						>
+							{#if running}
+								<svg viewBox="0 0 10 10" aria-hidden="true"
+									><rect x="1.5" y="1" width="2.4" height="8" /><rect
+										x="6.1"
+										y="1"
+										width="2.4"
+										height="8"
+									/></svg
+								>
+							{:else}
+								<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z" /></svg>
+							{/if}
+						</button>
+						<button
+							class="tbtn"
+							type="button"
+							onclick={() => adjust(30)}
+							aria-label="Plus 30 seconds">+</button
+						>
+						{#if secs === 0}<span class="done">Time</span>{/if}
 					</div>
-					<button
-						class="tbtn play"
-						type="button"
-						onclick={toggleTimer}
-						aria-label={running ? 'Pause timer' : 'Start timer'}
-					>
-						{#if running}
-							<svg viewBox="0 0 10 10" aria-hidden="true"
-								><rect x="1.5" y="1" width="2.4" height="8" /><rect
-									x="6.1"
-									y="1"
-									width="2.4"
-									height="8"
-								/></svg
-							>
-						{:else}
-							<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z" /></svg>
-						{/if}
-					</button>
-					<button class="tbtn" type="button" onclick={() => adjust(30)} aria-label="Plus 30 seconds"
-						>+</button
-					>
-					{#if secs === 0}<span class="done">Time</span>{/if}
-				</div>
-			{/if}
+				{/if}
+			</div>
 		</header>
 
 		<main aria-live="polite">
@@ -390,12 +395,26 @@
 		flex: 1;
 	}
 	.lesson-title {
-		font-size: calc(var(--u) * 2);
-		font-weight: 600;
+		font-size: calc(var(--u) * 3.6);
+		line-height: 1;
+		letter-spacing: -0.01em;
+		font-weight: 400;
+		padding-left: calc(var(--u) * 2);
+		border-left: calc(var(--u) * 0.2) solid var(--rule);
+	}
+	.side {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: calc(var(--u) * 0.5);
 	}
 	.today {
 		font-size: calc(var(--u) * 1.5);
-		opacity: 0.75;
+		font-weight: 400;
+		color: var(--ink-2);
+	}
+	.stage[data-phase='check'] .today {
+		color: #dbe4ff;
 	}
 
 	/* timer */
