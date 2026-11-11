@@ -33,7 +33,7 @@
 			<div class="stripes" aria-hidden="true">
 				{#each CHIP_COLOURS.slice(0, 5) as c (c)}<span style:background={c}></span>{/each}
 			</div>
-			<h1>Start every physics lesson with a Do Now.</h1>
+			<h1>Start every lesson with a Do Now.</h1>
 			<p>
 				Spaced retrieval from what you have already taught. No login: your class code is the key.
 			</p>
