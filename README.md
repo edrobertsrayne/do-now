@@ -22,6 +22,7 @@ npm run check                              # svelte-check on .svelte and .ts fil
 npm run simulate -- --lessons 40 --teach-every 2 [--reviewed-only] [--quiet]
 npm run db:generate -- --name <change>     # after editing src/lib/server/schema.ts: generate a migration, commit it
 npm run dev                                # web app, dev server
+npm run bank-editor                        # local question-bank editor at http://127.0.0.1:5175 (dev machine only; PORT/BANK_DIR apply)
 npm run build && npm start                 # production server (adapter-node)
 ```
 
