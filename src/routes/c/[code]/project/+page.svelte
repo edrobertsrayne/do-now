@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { tick } from 'svelte';
+	import { tick, untrack } from 'svelte';
 	import type { PageProps } from './$types.js';
 
 	type Item = { n: number; prompt: string; answer: string };
 	let { data }: PageProps = $props();
 
-	const DEFAULT_SECONDS = 240;
+	const SECONDS_PER_QUESTION = 60;
 
 	const items: Item[] = $derived(data.items);
 	const today = new Date().toLocaleDateString(undefined, {
@@ -16,13 +16,14 @@
 		year: 'numeric'
 	});
 	const count = $derived(items.length);
+	const defaultSeconds = $derived(Math.max(1, count) * SECONDS_PER_QUESTION);
 
 	/* Step model: 0 = Think. Check question i (0-based): step 1+2i = answer hidden, 2+2i = revealed.
 	   Last step (2*count+1) = summary of every question with its answer. */
 	let step = $state(0);
 	let overview = $state(false);
-	let secs = $state(DEFAULT_SECONDS);
-	let total = $state(DEFAULT_SECONDS);
+	let secs = $state(untrack(() => defaultSeconds));
+	let total = $state(untrack(() => defaultSeconds));
 	let running = $state(false);
 	let timerId: ReturnType<typeof setInterval> | undefined;
 	let root: HTMLElement | undefined = $state();
@@ -94,7 +95,7 @@
 			running = false;
 			return;
 		}
-		if (secs === 0) secs = total = DEFAULT_SECONDS;
+		if (secs === 0) secs = total = defaultSeconds;
 		running = true;
 		timerId = setInterval(() => {
 			secs = Math.max(0, secs - 1);
@@ -107,7 +108,7 @@
 	function resetTimer() {
 		clearInterval(timerId);
 		running = false;
-		secs = total = DEFAULT_SECONDS;
+		secs = total = defaultSeconds;
 	}
 	function toggleFullscreen() {
 		if (document.fullscreenElement) void document.exitFullscreen();
