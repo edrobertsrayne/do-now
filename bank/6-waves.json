@@ -27,7 +27,6 @@
 		"topic": "Waves",
 		"specRefs": ["4.6.1.2"],
 		"questions": [
-			{"id": "wave-speed-1", "command": "State", "prompt": "State the wave equation.", "answer": "Wave speed = frequency × wavelength (v = fλ).", "status": "draft"},
 			{"id": "wave-speed-2", "command": "Calculate", "prompt": "Calculate the speed of a wave with a frequency of 5 Hz and a wavelength of 0.4 m.", "answer": "2 m/s (v = fλ = 5 × 0.4).", "status": "draft"},
 			{"id": "wave-speed-3", "command": "State", "prompt": "State the unit of wavelength.", "answer": "Metres (m).", "status": "draft"}
 		]
@@ -38,7 +37,6 @@
 		"topic": "Waves",
 		"specRefs": ["4.6.1.2"],
 		"questions": [
-			{"id": "period-frequency-1", "command": "State", "prompt": "State the equation linking period and frequency.", "answer": "Period = 1 ÷ frequency (T = 1/f).", "status": "draft"},
 			{"id": "period-frequency-2", "command": "State", "prompt": "State the unit of period.", "answer": "Seconds (s).", "status": "draft"},
 			{"id": "period-frequency-3", "command": "Calculate", "prompt": "Calculate the period of a wave with a frequency of 50 Hz.", "answer": "0.02 s (T = 1/50).", "status": "draft"}
 		]
@@ -116,8 +114,7 @@
 		"specRefs": ["4.6.2.5"],
 		"questions": [
 			{"id": "lenses-1", "command": "Define", "prompt": "Define the focal length of a lens.", "answer": "The distance from the lens to the principal focus.", "status": "draft"},
-			{"id": "lenses-2", "command": "State", "prompt": "State whether the image produced by a concave lens is real or virtual.", "answer": "Always virtual.", "status": "draft"},
-			{"id": "lenses-3", "command": "State", "prompt": "State the equation for magnification.", "answer": "Magnification = image height ÷ object height.", "status": "draft"}
+			{"id": "lenses-2", "command": "State", "prompt": "State whether the image produced by a concave lens is real or virtual.", "answer": "Always virtual.", "status": "draft"}
 		]
 	},
 	{

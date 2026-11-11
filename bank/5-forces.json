@@ -27,7 +27,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.1.3"],
 		"questions": [
-			{"id": "weight-1", "command": "State", "prompt": "State the equation linking weight, mass and gravitational field strength.", "answer": "Weight = mass × gravitational field strength (W = mg).", "status": "draft"},
 			{"id": "weight-2", "command": "State", "prompt": "State the unit of weight.", "answer": "The newton (N).", "status": "draft"},
 			{"id": "weight-3", "command": "State", "prompt": "State the instrument used to measure weight.", "answer": "A calibrated spring balance (newtonmeter).", "status": "draft"}
 		]
@@ -49,7 +48,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.2"],
 		"questions": [
-			{"id": "work-done-energy-1", "command": "State", "prompt": "State the equation for work done by a force.", "answer": "Work done = force × distance moved in the direction of the force (W = Fs).", "status": "draft"},
 			{"id": "work-done-energy-2", "command": "Define", "prompt": "Define one joule of work.", "answer": "The work done when a force of one newton causes a displacement of one metre (1 J = 1 N m).", "status": "draft"},
 			{"id": "work-done-energy-3", "command": "State", "prompt": "State what happens to the temperature of an object when work is done against friction.", "answer": "It increases, as energy is transferred to the thermal energy store.", "status": "draft"}
 		]
@@ -60,7 +58,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.3"],
 		"questions": [
-			{"id": "elasticity-1", "command": "State", "prompt": "State the equation linking force, spring constant and extension.", "answer": "Force = spring constant × extension (F = ke).", "status": "draft"},
 			{"id": "elasticity-2", "command": "State", "prompt": "State the condition under which force is proportional to extension.", "answer": "The limit of proportionality is not exceeded.", "status": "draft"},
 			{"id": "elasticity-3", "command": "Describe", "prompt": "Describe the difference between elastic and inelastic deformation.", "answer": "Elastic: the object returns to its original shape when the force is removed. Inelastic: the object is permanently deformed.", "status": "draft"}
 		]
@@ -71,7 +68,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.4"],
 		"questions": [
-			{"id": "moments-1", "command": "State", "prompt": "State the equation for the moment of a force.", "answer": "Moment = force × perpendicular distance from the pivot (M = Fd).", "status": "draft"},
 			{"id": "moments-2", "command": "State", "prompt": "State the unit of moment.", "answer": "The newton metre (N m).", "status": "draft"},
 			{"id": "moments-3", "command": "State", "prompt": "State the condition for an object to be balanced about a pivot.", "answer": "The total clockwise moment equals the total anticlockwise moment.", "status": "draft"}
 		]
@@ -82,7 +78,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.5.1.1"],
 		"questions": [
-			{"id": "pressure-fluids-1", "command": "State", "prompt": "State the equation for pressure.", "answer": "Pressure = force ÷ area (p = F/A).", "status": "draft"},
 			{"id": "pressure-fluids-2", "command": "State", "prompt": "State the unit of pressure.", "answer": "The pascal (Pa).", "status": "draft"},
 			{"id": "pressure-fluids-3", "command": "State", "prompt": "State the direction of the force a fluid exerts on a surface.", "answer": "Normal to (at right angles to) the surface.", "status": "draft"}
 		]
@@ -93,7 +88,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.5.1.2"],
 		"questions": [
-			{"id": "liquid-pressure-depth-1", "command": "State", "prompt": "State the equation for pressure at a depth in a liquid.", "answer": "Pressure = height × density × gravitational field strength (p = hρg).", "status": "draft"},
 			{"id": "liquid-pressure-depth-2", "command": "State", "prompt": "State what affects the pressure at a point in a liquid, other than the depth.", "answer": "The density of the liquid.", "status": "draft"},
 			{"id": "liquid-pressure-depth-3", "command": "State", "prompt": "State what upthrust is.", "answer": "The resultant upward force on a submerged object, caused by the greater pressure on its bottom surface than on its top surface.", "status": "draft"}
 		]
@@ -126,7 +120,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.6.1.2"],
 		"questions": [
-			{"id": "speed-distance-1", "command": "State", "prompt": "State the equation for distance travelled at constant speed.", "answer": "Distance = speed × time (s = vt).", "status": "draft"},
 			{"id": "speed-distance-2", "command": "Calculate", "prompt": "Calculate the distance travelled by an object moving at 15 m/s for 10 s.", "answer": "150 m.", "status": "draft"},
 			{"id": "speed-distance-3", "command": "State", "prompt": "State a typical value for the speed of sound in air.", "answer": "About 330 m/s.", "status": "draft"}
 		]
@@ -148,7 +141,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.6.1.5"],
 		"questions": [
-			{"id": "acceleration-1", "command": "State", "prompt": "State the equation for acceleration.", "answer": "Acceleration = change in velocity ÷ time taken (a = Δv/t).", "status": "draft"},
 			{"id": "acceleration-2", "command": "State", "prompt": "State the unit of acceleration.", "answer": "Metres per second squared (m/s²).", "status": "draft"},
 			{"id": "acceleration-3", "command": "State", "prompt": "State what the gradient of a velocity-time graph represents.", "answer": "Acceleration.", "status": "draft"}
 		]
@@ -159,7 +151,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.6.1.5"],
 		"questions": [
-			{"id": "suvat-1", "command": "State", "prompt": "State the equation linking final velocity, initial velocity, acceleration and distance for uniform acceleration.", "answer": "v² − u² = 2 × a × s.", "status": "draft"},
 			{"id": "suvat-2", "command": "State", "prompt": "State what the area under a velocity-time graph represents.", "answer": "Distance travelled (or displacement).", "status": "draft"},
 			{"id": "suvat-3", "command": "State", "prompt": "State the approximate acceleration of a freely falling object near the Earth's surface.", "answer": "About 9.8 m/s².", "status": "draft"}
 		]
@@ -182,7 +173,6 @@
 		"specRefs": ["4.5.6.2"],
 		"questions": [
 			{"id": "newtons-laws-1", "command": "State", "prompt": "State Newton's First Law of motion.", "answer": "An object remains at rest, or continues at a constant velocity, unless acted on by a resultant force.", "status": "draft"},
-			{"id": "newtons-laws-2", "command": "State", "prompt": "State the equation linking resultant force, mass and acceleration.", "answer": "Resultant force = mass × acceleration (F = ma).", "status": "draft"},
 			{"id": "newtons-laws-3", "command": "Calculate", "prompt": "Calculate the resultant force needed to accelerate a 2 kg object at 3 m/s².", "answer": "6 N (F = ma = 2 × 3).", "status": "draft"}
 		]
 	},
@@ -247,7 +237,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.7.1"],
 		"questions": [
-			{"id": "momentum-1", "command": "State", "prompt": "State the equation for momentum.", "answer": "Momentum = mass × velocity (p = mv).", "status": "draft"},
 			{"id": "momentum-2", "command": "State", "prompt": "State the unit of momentum.", "answer": "kg m/s (kilogram metre per second).", "status": "draft"},
 			{"id": "momentum-3", "command": "Calculate", "prompt": "Calculate the momentum of a 1000 kg car travelling at 20 m/s.", "answer": "20 000 kg m/s.", "status": "draft"}
 		]
@@ -269,7 +258,6 @@
 		"topic": "Forces",
 		"specRefs": ["4.5.7.3"],
 		"questions": [
-			{"id": "momentum-change-1", "command": "State", "prompt": "State the equation linking force, change in momentum and time.", "answer": "Force = mass × change in velocity ÷ time (F = mΔv/Δt).", "status": "draft"},
 			{"id": "momentum-change-2", "command": "State", "prompt": "State what force is equal to, in words.", "answer": "The rate of change of momentum.", "status": "draft"},
 			{"id": "momentum-change-3", "command": "Explain", "prompt": "Explain how a cushioned surface or air bag reduces the force on a person in a collision.", "answer": "It increases the time over which the momentum changes, so the rate of change of momentum, and therefore the force, is reduced.", "status": "draft"}
 		]

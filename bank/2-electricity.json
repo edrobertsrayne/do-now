@@ -6,8 +6,7 @@
 		"specRefs": ["4.2.1.2"],
 		"questions": [
 			{"id": "current-charge-1", "command": "Define", "prompt": "Define electric current.", "answer": "The rate of flow of electrical charge.", "status": "draft"},
-			{"id": "current-charge-2", "command": "State", "prompt": "State the unit of electric charge.", "answer": "The coulomb (C).", "status": "draft"},
-			{"id": "current-charge-3", "command": "State", "prompt": "State the equation linking charge flow, current and time.", "answer": "Charge flow = current × time (Q = It).", "status": "draft"}
+			{"id": "current-charge-2", "command": "State", "prompt": "State the unit of electric charge.", "answer": "The coulomb (C).", "status": "draft"}
 		]
 	},
 	{
@@ -16,7 +15,6 @@
 		"topic": "Electricity",
 		"specRefs": ["4.2.1.3"],
 		"questions": [
-			{"id": "potential-difference-resistance-1", "command": "State", "prompt": "State the equation linking potential difference, current and resistance.", "answer": "V = I × R.", "status": "draft"},
 			{"id": "potential-difference-resistance-2", "command": "State", "prompt": "State the unit of resistance.", "answer": "The ohm (Ω).", "status": "draft"},
 			{"id": "potential-difference-resistance-3", "command": "State", "prompt": "State how the current through a component changes when its resistance increases, for the same potential difference across it.", "answer": "It decreases.", "status": "draft"}
 		]
@@ -93,8 +91,6 @@
 		"topic": "Electricity",
 		"specRefs": ["4.2.4.1"],
 		"questions": [
-			{"id": "electrical-power-1", "command": "State", "prompt": "State the equation linking power, potential difference and current.", "answer": "Power = potential difference × current (P = VI).", "status": "draft"},
-			{"id": "electrical-power-2", "command": "State", "prompt": "State the equation linking power, current and resistance.", "answer": "Power = current² × resistance (P = I²R).", "status": "draft"},
 			{"id": "electrical-power-3", "command": "State", "prompt": "State the unit of electrical power.", "answer": "The watt (W).", "status": "draft"}
 		]
 	},
@@ -104,8 +100,6 @@
 		"topic": "Electricity",
 		"specRefs": ["4.2.4.2"],
 		"questions": [
-			{"id": "energy-electrical-1", "command": "State", "prompt": "State the equation linking energy transferred, power and time.", "answer": "Energy transferred = power × time (E = Pt).", "status": "draft"},
-			{"id": "energy-electrical-2", "command": "State", "prompt": "State the equation linking energy transferred, charge flow and potential difference.", "answer": "Energy transferred = charge flow × potential difference (E = QV).", "status": "draft"},
 			{"id": "energy-electrical-3", "command": "State", "prompt": "State when work is done in a circuit.", "answer": "When charge flows through a component that has a potential difference across it.", "status": "draft"}
 		]
 	},

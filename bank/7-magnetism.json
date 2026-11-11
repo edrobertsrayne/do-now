@@ -39,8 +39,7 @@
 		"specRefs": ["4.7.2.2"],
 		"questions": [
 			{"id": "fleming-left-hand-rule-1", "command": "Name", "prompt": "Name the rule that shows the relative directions of force, current and magnetic field.", "answer": "Fleming's left-hand rule.", "status": "draft"},
-			{"id": "fleming-left-hand-rule-2", "command": "State", "prompt": "State the name of the force on a current-carrying conductor in a magnetic field.", "answer": "The motor effect.", "status": "draft"},
-			{"id": "fleming-left-hand-rule-3", "command": "State", "prompt": "State the equation for the force on a conductor at right angles to a magnetic field.", "answer": "Force = magnetic flux density × current × length (F = BIl).", "status": "draft"}
+			{"id": "fleming-left-hand-rule-2", "command": "State", "prompt": "State the name of the force on a current-carrying conductor in a magnetic field.", "answer": "The motor effect.", "status": "draft"}
 		]
 	},
 	{
@@ -93,8 +92,6 @@
 		"topic": "Magnetism and electromagnetism",
 		"specRefs": ["4.7.3.4"],
 		"questions": [
-			{"id": "transformer-equations-1", "command": "State", "prompt": "State the equation linking primary and secondary potential difference to the number of turns on each coil.", "answer": "Vp / Vs = np / ns.", "status": "draft"},
-			{"id": "transformer-equations-2", "command": "State", "prompt": "State the equation linking input and output power in an ideal (100% efficient) transformer.", "answer": "Vs × Is = Vp × Ip.", "status": "draft"},
 			{"id": "transformer-equations-3", "command": "Calculate", "prompt": "Calculate the secondary potential difference of a transformer with 100 primary turns, 1000 secondary turns and a 230 V primary potential difference.", "answer": "2300 V (Vs = 230 × 1000/100).", "status": "draft"}
 		]
 	}

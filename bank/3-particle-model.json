@@ -5,7 +5,6 @@
 		"topic": "Particle model of matter",
 		"specRefs": ["4.3.1.1"],
 		"questions": [
-			{"id": "density-states-1", "command": "State", "prompt": "State the equation linking density, mass and volume.", "answer": "Density = mass / volume.", "status": "draft"},
 			{"id": "density-states-2", "command": "State", "prompt": "State the SI unit of density.", "answer": "Kilograms per cubic metre (kg/m^3).", "status": "draft"},
 			{"id": "density-states-3", "command": "Describe", "prompt": "Describe the arrangement of particles in a solid.", "answer": "Particles are closely packed in a regular pattern and vibrate about fixed positions.", "status": "draft"}
 		]
@@ -49,7 +48,6 @@
 		"topic": "Particle model of matter",
 		"specRefs": ["4.3.2.3"],
 		"questions": [
-			{"id": "specific-latent-heat-1", "command": "State", "prompt": "State the equation for the energy needed for a change of state.", "answer": "Energy = mass × specific latent heat (E = mL).", "status": "draft"},
 			{"id": "specific-latent-heat-2", "command": "State", "prompt": "State the unit of specific latent heat.", "answer": "Joules per kilogram (J/kg).", "status": "draft"},
 			{"id": "specific-latent-heat-3", "command": "Define", "prompt": "Define specific latent heat.", "answer": "The energy required to change the state of 1 kg of a substance with no change in temperature.", "status": "draft"}
 		]
@@ -71,7 +69,6 @@
 		"topic": "Particle model of matter",
 		"specRefs": ["4.3.3.2"],
 		"questions": [
-			{"id": "gas-pressure-volume-1", "command": "State", "prompt": "State the equation for a fixed mass of gas held at constant temperature.", "answer": "Pressure × volume = constant (pV = constant).", "status": "draft"},
 			{"id": "gas-pressure-volume-2", "command": "State", "prompt": "State what happens to the pressure of a fixed mass of gas at constant temperature when its volume is halved.", "answer": "The pressure doubles.", "status": "draft"},
 			{"id": "gas-pressure-volume-3", "command": "Explain", "prompt": "Explain, using the particle model, how a gas exerts pressure on the walls of its container.", "answer": "Gas particles collide with the container walls, producing a net force at right angles to the wall.", "status": "draft"}
 		]
