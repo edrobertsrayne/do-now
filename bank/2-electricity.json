@@ -16,7 +16,8 @@
 		"specRefs": ["4.2.1.3"],
 		"questions": [
 			{"id": "potential-difference-resistance-2", "command": "State", "prompt": "State the unit of resistance.", "answer": "The ohm (Ω).", "status": "draft"},
-			{"id": "potential-difference-resistance-3", "command": "State", "prompt": "State how the current through a component changes when its resistance increases, for the same potential difference across it.", "answer": "It decreases.", "status": "draft"}
+			{"id": "potential-difference-resistance-3", "command": "State", "prompt": "State how the current through a component changes when its resistance increases, for the same potential difference across it.", "answer": "It decreases.", "status": "draft"},
+			{"id": "potential-difference-resistance-4", "command": "Define", "prompt": "Define potential difference.", "answer": "The energy transferred per unit charge as charge moves between two points in a circuit (V = E ÷ Q).", "status": "draft"}
 		]
 	},
 	{
@@ -49,7 +50,8 @@
 		"questions": [
 			{"id": "series-circuits-1", "command": "State", "prompt": "State how the current compares at different points in a series circuit.", "answer": "It is the same everywhere in the circuit.", "status": "draft"},
 			{"id": "series-circuits-2", "command": "State", "prompt": "State what happens to the total resistance when another resistor is added in series.", "answer": "It increases (the total resistance is the sum of the individual resistances).", "status": "draft"},
-			{"id": "series-circuits-3", "command": "State", "prompt": "State how the potential difference of the supply is shared between components in series.", "answer": "It is shared between the components (the sum of the potential differences equals the supply potential difference).", "status": "draft"}
+			{"id": "series-circuits-3", "command": "State", "prompt": "State how the potential difference of the supply is shared between components in series.", "answer": "It is shared between the components (the sum of the potential differences equals the supply potential difference).", "status": "draft"},
+			{"id": "series-circuits-4", "command": "Describe", "prompt": "Describe the difference between series and parallel circuits.", "answer": "In a series circuit the components are joined one after another in a single loop; in a parallel circuit the components are joined on separate branches.", "status": "draft"}
 		]
 	},
 	{
@@ -82,7 +84,10 @@
 		"questions": [
 			{"id": "mains-wiring-1", "command": "State", "prompt": "State the colour of the live wire in a mains cable.", "answer": "Brown.", "status": "draft"},
 			{"id": "mains-wiring-2", "command": "State", "prompt": "State the colour of the earth wire in a mains cable.", "answer": "Green and yellow stripes.", "status": "draft"},
-			{"id": "mains-wiring-3", "command": "State", "prompt": "State the function of the earth wire.", "answer": "It is a safety wire that carries current only if there is a fault, stopping the appliance becoming live.", "status": "draft"}
+			{"id": "mains-wiring-3", "command": "State", "prompt": "State the function of the earth wire.", "answer": "It is a safety wire that carries current only if there is a fault, stopping the appliance becoming live.", "status": "draft"},
+			{"id": "mains-wiring-4", "command": "State", "prompt": "State the colour of the neutral wire in a mains cable.", "answer": "Blue.", "status": "draft"},
+			{"id": "mains-wiring-5", "command": "State", "prompt": "State the function of the live wire.", "answer": "It carries the alternating potential difference from the supply (about 230 V).", "status": "draft"},
+			{"id": "mains-wiring-6", "command": "State", "prompt": "State the function of the neutral wire.", "answer": "It completes the circuit (it is at, or close to, 0 V).", "status": "draft"}
 		]
 	},
 	{
@@ -111,7 +116,8 @@
 		"questions": [
 			{"id": "national-grid-1", "command": "State", "prompt": "State the purpose of a step-up transformer in the National Grid.", "answer": "It increases the potential difference from the power station for transmission through the cables.", "status": "draft"},
 			{"id": "national-grid-2", "command": "State", "prompt": "State the purpose of a step-down transformer in the National Grid.", "answer": "It decreases the potential difference to a much lower value for domestic use.", "status": "draft"},
-			{"id": "national-grid-3", "command": "State", "prompt": "State why the National Grid transmits electricity at a high potential difference.", "answer": "A high potential difference means a lower current for the same power, so less energy is wasted as heat in the cables.", "status": "draft"}
+			{"id": "national-grid-3", "command": "State", "prompt": "State why the National Grid transmits electricity at a high potential difference.", "answer": "A high potential difference means a lower current for the same power, so less energy is wasted as heat in the cables.", "status": "draft"},
+			{"id": "national-grid-4", "command": "Define", "prompt": "Define the National Grid.", "answer": "A system of cables and transformers linking power stations to consumers.", "status": "draft"}
 		]
 	},
 	{
@@ -133,7 +139,8 @@
 		"questions": [
 			{"id": "electric-fields-1", "command": "State", "prompt": "State what a charged object creates around itself.", "answer": "An electric field.", "status": "draft"},
 			{"id": "electric-fields-2", "command": "State", "prompt": "State how the strength of an electric field changes with distance from a charged object.", "answer": "It gets weaker the further away from the charged object.", "status": "draft"},
-			{"id": "electric-fields-3", "command": "State", "prompt": "State how the force on a second charged object changes as the distance between the two objects decreases.", "answer": "The force increases.", "status": "draft"}
+			{"id": "electric-fields-3", "command": "State", "prompt": "State how the force on a second charged object changes as the distance between the two objects decreases.", "answer": "The force increases.", "status": "draft"},
+			{"id": "electric-fields-4", "command": "Define", "prompt": "Define an electric field.", "answer": "The region around a charged object in which another charged object experiences a force.", "status": "draft"}
 		]
 	}
 ]

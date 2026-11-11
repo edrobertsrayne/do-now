@@ -7,7 +7,10 @@
 		"questions": [
 			{"id": "atomic-structure-1", "command": "State", "prompt": "State the relative electrical charge of a proton.", "answer": "+1.", "status": "draft"},
 			{"id": "atomic-structure-2", "command": "State", "prompt": "State the relative electrical charge of a neutron.", "answer": "0 (neutral).", "status": "draft"},
-			{"id": "atomic-structure-3", "command": "State", "prompt": "State where most of the mass of an atom is found.", "answer": "In the nucleus.", "status": "draft"}
+			{"id": "atomic-structure-3", "command": "State", "prompt": "State where most of the mass of an atom is found.", "answer": "In the nucleus.", "status": "draft"},
+			{"id": "atomic-structure-4", "command": "State", "prompt": "State the relative electrical charge of an electron.", "answer": "-1.", "status": "draft"},
+			{"id": "atomic-structure-5", "command": "State", "prompt": "State the approximate radius of an atom.", "answer": "About 1 × 10⁻¹⁰ m.", "status": "draft"},
+			{"id": "atomic-structure-6", "command": "State", "prompt": "State how the radius of a nucleus compares with the radius of the atom.", "answer": "It is less than 1/10 000 of the radius of the atom.", "status": "draft"}
 		]
 	},
 	{
@@ -25,7 +28,7 @@
 		"id": "electrons-ions",
 		"title": "Electrons, ions and energy levels",
 		"topic": "Atomic structure",
-		"specRefs": ["4.4.1.2"],
+		"specRefs": ["4.4.1.1", "4.4.1.2"],
 		"questions": [
 			{"id": "electrons-ions-1", "command": "State", "prompt": "State how the number of electrons in a neutral atom compares with the number of protons.", "answer": "They are equal, so the atom has no overall electrical charge.", "status": "draft"},
 			{"id": "electrons-ions-2", "command": "State", "prompt": "State what an atom becomes if it loses one or more outer electrons.", "answer": "A positive ion.", "status": "draft"},
@@ -40,7 +43,9 @@
 		"questions": [
 			{"id": "atomic-model-history-1", "command": "Describe", "prompt": "Describe the plum pudding model of the atom.", "answer": "A ball of positive charge with negative electrons embedded in it.", "status": "draft"},
 			{"id": "atomic-model-history-2", "command": "State", "prompt": "State what the alpha particle scattering experiment showed about the atom.", "answer": "The mass of the atom is concentrated at the centre (the nucleus), and the nucleus is charged.", "status": "draft"},
-			{"id": "atomic-model-history-3", "command": "Name", "prompt": "Name the scientist who proposed that electrons orbit the nucleus at specific distances.", "answer": "Niels Bohr.", "status": "draft"}
+			{"id": "atomic-model-history-3", "command": "Name", "prompt": "Name the scientist who proposed that electrons orbit the nucleus at specific distances.", "answer": "Niels Bohr.", "status": "draft"},
+			{"id": "atomic-model-history-4", "command": "State", "prompt": "State what atoms were thought to be before the discovery of the electron.", "answer": "Tiny spheres that could not be divided.", "status": "draft"},
+			{"id": "atomic-model-history-5", "command": "Name", "prompt": "Name the scientist whose experimental work provided the evidence for the existence of neutrons.", "answer": "James Chadwick.", "status": "draft"}
 		]
 	},
 	{
@@ -51,7 +56,8 @@
 		"questions": [
 			{"id": "nuclear-radiation-1", "command": "Name", "prompt": "Name the three types of nuclear radiation emitted by radioactive nuclei (other than neutrons).", "answer": "Alpha, beta and gamma.", "status": "draft"},
 			{"id": "nuclear-radiation-2", "command": "State", "prompt": "State what an alpha particle is made of.", "answer": "Two neutrons and two protons (a helium nucleus).", "status": "draft"},
-			{"id": "nuclear-radiation-3", "command": "State", "prompt": "State which of alpha, beta and gamma radiation is the most penetrating.", "answer": "Gamma.", "status": "draft"}
+			{"id": "nuclear-radiation-3", "command": "State", "prompt": "State which of alpha, beta and gamma radiation is the most penetrating.", "answer": "Gamma.", "status": "draft"},
+			{"id": "nuclear-radiation-4", "command": "Name", "prompt": "Name the fourth type of nuclear radiation, in addition to alpha, beta and gamma.", "answer": "A neutron (n).", "status": "draft"}
 		]
 	},
 	{
@@ -62,7 +68,8 @@
 		"questions": [
 			{"id": "radiation-ionisation-1", "command": "State", "prompt": "State which type of nuclear radiation has the greatest ionising power.", "answer": "Alpha.", "status": "draft"},
 			{"id": "radiation-ionisation-2", "command": "Describe", "prompt": "Describe what a beta particle is.", "answer": "A high-speed electron ejected from the nucleus as a neutron turns into a proton.", "status": "draft"},
-			{"id": "radiation-ionisation-3", "command": "State", "prompt": "State what a gamma ray is.", "answer": "Electromagnetic radiation emitted from the nucleus.", "status": "draft"}
+			{"id": "radiation-ionisation-3", "command": "State", "prompt": "State what a gamma ray is.", "answer": "Electromagnetic radiation emitted from the nucleus.", "status": "draft"},
+			{"id": "radiation-ionisation-4", "command": "Define", "prompt": "Define ionising radiation.", "answer": "Radiation that can knock electrons off atoms, turning them into ions (e.g. alpha, beta, gamma and X-rays).", "status": "draft"}
 		]
 	},
 	{
@@ -73,7 +80,8 @@
 		"questions": [
 			{"id": "radioactive-decay-1", "command": "Define", "prompt": "Define radioactive decay.", "answer": "A random process in which an unstable nucleus gives out radiation as it changes to become more stable.", "status": "draft"},
 			{"id": "radioactive-decay-2", "command": "State", "prompt": "State the unit of activity.", "answer": "The becquerel (Bq).", "status": "draft"},
-			{"id": "radioactive-decay-3", "command": "Define", "prompt": "Define count-rate.", "answer": "The number of decays recorded each second by a detector.", "status": "draft"}
+			{"id": "radioactive-decay-3", "command": "Define", "prompt": "Define count-rate.", "answer": "The number of decays recorded each second by a detector.", "status": "draft"},
+			{"id": "radioactive-decay-4", "command": "Define", "prompt": "Define activity (of a radioactive source).", "answer": "The rate at which a source of unstable nuclei decays.", "status": "draft"}
 		]
 	},
 	{
@@ -106,18 +114,22 @@
 		"questions": [
 			{"id": "radioactive-contamination-1", "command": "Define", "prompt": "Define radioactive contamination.", "answer": "The unwanted presence of materials containing radioactive atoms on other materials.", "status": "draft"},
 			{"id": "radioactive-contamination-2", "command": "State", "prompt": "State the difference between contamination and irradiation.", "answer": "Contamination is unwanted radioactive material on another material; irradiation exposes an object to radiation, and the object does not become radioactive.", "status": "draft"},
-			{"id": "radioactive-contamination-3", "command": "State", "prompt": "State why the findings of studies into the effects of radiation on humans should be published.", "answer": "So that other scientists can check them through peer review.", "status": "draft"}
+			{"id": "radioactive-contamination-3", "command": "State", "prompt": "State why the findings of studies into the effects of radiation on humans should be published.", "answer": "So that other scientists can check them through peer review.", "status": "draft"},
+			{"id": "radioactive-contamination-4", "command": "Define", "prompt": "Define irradiation.", "answer": "The process of exposing an object to nuclear radiation (the irradiated object does not become radioactive).", "status": "draft"},
+			{"id": "radioactive-contamination-5", "command": "State", "prompt": "State what causes the hazard from radioactive contamination.", "answer": "The decay of the contaminating atoms (the type of radiation emitted affects the level of hazard).", "status": "draft"}
 		]
 	},
 	{
 		"id": "background-radiation",
 		"title": "Background radiation",
 		"topic": "Atomic structure",
-		"specRefs": ["4.4.3.1"],
+		"specRefs": ["4.4.3.1", "4.6.2.3"],
 		"questions": [
 			{"id": "background-radiation-1", "command": "Name", "prompt": "Name a natural source of background radiation.", "answer": "Rocks, or cosmic rays from space.", "status": "draft"},
 			{"id": "background-radiation-2", "command": "Name", "prompt": "Name a man-made source of background radiation.", "answer": "Fallout from nuclear weapons testing or nuclear accidents.", "status": "draft"},
-			{"id": "background-radiation-3", "command": "State", "prompt": "State what can affect the level of background radiation and radiation dose a person receives.", "answer": "Occupation and/or location.", "status": "draft"}
+			{"id": "background-radiation-3", "command": "State", "prompt": "State what can affect the level of background radiation and radiation dose a person receives.", "answer": "Occupation and/or location.", "status": "draft"},
+			{"id": "background-radiation-4", "command": "Define", "prompt": "Define background radiation.", "answer": "Radiation that is around us all of the time, from natural sources (such as rocks and cosmic rays) and man-made sources.", "status": "draft"},
+			{"id": "background-radiation-5", "command": "Define", "prompt": "Define radiation dose.", "answer": "A measure of the risk of harm resulting from an exposure of the body to radiation.", "status": "draft"}
 		]
 	},
 	{
@@ -139,7 +151,9 @@
 		"questions": [
 			{"id": "nuclear-fission-1", "command": "Define", "prompt": "Define nuclear fission.", "answer": "The splitting of a large, unstable nucleus (such as uranium or plutonium).", "status": "draft"},
 			{"id": "nuclear-fission-2", "command": "State", "prompt": "State what an unstable nucleus usually must do before it undergoes fission.", "answer": "It must first absorb a neutron.", "status": "draft"},
-			{"id": "nuclear-fission-3", "command": "State", "prompt": "State what type of chain reaction causes the explosion of a nuclear weapon.", "answer": "An uncontrolled chain reaction.", "status": "draft"}
+			{"id": "nuclear-fission-3", "command": "State", "prompt": "State what type of chain reaction causes the explosion of a nuclear weapon.", "answer": "An uncontrolled chain reaction.", "status": "draft"},
+			{"id": "nuclear-fission-4", "command": "State", "prompt": "State what a nucleus undergoing fission splits into, and what else is emitted.", "answer": "Two smaller nuclei roughly equal in size, plus two or three neutrons and gamma rays; energy is released.", "status": "draft"},
+			{"id": "nuclear-fission-5", "command": "State", "prompt": "State what the neutrons released in fission may go on to start.", "answer": "A chain reaction.", "status": "draft"}
 		]
 	},
 	{
