@@ -45,6 +45,10 @@
 			<noscript><button type="submit">Set</button></noscript>
 		</form>
 		<form method="POST" action="?/generate" use:enhance class="row">
+			<label>
+				Lesson title
+				<input type="text" name="title" maxlength="120" placeholder="e.g. Forces and motion" />
+			</label>
 			<button type="submit" disabled={taughtCount === 0}>Generate next Do Now</button>
 		</form>
 		{#if data.doNowLesson !== null}

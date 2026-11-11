@@ -45,15 +45,18 @@ export const actions = {
 			return fail(400, { message: 'A Do Now has 4 to 6 questions.' });
 		getStore().save(code, { ...doc, size });
 	},
-	generate: async ({ params }: Event) => {
+	generate: async ({ params, request }: Event) => {
 		const { code, doc } = openClass(params.code);
 		if (Object.keys(doc.state.skills).length === 0) {
 			return fail(400, { message: 'Tick at least one skill you have taught first.' });
 		}
+		const title = String((await request.formData()).get('title') ?? '')
+			.trim()
+			.slice(0, 120);
 		const { state, doNow } = generateDoNow(getBank(), doc.state, {
 			...DEFAULT_CONFIG,
 			size: doc.size
 		});
-		getStore().save(code, { ...doc, state, doNow });
+		getStore().save(code, { ...doc, state, doNow: { ...doNow, title } });
 	}
 };

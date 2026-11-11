@@ -8,6 +8,12 @@
 	const DEFAULT_SECONDS = 240;
 
 	const items: Item[] = $derived(data.items);
+	const today = new Date().toLocaleDateString(undefined, {
+		weekday: 'long',
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric'
+	});
 	const count = $derived(items.length);
 
 	/* Step model: 0 = Think. Check question i (0-based): step 1+2i = answer hidden, 2+2i = revealed.
@@ -184,6 +190,8 @@
 	<div class="stage" data-phase={phase} bind:this={root}>
 		<header>
 			<h1>Do Now</h1>
+			{#if data.title}<span class="lesson-title">{data.title}</span>{/if}
+			<span class="today">{today}</span>
 			<div class="spacer"></div>
 			{#if phase === 'think'}
 				<div class="timer" aria-label="Timer">
@@ -375,6 +383,14 @@
 	}
 	.spacer {
 		flex: 1;
+	}
+	.lesson-title {
+		font-size: calc(var(--u) * 2);
+		font-weight: 600;
+	}
+	.today {
+		font-size: calc(var(--u) * 1.5);
+		opacity: 0.75;
 	}
 
 	/* timer */

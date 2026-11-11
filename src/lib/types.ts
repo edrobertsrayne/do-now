@@ -62,6 +62,8 @@ export interface DoNowItem {
 
 export interface DoNow {
 	lesson: number;
+	/** Teacher-supplied lesson title, shown on the projector. Absent on Do Nows made before titles existed. */
+	title?: string;
 	items: DoNowItem[];
 }
 
