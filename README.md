@@ -1,4 +1,4 @@
-# GCSE Physics retrieval tool
+# Do Now
 
 Spaced-retrieval Do Nows for AQA GCSE Physics, after Craig Barton's Ultimate
 Retrieval Tool. Design choices and open risks: [DECISIONS.md](DECISIONS.md).

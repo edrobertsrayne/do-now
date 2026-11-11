@@ -2,10 +2,10 @@
 	let { form } = $props();
 </script>
 
-<svelte:head><title>Retrieval Do Now</title></svelte:head>
+<svelte:head><title>Do Now</title></svelte:head>
 
 <div class="page">
-	<h1>Retrieval Do Now</h1>
+	<h1>Do Now</h1>
 	<p class="muted">Spaced retrieval for AQA GCSE Physics. No login: your class code is the key.</p>
 
 	<form method="POST" action="?/create">
