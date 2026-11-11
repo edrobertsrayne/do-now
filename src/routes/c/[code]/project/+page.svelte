@@ -29,6 +29,15 @@
 		phase === 'think' ? 'think' : isSummary ? 'list' : overview ? 'list' : 'question'
 	);
 	const current = $derived(items[checkIndex]);
+	/* Re-keys the view so it animates in only when the visible content changes. */
+	const viewKey = $derived(
+		view === 'question'
+			? `q${checkIndex}${revealed(checkIndex) ? 'r' : ''}`
+			: isSummary
+				? 'sum'
+				: view
+	);
+	const currentPip = $derived(overview || isSummary ? -1 : checkIndex);
 	const cta = $derived(
 		step === 0
 			? 'Start checking'
@@ -56,6 +65,10 @@
 	function back() {
 		if (overview) overview = false;
 		else setStep(step - 1);
+	}
+	function jump(i: number) {
+		overview = false;
+		setStep(revealed(i) ? 2 + 2 * i : 1 + 2 * i);
 	}
 	function toggleOverview() {
 		if (phase === 'think') return;
@@ -173,63 +186,128 @@
 			<h1>Do Now</h1>
 			<div class="spacer"></div>
 			{#if phase === 'think'}
-				<button
-					class="ring"
-					type="button"
-					onclick={toggleTimer}
-					aria-label={running ? 'Pause timer' : 'Start timer'}
-				>
-					<svg viewBox="0 0 100 100" aria-hidden="true">
-						<circle class="track" cx="50" cy="50" r="45" />
-						<circle
-							class="bar"
-							cx="50"
-							cy="50"
-							r="45"
-							stroke-dasharray={CIRCUMFERENCE}
-							stroke-dashoffset={CIRCUMFERENCE * (1 - fraction)}
-						/>
-					</svg>
-					<output>{clock}</output>
-				</button>
+				<div class="timer" aria-label="Timer">
+					<button
+						class="tbtn"
+						type="button"
+						onclick={() => adjust(-30)}
+						aria-label="Minus 30 seconds">−</button
+					>
+					<div class="ring">
+						<svg viewBox="0 0 100 100" aria-hidden="true">
+							<circle class="track" cx="50" cy="50" r="45" />
+							<circle
+								class="bar"
+								cx="50"
+								cy="50"
+								r="45"
+								stroke-dasharray={CIRCUMFERENCE}
+								stroke-dashoffset={CIRCUMFERENCE * (1 - fraction)}
+							/>
+						</svg>
+						<output>{clock}</output>
+					</div>
+					<button
+						class="tbtn play"
+						type="button"
+						onclick={toggleTimer}
+						aria-label={running ? 'Pause timer' : 'Start timer'}
+					>
+						{#if running}
+							<svg viewBox="0 0 10 10" aria-hidden="true"
+								><rect x="1.5" y="1" width="2.4" height="8" /><rect
+									x="6.1"
+									y="1"
+									width="2.4"
+									height="8"
+								/></svg
+							>
+						{:else}
+							<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z" /></svg>
+						{/if}
+					</button>
+					<button class="tbtn" type="button" onclick={() => adjust(30)} aria-label="Plus 30 seconds"
+						>+</button
+					>
+					{#if secs === 0}<span class="done">Time</span>{/if}
+				</div>
 			{/if}
 		</header>
 
 		<main aria-live="polite">
-			{#if view === 'think'}
-				<ol class="list" aria-label="Questions">
-					{#each items as it (it.n)}
-						<li class="row">
-							<span class="num">{it.n}</span>
-							<p class="prompt">{it.prompt}</p>
-						</li>
-					{/each}
-				</ol>
-			{:else if view === 'question' && current}
-				<section class="single" aria-label="Question {current.n}">
-					<div class="card">
-						<span class="num">{current.n}</span>
-						<p class="prompt">{current.prompt}</p>
-					</div>
-					<div class="answer" class:shown={revealed(checkIndex)}>
-						{#if revealed(checkIndex)}<p class="text">{current.answer}</p>{/if}
-					</div>
-				</section>
-			{:else}
-				<ul class="ov" aria-label={isSummary ? 'Summary' : 'Overview'}>
-					{#each items as it, i (it.n)}
-						<li>
-							<span class="num">{it.n}</span>
-							<span class="q">{it.prompt}</span>
-							{#if revealed(i)}
-								<span class="a">{it.answer}</span>
+			{#key viewKey}
+				{#if view === 'think'}
+					<section class="view enter" aria-label="Questions">
+						<ol class="list">
+							{#each items as it (it.n)}
+								<li class="row">
+									<span class="num" aria-label="Question {it.n}">{it.n}</span>
+									<p class="prompt">{it.prompt}</p>
+								</li>
+							{/each}
+						</ol>
+					</section>
+				{:else}
+					<section
+						class="view enter"
+						aria-label={view === 'question' && current
+							? `Checking question ${current.n}`
+							: isSummary
+								? 'Summary'
+								: 'Overview'}
+					>
+						<div class="pips" role="group" aria-label="Question progress">
+							{#each items as it, i (it.n)}
+								<button
+									class="pip"
+									class:seen={revealed(i) && i !== currentPip}
+									type="button"
+									onclick={() => jump(i)}
+									aria-current={i === currentPip ? 'step' : undefined}
+									aria-label="Question {it.n}">{it.n}</button
+								>
+							{/each}
+							<button
+								class="pip ovb"
+								type="button"
+								onclick={toggleOverview}
+								aria-pressed={overview || isSummary}>Overview</button
+							>
+						</div>
+						{#if view === 'question' && current}
+							<div class="card">
+								<p class="prompt">{current.prompt}</p>
+							</div>
+							{#if revealed(checkIndex)}
+								<div class="answer shown">
+									<span class="label">Answer</span>
+									<p class="text">{current.answer}</p>
+									<p class="mark">Tick it, or correct it in a different colour.</p>
+								</div>
 							{:else}
-								<span class="a none"></span>
+								<div class="answer hidden">
+									<span class="label">Answer</span>
+									<p class="think">Think first&hellip;</p>
+								</div>
 							{/if}
-						</li>
-					{/each}
-				</ul>
-			{/if}
+						{:else}
+							<ul class="ov">
+								{#each items as it, i (it.n)}
+									<li>
+										<span class="num">{it.n}</span>
+										<span class="q">{it.prompt}</span>
+										{#if revealed(i)}
+											<span class="a">{it.answer}</span>
+										{:else}
+											<span class="a none">Answer not yet shown</span>
+										{/if}
+									</li>
+								{/each}
+							</ul>
+						{/if}
+					</section>
+				{/if}
+			{/key}
 		</main>
 
 		<footer>
@@ -243,6 +321,7 @@
 		--u: min(1vw, 1.7778vh); /* 1 unit = 1% of a 16:9 screen width */
 		--paper: #fcfbf6;
 		--ink: #0b0f1a;
+		--ink-2: #2a3350; /* secondary text, still AAA on paper */
 		--navy: #0d2b5c;
 		--navy-deep: #08183a;
 		--yellow: #ffd23f;
@@ -255,6 +334,7 @@
 		padding: calc(var(--u) * 1.6) calc(var(--u) * 3) calc(var(--u) * 1.2);
 		gap: calc(var(--u) * 1.2);
 		font-weight: 700;
+		line-height: normal;
 		color: var(--ink);
 		background: var(--paper);
 		overflow: hidden;
@@ -266,9 +346,11 @@
 		background: var(--navy-deep);
 		color: #fff;
 	}
-	.stage :global(button) {
+	/* Kept at element+hash specificity so the class rules below (.cta, .tbtn, .pip) win. */
+	button {
 		font: inherit;
 		color: inherit;
+		cursor: pointer;
 	}
 	.stage :focus-visible {
 		outline: calc(var(--u) * 0.3) solid var(--yellow);
@@ -278,6 +360,7 @@
 		outline-color: var(--navy);
 	}
 
+	/* header */
 	header {
 		display: flex;
 		align-items: center;
@@ -295,14 +378,15 @@
 	}
 
 	/* timer */
+	.timer {
+		display: flex;
+		align-items: center;
+		gap: calc(var(--u) * 1);
+	}
 	.ring {
 		position: relative;
 		width: calc(var(--u) * 7);
 		height: calc(var(--u) * 7);
-		padding: 0;
-		border: 0;
-		background: transparent;
-		cursor: pointer;
 	}
 	.ring svg {
 		width: 100%;
@@ -329,12 +413,55 @@
 		font-size: calc(var(--u) * 1.9);
 		font-variant-numeric: tabular-nums;
 	}
+	.tbtn {
+		width: calc(var(--u) * 3.4);
+		height: calc(var(--u) * 3.4);
+		border-radius: 50%;
+		border: calc(var(--u) * 0.2) solid var(--ink);
+		background: var(--paper);
+		font-size: calc(var(--u) * 1.8);
+		line-height: 1;
+		display: grid;
+		place-items: center;
+		padding: 0;
+	}
+	.tbtn.play {
+		background: var(--navy);
+		border-color: var(--navy);
+		color: #fff;
+	}
+	.tbtn svg {
+		width: 50%;
+		height: 50%;
+		fill: currentColor;
+	}
+	.timer .done {
+		font-size: calc(var(--u) * 1.6);
+	}
 
 	main {
 		position: relative;
 		min-height: 0;
+	}
+	.view {
+		position: absolute;
+		inset: 0;
 		display: flex;
 		flex-direction: column;
+		min-height: 0;
+	}
+	.view.enter {
+		animation: rise 0.35s ease both;
+	}
+	@keyframes rise {
+		from {
+			opacity: 0;
+			transform: translateY(calc(var(--u) * 1));
+		}
+		to {
+			opacity: 1;
+			transform: none;
+		}
 	}
 
 	.num {
@@ -346,7 +473,6 @@
 		place-items: center;
 		font-size: calc(var(--u) * 2);
 		line-height: 1;
-		flex: none;
 	}
 	.prompt {
 		margin: 0;
@@ -383,11 +509,49 @@
 	}
 
 	/* CHECK */
-	.single {
-		flex: 1;
-		min-height: 0;
+	.pips {
+		flex: none;
 		display: flex;
-		flex-direction: column;
+		gap: calc(var(--u) * 0.8);
+		margin-bottom: calc(var(--u) * 1);
+	}
+	.pip {
+		min-width: calc(var(--u) * 3.2);
+		height: calc(var(--u) * 3.2);
+		padding: 0 calc(var(--u) * 0.6);
+		border-radius: calc(var(--u) * 1);
+		white-space: nowrap;
+		border: calc(var(--u) * 0.22) solid #fff;
+		display: grid;
+		place-items: center;
+		font-size: calc(var(--u) * 1.9);
+		background: transparent;
+		color: #fff;
+	}
+	.pip[aria-current='step'] {
+		background: var(--yellow);
+		border-color: var(--yellow);
+		color: var(--ink);
+	}
+	.pip.seen {
+		background: #fff;
+		color: var(--navy-deep);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.pip.seen::after {
+		content: '\2713';
+		margin-left: 0.25em;
+		font-size: 0.8em;
+	}
+	.pip.ovb {
+		margin-left: auto;
+		padding: 0 calc(var(--u) * 1.6);
+		border-style: dashed;
+		display: inline-flex;
+		align-items: center;
+		gap: calc(var(--u) * 0.6);
 	}
 	.card {
 		flex: 1 1 0;
@@ -400,8 +564,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: flex-start;
-		gap: calc(var(--u) * 1.2);
+		gap: calc(var(--u) * 1);
 	}
 	.card .prompt {
 		font-size: var(--pf);
@@ -414,20 +577,39 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		gap: calc(var(--u) * 0.4);
 		min-height: 0;
 		overflow: hidden;
+	}
+	.answer.hidden {
 		border: calc(var(--u) * 0.25) dashed #9fb2e0;
+		color: #dbe4ff;
 	}
 	.answer.shown {
 		background: var(--green);
 		color: #fff;
 		border: calc(var(--u) * 0.25) solid #fff;
+		animation: rise 0.3s ease both;
+	}
+	.answer .label {
+		font-size: calc(var(--u) * 1.5);
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
 	}
 	.answer .text {
 		margin: 0;
 		font-size: var(--pf);
 		line-height: 1.12;
 		font-weight: 800;
+	}
+	.answer .think {
+		margin: 0;
+		font-size: calc(var(--u) * 2.6);
+	}
+	.mark {
+		margin: 0;
+		font-size: calc(var(--u) * 1.7);
+		color: var(--yellow);
 	}
 
 	/* OVERVIEW / SUMMARY */
@@ -467,10 +649,11 @@
 	}
 	.ov .a.none {
 		background: transparent;
-		border: calc(var(--u) * 0.2) dashed var(--rule);
-		min-height: 1em;
+		color: var(--ink-2);
+		border: calc(var(--u) * 0.2) dashed var(--ink-2);
 	}
 
+	/* footer */
 	footer {
 		display: flex;
 		align-items: center;
@@ -485,7 +668,6 @@
 		padding: calc(var(--u) * 0.7) calc(var(--u) * 1.8);
 		font-size: calc(var(--u) * 1.9);
 		white-space: nowrap;
-		cursor: pointer;
 	}
 	.stage[data-phase='check'] .cta {
 		background: var(--yellow);
@@ -495,8 +677,11 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		.stage,
-		.ring .bar {
-			transition: none;
+		.stage :global(*),
+		.stage :global(*::before),
+		.stage :global(*::after) {
+			animation: none !important;
+			transition: none !important;
 		}
 	}
 </style>
