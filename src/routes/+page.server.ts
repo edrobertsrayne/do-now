@@ -4,7 +4,14 @@ import { getLibrary, getStore, newDoc } from '#lib/server/app.ts';
 import { formString } from '#lib/server/form.ts';
 
 export function load() {
-	return { courses: getLibrary().courses.map((c) => ({ id: c.id, name: c.name })) };
+	return {
+		courses: getLibrary().courses.map((c) => ({
+			id: c.id,
+			name: c.name,
+			topics: new Set(c.bank.skills.map((s) => s.topic)).size,
+			skills: c.bank.skills.length
+		}))
+	};
 }
 
 export const actions = {
