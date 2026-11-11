@@ -58,9 +58,6 @@ body[data-phase="check"] .timer { display: none; }
 .tbtn svg { width: 50%; height: 50%; fill: currentColor; }
 .timer .done { font-size: calc(var(--u) * 1.6); }
 
-.cmd { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); padding: 0 .06em; }
-
-
 main { position: relative; min-height: 0; }
 .view { position: absolute; inset: 0; display: flex; flex-direction: column; min-height: 0; }
 .view.enter { animation: rise .35s ease both; }
@@ -173,19 +170,13 @@ const isSummary = () => state.step === lastStep();
 const checkIndex = () => Math.floor((state.step - 1) / 2);
 const revealed = (i) => state.step >= 2 + 2 * i;
 
-function promptHTML(it) {
-  const p = it.prompt;
-  return p.startsWith(it.command) ? `<span class="cmd">${esc(it.command)}</span>${esc(p.slice(it.command.length))}` : esc(p);
-}
-const sizeClass = (t, a, b) => (t.length > b ? "l" : t.length > a ? "m" : "");
-
 /* ---------- views ---------- */
 function thinkView(its) {
   return `<section class="view enter" aria-label="Questions">
     <ol class="list">${its.map((it) => `
       <li class="row">
         <span class="num" aria-label="Question ${it.n}">${it.n}</span>
-        <p class="prompt">${promptHTML(it)}</p>
+        <p class="prompt">${esc(it.prompt)}</p>
       </li>`).join("")}</ol>
   </section>`;
 }
@@ -202,7 +193,7 @@ function checkView(its) {
   return `<section class="view" aria-label="Checking question ${it.n}">
     ${pipsHTML(its)}
     <div class="card">
-      <p class="prompt">${promptHTML(it)}</p>
+      <p class="prompt">${esc(it.prompt)}</p>
     </div>
     ${shown
       ? `<div class="answer shown"><span class="label">Answer</span><p class="text">${esc(it.answer)}</p><p class="mark">Tick it, or correct it in a different colour.</p></div>`
@@ -216,7 +207,7 @@ function overviewView(its) {
     ${pipsHTML(its)}
     <ul class="ov">${its.map((it, i) => `
       <li><span class="num">${it.n}</span>
-        <span class="q">${promptHTML(it)}</span>
+        <span class="q">${esc(it.prompt)}</span>
         ${revealed(i) ? `<span class="a">${esc(it.answer)}</span>` : `<span class="a none">Answer not yet shown</span>`}
       </li>`).join("")}</ul>
   </section>`;
