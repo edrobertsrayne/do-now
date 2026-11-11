@@ -7,7 +7,9 @@
 		"questions": [
 			{"id": "solar-system-1", "command": "Name", "prompt": "Name the star at the centre of our solar system.", "answer": "The Sun.", "status": "draft"},
 			{"id": "solar-system-2", "command": "Define", "prompt": "Define a natural satellite.", "answer": "A moon that orbits a planet.", "status": "draft"},
-			{"id": "solar-system-3", "command": "Name", "prompt": "Name the galaxy that our solar system is part of.", "answer": "The Milky Way.", "status": "draft"}
+			{"id": "solar-system-3", "command": "Name", "prompt": "Name the galaxy that our solar system is part of.", "answer": "The Milky Way.", "status": "draft"},
+			{"id": "solar-system-4", "command": "Define", "prompt": "Define the solar system.", "answer": "The Sun (one star), the eight planets and the dwarf planets that orbit it, plus the natural satellites (moons) that orbit planets.", "status": "draft"},
+			{"id": "solar-system-5", "command": "Define", "prompt": "Define a nebula.", "answer": "A cloud of dust and gas.", "status": "draft"}
 		]
 	},
 	{
@@ -29,7 +31,8 @@
 		"questions": [
 			{"id": "star-life-cycle-1", "command": "State", "prompt": "State what determines the life cycle of a star.", "answer": "Its size (mass).", "status": "draft"},
 			{"id": "star-life-cycle-2", "command": "State", "prompt": "State where elements heavier than iron are produced.", "answer": "In a supernova (the explosion of a massive star).", "status": "draft"},
-			{"id": "star-life-cycle-3", "command": "State", "prompt": "State the process that produces the naturally occurring elements in stars.", "answer": "Nuclear fusion.", "status": "draft"}
+			{"id": "star-life-cycle-3", "command": "State", "prompt": "State the process that produces the naturally occurring elements in stars.", "answer": "Nuclear fusion.", "status": "draft"},
+			{"id": "star-life-cycle-4", "command": "Define", "prompt": "Define a supernova.", "answer": "The explosion of a massive star, which distributes elements throughout the universe.", "status": "draft"}
 		]
 	},
 	{
@@ -40,7 +43,8 @@
 		"questions": [
 			{"id": "orbits-satellites-1", "command": "State", "prompt": "State the force that keeps planets and satellites in their orbits.", "answer": "Gravity.", "status": "draft"},
 			{"id": "orbits-satellites-2", "command": "State", "prompt": "State how the velocity of an object in a circular orbit changes when its speed is constant.", "answer": "Its velocity changes, because its direction changes.", "status": "draft"},
-			{"id": "orbits-satellites-3", "command": "Name", "prompt": "Name a natural satellite of the Earth and an artificial satellite.", "answer": "The Moon; any man-made satellite (e.g. a communications satellite).", "status": "draft"}
+			{"id": "orbits-satellites-3", "command": "Name", "prompt": "Name a natural satellite of the Earth and an artificial satellite.", "answer": "The Moon; any man-made satellite (e.g. a communications satellite).", "status": "draft"},
+			{"id": "orbits-satellites-4", "command": "Define", "prompt": "Define an artificial satellite.", "answer": "A man-made object that orbits a planet.", "status": "draft"}
 		]
 	},
 	{
@@ -51,7 +55,10 @@
 		"questions": [
 			{"id": "red-shift-1", "command": "Define", "prompt": "Define red-shift.", "answer": "The increase in the observed wavelength of light from distant, receding galaxies.", "status": "draft"},
 			{"id": "red-shift-2", "command": "State", "prompt": "State what red-shift provides evidence for.", "answer": "An expanding universe, which supports the Big Bang theory.", "status": "draft"},
-			{"id": "red-shift-3", "command": "State", "prompt": "State what the Big Bang theory suggests about the early universe.", "answer": "The universe began from a very small, extremely hot and dense region.", "status": "draft"}
+			{"id": "red-shift-3", "command": "State", "prompt": "State what the Big Bang theory suggests about the early universe.", "answer": "The universe began from a very small, extremely hot and dense region.", "status": "draft"},
+			{"id": "red-shift-4", "command": "State", "prompt": "State how the red-shift of a galaxy changes with its distance from us.", "answer": "The further away the galaxy, the faster it is moving away and the bigger the observed increase in wavelength.", "status": "draft"},
+			{"id": "red-shift-5", "command": "State", "prompt": "State what observations of supernovae since 1998 suggest about distant galaxies.", "answer": "They are receding ever faster.", "status": "draft"},
+			{"id": "red-shift-6", "command": "Name", "prompt": "Name two things about the universe that are still not understood.", "answer": "Dark mass (dark matter) and dark energy.", "status": "draft"}
 		]
 	}
 ]

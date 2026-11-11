@@ -7,7 +7,13 @@
 		"questions": [
 			{"id": "transverse-longitudinal-1", "command": "State", "prompt": "State the type of wave made by ripples on a water surface.", "answer": "Transverse.", "status": "draft"},
 			{"id": "transverse-longitudinal-2", "command": "State", "prompt": "State the type of wave that sound travels through air as.", "answer": "Longitudinal.", "status": "draft"},
-			{"id": "transverse-longitudinal-3", "command": "State", "prompt": "State what longitudinal waves consist of.", "answer": "Areas of compression and rarefaction.", "status": "draft"}
+			{"id": "transverse-longitudinal-3", "command": "State", "prompt": "State what longitudinal waves consist of.", "answer": "Areas of compression and rarefaction.", "status": "draft"},
+			{"id": "transverse-longitudinal-4", "command": "Define", "prompt": "Define a transverse wave.", "answer": "A wave in which the oscillations are perpendicular (at right angles) to the direction of energy transfer (the direction the wave travels).", "status": "draft"},
+			{"id": "transverse-longitudinal-5", "command": "Define", "prompt": "Define a longitudinal wave.", "answer": "A wave in which the oscillations are parallel to the direction of energy transfer (the direction the wave travels).", "status": "draft"},
+			{"id": "transverse-longitudinal-6", "command": "Describe", "prompt": "Describe the difference between longitudinal and transverse waves.", "answer": "In a transverse wave the oscillations are perpendicular to the direction of energy transfer; in a longitudinal wave they are parallel to it (and form compressions and rarefactions).", "status": "draft"},
+			{"id": "transverse-longitudinal-7", "command": "Define", "prompt": "Define a compression in a longitudinal wave.", "answer": "A region where the particles are squashed close together.", "status": "draft"},
+			{"id": "transverse-longitudinal-8", "command": "Define", "prompt": "Define a rarefaction in a longitudinal wave.", "answer": "A region where the particles are spread further apart.", "status": "draft"},
+			{"id": "transverse-longitudinal-9", "command": "Describe", "prompt": "Describe evidence that, for ripples on a water surface, it is the wave and not the water that travels.", "answer": "A floating object (e.g. a cork) just bobs up and down on the spot as the ripples pass; it is not carried along with the wave.", "status": "draft"}
 		]
 	},
 	{
@@ -18,7 +24,9 @@
 		"questions": [
 			{"id": "wave-properties-1", "command": "Define", "prompt": "Define the amplitude of a wave.", "answer": "The maximum displacement of a point on the wave from its undisturbed position.", "status": "draft"},
 			{"id": "wave-properties-2", "command": "Define", "prompt": "Define the wavelength of a wave.", "answer": "The distance from a point on one wave to the equivalent point on the adjacent wave.", "status": "draft"},
-			{"id": "wave-properties-3", "command": "Define", "prompt": "Define the frequency of a wave.", "answer": "The number of waves passing a point each second (measured in hertz, Hz).", "status": "draft"}
+			{"id": "wave-properties-3", "command": "Define", "prompt": "Define the frequency of a wave.", "answer": "The number of waves passing a point each second (measured in hertz, Hz).", "status": "draft"},
+			{"id": "wave-properties-4", "command": "Define", "prompt": "Define the period of a wave.", "answer": "The time taken for one complete wave to pass a point (T = 1 ÷ f).", "status": "draft"},
+			{"id": "wave-properties-5", "command": "Define", "prompt": "Define wave speed.", "answer": "The speed at which energy is transferred (or the wave moves) through the medium.", "status": "draft"}
 		]
 	},
 	{
@@ -49,7 +57,8 @@
 		"questions": [
 			{"id": "wave-boundaries-1", "command": "State", "prompt": "State the three things that can happen to a wave at the boundary between two materials.", "answer": "It can be reflected, transmitted or absorbed.", "status": "draft"},
 			{"id": "wave-boundaries-2", "command": "Define", "prompt": "Define 'transmitted' for a wave at a boundary.", "answer": "The wave passes through the boundary into the second material.", "status": "draft"},
-			{"id": "wave-boundaries-3", "command": "State", "prompt": "State what happens to the energy of a wave that is absorbed by a material.", "answer": "It is transferred to the internal (thermal) energy store of the material.", "status": "draft"}
+			{"id": "wave-boundaries-3", "command": "State", "prompt": "State what happens to the energy of a wave that is absorbed by a material.", "answer": "It is transferred to the internal (thermal) energy store of the material.", "status": "draft"},
+			{"id": "wave-boundaries-4", "command": "Define", "prompt": "Define 'reflected' for a wave at a boundary.", "answer": "The wave bounces back off the boundary.", "status": "draft"}
 		]
 	},
 	{
@@ -71,7 +80,11 @@
 		"questions": [
 			{"id": "seismic-echo-1", "command": "State", "prompt": "State whether P-waves are transverse or longitudinal.", "answer": "Longitudinal.", "status": "draft"},
 			{"id": "seismic-echo-2", "command": "State", "prompt": "State whether S-waves can travel through a liquid.", "answer": "No.", "status": "draft"},
-			{"id": "seismic-echo-3", "command": "State", "prompt": "State how ultrasound is used to find the distance to a boundary.", "answer": "The time taken for reflections to return to a detector is measured and used to calculate the distance.", "status": "draft"}
+			{"id": "seismic-echo-3", "command": "State", "prompt": "State how ultrasound is used to find the distance to a boundary.", "answer": "The time taken for reflections to return to a detector is measured and used to calculate the distance.", "status": "draft"},
+			{"id": "seismic-echo-4", "command": "Define", "prompt": "Define seismic waves.", "answer": "Waves produced by earthquakes.", "status": "draft"},
+			{"id": "seismic-echo-5", "command": "State", "prompt": "State whether S-waves are transverse or longitudinal.", "answer": "Transverse.", "status": "draft"},
+			{"id": "seismic-echo-6", "command": "State", "prompt": "State what P-waves and S-waves provide evidence for.", "answer": "The structure and size of the Earth’s core.", "status": "draft"},
+			{"id": "seismic-echo-7", "command": "State", "prompt": "State what echo sounding is used for.", "answer": "Detecting objects in deep water and measuring water depth, using high frequency sound waves.", "status": "draft"}
 		]
 	},
 	{
@@ -82,7 +95,21 @@
 		"questions": [
 			{"id": "em-spectrum-1", "command": "Name", "prompt": "Name the group of electromagnetic waves with the longest wavelength.", "answer": "Radio waves.", "status": "draft"},
 			{"id": "em-spectrum-2", "command": "Name", "prompt": "Name the group of electromagnetic waves with the highest frequency.", "answer": "Gamma rays.", "status": "draft"},
-			{"id": "em-spectrum-3", "command": "State", "prompt": "State whether all types of electromagnetic wave travel at the same speed through a vacuum.", "answer": "Yes.", "status": "draft"}
+			{"id": "em-spectrum-3", "command": "State", "prompt": "State whether all types of electromagnetic wave travel at the same speed through a vacuum.", "answer": "Yes.", "status": "draft"},
+			{"id": "em-spectrum-4", "command": "Define", "prompt": "Define electromagnetic waves.", "answer": "Transverse waves that transfer energy from the source of the waves to an absorber.", "status": "draft"},
+			{"id": "em-spectrum-5", "command": "State", "prompt": "State the seven groups of the electromagnetic spectrum in order, from longest to shortest wavelength.", "answer": "Radio, microwave, infrared, visible light, ultraviolet, X-rays, gamma rays.", "status": "draft"},
+			{"id": "em-spectrum-6", "command": "State", "prompt": "State which part of the electromagnetic spectrum the human eye can detect.", "answer": "Visible light only.", "status": "draft"}
+		]
+	},
+	{
+		"id": "refraction",
+		"title": "Refraction of waves",
+		"topic": "Waves",
+		"specRefs": ["4.6.2.2"],
+		"questions": [
+			{"id": "refraction-1", "command": "Define", "prompt": "Define refraction.", "answer": "The change in direction of a wave as it crosses the boundary between two media at an angle, caused by the change in speed of the wave.", "status": "draft"},
+			{"id": "refraction-2", "command": "State", "prompt": "State what causes refraction.", "answer": "The difference in velocity of the waves in different substances.", "status": "draft"},
+			{"id": "refraction-3", "command": "State", "prompt": "State four things that can happen to an electromagnetic wave at a boundary between two substances.", "answer": "It can be absorbed, transmitted, refracted or reflected (in ways that vary with wavelength).", "status": "draft"}
 		]
 	},
 	{
@@ -93,7 +120,10 @@
 		"questions": [
 			{"id": "em-uses-1", "command": "State", "prompt": "State the type of electromagnetic wave used in fibre optic communications.", "answer": "Visible light.", "status": "draft"},
 			{"id": "em-uses-2", "command": "State", "prompt": "State the type of electromagnetic wave used in satellite communications.", "answer": "Microwaves.", "status": "draft"},
-			{"id": "em-uses-3", "command": "State", "prompt": "State the types of electromagnetic wave used in medical imaging and treatment.", "answer": "X-rays and gamma rays.", "status": "draft"}
+			{"id": "em-uses-3", "command": "State", "prompt": "State the types of electromagnetic wave used in medical imaging and treatment.", "answer": "X-rays and gamma rays.", "status": "draft"},
+			{"id": "em-uses-4", "command": "State", "prompt": "State a use of radio waves.", "answer": "Television and radio.", "status": "draft"},
+			{"id": "em-uses-5", "command": "State", "prompt": "State a use of infrared waves.", "answer": "Electrical heaters, cooking food or infrared cameras (any one).", "status": "draft"},
+			{"id": "em-uses-6", "command": "State", "prompt": "State a use of ultraviolet waves.", "answer": "Energy efficient lamps or sun tanning (either one).", "status": "draft"}
 		]
 	},
 	{
@@ -104,7 +134,8 @@
 		"questions": [
 			{"id": "em-hazards-1", "command": "State", "prompt": "State which electromagnetic wave can cause skin to age prematurely and increases the risk of skin cancer.", "answer": "Ultraviolet.", "status": "draft"},
 			{"id": "em-hazards-2", "command": "State", "prompt": "State which electromagnetic waves are ionising and can cause mutation of genes and cancer.", "answer": "X-rays and gamma rays.", "status": "draft"},
-			{"id": "em-hazards-3", "command": "State", "prompt": "State the type of electromagnetic wave produced by oscillations in electrical circuits.", "answer": "Radio waves.", "status": "draft"}
+			{"id": "em-hazards-3", "command": "State", "prompt": "State the type of electromagnetic wave produced by oscillations in electrical circuits.", "answer": "Radio waves.", "status": "draft"},
+			{"id": "em-hazards-4", "command": "State", "prompt": "State where gamma rays originate.", "answer": "From changes in the nucleus of an atom.", "status": "draft"}
 		]
 	},
 	{
@@ -114,7 +145,10 @@
 		"specRefs": ["4.6.2.5"],
 		"questions": [
 			{"id": "lenses-1", "command": "Define", "prompt": "Define the focal length of a lens.", "answer": "The distance from the lens to the principal focus.", "status": "draft"},
-			{"id": "lenses-2", "command": "State", "prompt": "State whether the image produced by a concave lens is real or virtual.", "answer": "Always virtual.", "status": "draft"}
+			{"id": "lenses-2", "command": "State", "prompt": "State whether the image produced by a concave lens is real or virtual.", "answer": "Always virtual.", "status": "draft"},
+			{"id": "lenses-3", "command": "Define", "prompt": "Define the principal focus of a convex lens.", "answer": "The point where parallel rays of light are brought to a focus by the lens.", "status": "draft"},
+			{"id": "lenses-4", "command": "Define", "prompt": "Define magnification.", "answer": "Image height ÷ object height (a ratio, so it has no units).", "status": "draft"},
+			{"id": "lenses-5", "command": "State", "prompt": "State how a lens forms an image.", "answer": "By refracting light.", "status": "draft"}
 		]
 	},
 	{
@@ -125,7 +159,10 @@
 		"questions": [
 			{"id": "visible-light-colour-1", "command": "Define", "prompt": "Define specular reflection.", "answer": "Reflection from a smooth surface in a single direction.", "status": "draft"},
 			{"id": "visible-light-colour-2", "command": "Define", "prompt": "Define diffuse reflection.", "answer": "Reflection from a rough surface, which scatters light in many directions.", "status": "draft"},
-			{"id": "visible-light-colour-3", "command": "State", "prompt": "State the colour of an opaque object that absorbs all wavelengths of visible light.", "answer": "Black.", "status": "draft"}
+			{"id": "visible-light-colour-3", "command": "State", "prompt": "State the colour of an opaque object that absorbs all wavelengths of visible light.", "answer": "Black.", "status": "draft"},
+			{"id": "visible-light-colour-4", "command": "State", "prompt": "State what determines the colour of an opaque object.", "answer": "Which wavelengths of light are more strongly reflected (the wavelengths that are not reflected are absorbed).", "status": "draft"},
+			{"id": "visible-light-colour-5", "command": "State", "prompt": "State how a colour filter works.", "answer": "It absorbs certain wavelengths (colours) and transmits other wavelengths (colours).", "status": "draft"},
+			{"id": "visible-light-colour-6", "command": "State", "prompt": "State the two types of object that transmit light.", "answer": "Transparent and translucent objects.", "status": "draft"}
 		]
 	},
 	{
@@ -136,7 +173,8 @@
 		"questions": [
 			{"id": "black-body-1", "command": "State", "prompt": "State whether all bodies emit and absorb infrared radiation.", "answer": "Yes, at any temperature.", "status": "draft"},
 			{"id": "black-body-2", "command": "State", "prompt": "State what happens to the amount of infrared radiation emitted by a hotter body.", "answer": "A hotter body emits more infrared radiation in a given time.", "status": "draft"},
-			{"id": "black-body-3", "command": "Define", "prompt": "Define a perfect black body.", "answer": "An object that absorbs all of the radiation incident on it.", "status": "draft"}
+			{"id": "black-body-3", "command": "Define", "prompt": "Define a perfect black body.", "answer": "An object that absorbs all of the radiation incident on it.", "status": "draft"},
+			{"id": "black-body-4", "command": "State", "prompt": "State why a perfect black body is the best possible emitter of radiation.", "answer": "A good absorber is also a good emitter, and a perfect black body absorbs all radiation incident on it.", "status": "draft"}
 		]
 	}
 ]

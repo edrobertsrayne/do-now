@@ -7,7 +7,10 @@
 		"questions": [
 			{"id": "magnet-poles-1", "command": "State", "prompt": "State what happens when the like poles of two magnets are brought together.", "answer": "They repel.", "status": "draft"},
 			{"id": "magnet-poles-2", "command": "State", "prompt": "State the difference between a permanent magnet and an induced magnet.", "answer": "A permanent magnet produces its own magnetic field; an induced magnet only becomes magnetic when placed in a magnetic field.", "status": "draft"},
-			{"id": "magnet-poles-3", "command": "State", "prompt": "State what happens to an induced magnet when it is removed from the magnetic field.", "answer": "It loses most or all of its magnetism quickly.", "status": "draft"}
+			{"id": "magnet-poles-3", "command": "State", "prompt": "State what happens to an induced magnet when it is removed from the magnetic field.", "answer": "It loses most or all of its magnetism quickly.", "status": "draft"},
+			{"id": "magnet-poles-4", "command": "Define", "prompt": "Define the poles of a magnet.", "answer": "The places on a magnet where the magnetic forces are strongest.", "status": "draft"},
+			{"id": "magnet-poles-5", "command": "Define", "prompt": "Define an induced magnet.", "answer": "A material that becomes a magnet when it is placed in a magnetic field.", "status": "draft"},
+			{"id": "magnet-poles-6", "command": "State", "prompt": "State the type of force that induced magnetism always causes.", "answer": "A force of attraction.", "status": "draft"}
 		]
 	},
 	{
@@ -18,7 +21,10 @@
 		"questions": [
 			{"id": "magnetic-fields-1", "command": "State", "prompt": "State the direction of a magnetic field line outside a bar magnet.", "answer": "From the north pole to the south pole.", "status": "draft"},
 			{"id": "magnetic-fields-2", "command": "State", "prompt": "State where the magnetic field of a bar magnet is strongest.", "answer": "At its poles.", "status": "draft"},
-			{"id": "magnetic-fields-3", "command": "State", "prompt": "State what a compass needle's behaviour suggests about the Earth's core.", "answer": "The Earth's core must be magnetic, since the compass needle points along the Earth's magnetic field.", "status": "draft"}
+			{"id": "magnetic-fields-3", "command": "State", "prompt": "State what a compass needle's behaviour suggests about the Earth's core.", "answer": "The Earth's core must be magnetic, since the compass needle points along the Earth's magnetic field.", "status": "draft"},
+			{"id": "magnetic-fields-4", "command": "Define", "prompt": "Define a magnetic field.", "answer": "The region around a magnet where a force acts on another magnet or on a magnetic material.", "status": "draft"},
+			{"id": "magnetic-fields-5", "command": "Name", "prompt": "Name the four magnetic materials.", "answer": "Iron, steel, cobalt and nickel.", "status": "draft"},
+			{"id": "magnetic-fields-6", "command": "State", "prompt": "State how the direction of a magnetic field at a point is defined.", "answer": "The direction of the force that would act on another north pole placed at that point.", "status": "draft"}
 		]
 	},
 	{
@@ -29,7 +35,9 @@
 		"questions": [
 			{"id": "electromagnetism-1", "command": "State", "prompt": "State what surrounds a wire when a current flows through it.", "answer": "A magnetic field.", "status": "draft"},
 			{"id": "electromagnetism-2", "command": "State", "prompt": "State the shape of wire that concentrates the magnetic field of a current into a strong, uniform field inside the coil.", "answer": "A solenoid (coil).", "status": "draft"},
-			{"id": "electromagnetism-3", "command": "State", "prompt": "State what an electromagnet is.", "answer": "A solenoid with an iron core.", "status": "draft"}
+			{"id": "electromagnetism-3", "command": "State", "prompt": "State what an electromagnet is.", "answer": "A solenoid with an iron core.", "status": "draft"},
+			{"id": "electromagnetism-4", "command": "State", "prompt": "State two factors that affect the strength of the magnetic field around a straight wire carrying a current.", "answer": "The current through the wire and the distance from the wire.", "status": "draft"},
+			{"id": "electromagnetism-5", "command": "State", "prompt": "State the effect of adding an iron core to a solenoid.", "answer": "It increases the strength of the magnetic field.", "status": "draft"}
 		]
 	},
 	{
@@ -39,14 +47,16 @@
 		"specRefs": ["4.7.2.2"],
 		"questions": [
 			{"id": "fleming-left-hand-rule-1", "command": "Name", "prompt": "Name the rule that shows the relative directions of force, current and magnetic field.", "answer": "Fleming's left-hand rule.", "status": "draft"},
-			{"id": "fleming-left-hand-rule-2", "command": "State", "prompt": "State the name of the force on a current-carrying conductor in a magnetic field.", "answer": "The motor effect.", "status": "draft"}
+			{"id": "fleming-left-hand-rule-2", "command": "State", "prompt": "State the name of the force on a current-carrying conductor in a magnetic field.", "answer": "The motor effect.", "status": "draft"},
+			{"id": "fleming-left-hand-rule-3", "command": "Define", "prompt": "Define the motor effect.", "answer": "When a conductor carrying a current is placed in a magnetic field, the magnet producing the field and the conductor exert a force on each other.", "status": "draft"},
+			{"id": "fleming-left-hand-rule-4", "command": "State", "prompt": "State the factors that affect the size of the force on a conductor carrying a current at right angles to a magnetic field.", "answer": "The magnetic flux density, the current and the length of the conductor in the field.", "status": "draft"}
 		]
 	},
 	{
 		"id": "motor-loudspeaker",
 		"title": "Electric motors and loudspeakers",
 		"topic": "Magnetism and electromagnetism",
-		"specRefs": ["4.7.2.3", "4.7.2.4"],
+		"specRefs": ["4.7.2.2", "4.7.2.3", "4.7.2.4"],
 		"questions": [
 			{"id": "motor-loudspeaker-1", "command": "State", "prompt": "State what a coil of wire carrying a current in a magnetic field tends to do.", "answer": "Rotate.", "status": "draft"},
 			{"id": "motor-loudspeaker-2", "command": "State", "prompt": "State the unit of magnetic flux density.", "answer": "The tesla (T).", "status": "draft"},
@@ -61,7 +71,8 @@
 		"questions": [
 			{"id": "generator-effect-1", "command": "Name", "prompt": "Name the effect in which a conductor moving through a magnetic field induces a potential difference.", "answer": "The generator effect.", "status": "draft"},
 			{"id": "generator-effect-2", "command": "State", "prompt": "State what an induced current does to the change that causes it.", "answer": "It generates a magnetic field that opposes the original change.", "status": "draft"},
-			{"id": "generator-effect-3", "command": "State", "prompt": "State the condition for an induced potential difference to produce a current.", "answer": "The conductor must be part of a complete circuit.", "status": "draft"}
+			{"id": "generator-effect-3", "command": "State", "prompt": "State the condition for an induced potential difference to produce a current.", "answer": "The conductor must be part of a complete circuit.", "status": "draft"},
+			{"id": "generator-effect-4", "command": "Define", "prompt": "Define the generator effect.", "answer": "If a conductor moves relative to a magnetic field, or the magnetic field around it changes, a potential difference is induced across the ends of the conductor (and a current if it is part of a complete circuit).", "status": "draft"}
 		]
 	},
 	{
@@ -83,7 +94,9 @@
 		"questions": [
 			{"id": "transformers-1", "command": "State", "prompt": "State what a basic transformer consists of.", "answer": "A primary coil and a secondary coil wound on an iron core.", "status": "draft"},
 			{"id": "transformers-2", "command": "State", "prompt": "State why iron is used as the core of a transformer.", "answer": "It is easily magnetised.", "status": "draft"},
-			{"id": "transformers-3", "command": "State", "prompt": "State whether the secondary potential difference is greater or less than the primary potential difference in a step-up transformer.", "answer": "Greater (Vs > Vp).", "status": "draft"}
+			{"id": "transformers-3", "command": "State", "prompt": "State whether the secondary potential difference is greater or less than the primary potential difference in a step-up transformer.", "answer": "Greater (Vs > Vp).", "status": "draft"},
+			{"id": "transformers-4", "command": "State", "prompt": "State whether the secondary potential difference is greater or less than the primary potential difference in a step-down transformer.", "answer": "Less (Vs < Vp).", "status": "draft"},
+			{"id": "transformers-5", "command": "State", "prompt": "State how the electrical power output compares with the power input for a 100% efficient transformer.", "answer": "They are equal (Vs × Is = Vp × Ip).", "status": "draft"}
 		]
 	},
 	{

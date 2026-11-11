@@ -6,7 +6,8 @@
 		"specRefs": ["4.3.1.1"],
 		"questions": [
 			{"id": "density-states-2", "command": "State", "prompt": "State the SI unit of density.", "answer": "Kilograms per cubic metre (kg/m^3).", "status": "draft"},
-			{"id": "density-states-3", "command": "Describe", "prompt": "Describe the arrangement of particles in a solid.", "answer": "Particles are closely packed in a regular pattern and vibrate about fixed positions.", "status": "draft"}
+			{"id": "density-states-3", "command": "Describe", "prompt": "Describe the arrangement of particles in a solid.", "answer": "Particles are closely packed in a regular pattern and vibrate about fixed positions.", "status": "draft"},
+			{"id": "density-states-4", "command": "Define", "prompt": "Define density.", "answer": "The mass of a substance per unit volume (mass ÷ volume).", "status": "draft"}
 		]
 	},
 	{
@@ -28,7 +29,8 @@
 		"questions": [
 			{"id": "changes-of-state-1", "command": "State", "prompt": "State what happens to the mass of a substance when it changes state.", "answer": "Mass is conserved.", "status": "draft"},
 			{"id": "changes-of-state-2", "command": "State", "prompt": "State whether a change of state is a chemical or a physical change.", "answer": "A physical change: the material recovers its original properties if the change is reversed.", "status": "draft"},
-			{"id": "changes-of-state-3", "command": "Name", "prompt": "Name the change of state in which a solid turns directly into a gas.", "answer": "Sublimation.", "status": "draft"}
+			{"id": "changes-of-state-3", "command": "Name", "prompt": "Name the change of state in which a solid turns directly into a gas.", "answer": "Sublimation.", "status": "draft"},
+			{"id": "changes-of-state-4", "command": "Name", "prompt": "Name the six changes of state.", "answer": "Melting, freezing, boiling, evaporating, condensing and sublimating.", "status": "draft"}
 		]
 	},
 	{
@@ -49,7 +51,11 @@
 		"specRefs": ["4.3.2.3"],
 		"questions": [
 			{"id": "specific-latent-heat-2", "command": "State", "prompt": "State the unit of specific latent heat.", "answer": "Joules per kilogram (J/kg).", "status": "draft"},
-			{"id": "specific-latent-heat-3", "command": "Define", "prompt": "Define specific latent heat.", "answer": "The energy required to change the state of 1 kg of a substance with no change in temperature.", "status": "draft"}
+			{"id": "specific-latent-heat-3", "command": "Define", "prompt": "Define specific latent heat.", "answer": "The energy required to change the state of 1 kg of a substance with no change in temperature.", "status": "draft"},
+			{"id": "specific-latent-heat-4", "command": "Define", "prompt": "Define latent heat.", "answer": "The energy needed for a substance to change state.", "status": "draft"},
+			{"id": "specific-latent-heat-5", "command": "Define", "prompt": "Define specific latent heat of fusion.", "answer": "The energy required to change 1 kg of a substance from solid to liquid with no change in temperature.", "status": "draft"},
+			{"id": "specific-latent-heat-6", "command": "Define", "prompt": "Define specific latent heat of vaporisation.", "answer": "The energy required to change 1 kg of a substance from liquid to vapour with no change in temperature.", "status": "draft"},
+			{"id": "specific-latent-heat-7", "command": "State", "prompt": "State what the energy supplied to a substance during a change of state changes.", "answer": "The energy stored (internal energy), but not the temperature.", "status": "draft"}
 		]
 	},
 	{
