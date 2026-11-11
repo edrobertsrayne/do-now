@@ -47,3 +47,21 @@ test('a class document saved before courses existed reads back as GCSE Physics',
 	store.create('ABCD2345', legacy as ClassDoc);
 	assert.equal(store.get('ABCD2345')?.course, 'aqa-gcse-physics');
 });
+
+test('a class state saved with per-skill schedules upgrades to per-question', () => {
+	const store = createStore(':memory:');
+	store.create('ABCD2345', {
+		...doc(),
+		state: {
+			lesson: 3,
+			skills: { s0: { taughtAt: 1, practices: 2, lastPracticed: 3 } },
+			lastUsed: { x: 3 }
+		}
+	} as unknown as ClassDoc);
+	assert.deepEqual(store.get('ABCD2345')?.state, {
+		lesson: 3,
+		taught: { s0: 1 },
+		questions: {},
+		lastUsed: { x: 3 }
+	});
+});

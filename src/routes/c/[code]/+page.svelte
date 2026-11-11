@@ -79,7 +79,10 @@
 							style:background={topic.dot}
 						></div>
 					</div>
-					<p class="hint">Tick a skill when you teach it. Unticking resets its schedule.</p>
+					<p class="hint">
+						Tick a skill when you teach it; each of its questions is then scheduled on its own.
+						Unticking resets them.
+					</p>
 					<ul>
 						{#each skills as skill (skill.id)}
 							<li>
@@ -94,8 +97,8 @@
 										/>
 										<span class="title">{skill.title}</span>
 										<span class="spec">{skill.specRefs.join(', ')}</span>
-										<span class="reps" title="Times practised"
-											>{skill.taught ? `${skill.practices}×` : ''}</span
+										<span class="reps" title="Questions practised"
+											>{skill.taught ? `${skill.practised}/${skill.questions}` : ''}</span
 										>
 									</label>
 									<noscript
