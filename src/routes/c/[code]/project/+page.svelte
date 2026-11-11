@@ -160,17 +160,6 @@
 		if (card) run(card, 3.8, 2.2, () => card.scrollHeight > card.clientHeight + 1);
 		const ans = root.querySelector<HTMLElement>('.answer.shown');
 		if (ans) run(ans, 3.2, 1.8, () => ans.scrollHeight > ans.clientHeight + 1);
-		const ov = root.querySelector<HTMLElement>('.ov');
-		if (ov) {
-			const lis = [...ov.children] as HTMLElement[];
-			run(ov, 2.0, 1.3, () =>
-				lis.some((li) =>
-					[...li.querySelectorAll<HTMLElement>('.q,.a')].some(
-						(e) => e.offsetHeight > li.clientHeight - 2
-					)
-				)
-			);
-		}
 	}
 
 	$effect(() => {
@@ -314,19 +303,20 @@
 					</section>
 				{:else}
 					<section class="view enter" aria-label={isSummary ? 'Summary' : 'Overview'}>
-						<ul class="ov">
+						<ol class="list">
 							{#each items as it, i (it.n)}
-								<li>
-									<span class="num" style:background={it.chip}>{it.n}</span>
-									<span class="q">{it.prompt}</span>
+								<li class="row">
+									<span class="num" style:background={it.chip} aria-label="Question {it.n}"
+										>{it.n}</span
+									>
 									{#if revealed(i)}
-										<span class="a" style:background={it.tint}>{it.answer}</span>
+										<p class="prompt">{it.answer}</p>
 									{:else}
-										<span class="a none">Answer not yet shown</span>
+										<p class="prompt none">Answer not yet shown</p>
 									{/if}
 								</li>
 							{/each}
-						</ul>
+						</ol>
 					</section>
 				{/if}
 			{/key}
@@ -666,42 +656,9 @@
 		font-size: calc(var(--u) * 2.2);
 	}
 
-	/* OVERVIEW / SUMMARY */
-	.ov {
-		flex: 1;
-		min-height: 0;
-		display: grid;
-		grid-auto-rows: 1fr;
-		gap: calc(var(--u) * 0.8);
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.ov li {
-		background: var(--surface);
-		border-radius: calc(var(--u) * 1.7);
-		display: grid;
-		align-items: center;
-		min-height: 0;
-		grid-template-columns: calc(var(--u) * 4.2) minmax(0, 1.15fr) minmax(0, 1fr);
-		column-gap: calc(var(--u) * 1.6);
-		padding: 0 calc(var(--u) * 1.6);
-	}
-	.ov .q {
-		font-size: var(--pf);
-		line-height: 1.18;
-	}
-	.ov .a {
-		font-size: var(--pf);
-		font-weight: 800;
-		line-height: 1.15;
-		border-radius: calc(var(--u) * 1.1);
-		padding: calc(var(--u) * 0.6) calc(var(--u) * 1.2);
-	}
-	.ov .a.none {
-		font-weight: 700;
+	/* OVERVIEW / SUMMARY: the Think list, showing answers */
+	.row .prompt.none {
 		color: var(--muted);
-		border: calc(var(--u) * 0.18) dashed var(--line-3);
 	}
 
 	/* footer */
