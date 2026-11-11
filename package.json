@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "typecheck": "tsc --noEmit",
+    "prepare": "svelte-kit sync",
+    "typecheck": "svelte-kit sync && tsc --noEmit",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "simulate": "node cli/simulate.ts",
     "dev": "vite dev",
     "build": "vite build",
@@ -16,6 +18,7 @@
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@types/node": "^26.6.6",
     "svelte": "^5.57.3",
+    "svelte-check": "^4.7.8",
     "typescript": "^6.0.3",
     "vite": "^8.3.8"
   }

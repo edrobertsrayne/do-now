@@ -16,7 +16,8 @@ Retrieval Tool. Design choices and open risks: [DECISIONS.md](DECISIONS.md).
 
 ```sh
 npm test                                   # scheduler, bank and server-module tests (Node, no build)
-npm run typecheck
+npm run typecheck                          # tsc on .ts files
+npm run check                              # svelte-check on .svelte and .ts files
 npm run simulate -- --lessons 40 --teach-every 2 [--reviewed-only] [--quiet]
 npm run dev                                # web app, dev server
 npm run build && npm start                 # production server (adapter-node)
