@@ -1,5 +1,6 @@
 <script lang="ts">
-	let { data, form } = $props();
+	import type { PageProps } from './$types.js';
+	let { data, form }: PageProps = $props();
 </script>
 
 <svelte:head><title>Do Now</title></svelte:head>

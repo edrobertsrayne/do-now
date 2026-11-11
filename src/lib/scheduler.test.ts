@@ -136,11 +136,11 @@ test('rotation shows unseen questions first, then the least recently used', () =
 	const bank = makeBank(1, 3);
 	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], fillToSize: false };
 	let state = markTaught(bank, newClass(), 's0');
-	const shown: string[] = [];
+	const shown: (string | undefined)[] = [];
 	for (let i = 0; i < 7; i++) {
 		const r = generateDoNow(bank, state, config);
 		state = r.state;
-		shown.push(r.doNow.items[0]!.question.id);
+		shown.push(r.doNow.items[0]?.question.id);
 	}
 	assert.deepEqual(shown, ['s0-q0', 's0-q1', 's0-q2', 's0-q0', 's0-q1', 's0-q2', 's0-q0']);
 });

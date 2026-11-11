@@ -1,5 +1,6 @@
 import { fail } from '@sveltejs/kit';
 import { getBank, getCourse, getStore, openClass } from '#lib/server/app.ts';
+import { formString } from '#lib/server/form.ts';
 import { DEFAULT_CONFIG, generateDoNow, markTaught, unmarkTaught } from '#lib/scheduler.ts';
 
 type Event = { params: { code: string }; request: Request };
@@ -28,7 +29,7 @@ export const actions = {
 	toggle: async ({ params, request }: Event) => {
 		const { code, doc } = openClass(params.code);
 		const form = await request.formData();
-		const skillId = String(form.get('skill') ?? '');
+		const skillId = formString(form, 'skill');
 		try {
 			const state =
 				form.get('taught') === '1'
@@ -51,7 +52,7 @@ export const actions = {
 		if (Object.keys(doc.state.skills).length === 0) {
 			return fail(400, { message: 'Tick at least one skill you have taught first.' });
 		}
-		const title = String((await request.formData()).get('title') ?? '')
+		const title = formString(await request.formData(), 'title')
 			.trim()
 			.slice(0, 120);
 		const { state, doNow } = generateDoNow(getBank(doc.course), doc.state, {

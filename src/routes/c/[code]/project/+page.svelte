@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { tick } from 'svelte';
+	import type { PageProps } from './$types.js';
 
 	type Item = { n: number; prompt: string; answer: string };
-	let { data } = $props();
+	let { data }: PageProps = $props();
 
 	const DEFAULT_SECONDS = 240;
 
@@ -109,8 +110,10 @@
 		secs = total = DEFAULT_SECONDS;
 	}
 	function toggleFullscreen() {
-		if (document.fullscreenElement) document.exitFullscreen();
-		else document.documentElement.requestFullscreen?.();
+		if (document.fullscreenElement) void document.exitFullscreen();
+		// iPhone Safari lacks Element.requestFullscreen though the DOM types say it exists.
+		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+		else void document.documentElement.requestFullscreen?.();
 	}
 
 	function onkey(e: KeyboardEvent) {
@@ -171,8 +174,10 @@
 	}
 
 	$effect(() => {
-		void [step, overview, items, root];
-		tick().then(fit);
+		// Read these so the effect re-runs when any of them changes.
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+		[step, overview, items, root];
+		void tick().then(fit);
 	});
 	$effect(() => () => clearInterval(timerId));
 </script>

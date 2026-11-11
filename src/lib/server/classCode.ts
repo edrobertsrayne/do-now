@@ -8,7 +8,8 @@ const CODE_RE = new RegExp(`^[${CODE_ALPHABET}]{${CODE_LENGTH}}$`);
 
 export function generateCode(): string {
 	let code = '';
-	for (let i = 0; i < CODE_LENGTH; i++) code += CODE_ALPHABET[randomInt(CODE_ALPHABET.length)];
+	for (let i = 0; i < CODE_LENGTH; i++)
+		code += CODE_ALPHABET.charAt(randomInt(CODE_ALPHABET.length));
 	return code;
 }
 
