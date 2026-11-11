@@ -1,0 +1,296 @@
+[
+	{
+		"id": "gravitational-fields",
+		"title": "Gravitational fields and field strength",
+		"topic": "Gravitational fields",
+		"specRefs": ["5.4.1"],
+		"questions": [
+			{"id": "gravitational-fields-1", "command": "Define", "prompt": "Define a gravitational field.", "answer": "A region of space in which an object with mass experiences a gravitational force.", "status": "draft"},
+			{"id": "gravitational-fields-2", "command": "State", "prompt": "State how the gravitational field of a spherical mass can be modelled outside the mass.", "answer": "As a point mass with all the mass concentrated at the centre of the sphere.", "status": "draft"},
+			{"id": "gravitational-fields-3", "command": "State", "prompt": "State the direction of the gravitational field lines around an isolated spherical mass.", "answer": "Radially inwards, towards the centre of the mass.", "status": "draft"},
+			{"id": "gravitational-fields-4", "command": "State", "prompt": "State what the spacing of gravitational field lines indicates.", "answer": "The strength of the field: lines closer together show a stronger field.", "status": "draft"},
+			{"id": "gravitational-fields-5", "command": "Define", "prompt": "Define gravitational field strength.", "answer": "The gravitational force per unit mass on a small test mass placed at a point in the field; g = F/m.", "status": "draft"},
+			{"id": "gravitational-fields-6", "command": "State", "prompt": "State the SI unit of gravitational field strength and its equivalent in base units.", "answer": "N kg⁻¹, equivalent to m s⁻².", "status": "draft"},
+			{"id": "gravitational-fields-7", "command": "Name", "prompt": "Name two other types of field that give rise to a force.", "answer": "Electric fields and magnetic fields.", "status": "draft"}
+		]
+	},
+	{
+		"id": "newtons-law-of-gravitation",
+		"title": "Newton's law of gravitation",
+		"topic": "Gravitational fields",
+		"specRefs": ["5.4.2"],
+		"questions": [
+			{"id": "newtons-law-of-gravitation-1", "command": "State", "prompt": "State Newton's law of gravitation in words.", "answer": "The gravitational force between two point masses is directly proportional to the product of their masses and inversely proportional to the square of the distance between them; the force is always attractive.", "status": "draft"},
+			{"id": "newtons-law-of-gravitation-2", "command": "State", "prompt": "State the equation for the gravitational force between two point masses, defining the symbols.", "answer": "F = GMm/r², where G is the gravitational constant, M and m are the masses, and r is the distance between their centres.", "status": "draft"},
+			{"id": "newtons-law-of-gravitation-3", "command": "State", "prompt": "State the SI unit of the gravitational constant G.", "answer": "N m² kg⁻².", "status": "draft"},
+			{"id": "newtons-law-of-gravitation-4", "command": "State", "prompt": "State how the gravitational force between two masses changes if the distance between them is doubled.", "answer": "It becomes one quarter of its original value, because the force is inversely proportional to the square of the distance.", "status": "draft"},
+			{"id": "newtons-law-of-gravitation-5", "command": "State", "prompt": "State the equation for the gravitational field strength at a distance r from a point mass M.", "answer": "g = GM/r².", "status": "draft"},
+			{"id": "newtons-law-of-gravitation-6", "command": "State", "prompt": "State why gravitational field strength is numerically equal to the acceleration of free fall close to the Earth's surface.", "answer": "Field strength is force per unit mass, and by Newton's second law F/m = a, so 1 N kg⁻¹ = 1 m s⁻²; the field is uniform close to the surface.", "status": "draft"}
+		]
+	},
+	{
+		"id": "keplers-laws",
+		"title": "Kepler's laws and planetary motion",
+		"topic": "Gravitational fields",
+		"specRefs": ["5.4.3(a)", "5.4.3(b)", "5.4.3(c)", "5.4.3(d)"],
+		"questions": [
+			{"id": "keplers-laws-1", "command": "State", "prompt": "State Kepler's first law of planetary motion.", "answer": "Each planet moves in an elliptical orbit with the Sun at one focus of the ellipse.", "status": "draft"},
+			{"id": "keplers-laws-2", "command": "State", "prompt": "State Kepler's second law of planetary motion.", "answer": "A line joining a planet to the Sun sweeps out equal areas in equal times.", "status": "draft"},
+			{"id": "keplers-laws-3", "command": "State", "prompt": "State Kepler's third law of planetary motion.", "answer": "The square of the orbital period is proportional to the cube of the orbital radius: T² ∝ r³.", "status": "draft"},
+			{"id": "keplers-laws-4", "command": "State", "prompt": "State the force that provides the centripetal force on a planet in orbit around the Sun.", "answer": "The gravitational force between the planet and the Sun.", "status": "draft"},
+			{"id": "keplers-laws-5", "command": "State", "prompt": "State the equation linking orbital period T, orbital radius r and the mass M of the central body for a circular orbit.", "answer": "T² = 4π²r³/(GM).", "status": "draft"},
+			{"id": "keplers-laws-6", "command": "State", "prompt": "State what should be plotted against what to give a straight line through the origin for Kepler's third law.", "answer": "T² against r³.", "status": "draft"},
+			{"id": "keplers-laws-7", "command": "Name", "prompt": "Name one system, other than the planets of the Solar System, to which Kepler's third law can be applied.", "answer": "Moons orbiting a planet, or exoplanets orbiting another star.", "status": "draft"}
+		]
+	},
+	{
+		"id": "geostationary-orbits",
+		"title": "Geostationary orbits",
+		"topic": "Gravitational fields",
+		"specRefs": ["5.4.3(e)"],
+		"questions": [
+			{"id": "geostationary-orbits-1", "command": "State", "prompt": "State what is meant by a geostationary orbit.", "answer": "A circular orbit above the Earth's equator in which a satellite has the same period as the Earth's rotation, so it stays above the same point on the Earth's surface.", "status": "draft"},
+			{"id": "geostationary-orbits-2", "command": "State", "prompt": "State the orbital period of a geostationary satellite.", "answer": "24 hours, the same as the Earth's period of rotation.", "status": "draft"},
+			{"id": "geostationary-orbits-3", "command": "State", "prompt": "State two conditions, other than its period, that a geostationary orbit must satisfy.", "answer": "It must be in the plane of the equator and the satellite must move in the same direction as the Earth's rotation (west to east).", "status": "draft"},
+			{"id": "geostationary-orbits-4", "command": "Explain", "prompt": "Explain why a satellite in a geostationary orbit appears stationary above a point on the Earth's equator.", "answer": "Its period equals the Earth's rotational period and it moves in the same direction, so it has the same angular velocity as the Earth and remains above the same point.", "status": "draft"},
+			{"id": "geostationary-orbits-5", "command": "State", "prompt": "State two uses of geostationary satellites.", "answer": "Telecommunications (including television broadcasting) and weather monitoring.", "status": "draft"}
+		]
+	},
+	{
+		"id": "gravitational-potential",
+		"title": "Gravitational potential",
+		"topic": "Gravitational fields",
+		"specRefs": ["5.4.4(a)", "5.4.4(b)", "5.4.4(c)"],
+		"questions": [
+			{"id": "gravitational-potential-1", "command": "Define", "prompt": "Define gravitational potential at a point.", "answer": "The work done per unit mass in bringing a small test mass from infinity to that point.", "status": "draft"},
+			{"id": "gravitational-potential-2", "command": "State", "prompt": "State the value of gravitational potential at infinity.", "answer": "Zero.", "status": "draft"},
+			{"id": "gravitational-potential-3", "command": "Explain", "prompt": "Explain why gravitational potential values at finite distances from a mass are negative.", "answer": "The potential is zero at infinity and the gravitational force is attractive, so work is done by the field as a mass moves from infinity towards the mass; the potential at a finite distance is therefore below zero.", "status": "draft"},
+			{"id": "gravitational-potential-4", "command": "State", "prompt": "State the equation for the gravitational potential at a distance r from a point mass M.", "answer": "Vg = −GM/r.", "status": "draft"},
+			{"id": "gravitational-potential-5", "command": "State", "prompt": "State the SI unit of gravitational potential.", "answer": "J kg⁻¹.", "status": "draft"},
+			{"id": "gravitational-potential-6", "command": "State", "prompt": "State what the area under a force–distance graph represents for a mass moving in a gravitational field.", "answer": "The work done on or by the mass, which equals the change in its gravitational potential energy.", "status": "draft"},
+			{"id": "gravitational-potential-7", "command": "State", "prompt": "State what is meant by a change in gravitational potential between two points.", "answer": "The work done per unit mass in moving a mass between the two points.", "status": "draft"}
+		]
+	},
+	{
+		"id": "gravitational-potential-energy",
+		"title": "Gravitational potential energy and escape velocity",
+		"topic": "Gravitational fields",
+		"specRefs": ["5.4.4(d)", "5.4.4(e)"],
+		"questions": [
+			{"id": "gravitational-potential-energy-1", "command": "State", "prompt": "State the equation for the gravitational potential energy of a mass m at a distance r from a point mass M.", "answer": "E = mVg = −GMm/r.", "status": "draft"},
+			{"id": "gravitational-potential-energy-2", "command": "State", "prompt": "State how the gravitational potential energy of two masses changes as the distance between them increases.", "answer": "It increases, becoming less negative and tending to zero at infinity.", "status": "draft"},
+			{"id": "gravitational-potential-energy-3", "command": "Explain", "prompt": "Explain the meaning of the negative sign in the equation E = −GMm/r.", "answer": "The potential energy is zero at infinity, and it decreases (becomes negative) as the masses move closer together because the gravitational force is attractive.", "status": "draft"},
+			{"id": "gravitational-potential-energy-4", "command": "Define", "prompt": "Define escape velocity.", "answer": "The minimum speed an object needs to escape from a gravitational field to infinity without further propulsion.", "status": "draft"},
+			{"id": "gravitational-potential-energy-5", "command": "State", "prompt": "State the equation for the escape velocity from the surface of a body of mass M and radius r.", "answer": "v = √(2GM/r).", "status": "draft"},
+			{"id": "gravitational-potential-energy-6", "command": "Explain", "prompt": "Explain why the escape velocity from a planet does not depend on the mass of the escaping object.", "answer": "Equating kinetic energy to the change in gravitational potential energy gives ½mv² = GMm/r; the mass m cancels from both sides.", "status": "draft"},
+			{"id": "gravitational-potential-energy-7", "command": "State", "prompt": "State how the escape velocity from a body changes if its mass is larger but its radius is unchanged.", "answer": "It increases, because v ∝ √M (v = √(2GM/r)).", "status": "draft"}
+		]
+	},
+	{
+		"id": "astronomical-objects",
+		"title": "Planets, satellites, comets and galaxies",
+		"topic": "Stars",
+		"specRefs": ["5.5.1(a)"],
+		"questions": [
+			{"id": "astronomical-objects-1", "command": "Define", "prompt": "Define a planet.", "answer": "A body that orbits a star, is massive enough for its own gravity to make it approximately spherical, and has cleared its orbit of other bodies.", "status": "draft"},
+			{"id": "astronomical-objects-2", "command": "Define", "prompt": "Define a planetary satellite.", "answer": "A natural body that orbits a planet, such as the Moon orbiting the Earth.", "status": "draft"},
+			{"id": "astronomical-objects-3", "command": "State", "prompt": "State what a comet is.", "answer": "A small body made of ice and dust that moves in a highly elliptical orbit around the Sun and develops a tail when close to the Sun.", "status": "draft"},
+			{"id": "astronomical-objects-4", "command": "State", "prompt": "State the difference between a solar system and a galaxy.", "answer": "A solar system is a star and the objects gravitationally bound to it; a galaxy is a much larger collection of stars, gas and dust held together by gravity.", "status": "draft"},
+			{"id": "astronomical-objects-5", "command": "State", "prompt": "State what is meant by the universe.", "answer": "All of space and all the matter and energy within it.", "status": "draft"}
+		]
+	},
+	{
+		"id": "star-formation",
+		"title": "Formation of a star",
+		"topic": "Stars",
+		"specRefs": ["5.5.1(b)"],
+		"questions": [
+			{"id": "star-formation-1", "command": "Describe", "prompt": "Describe how a star forms from interstellar gas and dust.", "answer": "A cloud of gas and dust collapses under its own gravity, becoming denser and hotter; it forms a protostar, and when the core is hot enough hydrogen nuclei fuse to form helium, releasing energy.", "status": "draft"},
+			{"id": "star-formation-2", "command": "State", "prompt": "State why the collapsing cloud of gas and dust heats up.", "answer": "Gravitational potential energy is transferred to thermal energy as the cloud collapses.", "status": "draft"},
+			{"id": "star-formation-3", "command": "State", "prompt": "State the fusion reaction that supplies the energy of a main-sequence star.", "answer": "Hydrogen nuclei fuse to form helium, releasing energy.", "status": "draft"},
+			{"id": "star-formation-4", "command": "State", "prompt": "State the two opposing influences that are in balance in a stable main-sequence star.", "answer": "The inward gravitational force is balanced by the outward radiation pressure and gas pressure.", "status": "draft"},
+			{"id": "star-formation-5", "command": "State", "prompt": "State what prevents a main-sequence star from collapsing under its own gravity.", "answer": "The outward radiation pressure and gas pressure produced by the fusion reactions in its core.", "status": "draft"}
+		]
+	},
+	{
+		"id": "low-mass-stars",
+		"title": "Evolution of a low-mass star",
+		"topic": "Stars",
+		"specRefs": ["5.5.1(c)", "5.5.1(d)"],
+		"questions": [
+			{"id": "low-mass-stars-1", "command": "Describe", "prompt": "Describe what happens to a low-mass star such as the Sun after the hydrogen in its core is used up.", "answer": "The core contracts and heats while the outer layers expand and cool, forming a red giant.", "status": "draft"},
+			{"id": "low-mass-stars-2", "command": "State", "prompt": "State what happens to a low-mass star after the red giant stage.", "answer": "The outer layers are ejected as a planetary nebula, leaving the core as a white dwarf.", "status": "draft"},
+			{"id": "low-mass-stars-3", "command": "State", "prompt": "State what supports a white dwarf against further gravitational collapse.", "answer": "Electron degeneracy pressure.", "status": "draft"},
+			{"id": "low-mass-stars-4", "command": "State", "prompt": "State the Chandrasekhar limit.", "answer": "The maximum mass of a white dwarf, about 1.4 solar masses; above this mass electron degeneracy pressure cannot support the star.", "status": "draft"},
+			{"id": "low-mass-stars-5", "command": "State", "prompt": "State three characteristics of a white dwarf.", "answer": "It is very small, extremely dense, and hot but of low luminosity.", "status": "draft"},
+			{"id": "low-mass-stars-6", "command": "State", "prompt": "State whether nuclear fusion continues in a white dwarf.", "answer": "No; it has no fuel left and gradually cools and fades.", "status": "draft"}
+		]
+	},
+	{
+		"id": "massive-stars",
+		"title": "Evolution of a massive star",
+		"topic": "Stars",
+		"specRefs": ["5.5.1(e)", "5.5.1(f)"],
+		"questions": [
+			{"id": "massive-stars-1", "command": "Describe", "prompt": "Describe the evolution of a star much more massive than the Sun from the main sequence to a supernova.", "answer": "It expands to a red supergiant and fuses progressively heavier nuclei up to iron; when the iron core collapses, the outer layers are blown off in a supernova.", "status": "draft"},
+			{"id": "massive-stars-2", "command": "State", "prompt": "State what may remain after a supernova, depending on the mass of the remnant.", "answer": "A neutron star, or a black hole if the remnant is massive enough.", "status": "draft"},
+			{"id": "massive-stars-3", "command": "State", "prompt": "State three characteristics of a neutron star.", "answer": "It is extremely small (about 20 km across), extremely dense, and composed mainly of neutrons.", "status": "draft"},
+			{"id": "massive-stars-4", "command": "State", "prompt": "State why light cannot escape from a black hole.", "answer": "Its escape velocity is greater than the speed of light.", "status": "draft"},
+			{"id": "massive-stars-5", "command": "State", "prompt": "State what is meant by the event horizon of a black hole.", "answer": "The boundary within which the escape velocity equals the speed of light, so nothing can escape from inside it.", "status": "draft"},
+			{"id": "massive-stars-6", "command": "State", "prompt": "State why energy release by fusion stops at iron in a massive star.", "answer": "Fusion of iron does not release energy; it absorbs energy, so the core can no longer be supported and collapses.", "status": "draft"}
+		]
+	},
+	{
+		"id": "hr-diagram",
+		"title": "Hertzsprung–Russell diagram",
+		"topic": "Stars",
+		"specRefs": ["5.5.1(g)"],
+		"questions": [
+			{"id": "hr-diagram-1", "command": "State", "prompt": "State what is plotted on each axis of a Hertzsprung–Russell diagram.", "answer": "Luminosity (or absolute magnitude) on the vertical axis and surface temperature on the horizontal axis, usually decreasing to the right.", "status": "draft"},
+			{"id": "hr-diagram-2", "command": "State", "prompt": "State where main-sequence stars lie on a Hertzsprung–Russell diagram.", "answer": "Along a diagonal band from hot, highly luminous stars to cool, low-luminosity stars.", "status": "draft"},
+			{"id": "hr-diagram-3", "command": "State", "prompt": "State where red giants lie on a Hertzsprung–Russell diagram.", "answer": "In the upper right: high luminosity and low surface temperature.", "status": "draft"},
+			{"id": "hr-diagram-4", "command": "State", "prompt": "State where super red giants lie on a Hertzsprung–Russell diagram.", "answer": "In the upper right, above the red giants: very high luminosity and low surface temperature.", "status": "draft"},
+			{"id": "hr-diagram-5", "command": "State", "prompt": "State where white dwarfs lie on a Hertzsprung–Russell diagram.", "answer": "In the lower left: low luminosity and high surface temperature.", "status": "draft"},
+			{"id": "hr-diagram-6", "command": "State", "prompt": "State what main-sequence stars have in common.", "answer": "They are fusing hydrogen into helium in their cores and are in equilibrium; most stars spend most of their lives on the main sequence.", "status": "draft"}
+		]
+	},
+	{
+		"id": "atomic-energy-levels",
+		"title": "Energy levels in atoms",
+		"topic": "Electromagnetic radiation from stars",
+		"specRefs": ["5.5.2(a)", "5.5.2(b)", "5.5.2(c)", "5.5.2(e)"],
+		"questions": [
+			{"id": "atomic-energy-levels-1", "command": "State", "prompt": "State what is meant by an energy level of an atom.", "answer": "A discrete amount of energy that an electron in the atom can have.", "status": "draft"},
+			{"id": "atomic-energy-levels-2", "command": "Explain", "prompt": "Explain why the energy levels of an electron in an isolated atom have negative values.", "answer": "The zero of energy is taken when the electron is free at infinity; energy must be supplied to remove the electron from the atom, so a bound electron has less than zero energy.", "status": "draft"},
+			{"id": "atomic-energy-levels-3", "command": "State", "prompt": "State what happens when an electron moves from a higher to a lower energy level.", "answer": "It emits a photon with energy equal to the difference between the two levels.", "status": "draft"},
+			{"id": "atomic-energy-levels-4", "command": "State", "prompt": "State the equation relating the energy of an emitted photon to the energy levels involved.", "answer": "hf = E1 − E2, where E1 and E2 are the energies of the higher and lower levels.", "status": "draft"},
+			{"id": "atomic-energy-levels-5", "command": "State", "prompt": "State what is meant by excitation of an atom.", "answer": "An electron absorbs energy and moves from a lower energy level to a higher energy level.", "status": "draft"},
+			{"id": "atomic-energy-levels-6", "command": "State", "prompt": "State why different elements produce different spectral lines.", "answer": "Each element has its own unique set of energy levels, so the photon energies and wavelengths emitted are unique to that element.", "status": "draft"}
+		]
+	},
+	{
+		"id": "star-spectra",
+		"title": "Emission and absorption spectra",
+		"topic": "Electromagnetic radiation from stars",
+		"specRefs": ["5.5.2(d)", "5.5.2(f)"],
+		"questions": [
+			{"id": "star-spectra-1", "command": "State", "prompt": "State what is meant by a continuous spectrum.", "answer": "A spectrum containing all wavelengths (all colours) with no gaps.", "status": "draft"},
+			{"id": "star-spectra-2", "command": "State", "prompt": "State what is meant by an emission line spectrum.", "answer": "A series of bright lines at particular wavelengths on a dark background, produced by a hot, low-pressure gas.", "status": "draft"},
+			{"id": "star-spectra-3", "command": "State", "prompt": "State what is meant by an absorption line spectrum.", "answer": "A continuous spectrum crossed by dark lines at particular wavelengths, produced when light passes through a cooler gas.", "status": "draft"},
+			{"id": "star-spectra-4", "command": "State", "prompt": "State how the wavelengths of the dark lines in an absorption spectrum compare with the bright lines in the emission spectrum of the same gas.", "answer": "They occur at the same wavelengths.", "status": "draft"},
+			{"id": "star-spectra-5", "command": "State", "prompt": "State how spectral lines can be used to identify elements in a star.", "answer": "Compare the wavelengths of the lines with known laboratory spectra of elements; matching lines identify the element.", "status": "draft"},
+			{"id": "star-spectra-6", "command": "State", "prompt": "State the equation relating the wavelength of a photon to the energy difference between two levels.", "answer": "hc/λ = E1 − E2 = ΔE.", "status": "draft"}
+		]
+	},
+	{
+		"id": "diffraction-grating",
+		"title": "Diffraction gratings and stellar spectra",
+		"topic": "Electromagnetic radiation from stars",
+		"specRefs": ["5.5.2(g)", "5.5.2(h)"],
+		"questions": [
+			{"id": "diffraction-grating-1", "command": "State", "prompt": "State the condition for a maximum with a diffraction grating.", "answer": "d sin θ = nλ.", "status": "draft"},
+			{"id": "diffraction-grating-2", "command": "State", "prompt": "State what d represents in the grating equation.", "answer": "The spacing between adjacent slits (the grating spacing).", "status": "draft"},
+			{"id": "diffraction-grating-3", "command": "State", "prompt": "State what n represents in the grating equation.", "answer": "The order of the maximum: n = 0, 1, 2, …", "status": "draft"},
+			{"id": "diffraction-grating-4", "command": "State", "prompt": "State what happens to the angle of the first-order maximum if light of longer wavelength is used.", "answer": "The angle increases, because sin θ ∝ λ.", "status": "draft"},
+			{"id": "diffraction-grating-5", "command": "State", "prompt": "State what a diffraction grating is used for in stellar spectroscopy.", "answer": "To disperse starlight into a spectrum so that the wavelengths of the spectral lines can be measured.", "status": "draft"}
+		]
+	},
+	{
+		"id": "wien-stefan-laws",
+		"title": "Wien's displacement law and Stefan's law",
+		"topic": "Electromagnetic radiation from stars",
+		"specRefs": ["5.5.2(i)", "5.5.2(j)", "5.5.2(k)"],
+		"questions": [
+			{"id": "wien-stefan-laws-1", "command": "State", "prompt": "State Wien's displacement law.", "answer": "The wavelength of peak emission from a black body is inversely proportional to its absolute temperature: λmax T = 2.9 × 10⁻³ m K.", "status": "draft"},
+			{"id": "wien-stefan-laws-2", "command": "State", "prompt": "State Stefan's law for a star.", "answer": "L = 4πr²σT⁴: the luminosity is proportional to the surface area and to the fourth power of the absolute surface temperature.", "status": "draft"},
+			{"id": "wien-stefan-laws-3", "command": "Define", "prompt": "Define the luminosity of a star.", "answer": "The total power radiated by the star (the energy emitted per second).", "status": "draft"},
+			{"id": "wien-stefan-laws-4", "command": "State", "prompt": "State the SI unit of luminosity.", "answer": "The watt (W).", "status": "draft"},
+			{"id": "wien-stefan-laws-5", "command": "State", "prompt": "State the value and unit of the Stefan constant σ.", "answer": "5.67 × 10⁻⁸ W m⁻² K⁻⁴.", "status": "draft"},
+			{"id": "wien-stefan-laws-6", "command": "State", "prompt": "State how Wien's law and Stefan's law are used together to estimate the radius of a star.", "answer": "Wien's law gives the surface temperature from the peak wavelength, then the radius is found from r = √(L/(4πσT⁴)) using the measured luminosity.", "status": "draft"},
+			{"id": "wien-stefan-laws-7", "command": "State", "prompt": "State how the peak wavelength of a star's spectrum changes as its surface temperature increases.", "answer": "It decreases, shifting to shorter wavelengths (towards the blue).", "status": "draft"}
+		]
+	},
+	{
+		"id": "astronomical-distances",
+		"title": "Astronomical distances and stellar parallax",
+		"topic": "Cosmology",
+		"specRefs": ["5.5.3(a)", "5.5.3(b)", "5.5.3(c)"],
+		"questions": [
+			{"id": "astronomical-distances-1", "command": "Define", "prompt": "Define the astronomical unit (AU).", "answer": "The mean distance from the Earth to the Sun, 1.50 × 10¹¹ m.", "status": "draft"},
+			{"id": "astronomical-distances-2", "command": "Define", "prompt": "Define the light-year (ly).", "answer": "The distance light travels in a vacuum in one year, 9.46 × 10¹⁵ m.", "status": "draft"},
+			{"id": "astronomical-distances-3", "command": "Define", "prompt": "Define the parsec (pc).", "answer": "The distance at which the radius of the Earth's orbit about the Sun subtends an angle of 1 arcsecond; 3.09 × 10¹⁶ m (3.26 ly).", "status": "draft"},
+			{"id": "astronomical-distances-4", "command": "State", "prompt": "State what is meant by stellar parallax.", "answer": "The apparent change in position of a nearby star against more distant background stars as the Earth moves around its orbit.", "status": "draft"},
+			{"id": "astronomical-distances-5", "command": "State", "prompt": "State the equation relating parallax angle and distance.", "answer": "p = 1/d, with p in seconds of arc and d in parsecs.", "status": "draft"},
+			{"id": "astronomical-distances-6", "command": "State", "prompt": "State why stellar parallax can only be used to measure the distance to relatively nearby stars.", "answer": "The parallax angle becomes too small to measure accurately for distant stars.", "status": "draft"}
+		]
+	},
+	{
+		"id": "cosmological-principle",
+		"title": "The cosmological principle",
+		"topic": "Cosmology",
+		"specRefs": ["5.5.3(d)"],
+		"questions": [
+			{"id": "cosmological-principle-1", "command": "State", "prompt": "State the cosmological principle.", "answer": "On a large scale the universe is homogeneous and isotropic, and the laws of physics are the same everywhere.", "status": "draft"},
+			{"id": "cosmological-principle-2", "command": "State", "prompt": "State what is meant by a homogeneous universe.", "answer": "One that has the same average density and properties everywhere on a large scale.", "status": "draft"},
+			{"id": "cosmological-principle-3", "command": "State", "prompt": "State what is meant by an isotropic universe.", "answer": "One that looks the same in all directions on a large scale.", "status": "draft"},
+			{"id": "cosmological-principle-4", "command": "State", "prompt": "State the assumption the cosmological principle makes about the laws of physics.", "answer": "The laws of physics are universal, so the same laws apply everywhere in the universe.", "status": "draft"}
+		]
+	},
+	{
+		"id": "doppler-redshift",
+		"title": "Doppler shift of electromagnetic radiation",
+		"topic": "Cosmology",
+		"specRefs": ["5.5.3(e)", "5.5.3(f)"],
+		"questions": [
+			{"id": "doppler-redshift-1", "command": "State", "prompt": "State what is meant by the Doppler effect.", "answer": "The change in observed frequency and wavelength of a wave when the source and observer move relative to each other.", "status": "draft"},
+			{"id": "doppler-redshift-2", "command": "State", "prompt": "State what is meant by redshift.", "answer": "The observed wavelength of light is longer than the emitted wavelength, which shows that the source is moving away from the observer.", "status": "draft"},
+			{"id": "doppler-redshift-3", "command": "State", "prompt": "State what is meant by blueshift.", "answer": "The observed wavelength of light is shorter than the emitted wavelength, which shows that the source is moving towards the observer.", "status": "draft"},
+			{"id": "doppler-redshift-4", "command": "State", "prompt": "State the Doppler equation relating the change in wavelength to the speed of a receding source, for v much less than c.", "answer": "Δλ/λ = v/c, where λ is the emitted wavelength and c is the speed of light.", "status": "draft"},
+			{"id": "doppler-redshift-5", "command": "State", "prompt": "State what a redshift of a galaxy's light indicates about its motion.", "answer": "The galaxy is moving away from the observer.", "status": "draft"},
+			{"id": "doppler-redshift-6", "command": "State", "prompt": "State the condition under which the Doppler equation Δλ/λ = v/c is valid.", "answer": "The speed v of the source relative to the observer must be much less than the speed of light c.", "status": "draft"}
+		]
+	},
+	{
+		"id": "hubble-law",
+		"title": "Hubble's law and the expanding universe",
+		"topic": "Cosmology",
+		"specRefs": ["5.5.3(g)", "5.5.3(h)", "5.5.3(i)"],
+		"questions": [
+			{"id": "hubble-law-1", "command": "State", "prompt": "State Hubble's law.", "answer": "The recessional speed of a galaxy is directly proportional to its distance from the observer: v ≈ H₀d.", "status": "draft"},
+			{"id": "hubble-law-2", "command": "State", "prompt": "State what is meant by the Hubble constant H₀.", "answer": "The constant of proportionality in Hubble's law; it is the gradient of the graph of recessional speed against distance.", "status": "draft"},
+			{"id": "hubble-law-3", "command": "State", "prompt": "State the SI-base-unit form of the Hubble constant.", "answer": "s⁻¹ (it is usually quoted in km s⁻¹ Mpc⁻¹).", "status": "draft"},
+			{"id": "hubble-law-4", "command": "State", "prompt": "State how the Hubble constant can be obtained from data on galaxies.", "answer": "Plot recessional speed v against distance d and find the gradient of the line of best fit.", "status": "draft"},
+			{"id": "hubble-law-5", "command": "State", "prompt": "State what the redshifts of distant galaxies show.", "answer": "The galaxies are receding from us, and the more distant galaxies are receding faster.", "status": "draft"},
+			{"id": "hubble-law-6", "command": "State", "prompt": "State why Hubble's law implies that the universe is expanding.", "answer": "Every distant galaxy is receding, with a speed proportional to its distance, which is what is expected if space itself is expanding uniformly.", "status": "draft"}
+		]
+	},
+	{
+		"id": "big-bang-evidence",
+		"title": "The Big Bang and cosmic microwave background",
+		"topic": "Cosmology",
+		"specRefs": ["5.5.3(j)", "5.5.3(k)", "5.5.3(l)"],
+		"questions": [
+			{"id": "big-bang-evidence-1", "command": "State", "prompt": "State the Big Bang theory.", "answer": "The universe began from an extremely hot, dense state about 13.8 billion years ago and has been expanding ever since.", "status": "draft"},
+			{"id": "big-bang-evidence-2", "command": "State", "prompt": "State two main pieces of evidence for the Big Bang theory.", "answer": "The redshift of distant galaxies (the expansion of the universe) and the cosmic microwave background radiation.", "status": "draft"},
+			{"id": "big-bang-evidence-3", "command": "State", "prompt": "State what the cosmic microwave background radiation is.", "answer": "Microwave radiation coming from all directions, with a black-body spectrum corresponding to a temperature of about 2.7 K; it is the cooled radiation from the early universe.", "status": "draft"},
+			{"id": "big-bang-evidence-4", "command": "State", "prompt": "State why the cosmic microwave background supports the Big Bang theory.", "answer": "The model predicts that the hot early universe should have filled space with radiation, which has since cooled and been redshifted to microwaves at 2.7 K.", "status": "draft"},
+			{"id": "big-bang-evidence-5", "command": "State", "prompt": "State why the cosmic microwave background is now observed as microwaves.", "answer": "The expansion of the universe has stretched its wavelength (cosmological redshift) from higher-energy radiation into the microwave region.", "status": "draft"},
+			{"id": "big-bang-evidence-6", "command": "State", "prompt": "State what the Big Bang gave rise to.", "answer": "The expansion of space-time itself, not an explosion of matter into pre-existing space.", "status": "draft"}
+		]
+	},
+	{
+		"id": "age-and-composition",
+		"title": "Age, evolution and composition of the universe",
+		"topic": "Cosmology",
+		"specRefs": ["5.5.3(m)", "5.5.3(n)", "5.5.3(o)"],
+		"questions": [
+			{"id": "age-and-composition-1", "command": "State", "prompt": "State the expression used to estimate the age of the universe from the Hubble constant.", "answer": "t ≈ 1/H₀.", "status": "draft"},
+			{"id": "age-and-composition-2", "command": "State", "prompt": "State the current estimate for the age of the universe.", "answer": "About 1.4 × 10¹⁰ years (13.8 billion years).", "status": "draft"},
+			{"id": "age-and-composition-3", "command": "State", "prompt": "State the assumption made when estimating the age of the universe as 1/H₀.", "answer": "That the rate of expansion of the universe has been constant since the Big Bang.", "status": "draft"},
+			{"id": "age-and-composition-4", "command": "Describe", "prompt": "Describe the main stages in the evolution of the universe from the Big Bang to the present.", "answer": "The universe expanded and cooled; protons, neutrons and electrons formed; hydrogen and helium nuclei formed; then electrons combined with the nuclei to form neutral atoms, releasing the cosmic microwave background; stars and galaxies later formed, and the expansion is now accelerating.", "status": "draft"},
+			{"id": "age-and-composition-5", "command": "State", "prompt": "State the approximate composition of the universe by mass–energy.", "answer": "About 68% dark energy, 27% dark matter and 5% ordinary matter.", "status": "draft"},
+			{"id": "age-and-composition-6", "command": "State", "prompt": "State what is meant by dark matter.", "answer": "Matter that does not emit or absorb light, so it cannot be seen, but it exerts a gravitational pull on visible matter.", "status": "draft"},
+			{"id": "age-and-composition-7", "command": "State", "prompt": "State what is meant by dark energy.", "answer": "An unknown form of energy that fills space and causes the expansion of the universe to accelerate.", "status": "draft"}
+		]
+	}
+]
