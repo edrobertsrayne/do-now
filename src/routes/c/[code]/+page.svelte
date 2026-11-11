@@ -18,11 +18,13 @@
 	const topicTaught = $derived(skills.filter((s) => s.taught).length);
 
 	let copied = $state(false);
+	let copiedTimer: ReturnType<typeof setTimeout> | undefined;
 	async function copyLink() {
 		try {
 			await navigator.clipboard.writeText(page.url.origin + page.url.pathname);
 			copied = true;
-			setTimeout(() => (copied = false), 1800);
+			clearTimeout(copiedTimer);
+			copiedTimer = setTimeout(() => (copied = false), 1800);
 		} catch {
 			/* Clipboard blocked: the address bar still has the link. */
 		}
@@ -35,13 +37,14 @@
 	<div class="wrap" style="max-width: 1240px;">
 		<header class="top">
 			<a class="brand" href={resolve('/')}><span class="logo">D</span>Do Now</a>
-			<span class="course">{data.course}</span>
+			<h1 class="course">{data.course}</h1>
 			<div class="grow"></div>
-			<span class="code" title="Anyone with this code can edit the class">{data.code}</span>
+			<span class="code">{data.code}</span>
 			<button class="btn ghost small" type="button" onclick={copyLink} aria-live="polite"
 				>{copied ? 'Link copied' : 'Copy link'}</button
 			>
 		</header>
+		<p class="hint">Anyone with this code or link can edit this class. Bookmark this page.</p>
 
 		{#if form?.message}<p class="error" role="alert">{form.message}</p>{/if}
 
@@ -193,6 +196,14 @@
 		flex-wrap: wrap;
 		align-items: center;
 		gap: 12px 16px;
+	}
+	.course {
+		margin: 0;
+	}
+	.hint {
+		margin: 6px 0 0;
+		font-size: 13px;
+		color: var(--muted);
 	}
 	.course {
 		font-size: 15px;

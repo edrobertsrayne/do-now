@@ -157,7 +157,8 @@
 			run(list, start, 1.7, () => rows.some((r) => r.scrollHeight > r.clientHeight + 1));
 		}
 		const card = root.querySelector<HTMLElement>('.qcard');
-		if (card) run(card, 3.8, 2.2, () => card.scrollHeight > card.clientHeight + 1);
+		const qp = card?.querySelector<HTMLElement>('.prompt');
+		if (card && qp) run(card, 3.8, 2.2, () => qp.scrollHeight > qp.clientHeight + 1);
 		const ans = root.querySelector<HTMLElement>('.answer.shown');
 		if (ans) run(ans, 3.2, 1.8, () => ans.scrollHeight > ans.clientHeight + 1);
 	}
