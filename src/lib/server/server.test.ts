@@ -5,7 +5,12 @@ import type { ClassDoc } from '../types.ts';
 import { CODE_ALPHABET, CODE_LENGTH, generateCode, normaliseCode } from './classCode.ts';
 import { createStore } from './store.ts';
 
-const doc = (size = 5): ClassDoc => ({ state: newClass(), size, doNow: null });
+const doc = (size = 5): ClassDoc => ({
+	course: 'aqa-gcse-physics',
+	state: newClass(),
+	size,
+	doNow: null
+});
 
 test('class codes are 8 characters from the unambiguous alphabet', () => {
 	for (const bad of ['0', 'O', '1', 'I', 'L']) assert.ok(!CODE_ALPHABET.includes(bad), bad);
@@ -37,4 +42,11 @@ test('store round-trips a class document and refuses duplicate or unknown codes'
 	assert.deepEqual(store.get('ABCD2345'), doc());
 	assert.equal(store.save('ABCD2345', doc(6)), true);
 	assert.equal(store.get('ABCD2345')?.size, 6);
+});
+
+test('a class document saved before courses existed reads back as GCSE Physics', () => {
+	const store = createStore(':memory:');
+	const { course: _course, ...legacy } = doc();
+	store.create('ABCD2345', legacy as ClassDoc);
+	assert.equal(store.get('ABCD2345')?.course, 'aqa-gcse-physics');
 });

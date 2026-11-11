@@ -49,18 +49,21 @@ const server = createServer(async (req, res) => {
 		}
 		if (req.method === 'GET' && path === '/api/bank') return send(res, 200, store.list());
 
-		if (req.method === 'POST' && path === '/api/questions') {
+		const coll = /^\/api\/courses\/([^/]+)\/questions$/.exec(path);
+		if (coll && req.method === 'POST') {
 			const body = (await readJson(req)) as { skillId?: unknown };
 			if (typeof body?.skillId !== 'string') throw new HttpError(400, 'skillId required');
-			return send(res, 201, store.add(body.skillId, body));
+			return send(res, 201, store.add(decodeURIComponent(coll[1]!), body.skillId, body));
 		}
 
-		const m = /^\/api\/questions\/([^/]+)$/.exec(path);
+		const m = /^\/api\/courses\/([^/]+)\/questions\/([^/]+)$/.exec(path);
 		if (m) {
-			const id = decodeURIComponent(m[1]!);
-			if (req.method === 'PUT') return send(res, 200, store.update(id, await readJson(req)));
+			const course = decodeURIComponent(m[1]!);
+			const id = decodeURIComponent(m[2]!);
+			if (req.method === 'PUT')
+				return send(res, 200, store.update(course, id, await readJson(req)));
 			if (req.method === 'DELETE') {
-				store.remove(id);
+				store.remove(course, id);
 				return send(res, 204, undefined);
 			}
 		}

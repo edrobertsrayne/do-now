@@ -2,7 +2,7 @@ import { getBank, openClass } from '#lib/server/app.ts';
 
 export function load({ params }: { params: { code: string } }) {
 	const { code, doc } = openClass(params.code);
-	const skills = new Map(getBank().skills.map((s) => [s.id, s]));
+	const skills = new Map(getBank(doc.course).skills.map((s) => [s.id, s]));
 	return {
 		code,
 		lesson: doc.doNow?.lesson ?? null,
