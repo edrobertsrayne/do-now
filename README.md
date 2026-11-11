@@ -28,3 +28,9 @@ npm run build && npm start                 # production server (adapter-node)
 Env: `DB_PATH` (default `data/retrieval.db`), `BANK_DIR` (default `bank/`), `PORT`, and `ORIGIN` (required behind a proxy for form posts). `drizzle/` is read from the working directory at startup, so deploy it alongside `build/`.
 
 Requires Node with TypeScript type stripping and `node:sqlite` (Node 24+). TypeScript is pinned to 6.x because SvelteKit 3 needs the TypeScript JS API, which TypeScript 7 does not provide.
+
+## Deploying (Railpack on Dokploy)
+
+1. Set the env vars from [`.env.example`](.env.example) in the service's Environment tab. `DB_PATH=/app/data/retrieval.db` and `ORIGIN=https://<your-domain>` are the two that matter.
+2. Add a Volume Mount for `/app/data` (Advanced -> Volumes). Without it the database is lost on every redeploy. The directory must be writable by the container user, since SQLite also writes `-wal` and `-shm` files beside the database.
+3. The store creates the database directory if it is missing and applies `drizzle/` migrations on startup, so no manual DB setup is needed.
