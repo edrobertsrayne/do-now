@@ -1,0 +1,371 @@
+[
+	{
+		"id": "charge-and-current",
+		"title": "Electric current and charge",
+		"topic": "Charge and current",
+		"specRefs": ["4.1.1"],
+		"questions": [
+			{"id": "charge-and-current-1", "command": "Define", "prompt": "Define electric current.", "answer": "The rate of flow of electric charge.", "status": "draft"},
+			{"id": "charge-and-current-2", "command": "State", "prompt": "State the equation relating current, charge and time.", "answer": "I = ΔQ/Δt (current = charge flow ÷ time taken).", "status": "draft"},
+			{"id": "charge-and-current-3", "command": "State", "prompt": "State the unit of electric charge and its symbol.", "answer": "The coulomb (C).", "status": "draft"},
+			{"id": "charge-and-current-4", "command": "State", "prompt": "State the direction of conventional current relative to the flow of electrons in a metal wire.", "answer": "Conventional current flows from the positive terminal to the negative terminal, opposite to the direction of electron flow.", "status": "draft"},
+			{"id": "charge-and-current-5", "command": "Describe", "prompt": "Describe how charge is carried through a metal wire and through an electrolyte.", "answer": "In a metal, charge is carried by free electrons; in an electrolyte, it is carried by positive and negative ions.", "status": "draft"}
+		]
+	},
+	{
+		"id": "charge-quantisation",
+		"title": "Charge quantisation and Kirchhoff's first law",
+		"topic": "Charge and current",
+		"specRefs": ["4.1.1"],
+		"questions": [
+			{"id": "charge-quantisation-1", "command": "State", "prompt": "State the value of the elementary charge e.", "answer": "1.6 × 10⁻¹⁹ C.", "status": "draft"},
+			{"id": "charge-quantisation-2", "command": "State", "prompt": "State the charge of an electron and the charge of a proton in terms of e.", "answer": "Electron: −e; proton: +e.", "status": "draft"},
+			{"id": "charge-quantisation-3", "command": "Explain", "prompt": "Explain what is meant by saying that electric charge is quantised.", "answer": "Charge exists only in discrete amounts that are whole-number multiples of the elementary charge e, so the net charge on a particle or object is a multiple of e.", "status": "draft"},
+			{"id": "charge-quantisation-4", "command": "State", "prompt": "State Kirchhoff's first law.", "answer": "The sum of the currents entering a junction equals the sum of the currents leaving that junction.", "status": "draft"},
+			{"id": "charge-quantisation-5", "command": "State", "prompt": "State the physical principle that Kirchhoff's first law is a consequence of.", "answer": "The conservation of charge.", "status": "draft"},
+			{"id": "charge-quantisation-6", "command": "Calculate", "prompt": "A particle has a net charge of +3.2 × 10⁻¹⁹ C. Calculate its charge in terms of e.", "answer": "+2e (3.2 × 10⁻¹⁹ ÷ 1.6 × 10⁻¹⁹ = 2).", "status": "draft"}
+		]
+	},
+	{
+		"id": "mean-drift-velocity",
+		"title": "Mean drift velocity",
+		"topic": "Charge and current",
+		"specRefs": ["4.1.2"],
+		"questions": [
+			{"id": "mean-drift-velocity-1", "command": "Define", "prompt": "Define the mean drift velocity of charge carriers in a conductor.", "answer": "The average velocity of the charge carriers along the conductor in the direction of current flow.", "status": "draft"},
+			{"id": "mean-drift-velocity-2", "command": "State", "prompt": "State the equation relating current to mean drift velocity.", "answer": "I = Anev, where A is the cross-sectional area, n is the number density, e is the elementary charge and v is the mean drift velocity.", "status": "draft"},
+			{"id": "mean-drift-velocity-3", "command": "State", "prompt": "State what is meant by the number density n of charge carriers.", "answer": "The number of charge carriers per unit volume of the material.", "status": "draft"},
+			{"id": "mean-drift-velocity-4", "command": "State", "prompt": "State the unit of number density.", "answer": "m⁻³ (per cubic metre).", "status": "draft"},
+			{"id": "mean-drift-velocity-5", "command": "State", "prompt": "State how the number density of charge carriers in a conductor compares with that in a semiconductor and in an insulator.", "answer": "It is very large in a conductor, much smaller in a semiconductor and extremely small in an insulator.", "status": "draft"},
+			{"id": "mean-drift-velocity-6", "command": "State", "prompt": "State what happens to the mean drift velocity of the electrons in a wire when the current is increased, for the same wire.", "answer": "It increases; the mean drift velocity is directly proportional to the current.", "status": "draft"}
+		]
+	},
+	{
+		"id": "circuit-symbols",
+		"title": "Circuit symbols and diagrams",
+		"topic": "Energy, power and resistance",
+		"specRefs": ["4.2.1"],
+		"questions": [
+			{"id": "circuit-symbols-1", "command": "Name", "prompt": "Name the component represented in a circuit diagram by a rectangle.", "answer": "A resistor.", "status": "draft"},
+			{"id": "circuit-symbols-2", "command": "Name", "prompt": "Name the component represented in a circuit diagram by a circle containing a cross.", "answer": "A lamp.", "status": "draft"},
+			{"id": "circuit-symbols-3", "command": "Name", "prompt": "Name the component represented in a circuit diagram by two parallel lines of equal length.", "answer": "A capacitor.", "status": "draft"},
+			{"id": "circuit-symbols-4", "command": "Name", "prompt": "Name the component represented in a circuit diagram by a triangle with a line across its tip.", "answer": "A diode.", "status": "draft"},
+			{"id": "circuit-symbols-5", "command": "Name", "prompt": "Name the component represented by a diode symbol with two arrows pointing away from it.", "answer": "A light-emitting diode (LED).", "status": "draft"},
+			{"id": "circuit-symbols-6", "command": "State", "prompt": "State why standard circuit symbols are used in circuit diagrams.", "answer": "So that circuits are represented clearly and unambiguously, and can be understood by anyone regardless of language.", "status": "draft"}
+		]
+	},
+	{
+		"id": "emf-and-pd",
+		"title": "E.m.f. and potential difference",
+		"topic": "Energy, power and resistance",
+		"specRefs": ["4.2.2"],
+		"questions": [
+			{"id": "emf-and-pd-1", "command": "Define", "prompt": "Define potential difference.", "answer": "The energy transferred per unit charge when electrical energy is converted into other forms of energy.", "status": "draft"},
+			{"id": "emf-and-pd-2", "command": "Define", "prompt": "Define the electromotive force (e.m.f.) of a source.", "answer": "The energy transferred per unit charge when other forms of energy are converted into electrical energy.", "status": "draft"},
+			{"id": "emf-and-pd-3", "command": "State", "prompt": "State what is meant by a potential difference of one volt.", "answer": "One joule of energy is transferred per coulomb of charge.", "status": "draft"},
+			{"id": "emf-and-pd-4", "command": "State", "prompt": "State the equation relating energy transferred, charge and potential difference.", "answer": "W = VQ.", "status": "draft"},
+			{"id": "emf-and-pd-5", "command": "State", "prompt": "State the equation relating energy transferred, charge and e.m.f.", "answer": "W = EQ.", "status": "draft"},
+			{"id": "emf-and-pd-6", "command": "Explain", "prompt": "Explain the difference between e.m.f. and potential difference in terms of energy transfer.", "answer": "E.m.f. is the energy transferred from other forms into electrical energy per unit charge in the source; p.d. is the energy transferred from electrical energy into other forms per unit charge across a component.", "status": "draft"},
+			{"id": "emf-and-pd-7", "command": "State", "prompt": "State the equation relating the energy gained by an electron accelerated through a potential difference V to its speed.", "answer": "eV = ½mv².", "status": "draft"}
+		]
+	},
+	{
+		"id": "resistance-and-ohms-law",
+		"title": "Resistance and Ohm's law",
+		"topic": "Energy, power and resistance",
+		"specRefs": ["4.2.3"],
+		"questions": [
+			{"id": "resistance-and-ohms-law-1", "command": "Define", "prompt": "Define resistance.", "answer": "The opposition to the flow of electric current, defined as the potential difference across a component divided by the current through it.", "status": "draft"},
+			{"id": "resistance-and-ohms-law-2", "command": "State", "prompt": "State the equation for resistance in terms of potential difference and current.", "answer": "R = V/I.", "status": "draft"},
+			{"id": "resistance-and-ohms-law-3", "command": "State", "prompt": "State the unit of resistance.", "answer": "The ohm (Ω), equal to one volt per ampere (V/A).", "status": "draft"},
+			{"id": "resistance-and-ohms-law-4", "command": "State", "prompt": "State Ohm's law.", "answer": "The current through an ohmic conductor is directly proportional to the potential difference across it, provided its temperature remains constant.", "status": "draft"},
+			{"id": "resistance-and-ohms-law-5", "command": "State", "prompt": "State the condition that must be satisfied for Ohm's law to apply to a conductor.", "answer": "The temperature of the conductor must remain constant.", "status": "draft"},
+			{"id": "resistance-and-ohms-law-6", "command": "State", "prompt": "State what is meant by a non-ohmic component.", "answer": "A component whose resistance changes with the current through it, so its I–V graph is not a straight line through the origin.", "status": "draft"},
+			{"id": "resistance-and-ohms-law-7", "command": "State", "prompt": "State what the gradient of an I–V graph represents when current is plotted on the y-axis and potential difference on the x-axis.", "answer": "The conductance, 1/R (the reciprocal of the resistance).", "status": "draft"}
+		]
+	},
+	{
+		"id": "iv-characteristics",
+		"title": "I–V characteristics of components",
+		"topic": "Energy, power and resistance",
+		"specRefs": ["4.2.3"],
+		"questions": [
+			{"id": "iv-characteristics-1", "command": "State", "prompt": "State the shape of the I–V characteristic of a resistor at constant temperature.", "answer": "A straight line through the origin.", "status": "draft"},
+			{"id": "iv-characteristics-2", "command": "State", "prompt": "State how the resistance of a filament lamp changes as the potential difference across it increases.", "answer": "It increases.", "status": "draft"},
+			{"id": "iv-characteristics-3", "command": "Explain", "prompt": "Explain why the resistance of a filament lamp increases as the current through it increases.", "answer": "The filament's temperature rises, so its ions vibrate more and collide with the charge carriers more frequently, increasing the resistance.", "status": "draft"},
+			{"id": "iv-characteristics-4", "command": "State", "prompt": "State how a diode behaves when it is reverse biased.", "answer": "It has a very high resistance and allows (almost) no current to flow.", "status": "draft"},
+			{"id": "iv-characteristics-5", "command": "State", "prompt": "State the approximate potential difference needed for a silicon diode to start conducting in the forward direction.", "answer": "About 0.6 V.", "status": "draft"},
+			{"id": "iv-characteristics-6", "command": "Name", "prompt": "Name the component that has an I–V characteristic similar to a diode but emits light when it conducts.", "answer": "A light-emitting diode (LED).", "status": "draft"},
+			{"id": "iv-characteristics-7", "command": "State", "prompt": "State how the resistance of a light-dependent resistor (LDR) changes as light intensity increases.", "answer": "It decreases.", "status": "draft"},
+			{"id": "iv-characteristics-8", "command": "State", "prompt": "State how the resistance of a negative temperature coefficient (NTC) thermistor changes as its temperature increases.", "answer": "It decreases.", "status": "draft"},
+			{"id": "iv-characteristics-9", "command": "State", "prompt": "State one way to reduce the heating effect when measuring the I–V characteristic of a filament lamp.", "answer": "Keep the current small (increase the potential difference in small steps and switch off between readings).", "status": "draft"}
+		]
+	},
+	{
+		"id": "resistivity",
+		"title": "Resistivity",
+		"topic": "Energy, power and resistance",
+		"specRefs": ["4.2.4"],
+		"questions": [
+			{"id": "resistivity-1", "command": "State", "prompt": "State the equation relating resistance to resistivity, length and cross-sectional area.", "answer": "R = ρL/A.", "status": "draft"},
+			{"id": "resistivity-2", "command": "State", "prompt": "State the unit of resistivity.", "answer": "The ohm metre (Ω m).", "status": "draft"},
+			{"id": "resistivity-3", "command": "Define", "prompt": "Define resistivity.", "answer": "The resistance of a piece of the material of unit length and unit cross-sectional area (ρ = RA/L).", "status": "draft"},
+			{"id": "resistivity-4", "command": "State", "prompt": "State how the resistivity of a metal changes as its temperature increases.", "answer": "It increases.", "status": "draft"},
+			{"id": "resistivity-5", "command": "State", "prompt": "State how the resistivity of a semiconductor changes as its temperature increases.", "answer": "It decreases.", "status": "draft"},
+			{"id": "resistivity-6", "command": "Explain", "prompt": "Explain why the resistivity of a semiconductor decreases as its temperature increases.", "answer": "More charge carriers are released as thermal energy breaks bonds, so the number density of charge carriers increases and the resistivity falls.", "status": "draft"},
+			{"id": "resistivity-7", "command": "State", "prompt": "State one way to reduce random error when measuring the diameter of a wire in a resistivity experiment.", "answer": "Measure the diameter at several points along the wire and take an average.", "status": "draft"}
+		]
+	},
+	{
+		"id": "electrical-power",
+		"title": "Electrical power and energy",
+		"topic": "Energy, power and resistance",
+		"specRefs": ["4.2.5"],
+		"questions": [
+			{"id": "electrical-power-1", "command": "State", "prompt": "State three equations for electrical power.", "answer": "P = VI, P = I²R and P = V²/R.", "status": "draft"},
+			{"id": "electrical-power-2", "command": "State", "prompt": "State the equation for the energy transferred by an electrical component in terms of potential difference, current and time.", "answer": "W = VIt.", "status": "draft"},
+			{"id": "electrical-power-3", "command": "State", "prompt": "State what is meant by a kilowatt-hour.", "answer": "The energy transferred by a device of power 1 kW operating for 1 hour.", "status": "draft"},
+			{"id": "electrical-power-4", "command": "State", "prompt": "State the number of joules in one kilowatt-hour.", "answer": "3.6 × 10⁶ J.", "status": "draft"},
+			{"id": "electrical-power-5", "command": "Calculate", "prompt": "Calculate the energy transferred by a 2 kW heater used for 3 hours. Give your answer in kWh.", "answer": "2 × 3 = 6 kWh.", "status": "draft"},
+			{"id": "electrical-power-6", "command": "State", "prompt": "State how the cost of electrical energy is calculated from the energy used and the cost per kilowatt-hour.", "answer": "Cost = energy used in kWh × cost per kWh.", "status": "draft"},
+			{"id": "electrical-power-7", "command": "Calculate", "prompt": "Calculate the power of a device that transfers 600 J of energy in 30 s.", "answer": "600 ÷ 30 = 20 W.", "status": "draft"}
+		]
+	},
+	{
+		"id": "kirchhoff-laws",
+		"title": "Kirchhoff's laws",
+		"topic": "Electrical circuits",
+		"specRefs": ["4.3.1"],
+		"questions": [
+			{"id": "kirchhoff-laws-1", "command": "State", "prompt": "State Kirchhoff's second law.", "answer": "The sum of the e.m.f.s around any closed loop equals the sum of the potential differences around that loop.", "status": "draft"},
+			{"id": "kirchhoff-laws-2", "command": "State", "prompt": "State the physical principle that Kirchhoff's second law is a consequence of.", "answer": "The conservation of energy.", "status": "draft"},
+			{"id": "kirchhoff-laws-3", "command": "State", "prompt": "State the total e.m.f. of two identical 1.5 V cells connected in series in the same direction.", "answer": "3.0 V.", "status": "draft"},
+			{"id": "kirchhoff-laws-4", "command": "State", "prompt": "State the net e.m.f. of a 2.0 V cell and a 1.5 V cell connected in series in opposition.", "answer": "0.5 V.", "status": "draft"}
+		]
+	},
+	{
+		"id": "series-parallel-resistance",
+		"title": "Resistors in series and parallel",
+		"topic": "Electrical circuits",
+		"specRefs": ["4.3.1"],
+		"questions": [
+			{"id": "series-parallel-resistance-1", "command": "State", "prompt": "State the equation for the total resistance of two resistors in series.", "answer": "R = R₁ + R₂ (the total is the sum of the individual resistances).", "status": "draft"},
+			{"id": "series-parallel-resistance-2", "command": "State", "prompt": "State the equation for the total resistance of two resistors in parallel.", "answer": "1/R = 1/R₁ + 1/R₂.", "status": "draft"},
+			{"id": "series-parallel-resistance-3", "command": "State", "prompt": "State how the current through components connected in series compares.", "answer": "The current is the same through each component.", "status": "draft"},
+			{"id": "series-parallel-resistance-4", "command": "State", "prompt": "State how the potential differences across parallel branches compare.", "answer": "They are equal; the same potential difference is across each branch.", "status": "draft"},
+			{"id": "series-parallel-resistance-5", "command": "State", "prompt": "State how the total resistance of a circuit changes when another resistor is added in parallel.", "answer": "It decreases.", "status": "draft"},
+			{"id": "series-parallel-resistance-6", "command": "Explain", "prompt": "Explain why adding a resistor in parallel decreases the total resistance of a circuit.", "answer": "The extra branch provides another path for current, so the total current from the supply increases for the same potential difference, meaning the total resistance is lower.", "status": "draft"},
+			{"id": "series-parallel-resistance-7", "command": "State", "prompt": "State how the total resistance of two resistors in parallel compares with the smaller of the two resistances.", "answer": "It is always less than the smaller resistance.", "status": "draft"},
+			{"id": "series-parallel-resistance-8", "command": "State", "prompt": "State how the potential difference across the larger of two resistors in series compares with that across the smaller resistor.", "answer": "It is larger; the larger resistance takes a larger share of the supply potential difference.", "status": "draft"}
+		]
+	},
+	{
+		"id": "internal-resistance",
+		"title": "Internal resistance and terminal p.d.",
+		"topic": "Electrical circuits",
+		"specRefs": ["4.3.2"],
+		"questions": [
+			{"id": "internal-resistance-1", "command": "Define", "prompt": "Define the internal resistance of a source of e.m.f.", "answer": "The resistance of the components inside the source that oppose the flow of current through it.", "status": "draft"},
+			{"id": "internal-resistance-2", "command": "State", "prompt": "State what is meant by the terminal potential difference of a source.", "answer": "The potential difference across the terminals of the source when it is supplying current.", "status": "draft"},
+			{"id": "internal-resistance-3", "command": "State", "prompt": "State what is meant by 'lost volts'.", "answer": "The potential difference across the internal resistance (the energy dissipated per unit charge inside the source), equal to Ir.", "status": "draft"},
+			{"id": "internal-resistance-4", "command": "State", "prompt": "State the equation relating e.m.f., terminal potential difference, current and internal resistance.", "answer": "E = V + Ir.", "status": "draft"},
+			{"id": "internal-resistance-5", "command": "State", "prompt": "State the equation for the e.m.f. of a source in terms of the total resistance of the circuit.", "answer": "E = I(R + r).", "status": "draft"},
+			{"id": "internal-resistance-6", "command": "State", "prompt": "State what happens to the terminal potential difference of a cell as the current drawn from it increases.", "answer": "It decreases, because the lost volts increase.", "status": "draft"},
+			{"id": "internal-resistance-7", "command": "State", "prompt": "State what the intercept and the gradient of a graph of terminal potential difference against current represent.", "answer": "The intercept is the e.m.f. E and the gradient is −r (the negative of the internal resistance).", "status": "draft"}
+		]
+	},
+	{
+		"id": "potential-dividers",
+		"title": "Potential dividers",
+		"topic": "Electrical circuits",
+		"specRefs": ["4.3.3"],
+		"questions": [
+			{"id": "potential-dividers-1", "command": "State", "prompt": "State the potential divider equation for the output potential difference across resistor R₂ when it is in series with R₁.", "answer": "Vout = R₂/(R₁ + R₂) × Vin.", "status": "draft"},
+			{"id": "potential-dividers-2", "command": "State", "prompt": "State the ratio equation for the potential differences across two resistors in series.", "answer": "V₁/V₂ = R₁/R₂.", "status": "draft"},
+			{"id": "potential-dividers-3", "command": "State", "prompt": "State the purpose of a potential divider circuit.", "answer": "To split a supply potential difference into smaller, controllable potential differences.", "status": "draft"},
+			{"id": "potential-dividers-4", "command": "State", "prompt": "State what a potentiometer is.", "answer": "A variable potential divider — a resistor with a sliding contact that taps off a variable fraction of the supply potential difference.", "status": "draft"},
+			{"id": "potential-dividers-5", "command": "State", "prompt": "State how the output potential difference across R₂ changes when the resistance of R₂ is increased, with R₁ and the supply potential difference fixed.", "answer": "It increases.", "status": "draft"},
+			{"id": "potential-dividers-6", "command": "Explain", "prompt": "Explain how a thermistor in a potential divider can produce a potential difference that changes with temperature.", "answer": "As the temperature rises, the thermistor's resistance falls, so the share of the supply potential difference across it changes and the output potential difference across the other resistor changes.", "status": "draft"},
+			{"id": "potential-dividers-7", "command": "State", "prompt": "An LDR forms the upper resistor of a potential divider. State how the potential difference across the lower fixed resistor changes as light intensity increases.", "answer": "It increases, because the LDR's resistance falls and it takes a smaller share of the supply potential difference.", "status": "draft"}
+		]
+	},
+	{
+		"id": "wave-properties",
+		"title": "Wave quantities",
+		"topic": "Waves",
+		"specRefs": ["4.4.1"],
+		"questions": [
+			{"id": "wave-properties-1", "command": "Define", "prompt": "Define the displacement of a point on a wave.", "answer": "The distance of the point from its equilibrium position, in a stated direction.", "status": "draft"},
+			{"id": "wave-properties-2", "command": "Define", "prompt": "Define the amplitude of a wave.", "answer": "The maximum displacement of a point on the wave from its equilibrium position.", "status": "draft"},
+			{"id": "wave-properties-3", "command": "Define", "prompt": "Define the wavelength of a wave.", "answer": "The distance between two adjacent corresponding points on the wave that are in phase (for example, two successive crests).", "status": "draft"},
+			{"id": "wave-properties-4", "command": "Define", "prompt": "Define the frequency of a wave.", "answer": "The number of complete oscillations passing a point per second.", "status": "draft"},
+			{"id": "wave-properties-5", "command": "Define", "prompt": "Define the period of a wave.", "answer": "The time taken for one complete oscillation (one cycle).", "status": "draft"},
+			{"id": "wave-properties-6", "command": "Define", "prompt": "Define the phase difference between two points on a wave.", "answer": "The difference in the stage of the cycle reached by the two points, measured as an angle in radians or degrees.", "status": "draft"},
+			{"id": "wave-properties-7", "command": "State", "prompt": "State the phase difference between two points on a wave separated by one wavelength.", "answer": "360° (2π radians); the two points are in phase.", "status": "draft"},
+			{"id": "wave-properties-8", "command": "State", "prompt": "State what is meant by the speed of a wave.", "answer": "The distance travelled by the wave per unit time (the speed at which energy is transferred by the wave).", "status": "draft"},
+			{"id": "wave-properties-9", "command": "State", "prompt": "State how the frequency of a wave can be determined from a cathode-ray oscilloscope trace.", "answer": "Measure the time for one complete cycle using the time-base setting, then calculate f = 1/T.", "status": "draft"}
+		]
+	},
+	{
+		"id": "wave-types-and-equation",
+		"title": "Progressive waves and the wave equation",
+		"topic": "Waves",
+		"specRefs": ["4.4.1"],
+		"questions": [
+			{"id": "wave-types-and-equation-1", "command": "Define", "prompt": "Define a progressive wave.", "answer": "A wave that transfers energy from one place to another as it travels, without transferring matter.", "status": "draft"},
+			{"id": "wave-types-and-equation-2", "command": "State", "prompt": "State the difference between a transverse wave and a longitudinal wave.", "answer": "In a transverse wave the oscillations are perpendicular to the direction of energy transfer; in a longitudinal wave they are parallel to it.", "status": "draft"},
+			{"id": "wave-types-and-equation-3", "command": "State", "prompt": "State the equation relating frequency and period.", "answer": "f = 1/T.", "status": "draft"},
+			{"id": "wave-types-and-equation-4", "command": "State", "prompt": "State the wave equation.", "answer": "v = fλ.", "status": "draft"},
+			{"id": "wave-types-and-equation-5", "command": "State", "prompt": "State what happens to the speed of a wave if its frequency is doubled while its wavelength remains constant.", "answer": "The speed doubles (v ∝ f at constant λ).", "status": "draft"},
+			{"id": "wave-types-and-equation-6", "command": "Describe", "prompt": "Describe the shape of a displacement–distance graph for a transverse wave.", "answer": "A sine (or cosine) curve, oscillating about the equilibrium position with constant amplitude and wavelength.", "status": "draft"}
+		]
+	},
+	{
+		"id": "wave-behaviour",
+		"title": "Wave behaviour and intensity",
+		"topic": "Waves",
+		"specRefs": ["4.4.1"],
+		"questions": [
+			{"id": "wave-behaviour-1", "command": "State", "prompt": "State what is meant by reflection of a wave.", "answer": "The wave bounces off a boundary, with the angle of incidence equal to the angle of reflection.", "status": "draft"},
+			{"id": "wave-behaviour-2", "command": "State", "prompt": "State what is meant by refraction of a wave.", "answer": "The change in speed and direction of a wave as it passes from one medium into another.", "status": "draft"},
+			{"id": "wave-behaviour-3", "command": "State", "prompt": "State what is meant by diffraction of a wave.", "answer": "The spreading of a wave as it passes through a gap or around an obstacle.", "status": "draft"},
+			{"id": "wave-behaviour-4", "command": "State", "prompt": "State the condition for diffraction to be significant.", "answer": "The wavelength must be comparable to the size of the gap or obstacle.", "status": "draft"},
+			{"id": "wave-behaviour-5", "command": "State", "prompt": "State what is meant by polarisation of a wave.", "answer": "The restriction of the wave's oscillations to one plane.", "status": "draft"},
+			{"id": "wave-behaviour-6", "command": "State", "prompt": "State which type of wave can be polarised.", "answer": "Transverse waves only.", "status": "draft"},
+			{"id": "wave-behaviour-7", "command": "State", "prompt": "State the equation for the intensity of a wave.", "answer": "I = P/A (power per unit area).", "status": "draft"},
+			{"id": "wave-behaviour-8", "command": "State", "prompt": "State how the intensity of a wave changes if its amplitude is doubled.", "answer": "It becomes four times greater (I ∝ amplitude²).", "status": "draft"},
+			{"id": "wave-behaviour-9", "command": "State", "prompt": "State what a ripple tank can be used to demonstrate.", "answer": "Wave properties such as reflection, refraction and diffraction, using water waves.", "status": "draft"}
+		]
+	},
+	{
+		"id": "em-spectrum",
+		"title": "The electromagnetic spectrum and polarisation",
+		"topic": "Waves",
+		"specRefs": ["4.4.2"],
+		"questions": [
+			{"id": "em-spectrum-1", "command": "State", "prompt": "State the order of the electromagnetic spectrum in order of increasing wavelength.", "answer": "Gamma rays, X-rays, ultraviolet, visible, infrared, microwaves, radio waves.", "status": "draft"},
+			{"id": "em-spectrum-2", "command": "State", "prompt": "State the order of magnitude of the wavelength of visible light.", "answer": "About 10⁻⁷ m (400–700 nm).", "status": "draft"},
+			{"id": "em-spectrum-3", "command": "State", "prompt": "State two properties shared by all electromagnetic waves.", "answer": "They are transverse, and they travel at the speed of light in a vacuum (they can travel through a vacuum).", "status": "draft"},
+			{"id": "em-spectrum-4", "command": "State", "prompt": "State what is meant by a plane polarised electromagnetic wave.", "answer": "A wave whose electric field oscillations are restricted to one plane.", "status": "draft"},
+			{"id": "em-spectrum-5", "command": "State", "prompt": "State how the polarisation of microwaves can be demonstrated using a metal grille.", "answer": "Rotating the grille between the transmitter and receiver changes the received intensity; the wave is transmitted when the grille's slits are parallel to its electric field oscillations.", "status": "draft"},
+			{"id": "em-spectrum-6", "command": "State", "prompt": "State why the polarisation of light shows that light is a transverse wave.", "answer": "Only transverse waves can be polarised; longitudinal waves cannot.", "status": "draft"},
+			{"id": "em-spectrum-7", "command": "State", "prompt": "State how a polarising filter affects unpolarised light.", "answer": "It transmits only the component of the oscillations in one plane, so the transmitted light is plane polarised and its intensity is reduced.", "status": "draft"}
+		]
+	},
+	{
+		"id": "refraction-tir",
+		"title": "Refraction, refractive index and total internal reflection",
+		"topic": "Waves",
+		"specRefs": ["4.4.2"],
+		"questions": [
+			{"id": "refraction-tir-1", "command": "Define", "prompt": "Define the refractive index of a medium.", "answer": "The ratio of the speed of light in a vacuum to the speed of light in the medium, n = c/v.", "status": "draft"},
+			{"id": "refraction-tir-2", "command": "State", "prompt": "State Snell's law.", "answer": "n₁ sin i₁ = n₂ sin i₂, where the angles are measured to the normal.", "status": "draft"},
+			{"id": "refraction-tir-3", "command": "State", "prompt": "State what is meant by the critical angle.", "answer": "The angle of incidence for which the angle of refraction is exactly 90°.", "status": "draft"},
+			{"id": "refraction-tir-4", "command": "State", "prompt": "State the equation for the critical angle at a boundary between a medium of refractive index n and air.", "answer": "sin C = 1/n.", "status": "draft"},
+			{"id": "refraction-tir-5", "command": "State", "prompt": "State the two conditions needed for total internal reflection.", "answer": "Light must travel from a more optically dense medium to a less optically dense medium, and the angle of incidence must be greater than the critical angle.", "status": "draft"},
+			{"id": "refraction-tir-6", "command": "State", "prompt": "State how the speed of light in a medium changes as the refractive index of the medium increases.", "answer": "It decreases (v = c/n).", "status": "draft"},
+			{"id": "refraction-tir-7", "command": "State", "prompt": "State what happens to the frequency and to the wavelength of light when it passes into a medium of higher refractive index.", "answer": "The frequency stays the same and the wavelength decreases.", "status": "draft"},
+			{"id": "refraction-tir-8", "command": "State", "prompt": "State the apparatus used to investigate refraction of light through a glass block.", "answer": "A ray box, a glass block and a protractor (to measure the angles).", "status": "draft"}
+		]
+	},
+	{
+		"id": "superposition",
+		"title": "Superposition and interference",
+		"topic": "Waves",
+		"specRefs": ["4.4.3"],
+		"questions": [
+			{"id": "superposition-1", "command": "State", "prompt": "State the principle of superposition.", "answer": "When two or more waves meet at a point, the resultant displacement is the vector sum of the individual displacements.", "status": "draft"},
+			{"id": "superposition-2", "command": "Define", "prompt": "Define coherence.", "answer": "Two waves have a constant phase difference and the same frequency.", "status": "draft"},
+			{"id": "superposition-3", "command": "Define", "prompt": "Define interference.", "answer": "The superposition of two or more waves to produce a resultant wave whose amplitude depends on the phase difference between them.", "status": "draft"},
+			{"id": "superposition-4", "command": "State", "prompt": "State the condition for constructive interference in terms of path difference.", "answer": "The path difference is a whole-number multiple of the wavelength, nλ (for example 0, λ or 2λ).", "status": "draft"},
+			{"id": "superposition-5", "command": "State", "prompt": "State the condition for destructive interference in terms of path difference.", "answer": "The path difference is an odd-number multiple of half a wavelength, (n + ½)λ.", "status": "draft"},
+			{"id": "superposition-6", "command": "State", "prompt": "State the phase difference that corresponds to a path difference of half a wavelength.", "answer": "180° (π radians).", "status": "draft"},
+			{"id": "superposition-7", "command": "State", "prompt": "State what is meant by path difference.", "answer": "The difference in the distances travelled by two waves from their sources to a given point.", "status": "draft"},
+			{"id": "superposition-8", "command": "Give", "prompt": "Give one example of a two-source interference experiment using sound or microwaves.", "answer": "Two loudspeakers driven by the same signal produce alternating loud and quiet regions (or two microwave sources produce maxima and minima).", "status": "draft"},
+			{"id": "superposition-9", "command": "State", "prompt": "State how the resultant displacement at a point is found from the displacement–distance graphs of two superposed waves.", "answer": "Add the displacements of the two waves at that point, taking account of their directions.", "status": "draft"}
+		]
+	},
+	{
+		"id": "double-slit",
+		"title": "Young's double slit and diffraction gratings",
+		"topic": "Waves",
+		"specRefs": ["4.4.3"],
+		"questions": [
+			{"id": "double-slit-1", "command": "State", "prompt": "State the equation relating wavelength, fringe spacing, slit separation and slit-to-screen distance for Young's double-slit experiment.", "answer": "λ = ax/D (equivalently x = λD/a), where x is the fringe spacing, a is the slit separation and D is the slit-to-screen distance.", "status": "draft"},
+			{"id": "double-slit-2", "command": "State", "prompt": "State what is meant by the fringe spacing.", "answer": "The distance between the centres of adjacent bright fringes (maxima) on the screen.", "status": "draft"},
+			{"id": "double-slit-3", "command": "State", "prompt": "State the effect of increasing the slit separation on the fringe spacing, with all other quantities unchanged.", "answer": "The fringe spacing decreases.", "status": "draft"},
+			{"id": "double-slit-4", "command": "State", "prompt": "State the effect of moving the screen further from the slits on the fringe spacing.", "answer": "The fringe spacing increases.", "status": "draft"},
+			{"id": "double-slit-5", "command": "State", "prompt": "State the condition under which x = λD/a applies.", "answer": "The slit separation must be much smaller than the slit-to-screen distance (a ≪ D).", "status": "draft"},
+			{"id": "double-slit-6", "command": "State", "prompt": "State the equation for the maxima produced by a diffraction grating.", "answer": "d sin θ = nλ, where d is the slit spacing, θ is the angle to the normal and n is the order of the maximum.", "status": "draft"},
+			{"id": "double-slit-7", "command": "State", "prompt": "State one difference between the interference pattern from a double slit and that from a diffraction grating.", "answer": "A grating produces much sharper (narrower) bright maxima at well-defined angles; a double slit produces broad fringes.", "status": "draft"},
+			{"id": "double-slit-8", "command": "State", "prompt": "State what Young's double-slit experiment demonstrated about light.", "answer": "That light behaves as a wave (it produces an interference pattern).", "status": "draft"}
+		]
+	},
+	{
+		"id": "stationary-waves",
+		"title": "Stationary waves",
+		"topic": "Waves",
+		"specRefs": ["4.4.4"],
+		"questions": [
+			{"id": "stationary-waves-1", "command": "Define", "prompt": "Define a stationary (standing) wave.", "answer": "A wave formed by the superposition of two progressive waves of the same frequency and amplitude travelling in opposite directions.", "status": "draft"},
+			{"id": "stationary-waves-2", "command": "Define", "prompt": "Define a node and an antinode.", "answer": "A node is a point of zero displacement (zero amplitude); an antinode is a point of maximum displacement (maximum amplitude).", "status": "draft"},
+			{"id": "stationary-waves-3", "command": "State", "prompt": "State the separation between adjacent nodes in terms of the wavelength.", "answer": "λ/2.", "status": "draft"},
+			{"id": "stationary-waves-4", "command": "State", "prompt": "State one difference between a stationary wave and a progressive wave.", "answer": "A stationary wave does not transfer energy along its length, whereas a progressive wave does transfer energy.", "status": "draft"},
+			{"id": "stationary-waves-5", "command": "State", "prompt": "State one similarity between a stationary wave and a progressive wave.", "answer": "They have the same frequency and wavelength (the stationary wave is formed from progressive waves of that frequency and wavelength).", "status": "draft"},
+			{"id": "stationary-waves-6", "command": "State", "prompt": "State the wavelength of the fundamental mode (first harmonic) on a string of length L fixed at both ends.", "answer": "λ = 2L.", "status": "draft"},
+			{"id": "stationary-waves-7", "command": "State", "prompt": "State the wavelength of the first harmonic in a pipe of length L closed at one end and open at the other.", "answer": "λ = 4L.", "status": "draft"},
+			{"id": "stationary-waves-8", "command": "State", "prompt": "State the wavelength of the first harmonic in a pipe of length L open at both ends.", "answer": "λ = 2L.", "status": "draft"},
+			{"id": "stationary-waves-9", "command": "State", "prompt": "State how the speed of sound in air can be determined using a resonance tube and a tuning fork.", "answer": "Find two successive resonance lengths; their separation is λ/2, giving λ, then use v = fλ with the tuning-fork frequency.", "status": "draft"},
+			{"id": "stationary-waves-10", "command": "Describe", "prompt": "Describe the displacement–distance graph of a stationary wave.", "answer": "A sine curve whose amplitude is zero at each node and maximum at each antinode.", "status": "draft"}
+		]
+	},
+	{
+		"id": "photons",
+		"title": "Photons and photon energy",
+		"topic": "Quantum physics",
+		"specRefs": ["4.5.1"],
+		"questions": [
+			{"id": "photons-1", "command": "State", "prompt": "State what is meant by a photon.", "answer": "A quantum (packet) of electromagnetic energy.", "status": "draft"},
+			{"id": "photons-2", "command": "State", "prompt": "State the equation for the energy of a photon in terms of its frequency.", "answer": "E = hf.", "status": "draft"},
+			{"id": "photons-3", "command": "State", "prompt": "State the equation for the energy of a photon in terms of its wavelength.", "answer": "E = hc/λ.", "status": "draft"},
+			{"id": "photons-4", "command": "State", "prompt": "State the value of the Planck constant.", "answer": "6.63 × 10⁻³⁴ J s.", "status": "draft"},
+			{"id": "photons-5", "command": "Define", "prompt": "Define the electronvolt.", "answer": "The energy gained (or lost) by an electron when it moves through a potential difference of 1 V.", "status": "draft"},
+			{"id": "photons-6", "command": "State", "prompt": "State the value of one electronvolt in joules.", "answer": "1.6 × 10⁻¹⁹ J.", "status": "draft"},
+			{"id": "photons-7", "command": "State", "prompt": "State the equation relating the threshold potential difference of an LED to the wavelength of the light it emits.", "answer": "eV = hc/λ (so h = eVλ/c).", "status": "draft"},
+			{"id": "photons-8", "command": "State", "prompt": "State what is meant by the threshold voltage of an LED.", "answer": "The minimum potential difference across the LED at which it just begins to emit light.", "status": "draft"},
+			{"id": "photons-9", "command": "State", "prompt": "State how the Planck constant can be determined from measurements of threshold voltage and wavelength for several LEDs.", "answer": "Plot eV against 1/λ; the gradient is hc, so h = gradient ÷ c.", "status": "draft"}
+		]
+	},
+	{
+		"id": "photoelectric-effect",
+		"title": "The photoelectric effect",
+		"topic": "Quantum physics",
+		"specRefs": ["4.5.2"],
+		"questions": [
+			{"id": "photoelectric-effect-1", "command": "Define", "prompt": "Define the photoelectric effect.", "answer": "The emission of electrons from a metal surface when electromagnetic radiation of a frequency above the threshold frequency is incident on it.", "status": "draft"},
+			{"id": "photoelectric-effect-2", "command": "Define", "prompt": "Define the work function of a metal.", "answer": "The minimum energy required to remove an electron from the surface of the metal.", "status": "draft"},
+			{"id": "photoelectric-effect-3", "command": "Define", "prompt": "Define the threshold frequency.", "answer": "The minimum frequency of electromagnetic radiation that can cause photoelectric emission from a metal surface.", "status": "draft"},
+			{"id": "photoelectric-effect-4", "command": "State", "prompt": "State Einstein's photoelectric equation.", "answer": "hf = φ + KEmax (photon energy = work function + maximum kinetic energy of the emitted electron).", "status": "draft"},
+			{"id": "photoelectric-effect-5", "command": "State", "prompt": "State the nature of the interaction between a photon and a surface electron in the photoelectric effect.", "answer": "A one-to-one interaction: one photon is absorbed by one electron.", "status": "draft"},
+			{"id": "photoelectric-effect-6", "command": "State", "prompt": "State how the maximum kinetic energy of the emitted photoelectrons depends on the intensity of the incident radiation above the threshold frequency.", "answer": "It is independent of the intensity.", "status": "draft"},
+			{"id": "photoelectric-effect-7", "command": "State", "prompt": "State how the rate of emission of photoelectrons depends on the intensity of the incident radiation above the threshold frequency.", "answer": "It is directly proportional to the intensity.", "status": "draft"},
+			{"id": "photoelectric-effect-8", "command": "Explain", "prompt": "Explain why the photoelectric effect cannot be explained by the wave model of electromagnetic radiation.", "answer": "A wave would transfer energy gradually, so emission would occur after a time delay and at any frequency once enough energy had built up; in practice emission is instantaneous and only occurs above a threshold frequency.", "status": "draft"},
+			{"id": "photoelectric-effect-9", "command": "State", "prompt": "State what is observed when ultraviolet light shines on a negatively charged zinc plate.", "answer": "The plate loses its negative charge, because electrons are emitted from its surface.", "status": "draft"},
+			{"id": "photoelectric-effect-10", "command": "Explain", "prompt": "Explain why increasing the frequency of the incident radiation increases the maximum kinetic energy of the emitted electrons.", "answer": "Each photon has more energy (E = hf), so after overcoming the same work function the electron has more kinetic energy left.", "status": "draft"}
+		]
+	},
+	{
+		"id": "wave-particle-duality",
+		"title": "Wave–particle duality",
+		"topic": "Quantum physics",
+		"specRefs": ["4.5.3"],
+		"questions": [
+			{"id": "wave-particle-duality-1", "command": "State", "prompt": "State the de Broglie equation.", "answer": "λ = h/p, where p is the momentum of the particle.", "status": "draft"},
+			{"id": "wave-particle-duality-2", "command": "State", "prompt": "State what is meant by wave–particle duality.", "answer": "The idea that electromagnetic radiation and particles can both show wave-like and particle-like behaviour, depending on the experiment.", "status": "draft"},
+			{"id": "wave-particle-duality-3", "command": "State", "prompt": "State the experimental evidence that electrons can behave as waves.", "answer": "Electrons passing through a thin slice of polycrystalline graphite produce a diffraction pattern of concentric rings.", "status": "draft"},
+			{"id": "wave-particle-duality-4", "command": "Explain", "prompt": "Explain why the diffraction pattern produced by electrons passing through graphite shows that electrons behave as waves.", "answer": "Diffraction is a wave property; the rings arise from constructive and destructive interference of electron waves scattered by the regularly spaced atoms in the graphite.", "status": "draft"},
+			{"id": "wave-particle-duality-5", "command": "State", "prompt": "State what happens to the de Broglie wavelength of an electron when its momentum increases.", "answer": "It decreases (λ ∝ 1/p).", "status": "draft"},
+			{"id": "wave-particle-duality-6", "command": "State", "prompt": "State why electrons with energies of the order of 100 eV are suitable for investigating atomic spacing.", "answer": "Their de Broglie wavelength is of the same order as atomic spacing (about 10⁻¹⁰ m), so significant diffraction occurs.", "status": "draft"}
+		]
+	}
+]

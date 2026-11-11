@@ -1,0 +1,267 @@
+[
+	{
+		"id": "capacitance-definition",
+		"title": "Capacitance and charge storage",
+		"topic": "Capacitors",
+		"specRefs": ["6.1.1(a)", "6.1.1(b)"],
+		"questions": [
+			{"id": "capacitance-definition-1", "command": "Define", "prompt": "Define capacitance.", "answer": "The charge stored per unit potential difference across a capacitor (C = Q/V).", "status": "draft"},
+			{"id": "capacitance-definition-2", "command": "State", "prompt": "State the unit of capacitance and what it is equivalent to.", "answer": "The farad (F), equal to one coulomb per volt (1 F = 1 C/V).", "status": "draft"},
+			{"id": "capacitance-definition-3", "command": "State", "prompt": "State the equation relating charge, capacitance and potential difference.", "answer": "Q = CV (or C = Q/V).", "status": "draft"},
+			{"id": "capacitance-definition-4", "command": "Explain", "prompt": "Explain, in terms of electrons, how a capacitor becomes charged when connected to a battery.", "answer": "The battery transfers electrons from one plate to the other, so one plate gains electrons and becomes negatively charged while the other loses electrons and becomes positively charged; the plates carry equal and opposite charges.", "status": "draft"},
+			{"id": "capacitance-definition-5", "command": "Describe", "prompt": "Describe the flow of electrons when a charged capacitor is discharged through a resistor.", "answer": "Electrons flow from the negatively charged plate through the resistor to the positively charged plate until both plates are neutral.", "status": "draft"},
+			{"id": "capacitance-definition-6", "command": "State", "prompt": "State what a capacitor consists of.", "answer": "Two conductors separated by an insulator (a dielectric), used to store charge and electrical energy.", "status": "draft"}
+		]
+	},
+	{
+		"id": "capacitor-combinations",
+		"title": "Capacitors in series and parallel",
+		"topic": "Capacitors",
+		"specRefs": ["6.1.1(c)", "6.1.1(d)"],
+		"questions": [
+			{"id": "capacitor-combinations-1", "command": "State", "prompt": "State the equation for the total capacitance of two capacitors connected in parallel.", "answer": "C = C₁ + C₂.", "status": "draft"},
+			{"id": "capacitor-combinations-2", "command": "State", "prompt": "State the equation for the total capacitance of two capacitors connected in series.", "answer": "1/C = 1/C₁ + 1/C₂.", "status": "draft"},
+			{"id": "capacitor-combinations-3", "command": "State", "prompt": "State how the total capacitance of capacitors in parallel compares with the individual capacitances.", "answer": "It is greater than any of the individual capacitances.", "status": "draft"},
+			{"id": "capacitor-combinations-4", "command": "State", "prompt": "State how the total capacitance of capacitors in series compares with the individual capacitances.", "answer": "It is smaller than the smallest individual capacitance.", "status": "draft"},
+			{"id": "capacitor-combinations-5", "command": "Calculate", "prompt": "Calculate the total capacitance of two 6.0 μF capacitors connected in parallel.", "answer": "6.0 + 6.0 = 12 μF.", "status": "draft"},
+			{"id": "capacitor-combinations-6", "command": "Explain", "prompt": "Explain why adding a capacitor in parallel increases the total capacitance of a circuit.", "answer": "Each capacitor has the same potential difference across it but stores its own charge, so the total charge stored for a given potential difference increases; since C = Q/V, the total capacitance increases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "capacitor-circuits",
+		"title": "Capacitor circuits and measurements",
+		"topic": "Capacitors",
+		"specRefs": ["6.1.1(e)"],
+		"questions": [
+			{"id": "capacitor-circuits-1", "command": "State", "prompt": "State how the potential differences across capacitors connected in parallel compare.", "answer": "They are equal.", "status": "draft"},
+			{"id": "capacitor-circuits-2", "command": "State", "prompt": "State how the charges stored by two identical capacitors connected in series compare.", "answer": "They store equal charges, because the same current flows through each for the same time.", "status": "draft"},
+			{"id": "capacitor-circuits-3", "command": "State", "prompt": "State how a voltmeter and an ammeter are connected to measure the potential difference across and the current through a capacitor.", "answer": "The voltmeter is connected in parallel with the capacitor and the ammeter in series with it.", "status": "draft"},
+			{"id": "capacitor-circuits-4", "command": "Describe", "prompt": "Describe how the current through a capacitor changes while it charges through a resistor.", "answer": "It is largest at the start and decreases towards zero as the potential difference across the capacitor approaches the supply potential difference.", "status": "draft"},
+			{"id": "capacitor-circuits-5", "command": "State", "prompt": "State how the total potential difference across capacitors connected in series relates to the supply potential difference.", "answer": "The sum of the potential differences across the capacitors equals the supply potential difference.", "status": "draft"},
+			{"id": "capacitor-circuits-6", "command": "Explain", "prompt": "Explain why a capacitor does not allow a steady direct current to flow.", "answer": "The dielectric between the plates is an insulator, so charge cannot flow across it; a steady current would require a continuous flow of charge through the dielectric.", "status": "draft"}
+		]
+	},
+	{
+		"id": "capacitor-energy",
+		"title": "Energy stored by a capacitor",
+		"topic": "Capacitors",
+		"specRefs": ["6.1.2"],
+		"questions": [
+			{"id": "capacitor-energy-1", "command": "State", "prompt": "State the equation for the energy stored by a capacitor in terms of charge and potential difference.", "answer": "W = ½QV.", "status": "draft"},
+			{"id": "capacitor-energy-2", "command": "State", "prompt": "State the equation for the energy stored by a capacitor in terms of capacitance and potential difference.", "answer": "W = ½CV².", "status": "draft"},
+			{"id": "capacitor-energy-3", "command": "State", "prompt": "State the equation for the energy stored by a capacitor in terms of charge and capacitance.", "answer": "W = ½Q²/C.", "status": "draft"},
+			{"id": "capacitor-energy-4", "command": "State", "prompt": "State what the area under a potential difference–charge graph for a capacitor represents.", "answer": "The energy stored by the capacitor.", "status": "draft"},
+			{"id": "capacitor-energy-5", "command": "Explain", "prompt": "Explain why the energy stored by a capacitor is ½QV rather than QV.", "answer": "The potential difference rises from zero to V as the capacitor charges, so the average potential difference during charging is ½V; energy transferred = charge × average potential difference = ½QV.", "status": "draft"},
+			{"id": "capacitor-energy-6", "command": "Give", "prompt": "Give two uses of capacitors as stores of energy.", "answer": "Camera flash, defibrillator, smoothing in power supplies, or backup power for memory (any two).", "status": "draft"}
+		]
+	},
+	{
+		"id": "capacitor-charging-discharging",
+		"title": "Charging and discharging through a resistor",
+		"topic": "Capacitors",
+		"specRefs": ["6.1.3(a)", "6.1.3(b)", "6.1.3(d)"],
+		"questions": [
+			{"id": "capacitor-charging-discharging-1", "command": "Define", "prompt": "Define the time constant of a capacitor–resistor circuit.", "answer": "The time taken for the charge (or potential difference) on a discharging capacitor to fall to 1/e, about 37%, of its initial value; it is equal to CR.", "status": "draft"},
+			{"id": "capacitor-charging-discharging-2", "command": "State", "prompt": "State the equation for the time constant of a capacitor–resistor circuit, including its unit.", "answer": "τ = CR, measured in seconds (s).", "status": "draft"},
+			{"id": "capacitor-charging-discharging-3", "command": "State", "prompt": "State the equation relating the rate of change of charge to the charge remaining on a discharging capacitor.", "answer": "dQ/dt = −Q/CR.", "status": "draft"},
+			{"id": "capacitor-charging-discharging-4", "command": "Describe", "prompt": "Describe how the rate of discharge of a capacitor changes with time.", "answer": "It is greatest at the start and decreases as the charge and potential difference remaining decrease, giving an exponential decrease in charge.", "status": "draft"},
+			{"id": "capacitor-charging-discharging-5", "command": "State", "prompt": "State the equation for the charge on a discharging capacitor as a function of time.", "answer": "Q = Q₀e^(−t/CR).", "status": "draft"},
+			{"id": "capacitor-charging-discharging-6", "command": "Describe", "prompt": "Describe how a data-logger can be used to record the discharge of a capacitor.", "answer": "Connect a voltage sensor across the capacitor (or a current sensor in series) to the data-logger and record the potential difference or current at regular intervals as the capacitor discharges.", "status": "draft"}
+		]
+	},
+	{
+		"id": "exponential-decay",
+		"title": "Exponential decay graphs",
+		"topic": "Capacitors",
+		"specRefs": ["6.1.3(c)", "6.1.3(e)"],
+		"questions": [
+			{"id": "exponential-decay-1", "command": "State", "prompt": "State what is meant by exponential decay.", "answer": "A quantity decreases at a rate proportional to its current value, so it falls by the same factor in equal time intervals.", "status": "draft"},
+			{"id": "exponential-decay-2", "command": "State", "prompt": "State the constant-ratio property of an exponential decay graph.", "answer": "In each equal time interval the value is multiplied by the same factor, so the ratio of successive values is constant.", "status": "draft"},
+			{"id": "exponential-decay-3", "command": "State", "prompt": "State the fraction of the initial charge remaining after one time constant of discharge.", "answer": "1/e, which is about 37% of the initial charge.", "status": "draft"},
+			{"id": "exponential-decay-4", "command": "State", "prompt": "State what graph should be plotted to give a straight line for the discharge of a capacitor, and what its gradient represents.", "answer": "Plot ln Q against t; the gradient is −1/CR, so the time constant is τ = −1/gradient.", "status": "draft"},
+			{"id": "exponential-decay-5", "command": "Describe", "prompt": "Describe how a spreadsheet can model the discharge of a capacitor.", "answer": "Divide the discharge into small time steps; at each step calculate the charge lost, ΔQ = −QΔt/CR, and subtract it from the charge, then plot Q against t.", "status": "draft"},
+			{"id": "exponential-decay-6", "command": "State", "prompt": "State the equation for the charge on a capacitor charging through a resistor as a function of time.", "answer": "Q = Q₀(1 − e^(−t/CR)).", "status": "draft"}
+		]
+	},
+	{
+		"id": "electric-fields",
+		"title": "Electric fields and field lines",
+		"topic": "Electric fields",
+		"specRefs": ["6.2.1"],
+		"questions": [
+			{"id": "electric-fields-1", "command": "State", "prompt": "State what causes an electric field.", "answer": "Electric charge.", "status": "draft"},
+			{"id": "electric-fields-2", "command": "State", "prompt": "State what electric field lines show.", "answer": "The direction of the force on a positive test charge at that point; their spacing indicates the strength of the field.", "status": "draft"},
+			{"id": "electric-fields-3", "command": "Explain", "prompt": "Explain why a uniformly charged sphere can be modelled as a point charge at its centre.", "answer": "For points outside the sphere, the field is the same as if all the sphere's charge were concentrated at its centre.", "status": "draft"},
+			{"id": "electric-fields-4", "command": "Define", "prompt": "Define electric field strength.", "answer": "The force per unit positive charge at a point (E = F/q).", "status": "draft"},
+			{"id": "electric-fields-5", "command": "State", "prompt": "State the unit of electric field strength.", "answer": "Newtons per coulomb (N/C), equivalent to volts per metre (V/m).", "status": "draft"},
+			{"id": "electric-fields-6", "command": "State", "prompt": "State the direction of the electric field at a point near a positive point charge.", "answer": "Radially outwards, away from the charge.", "status": "draft"}
+		]
+	},
+	{
+		"id": "coulombs-law",
+		"title": "Coulomb's law",
+		"topic": "Electric fields",
+		"specRefs": ["6.2.2(a)", "6.2.2(b)"],
+		"questions": [
+			{"id": "coulombs-law-1", "command": "State", "prompt": "State Coulomb's law.", "answer": "The force between two point charges is proportional to the product of the charges and inversely proportional to the square of the distance between them.", "status": "draft"},
+			{"id": "coulombs-law-2", "command": "State", "prompt": "State Coulomb's law in equation form for charges in a vacuum.", "answer": "F = Q₁Q₂/(4πε₀r²).", "status": "draft"},
+			{"id": "coulombs-law-3", "command": "State", "prompt": "State the value of the permittivity of free space.", "answer": "8.85 × 10⁻¹² F/m.", "status": "draft"},
+			{"id": "coulombs-law-4", "command": "State", "prompt": "State the equation for the electric field strength at a distance r from a point charge Q.", "answer": "E = Q/(4πε₀r²).", "status": "draft"},
+			{"id": "coulombs-law-5", "command": "State", "prompt": "State how the force between two point charges changes when the distance between them is doubled.", "answer": "It becomes one quarter of its original value.", "status": "draft"},
+			{"id": "coulombs-law-6", "command": "State", "prompt": "State what is meant by a point charge.", "answer": "A charge of negligible size, so that its field can be taken to act from a single point.", "status": "draft"}
+		]
+	},
+	{
+		"id": "electric-gravitational-fields",
+		"title": "Electric and gravitational fields compared",
+		"topic": "Electric fields",
+		"specRefs": ["6.2.2(c)", "6.2.2(d)"],
+		"questions": [
+			{"id": "electric-gravitational-fields-1", "command": "State", "prompt": "State two similarities between the electric field of a point charge and the gravitational field of a point mass.", "answer": "Both are radial fields, both obey an inverse-square law, and both have a field strength proportional to the source quantity (charge or mass).", "status": "draft"},
+			{"id": "electric-gravitational-fields-2", "command": "State", "prompt": "State two differences between the electric field of a point charge and the gravitational field of a point mass.", "answer": "The electric force can be attractive or repulsive and its field points towards or away from the charge, whereas gravitational force is always attractive and the field always points towards the mass; there are two types of charge but only one type of mass.", "status": "draft"},
+			{"id": "electric-gravitational-fields-3", "command": "State", "prompt": "State one similarity between Coulomb's law and Newton's law of gravitation.", "answer": "Both are inverse-square laws in which the force is proportional to the product of the two quantities (charges or masses).", "status": "draft"},
+			{"id": "electric-gravitational-fields-4", "command": "Name", "prompt": "Name one field, other than electric and gravitational, that gives rise to a force.", "answer": "A magnetic field (or the strong or weak nuclear field).", "status": "draft"},
+			{"id": "electric-gravitational-fields-5", "command": "State", "prompt": "State what all fields have in common.", "answer": "They are regions in which a force acts on a suitable object or quantity, such as a mass, charge or current.", "status": "draft"}
+		]
+	},
+	{
+		"id": "uniform-electric-field",
+		"title": "Uniform electric fields",
+		"topic": "Electric fields",
+		"specRefs": ["6.2.3(a)", "6.2.3(c)"],
+		"questions": [
+			{"id": "uniform-electric-field-1", "command": "State", "prompt": "State the equation for the electric field strength between two parallel plates separated by a distance d with potential difference V.", "answer": "E = V/d.", "status": "draft"},
+			{"id": "uniform-electric-field-2", "command": "Define", "prompt": "Define a uniform electric field.", "answer": "A field whose strength has the same magnitude and direction at every point; its field lines are parallel and equally spaced.", "status": "draft"},
+			{"id": "uniform-electric-field-3", "command": "State", "prompt": "State the direction of the force on an electron in a uniform electric field.", "answer": "Opposite to the direction of the field, towards the positive plate.", "status": "draft"},
+			{"id": "uniform-electric-field-4", "command": "State", "prompt": "State the direction of the force on a proton in a uniform electric field.", "answer": "In the direction of the field, towards the negative plate.", "status": "draft"},
+			{"id": "uniform-electric-field-5", "command": "Describe", "prompt": "Describe the path of a charged particle that enters a uniform electric field at right angles to the field lines.", "answer": "It follows a parabolic path, with constant velocity perpendicular to the field and constant acceleration along the field.", "status": "draft"},
+			{"id": "uniform-electric-field-6", "command": "State", "prompt": "State the acceleration of a charged particle of mass m and charge Q in a uniform electric field of strength E.", "answer": "a = EQ/m (or a = VQ/(md)).", "status": "draft"}
+		]
+	},
+	{
+		"id": "parallel-plate-capacitor",
+		"title": "Parallel plate capacitors and permittivity",
+		"topic": "Electric fields",
+		"specRefs": ["6.2.3(b)"],
+		"questions": [
+			{"id": "parallel-plate-capacitor-1", "command": "State", "prompt": "State the equation for the capacitance of a parallel plate capacitor with plates of area A separated by a distance d in a vacuum.", "answer": "C = ε₀A/d.", "status": "draft"},
+			{"id": "parallel-plate-capacitor-2", "command": "State", "prompt": "State the equation for the capacitance when the space between the plates is filled with a material of permittivity ε.", "answer": "C = εA/d.", "status": "draft"},
+			{"id": "parallel-plate-capacitor-3", "command": "Define", "prompt": "Define relative permittivity.", "answer": "The ratio of the permittivity of a material to the permittivity of free space (εᵣ = ε/ε₀).", "status": "draft"},
+			{"id": "parallel-plate-capacitor-4", "command": "State", "prompt": "State the equation relating permittivity, relative permittivity and the permittivity of free space.", "answer": "ε = εᵣε₀.", "status": "draft"},
+			{"id": "parallel-plate-capacitor-5", "command": "State", "prompt": "State the unit of permittivity.", "answer": "Farads per metre (F/m).", "status": "draft"},
+			{"id": "parallel-plate-capacitor-6", "command": "State", "prompt": "State how the capacitance of a parallel plate capacitor changes if the plate separation is halved while the area stays constant.", "answer": "It doubles.", "status": "draft"}
+		]
+	},
+	{
+		"id": "electric-potential",
+		"title": "Electric potential and potential energy",
+		"topic": "Electric fields",
+		"specRefs": ["6.2.4"],
+		"questions": [
+			{"id": "electric-potential-1", "command": "Define", "prompt": "Define electric potential at a point.", "answer": "The work done per unit positive charge in bringing a positive test charge from infinity to that point.", "status": "draft"},
+			{"id": "electric-potential-2", "command": "State", "prompt": "State the electric potential at infinity.", "answer": "Zero.", "status": "draft"},
+			{"id": "electric-potential-3", "command": "State", "prompt": "State the equation for the electric potential at a distance r from a point charge Q.", "answer": "V = Q/(4πε₀r).", "status": "draft"},
+			{"id": "electric-potential-4", "command": "State", "prompt": "State what the area under a force–distance graph for a point charge represents.", "answer": "The work done in bringing a charge from infinity to that distance, which is the electric potential energy.", "status": "draft"},
+			{"id": "electric-potential-5", "command": "State", "prompt": "State the equation for the electric potential energy of a charge q at a distance r from a point charge Q.", "answer": "E = Vq = Qq/(4πε₀r).", "status": "draft"},
+			{"id": "electric-potential-6", "command": "State", "prompt": "State the equation for the capacitance of an isolated charged sphere of radius R.", "answer": "C = 4πε₀R.", "status": "draft"}
+		]
+	},
+	{
+		"id": "magnetic-fields",
+		"title": "Magnetic fields and field patterns",
+		"topic": "Electromagnetism",
+		"specRefs": ["6.3.1(a)", "6.3.1(b)", "6.3.1(c)", "6.3.1(f)"],
+		"questions": [
+			{"id": "magnetic-fields-1", "command": "State", "prompt": "State what causes a magnetic field.", "answer": "Moving charges (a current) or a permanent magnet.", "status": "draft"},
+			{"id": "magnetic-fields-2", "command": "State", "prompt": "State what magnetic field lines show.", "answer": "The direction of the magnetic force on a north pole at that point; their spacing indicates the strength of the field.", "status": "draft"},
+			{"id": "magnetic-fields-3", "command": "Describe", "prompt": "Describe the magnetic field pattern around a long straight current-carrying wire.", "answer": "Concentric circles around the wire in planes perpendicular to it; the direction is given by the right-hand grip rule.", "status": "draft"},
+			{"id": "magnetic-fields-4", "command": "Describe", "prompt": "Describe the magnetic field inside a long solenoid.", "answer": "A strong, uniform field along the axis, with parallel, equally spaced field lines.", "status": "draft"},
+			{"id": "magnetic-fields-5", "command": "Describe", "prompt": "Describe the magnetic field pattern of a flat coil.", "answer": "The field is strongest at the centre and passes through the coil, curving around the outside like the field of a short solenoid.", "status": "draft"},
+			{"id": "magnetic-fields-6", "command": "Name", "prompt": "Name the unit of magnetic flux density.", "answer": "The tesla (T).", "status": "draft"}
+		]
+	},
+	{
+		"id": "magnetic-force-current",
+		"title": "Force on a current-carrying conductor",
+		"topic": "Electromagnetism",
+		"specRefs": ["6.3.1(d)", "6.3.1(e)", "6.3.1(f)"],
+		"questions": [
+			{"id": "magnetic-force-current-1", "command": "State", "prompt": "State Fleming's left-hand rule.", "answer": "Thumb = force (motion), first finger = magnetic field, second finger = current; the three are mutually perpendicular.", "status": "draft"},
+			{"id": "magnetic-force-current-2", "command": "State", "prompt": "State the equation for the force on a current-carrying conductor placed at right angles to a magnetic field.", "answer": "F = BIL.", "status": "draft"},
+			{"id": "magnetic-force-current-3", "command": "State", "prompt": "State the equation for the force when the conductor makes an angle θ with the magnetic field.", "answer": "F = BIL sinθ.", "status": "draft"},
+			{"id": "magnetic-force-current-4", "command": "State", "prompt": "State the force on a current-carrying wire that is parallel to a magnetic field.", "answer": "Zero.", "status": "draft"},
+			{"id": "magnetic-force-current-5", "command": "Define", "prompt": "Define magnetic flux density.", "answer": "The force per unit current per unit length on a long straight conductor placed at right angles to the field (B = F/IL); its unit is the tesla, where 1 T = 1 N/(A m).", "status": "draft"},
+			{"id": "magnetic-force-current-6", "command": "Describe", "prompt": "Describe how the magnetic flux density between the poles of a magnet can be measured using a current-carrying wire and a digital balance.", "answer": "Measure the force on a known length of wire carrying a known current at right angles to the field from the change in the balance reading; calculate B = F/(IL).", "status": "draft"}
+		]
+	},
+	{
+		"id": "charged-particles-magnetic-field",
+		"title": "Charged particles in magnetic fields",
+		"topic": "Electromagnetism",
+		"specRefs": ["6.3.2"],
+		"questions": [
+			{"id": "charged-particles-magnetic-field-1", "command": "State", "prompt": "State the equation for the force on a charged particle moving at right angles to a uniform magnetic field.", "answer": "F = BQv.", "status": "draft"},
+			{"id": "charged-particles-magnetic-field-2", "command": "State", "prompt": "State the direction of the force on a moving charged particle in a magnetic field.", "answer": "Perpendicular to both the velocity and the magnetic field; the direction is given by Fleming's left-hand rule, taking the current in the direction of motion of a positive charge.", "status": "draft"},
+			{"id": "charged-particles-magnetic-field-3", "command": "Explain", "prompt": "Explain why a charged particle moving in a uniform magnetic field follows a circular path.", "answer": "The magnetic force is always perpendicular to its velocity, so it acts as a centripetal force without changing the particle's speed.", "status": "draft"},
+			{"id": "charged-particles-magnetic-field-4", "command": "State", "prompt": "State the equation relating the magnetic force to the centripetal force for a charged particle in a circular orbit.", "answer": "BQv = mv²/r, so r = mv/(BQ).", "status": "draft"},
+			{"id": "charged-particles-magnetic-field-5", "command": "State", "prompt": "State how the radius of the circular path of a charged particle in a magnetic field changes if its speed increases.", "answer": "The radius increases, because r is proportional to v.", "status": "draft"},
+			{"id": "charged-particles-magnetic-field-6", "command": "State", "prompt": "State what a velocity selector is and the condition for a particle to pass through it undeviated.", "answer": "A region with crossed electric and magnetic fields; a particle passes undeviated when the electric and magnetic forces are equal and opposite, EQ = BQv, so v = E/B.", "status": "draft"}
+		]
+	},
+	{
+		"id": "magnetic-flux",
+		"title": "Magnetic flux and flux linkage",
+		"topic": "Electromagnetism",
+		"specRefs": ["6.3.3(a)", "6.3.3(b)"],
+		"questions": [
+			{"id": "magnetic-flux-1", "command": "Define", "prompt": "Define magnetic flux.", "answer": "The product of the magnetic flux density and the area perpendicular to it (φ = BA cosθ); it is measured in webers.", "status": "draft"},
+			{"id": "magnetic-flux-2", "command": "State", "prompt": "State the unit of magnetic flux and what it is equivalent to.", "answer": "The weber (Wb), equal to one tesla metre squared (1 Wb = 1 T m²).", "status": "draft"},
+			{"id": "magnetic-flux-3", "command": "State", "prompt": "State the equation for the magnetic flux through an area A at an angle θ to the magnetic field.", "answer": "φ = BA cosθ.", "status": "draft"},
+			{"id": "magnetic-flux-4", "command": "Define", "prompt": "Define magnetic flux linkage.", "answer": "The product of the magnetic flux through a coil and the number of turns in the coil (Nφ).", "status": "draft"},
+			{"id": "magnetic-flux-5", "command": "State", "prompt": "State the flux linkage through a coil of N turns, each of area A, in a field B perpendicular to the plane of the coil.", "answer": "Nφ = NBA.", "status": "draft"},
+			{"id": "magnetic-flux-6", "command": "State", "prompt": "State how the magnetic flux through a coil changes as the coil is rotated from perpendicular to the field to parallel to it.", "answer": "It decreases from BA to zero.", "status": "draft"}
+		]
+	},
+	{
+		"id": "faradays-law",
+		"title": "Faraday's and Lenz's laws",
+		"topic": "Electromagnetism",
+		"specRefs": ["6.3.3(c)", "6.3.3(d)"],
+		"questions": [
+			{"id": "faradays-law-1", "command": "State", "prompt": "State Faraday's law of electromagnetic induction.", "answer": "The induced e.m.f. is directly proportional to the rate of change of magnetic flux linkage.", "status": "draft"},
+			{"id": "faradays-law-2", "command": "State", "prompt": "State Lenz's law.", "answer": "The direction of an induced current is such that it opposes the change that produces it.", "status": "draft"},
+			{"id": "faradays-law-3", "command": "State", "prompt": "State the equation for the induced e.m.f. in terms of magnetic flux linkage.", "answer": "E = −d(Nφ)/dt.", "status": "draft"},
+			{"id": "faradays-law-4", "command": "Explain", "prompt": "Explain how Lenz's law follows from the principle of conservation of energy.", "answer": "Work must be done against the induced current to produce the change, so the induced effect opposes the change and energy is conserved.", "status": "draft"},
+			{"id": "faradays-law-5", "command": "State", "prompt": "State two ways to increase the e.m.f. induced in a coil.", "answer": "Move the magnet faster to increase the rate of change of flux, use more turns, use a stronger magnet, or increase the area of the coil (any two).", "status": "draft"},
+			{"id": "faradays-law-6", "command": "Describe", "prompt": "Describe how a search coil can be used to investigate magnetic flux.", "answer": "Connect a search coil of known area and number of turns to a voltmeter or data-logger, move it into or out of the field, and measure the induced e.m.f.; the change in flux linkage is the area under the e.m.f.–time graph.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ac-generator",
+		"title": "The a.c. generator",
+		"topic": "Electromagnetism",
+		"specRefs": ["6.3.3(e)"],
+		"questions": [
+			{"id": "ac-generator-1", "command": "Describe", "prompt": "Describe the structure of a simple a.c. generator.", "answer": "A coil rotating in the magnetic field between two poles, with slip rings and brushes connecting the coil to the external circuit.", "status": "draft"},
+			{"id": "ac-generator-2", "command": "Explain", "prompt": "Explain why an a.c. generator produces an alternating e.m.f.", "answer": "The coil rotates through positions of increasing and decreasing flux linkage; the induced e.m.f. reverses direction every half turn, producing a sinusoidal output.", "status": "draft"},
+			{"id": "ac-generator-3", "command": "State", "prompt": "State the orientation of the coil at which the induced e.m.f. is maximum.", "answer": "When the plane of the coil is parallel to the magnetic field.", "status": "draft"},
+			{"id": "ac-generator-4", "command": "State", "prompt": "State the orientation of the coil at which the induced e.m.f. is zero.", "answer": "When the plane of the coil is perpendicular to the magnetic field.", "status": "draft"},
+			{"id": "ac-generator-5", "command": "State", "prompt": "State one way to increase the peak e.m.f. produced by an a.c. generator.", "answer": "Increase the number of turns, use a stronger magnetic field, increase the area of the coil, or rotate the coil faster (any one).", "status": "draft"},
+			{"id": "ac-generator-6", "command": "State", "prompt": "State the purpose of the slip rings in an a.c. generator.", "answer": "To make continuous electrical contact with the rotating coil without reversing the connections, so the output e.m.f. alternates.", "status": "draft"}
+		]
+	},
+	{
+		"id": "transformers",
+		"title": "Transformers",
+		"topic": "Electromagnetism",
+		"specRefs": ["6.3.3(f)"],
+		"questions": [
+			{"id": "transformers-1", "command": "State", "prompt": "State the equation relating the turns and voltages of an ideal transformer.", "answer": "Ns/Np = Vs/Vp.", "status": "draft"},
+			{"id": "transformers-2", "command": "State", "prompt": "State the equation relating the currents in the primary and secondary coils of an ideal transformer.", "answer": "Ns/Np = Ip/Is (or VpIp = VsIs).", "status": "draft"},
+			{"id": "transformers-3", "command": "Define", "prompt": "Define an ideal transformer.", "answer": "A transformer that transfers all of the input power to the output (100% efficient), so VpIp = VsIs.", "status": "draft"},
+			{"id": "transformers-4", "command": "Explain", "prompt": "Explain why the core of a transformer is laminated.", "answer": "Laminations increase the resistance to eddy currents in the core, reducing energy loss by heating.", "status": "draft"},
+			{"id": "transformers-5", "command": "Explain", "prompt": "Explain why a transformer cannot change the voltage of a direct current.", "answer": "A transformer relies on a changing magnetic flux linkage to induce an e.m.f.; a steady direct current produces a constant flux, so no e.m.f. is induced in the secondary coil.", "status": "draft"},
+			{"id": "transformers-6", "command": "Describe", "prompt": "Describe how the relationship between the number of secondary turns and the secondary voltage of a transformer can be investigated.", "answer": "Apply a known a.c. potential difference to the primary, vary the number of turns on the secondary, measure the secondary potential difference with a voltmeter, and plot Vs against Ns; a straight line through the origin shows that Vs is proportional to Ns.", "status": "draft"}
+		]
+	}
+]

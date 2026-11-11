@@ -1,0 +1,402 @@
+[
+	{
+		"id": "nuclear-atom-scattering",
+		"title": "Alpha-particle scattering and the nuclear atom",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.1(a)", "6.4.1(b)", "6.4.1(c)"],
+		"questions": [
+			{"id": "nuclear-atom-scattering-1", "command": "Describe", "prompt": "Describe the evidence from the alpha-particle scattering experiment that led to the nuclear model of the atom.", "answer": "Most alpha particles passed straight through the gold foil, showing that the atom is mostly empty space; a small fraction were deflected through large angles and some were reflected back, showing that the atom has a small, dense, positively charged nucleus containing most of its mass.", "status": "draft"},
+			{"id": "nuclear-atom-scattering-2", "command": "Explain", "prompt": "Explain why some alpha particles were deflected through large angles by the gold foil.", "answer": "The alpha particles are positively charged and the nucleus is positively charged, so a particle passing close to a nucleus experiences a strong electrostatic repulsion.", "status": "draft"},
+			{"id": "nuclear-atom-scattering-3", "command": "State", "prompt": "State the approximate diameter of a typical atom and of a typical nucleus.", "answer": "Atom: about 10⁻¹⁰ m. Nucleus: about 10⁻¹⁴ to 10⁻¹⁵ m.", "status": "draft"},
+			{"id": "nuclear-atom-scattering-4", "command": "Give", "prompt": "Give the relative charge and the relative mass of a proton, a neutron and an electron.", "answer": "Proton: charge +1, relative mass 1. Neutron: charge 0, relative mass 1. Electron: charge −1, relative mass about 1/1840.", "status": "draft"},
+			{"id": "nuclear-atom-scattering-5", "command": "State", "prompt": "State what is meant by a nucleon.", "answer": "A proton or a neutron; a particle found in the nucleus.", "status": "draft"}
+		]
+	},
+	{
+		"id": "nuclear-notation-isotopes",
+		"title": "Proton number, nucleon number and isotopes",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.1(d)"],
+		"questions": [
+			{"id": "nuclear-notation-isotopes-1", "command": "Define", "prompt": "Define the proton number of a nucleus.", "answer": "The number of protons in the nucleus.", "status": "draft"},
+			{"id": "nuclear-notation-isotopes-2", "command": "Define", "prompt": "Define the nucleon number of a nucleus.", "answer": "The total number of protons and neutrons in the nucleus.", "status": "draft"},
+			{"id": "nuclear-notation-isotopes-3", "command": "State", "prompt": "State what is meant by isotopes.", "answer": "Atoms of the same element with the same proton number but different nucleon numbers (different numbers of neutrons).", "status": "draft"},
+			{"id": "nuclear-notation-isotopes-4", "command": "State", "prompt": "For the nucleus ²³⁵₉₂U, state the number of protons, neutrons and electrons in a neutral atom of this isotope.", "answer": "92 protons, 143 neutrons and 92 electrons.", "status": "draft"},
+			{"id": "nuclear-notation-isotopes-5", "command": "State", "prompt": "In the notation ᴬ_Z X, state what the symbols A, Z and X represent.", "answer": "A is the nucleon number, Z is the proton number and X is the chemical symbol of the element.", "status": "draft"},
+			{"id": "nuclear-notation-isotopes-6", "command": "Explain", "prompt": "Explain why two isotopes of the same element have the same chemical properties but different masses.", "answer": "They have the same number of electrons, so the same electron configuration and chemical behaviour, but they have different numbers of neutrons and therefore different masses.", "status": "draft"}
+		]
+	},
+	{
+		"id": "strong-nuclear-force",
+		"title": "The strong nuclear force",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.1(e)"],
+		"questions": [
+			{"id": "strong-nuclear-force-1", "command": "State", "prompt": "State the name of the force that holds the nucleons together in a nucleus.", "answer": "The strong nuclear force.", "status": "draft"},
+			{"id": "strong-nuclear-force-2", "command": "State", "prompt": "State the range of separations over which the strong nuclear force between two nucleons is attractive.", "answer": "From about 0.5 fm to about 3 fm.", "status": "draft"},
+			{"id": "strong-nuclear-force-3", "command": "State", "prompt": "State what happens to the strong nuclear force between two nucleons at separations of less than about 0.5 fm.", "answer": "It becomes strongly repulsive.", "status": "draft"},
+			{"id": "strong-nuclear-force-4", "command": "Explain", "prompt": "Explain why the strong nuclear force must be repulsive at very short range.", "answer": "To prevent nucleons from being pulled into the same point, which would make the nucleus collapse.", "status": "draft"},
+			{"id": "strong-nuclear-force-5", "command": "State", "prompt": "State why the strong nuclear force has a negligible effect on nucleons separated by more than about 3 fm.", "answer": "It is a short-range force, so its strength falls rapidly to zero at greater separations.", "status": "draft"},
+			{"id": "strong-nuclear-force-6", "command": "State", "prompt": "State how the strength of the strong nuclear force between two protons at a separation of about 1 fm compares with the electrostatic repulsion between them.", "answer": "The strong nuclear force is much greater, which is why a nucleus can stay together despite the repulsion between protons.", "status": "draft"}
+		]
+	},
+	{
+		"id": "nuclear-radius-density",
+		"title": "Nuclear radius and density",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.1(f)", "6.4.1(g)"],
+		"questions": [
+			{"id": "nuclear-radius-density-1", "command": "State", "prompt": "State the relationship between the radius of a nucleus and its nucleon number.", "answer": "R = r₀A^(1/3), where r₀ is a constant and A is the nucleon number.", "status": "draft"},
+			{"id": "nuclear-radius-density-2", "command": "Give", "prompt": "Give the meaning and approximate value of the constant r₀ in R = r₀A^(1/3).", "answer": "r₀ is a constant of about 1.2 fm (1.2 × 10⁻¹⁵ m).", "status": "draft"},
+			{"id": "nuclear-radius-density-3", "command": "State", "prompt": "State what happens to the radius of a nucleus when its nucleon number increases by a factor of 8.", "answer": "The radius doubles, because R is proportional to A^(1/3) and 8^(1/3) = 2.", "status": "draft"},
+			{"id": "nuclear-radius-density-4", "command": "State", "prompt": "State how the mean density of nuclear matter depends on the nucleon number A.", "answer": "It is approximately constant (independent of A), because both the mass and the volume of a nucleus are proportional to A.", "status": "draft"},
+			{"id": "nuclear-radius-density-5", "command": "State", "prompt": "State the order of magnitude of the density of nuclear matter.", "answer": "About 10¹⁷ kg m⁻³.", "status": "draft"},
+			{"id": "nuclear-radius-density-6", "command": "Explain", "prompt": "Explain why the mean density of an atom is much less than the density of its nucleus.", "answer": "Nearly all of the atom's mass is in the tiny nucleus, but most of the atom's volume is the empty space in which the electrons are found.", "status": "draft"}
+		]
+	},
+	{
+		"id": "particles-antiparticles",
+		"title": "Particles and antiparticles",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.2(a)", "6.4.2(b)"],
+		"questions": [
+			{"id": "particles-antiparticles-1", "command": "Define", "prompt": "Define an antiparticle.", "answer": "A particle with the same mass as a given particle but with opposite charge (and opposite values of other properties such as lepton number).", "status": "draft"},
+			{"id": "particles-antiparticles-2", "command": "State", "prompt": "Name the antiparticle of the electron and state its charge.", "answer": "The positron, with charge +1e (+1.6 × 10⁻¹⁹ C).", "status": "draft"},
+			{"id": "particles-antiparticles-3", "command": "State", "prompt": "State two properties that a particle and its antiparticle have in common and one property that is opposite.", "answer": "Same mass and same rest energy; opposite charge.", "status": "draft"},
+			{"id": "particles-antiparticles-4", "command": "Name", "prompt": "Name the antiparticles of the proton, the neutron and the electron neutrino.", "answer": "Antiproton, antineutron and electron antineutrino.", "status": "draft"},
+			{"id": "particles-antiparticles-5", "command": "State", "prompt": "State the charge of an antiproton in units of the elementary charge.", "answer": "−1e.", "status": "draft"},
+			{"id": "particles-antiparticles-6", "command": "State", "prompt": "State the name of the process in which a particle and its antiparticle convert their mass into energy.", "answer": "Annihilation.", "status": "draft"}
+		]
+	},
+	{
+		"id": "hadrons-leptons",
+		"title": "Hadrons and leptons",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.2(c)", "6.4.2(d)"],
+		"questions": [
+			{"id": "hadrons-leptons-1", "command": "Define", "prompt": "Define a hadron.", "answer": "A particle that is subject to the strong nuclear force; hadrons are made of quarks.", "status": "draft"},
+			{"id": "hadrons-leptons-2", "command": "Define", "prompt": "Define a lepton.", "answer": "A fundamental particle that is subject to the weak nuclear force but not the strong nuclear force.", "status": "draft"},
+			{"id": "hadrons-leptons-3", "command": "Name", "prompt": "Name two hadrons and two leptons.", "answer": "Hadrons: proton and neutron. Leptons: electron and neutrino.", "status": "draft"},
+			{"id": "hadrons-leptons-4", "command": "State", "prompt": "State the force that acts on hadrons but not on leptons.", "answer": "The strong nuclear force.", "status": "draft"},
+			{"id": "hadrons-leptons-5", "command": "State", "prompt": "State the force that acts on both hadrons and leptons.", "answer": "The weak nuclear force.", "status": "draft"},
+			{"id": "hadrons-leptons-6", "command": "State", "prompt": "State the quark structure of a baryon and of a meson.", "answer": "A baryon is made of three quarks (qqq); a meson is made of a quark and an antiquark (q q̄).", "status": "draft"}
+		]
+	},
+	{
+		"id": "quark-model-hadrons",
+		"title": "The quark model of hadrons",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.2(e)", "6.4.2(f)", "6.4.2(g)"],
+		"questions": [
+			{"id": "quark-model-hadrons-1", "command": "State", "prompt": "State the quark composition of a proton.", "answer": "uud.", "status": "draft"},
+			{"id": "quark-model-hadrons-2", "command": "State", "prompt": "State the quark composition of a neutron.", "answer": "udd.", "status": "draft"},
+			{"id": "quark-model-hadrons-3", "command": "State", "prompt": "State the charge of the up quark.", "answer": "+2/3 e.", "status": "draft"},
+			{"id": "quark-model-hadrons-4", "command": "State", "prompt": "State the charge of the down quark and the charge of the strange quark.", "answer": "Both are −1/3 e.", "status": "draft"},
+			{"id": "quark-model-hadrons-5", "command": "State", "prompt": "State the charges of the anti-up, anti-down and anti-strange quarks.", "answer": "Anti-up: −2/3 e. Anti-down: +1/3 e. Anti-strange: +1/3 e.", "status": "draft"},
+			{"id": "quark-model-hadrons-6", "command": "Calculate", "prompt": "Calculate the total charge, in units of e, of the quarks in a neutron.", "answer": "u d d: +2/3 − 1/3 − 1/3 = 0.", "status": "draft"},
+			{"id": "quark-model-hadrons-7", "command": "State", "prompt": "State the quark composition of an antiproton.", "answer": "ūūd̄.", "status": "draft"}
+		]
+	},
+	{
+		"id": "beta-decay-quarks",
+		"title": "Beta decay and the quark model",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.2(h)", "6.4.2(i)", "6.4.2(j)", "6.4.2(k)", "6.4.2(l)"],
+		"questions": [
+			{"id": "beta-decay-quarks-1", "command": "State", "prompt": "State what happens to the quark structure of a nucleon in beta-minus decay.", "answer": "A down quark changes into an up quark.", "status": "draft"},
+			{"id": "beta-decay-quarks-2", "command": "State", "prompt": "State what happens to the quark structure of a nucleon in beta-plus decay.", "answer": "An up quark changes into a down quark.", "status": "draft"},
+			{"id": "beta-decay-quarks-3", "command": "State", "prompt": "State the equation for beta-minus decay in terms of quarks.", "answer": "d → u + e⁻ + ν̄_e", "status": "draft"},
+			{"id": "beta-decay-quarks-4", "command": "State", "prompt": "State the equation for beta-plus decay in terms of quarks.", "answer": "u → d + e⁺ + ν_e", "status": "draft"},
+			{"id": "beta-decay-quarks-5", "command": "Explain", "prompt": "Explain why beta-minus decay increases the proton number of a nucleus by one.", "answer": "A neutron (udd) is converted into a proton (uud) as a down quark changes into an up quark, so there is one more proton and one fewer neutron.", "status": "draft"},
+			{"id": "beta-decay-quarks-6", "command": "Calculate", "prompt": "Calculate the total charge on each side of the quark equation d → u + e⁻ + ν̄_e and state whether the equation is balanced in terms of charge.", "answer": "Left-hand side: −1/3 e. Right-hand side: +2/3 e − 1e + 0 = −1/3 e. The charges balance.", "status": "draft"}
+		]
+	},
+	{
+		"id": "radioactive-decay-nature",
+		"title": "The spontaneous and random nature of decay",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.3(a)"],
+		"questions": [
+			{"id": "radioactive-decay-nature-1", "command": "Define", "prompt": "Define radioactive decay.", "answer": "The spontaneous emission of particles or electromagnetic radiation from an unstable nucleus.", "status": "draft"},
+			{"id": "radioactive-decay-nature-2", "command": "State", "prompt": "State what is meant by the spontaneous nature of radioactive decay.", "answer": "The decay is not caused or affected by external conditions such as temperature, pressure or chemical state.", "status": "draft"},
+			{"id": "radioactive-decay-nature-3", "command": "State", "prompt": "State what is meant by the random nature of radioactive decay.", "answer": "It is impossible to predict which nucleus will decay or when it will decay.", "status": "draft"},
+			{"id": "radioactive-decay-nature-4", "command": "State", "prompt": "State how the activity of a radioactive source changes when it is heated.", "answer": "It does not change, because radioactive decay is spontaneous.", "status": "draft"},
+			{"id": "radioactive-decay-nature-5", "command": "State", "prompt": "State what is meant by an unstable nucleus.", "answer": "A nucleus that will decay, emitting radiation, to become more stable.", "status": "draft"}
+		]
+	},
+	{
+		"id": "alpha-beta-gamma",
+		"title": "Alpha, beta and gamma radiation",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.3(b)(i)", "6.4.3(b)(ii)"],
+		"questions": [
+			{"id": "alpha-beta-gamma-1", "command": "State", "prompt": "State the nature of an alpha particle.", "answer": "A helium nucleus: two protons and two neutrons.", "status": "draft"},
+			{"id": "alpha-beta-gamma-2", "command": "State", "prompt": "State the nature of a beta-minus particle and of a beta-plus particle.", "answer": "Beta-minus: a fast-moving electron emitted from the nucleus. Beta-plus: a positron emitted from the nucleus.", "status": "draft"},
+			{"id": "alpha-beta-gamma-3", "command": "State", "prompt": "State the nature of gamma radiation.", "answer": "A high-energy electromagnetic wave (photon) emitted from a nucleus.", "status": "draft"},
+			{"id": "alpha-beta-gamma-4", "command": "State", "prompt": "State which of alpha, beta and gamma radiation has the greatest penetrating power and which has the shortest range in air.", "answer": "Gamma radiation has the greatest penetrating power; alpha radiation has the shortest range in air (a few centimetres).", "status": "draft"},
+			{"id": "alpha-beta-gamma-5", "command": "State", "prompt": "State a material that absorbs alpha particles and a material that absorbs beta particles.", "answer": "Alpha: a sheet of paper (or a few centimetres of air). Beta: a few millimetres of aluminium.", "status": "draft"},
+			{"id": "alpha-beta-gamma-6", "command": "State", "prompt": "State one technique used when measuring the absorption of radiation by a material to make the result more reliable.", "answer": "Measure the background count rate with no source present and subtract it, and take repeat readings and calculate a mean.", "status": "draft"}
+		]
+	},
+	{
+		"id": "nuclear-decay-equations",
+		"title": "Nuclear decay equations",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.3(c)"],
+		"questions": [
+			{"id": "nuclear-decay-equations-1", "command": "State", "prompt": "State how the proton number and the nucleon number of a nucleus change when it emits an alpha particle.", "answer": "The proton number decreases by 2 and the nucleon number decreases by 4.", "status": "draft"},
+			{"id": "nuclear-decay-equations-2", "command": "State", "prompt": "State how the proton number and the nucleon number of a nucleus change when it emits a beta-minus particle.", "answer": "The proton number increases by 1 and the nucleon number is unchanged.", "status": "draft"},
+			{"id": "nuclear-decay-equations-3", "command": "State", "prompt": "State how the proton number and the nucleon number of a nucleus change when it emits a beta-plus particle.", "answer": "The proton number decreases by 1 and the nucleon number is unchanged.", "status": "draft"},
+			{"id": "nuclear-decay-equations-4", "command": "State", "prompt": "State the equation for the alpha decay of uranium-238 (²³⁸₉₂U).", "answer": "²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂He", "status": "draft"},
+			{"id": "nuclear-decay-equations-5", "command": "State", "prompt": "State the equation for the beta-minus decay of carbon-14 (¹⁴₆C).", "answer": "¹⁴₆C → ¹⁴₇N + ⁰₋₁e + ν̄_e", "status": "draft"},
+			{"id": "nuclear-decay-equations-6", "command": "State", "prompt": "State the equation for the beta-plus decay of fluorine-18 (¹⁸₉F).", "answer": "¹⁸₉F → ¹⁸₈O + ⁰₊₁e + ν_e", "status": "draft"}
+		]
+	},
+	{
+		"id": "activity-and-half-life",
+		"title": "Activity, decay constant and half-life",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.3(d)", "6.4.3(e)(i)", "6.4.3(e)(ii)"],
+		"questions": [
+			{"id": "activity-and-half-life-1", "command": "Define", "prompt": "Define the activity of a radioactive source.", "answer": "The number of nuclei that decay per unit time (per second).", "status": "draft"},
+			{"id": "activity-and-half-life-2", "command": "State", "prompt": "State the unit of activity and what one unit represents.", "answer": "The becquerel (Bq), which is one decay per second.", "status": "draft"},
+			{"id": "activity-and-half-life-3", "command": "Define", "prompt": "Define the decay constant of an isotope.", "answer": "The probability that an individual nucleus will decay per unit time.", "status": "draft"},
+			{"id": "activity-and-half-life-4", "command": "State", "prompt": "State the equation relating the activity of a source to the decay constant and the number of undecayed nuclei.", "answer": "A = λN", "status": "draft"},
+			{"id": "activity-and-half-life-5", "command": "Define", "prompt": "Define the half-life of a radioactive isotope.", "answer": "The time taken for the number of undecayed nuclei (or the activity) of the isotope to halve.", "status": "draft"},
+			{"id": "activity-and-half-life-6", "command": "State", "prompt": "State the equation relating the decay constant to the half-life.", "answer": "λt₁/₂ = ln 2, so t₁/₂ = ln 2 / λ.", "status": "draft"},
+			{"id": "activity-and-half-life-7", "command": "Calculate", "prompt": "The activity of a source falls to one eighth of its initial value in 30 days. Calculate its half-life.", "answer": "Three half-lives have passed, so the half-life is 30 / 3 = 10 days.", "status": "draft"},
+			{"id": "activity-and-half-life-8", "command": "Describe", "prompt": "Describe how the half-life of a short-lived isotope such as protactinium can be found experimentally.", "answer": "Measure the count rate at regular time intervals and subtract the background count rate; plot a decay curve and find the time for the corrected count rate to halve (or plot ln A against time and use the gradient to find λ).", "status": "draft"}
+		]
+	},
+	{
+		"id": "radioactive-exponential-decay",
+		"title": "Exponential decay of activity and nuclei",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.3(f)(i)", "6.4.3(f)(ii)", "6.4.3(g)"],
+		"questions": [
+			{"id": "radioactive-exponential-decay-1", "command": "State", "prompt": "State the equation for the activity of a source as a function of time.", "answer": "A = A₀e^(−λt)", "status": "draft"},
+			{"id": "radioactive-exponential-decay-2", "command": "State", "prompt": "State the equation for the number of undecayed nuclei as a function of time.", "answer": "N = N₀e^(−λt)", "status": "draft"},
+			{"id": "radioactive-exponential-decay-3", "command": "State", "prompt": "State what is plotted on the axes to produce a straight-line graph for radioactive decay.", "answer": "ln A (or ln N) on the vertical axis against time t on the horizontal axis.", "status": "draft"},
+			{"id": "radioactive-exponential-decay-4", "command": "State", "prompt": "State what the gradient of a graph of ln A against time represents.", "answer": "−λ, the negative of the decay constant.", "status": "draft"},
+			{"id": "radioactive-exponential-decay-5", "command": "State", "prompt": "State how the decay of a radioactive sample can be modelled using dice.", "answer": "Each die represents a nucleus, a chosen score means the nucleus has decayed, and decayed dice are removed after each throw; the number remaining plotted against the number of throws models exponential decay.", "status": "draft"},
+			{"id": "radioactive-exponential-decay-6", "command": "State", "prompt": "State what the decay curve of activity against time shows about the rate of decay.", "answer": "The activity falls exponentially, and the rate of decay is proportional to the number of undecayed nuclei remaining (dN/dt = −λN).", "status": "draft"}
+		]
+	},
+	{
+		"id": "radioactive-dating",
+		"title": "Radioactive dating",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.3(h)"],
+		"questions": [
+			{"id": "radioactive-dating-1", "command": "State", "prompt": "State the principle of carbon dating.", "answer": "Living organisms take in carbon-14; when they die the carbon-14 decays with a known half-life, so the proportion remaining indicates the age of the sample.", "status": "draft"},
+			{"id": "radioactive-dating-2", "command": "State", "prompt": "State the isotope used in carbon dating and its half-life.", "answer": "Carbon-14, with a half-life of about 5700 years.", "status": "draft"},
+			{"id": "radioactive-dating-3", "command": "State", "prompt": "State one assumption made when using carbon dating.", "answer": "The proportion of carbon-14 in the atmosphere (and so in the organism when it died) has remained constant.", "status": "draft"},
+			{"id": "radioactive-dating-4", "command": "Explain", "prompt": "Explain why carbon dating cannot be used to date samples older than about 50 000 years.", "answer": "So little carbon-14 remains that its activity is too low to measure accurately above the background count rate.", "status": "draft"},
+			{"id": "radioactive-dating-5", "command": "State", "prompt": "State an isotope used to date rocks and give a reason why it is suitable.", "answer": "Uranium-238, because its half-life of about 4.5 × 10⁹ years is comparable with geological timescales.", "status": "draft"}
+		]
+	},
+	{
+		"id": "einstein-mass-energy",
+		"title": "Einstein's mass-energy equation",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.4(a)", "6.4.4(b)"],
+		"questions": [
+			{"id": "einstein-mass-energy-1", "command": "State", "prompt": "State Einstein's mass-energy equation.", "answer": "E = mc²", "status": "draft"},
+			{"id": "einstein-mass-energy-2", "command": "State", "prompt": "State the meaning of each symbol in E = mc².", "answer": "E is energy, m is mass and c is the speed of light in a vacuum.", "status": "draft"},
+			{"id": "einstein-mass-energy-3", "command": "State", "prompt": "State the value of the speed of light in a vacuum.", "answer": "3.0 × 10⁸ m s⁻¹.", "status": "draft"},
+			{"id": "einstein-mass-energy-4", "command": "State", "prompt": "State how the energy released in a nuclear reaction is related to the change in mass.", "answer": "E = Δmc²: the energy released equals the mass lost multiplied by the speed of light squared.", "status": "draft"},
+			{"id": "einstein-mass-energy-5", "command": "State", "prompt": "State what happens to the total mass of the particles in a reaction that releases energy.", "answer": "It decreases; the lost mass (the mass defect) is converted into energy.", "status": "draft"},
+			{"id": "einstein-mass-energy-6", "command": "State", "prompt": "State whether mass is conserved in a nuclear reaction.", "answer": "No; mass and energy together are conserved, and mass is converted into energy (or energy into mass).", "status": "draft"}
+		]
+	},
+	{
+		"id": "annihilation-pair-production",
+		"title": "Annihilation and pair production",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.4(c)"],
+		"questions": [
+			{"id": "annihilation-pair-production-1", "command": "Define", "prompt": "Define annihilation.", "answer": "The process in which a particle and its antiparticle meet and their mass is converted into energy, usually emitted as two gamma-ray photons.", "status": "draft"},
+			{"id": "annihilation-pair-production-2", "command": "Define", "prompt": "Define pair production.", "answer": "The process in which a photon with sufficient energy is converted into a particle-antiparticle pair.", "status": "draft"},
+			{"id": "annihilation-pair-production-3", "command": "State", "prompt": "State why two photons, rather than one, are produced when an electron and a positron at rest annihilate.", "answer": "To conserve momentum: the total momentum before annihilation is zero, so the two photons must travel in opposite directions with equal magnitudes of momentum.", "status": "draft"},
+			{"id": "annihilation-pair-production-4", "command": "State", "prompt": "State the minimum energy a photon must have to produce an electron-positron pair.", "answer": "1.02 MeV, the total rest energy of the pair (2 × 0.511 MeV).", "status": "draft"},
+			{"id": "annihilation-pair-production-5", "command": "State", "prompt": "State the total energy of the photons produced when an electron and a positron at rest annihilate.", "answer": "1.02 MeV (0.511 MeV per photon for two photons).", "status": "draft"},
+			{"id": "annihilation-pair-production-6", "command": "State", "prompt": "State what is meant by the rest energy of a particle.", "answer": "The energy equivalent of its mass when it is at rest, E₀ = m₀c².", "status": "draft"}
+		]
+	},
+	{
+		"id": "binding-energy-mass-defect",
+		"title": "Mass defect and binding energy",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.4(d)", "6.4.4(e)", "6.4.4(f)"],
+		"questions": [
+			{"id": "binding-energy-mass-defect-1", "command": "Define", "prompt": "Define the mass defect of a nucleus.", "answer": "The difference between the mass of the separate nucleons and the mass of the nucleus they form.", "status": "draft"},
+			{"id": "binding-energy-mass-defect-2", "command": "Define", "prompt": "Define the binding energy of a nucleus.", "answer": "The minimum energy required to separate all the nucleons in the nucleus to infinity.", "status": "draft"},
+			{"id": "binding-energy-mass-defect-3", "command": "State", "prompt": "State the relationship between the mass defect of a nucleus and its binding energy.", "answer": "Binding energy = Δmc², where Δm is the mass defect.", "status": "draft"},
+			{"id": "binding-energy-mass-defect-4", "command": "Define", "prompt": "Define the binding energy per nucleon of a nucleus.", "answer": "The binding energy of the nucleus divided by its nucleon number.", "status": "draft"},
+			{"id": "binding-energy-mass-defect-5", "command": "State", "prompt": "State the significance of the maximum in the binding-energy-per-nucleon curve.", "answer": "It occurs at about iron-56, so nuclei near this nucleon number are the most stable.", "status": "draft"},
+			{"id": "binding-energy-mass-defect-6", "command": "State", "prompt": "State how the binding energy per nucleon changes with nucleon number for nuclei lighter than iron.", "answer": "It increases with nucleon number up to a maximum at about A = 56.", "status": "draft"},
+			{"id": "binding-energy-mass-defect-7", "command": "Explain", "prompt": "Explain, in terms of binding energy per nucleon, why energy is released in nuclear fission.", "answer": "The fission products have a higher binding energy per nucleon than the original heavy nucleus, so the difference in binding energy is released as energy.", "status": "draft"}
+		]
+	},
+	{
+		"id": "fission-and-reactors",
+		"title": "Nuclear fission and reactors",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.4(g)", "6.4.4(h)", "6.4.4(i)", "6.4.4(k)"],
+		"questions": [
+			{"id": "fission-and-reactors-1", "command": "Define", "prompt": "Define nuclear fission.", "answer": "The splitting of a heavy nucleus into two lighter nuclei, releasing energy and neutrons.", "status": "draft"},
+			{"id": "fission-and-reactors-2", "command": "State", "prompt": "State what is meant by induced fission.", "answer": "Fission caused by a nucleus absorbing a neutron.", "status": "draft"},
+			{"id": "fission-and-reactors-3", "command": "State", "prompt": "State what is meant by a chain reaction.", "answer": "Neutrons released in fission cause further fissions, so the process continues by itself.", "status": "draft"},
+			{"id": "fission-and-reactors-4", "command": "State", "prompt": "State the function of the control rods in a nuclear reactor.", "answer": "To absorb neutrons and so control the rate of the chain reaction.", "status": "draft"},
+			{"id": "fission-and-reactors-5", "command": "State", "prompt": "State the function of the moderator in a nuclear reactor.", "answer": "To slow down neutrons so that they are more likely to cause fission.", "status": "draft"},
+			{"id": "fission-and-reactors-6", "command": "Name", "prompt": "Name a material used for control rods and a material used as a moderator.", "answer": "Control rods: boron or cadmium. Moderator: water or graphite.", "status": "draft"},
+			{"id": "fission-and-reactors-7", "command": "State", "prompt": "State one environmental issue associated with nuclear waste.", "answer": "It remains radioactive for a long time, so it must be stored safely and isolated for thousands of years.", "status": "draft"}
+		]
+	},
+	{
+		"id": "nuclear-fusion",
+		"title": "Nuclear fusion",
+		"topic": "Nuclear and particle physics",
+		"specRefs": ["6.4.4(j)", "6.4.4(k)"],
+		"questions": [
+			{"id": "nuclear-fusion-1", "command": "Define", "prompt": "Define nuclear fusion.", "answer": "The joining of two light nuclei to form a single heavier nucleus, releasing energy.", "status": "draft"},
+			{"id": "nuclear-fusion-2", "command": "Explain", "prompt": "Explain why very high temperatures are needed for nuclear fusion to occur.", "answer": "The nuclei are positively charged and repel each other, so they need high kinetic energy to overcome the electrostatic repulsion and get close enough for the strong nuclear force to act.", "status": "draft"},
+			{"id": "nuclear-fusion-3", "command": "State", "prompt": "State the main fusion reaction that releases energy in the Sun.", "answer": "Hydrogen nuclei (protons) fuse to form helium nuclei.", "status": "draft"},
+			{"id": "nuclear-fusion-4", "command": "State", "prompt": "State the equation for the fusion of deuterium (²₁H) and tritium (³₁H).", "answer": "²₁H + ³₁H → ⁴₂He + ¹₀n + energy", "status": "draft"},
+			{"id": "nuclear-fusion-5", "command": "State", "prompt": "State one advantage of fusion compared with fission as an energy source.", "answer": "The fuel is abundant (obtained from water) and the waste is much less radioactive, with no long-lived high-level waste.", "status": "draft"},
+			{"id": "nuclear-fusion-6", "command": "State", "prompt": "State one difficulty in producing useful power from nuclear fusion.", "answer": "Containing the plasma at the required temperature and pressure for long enough.", "status": "draft"}
+		]
+	},
+	{
+		"id": "x-ray-tube",
+		"title": "The X-ray tube",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.1(a)", "6.5.1(b)"],
+		"questions": [
+			{"id": "x-ray-tube-1", "command": "State", "prompt": "State the function of the heater (cathode) in an X-ray tube.", "answer": "To heat the cathode so that electrons are emitted from it by thermionic emission.", "status": "draft"},
+			{"id": "x-ray-tube-2", "command": "Explain", "prompt": "Explain why a high voltage supply is needed in an X-ray tube.", "answer": "To accelerate the electrons from the cathode to the anode, giving them enough kinetic energy to produce X-ray photons when they hit the target.", "status": "draft"},
+			{"id": "x-ray-tube-3", "command": "State", "prompt": "State what happens at the target metal (anode) to produce X-ray photons.", "answer": "The fast electrons decelerate on hitting the target, and their kinetic energy is converted into X-ray photons (and heat).", "status": "draft"},
+			{"id": "x-ray-tube-4", "command": "State", "prompt": "State why the anode of an X-ray tube is made of a metal such as tungsten.", "answer": "It has a high melting point, because most of the electrons' energy is transferred to the anode as heat.", "status": "draft"},
+			{"id": "x-ray-tube-5", "command": "State", "prompt": "State why the X-ray tube is evacuated.", "answer": "So that the electrons are not slowed down or deflected by collisions with gas molecules.", "status": "draft"},
+			{"id": "x-ray-tube-6", "command": "State", "prompt": "State one change that increases the maximum energy (penetrating power) of the X-ray photons produced.", "answer": "Increase the accelerating voltage (the potential difference between the cathode and the anode).", "status": "draft"},
+			{"id": "x-ray-tube-7", "command": "State", "prompt": "State one change that increases the intensity of the X-ray beam.", "answer": "Increase the heater current, so that more electrons are emitted and hit the target each second.", "status": "draft"}
+		]
+	},
+	{
+		"id": "x-ray-attenuation",
+		"title": "Attenuation of X-rays",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.1(c)", "6.5.1(d)"],
+		"questions": [
+			{"id": "x-ray-attenuation-1", "command": "State", "prompt": "State what is meant by the attenuation of an X-ray beam.", "answer": "The reduction in intensity of the beam as it passes through matter.", "status": "draft"},
+			{"id": "x-ray-attenuation-2", "command": "Name", "prompt": "Name the four processes by which X-rays are attenuated in a material.", "answer": "Simple scatter, photoelectric effect, Compton effect and pair production.", "status": "draft"},
+			{"id": "x-ray-attenuation-3", "command": "State", "prompt": "State the equation for the attenuation of X-rays by a material.", "answer": "I = I₀e^(−μx)", "status": "draft"},
+			{"id": "x-ray-attenuation-4", "command": "State", "prompt": "State what μ represents in I = I₀e^(−μx) and give its SI unit.", "answer": "The attenuation (absorption) coefficient, measured in m⁻¹.", "status": "draft"},
+			{"id": "x-ray-attenuation-5", "command": "State", "prompt": "State the attenuation process that can only occur if the X-ray photon energy is greater than 1.02 MeV.", "answer": "Pair production.", "status": "draft"},
+			{"id": "x-ray-attenuation-6", "command": "State", "prompt": "State what is meant by the half-value thickness of an X-ray absorber.", "answer": "The thickness of material that reduces the intensity of the X-ray beam to half of its incident value.", "status": "draft"},
+			{"id": "x-ray-attenuation-7", "command": "State", "prompt": "State how the intensity of an X-ray beam changes as the thickness of the absorber increases.", "answer": "It decreases exponentially.", "status": "draft"}
+		]
+	},
+	{
+		"id": "x-ray-imaging-cat",
+		"title": "Contrast media and CAT scanning",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.1(e)", "6.5.1(f)", "6.5.1(g)"],
+		"questions": [
+			{"id": "x-ray-imaging-cat-1", "command": "State", "prompt": "State why contrast media are used in X-ray imaging.", "answer": "To increase the difference in attenuation between the structure of interest and the surrounding tissue, so the structure is visible.", "status": "draft"},
+			{"id": "x-ray-imaging-cat-2", "command": "Name", "prompt": "Name two contrast media used in X-ray imaging and state where each is used.", "answer": "Barium is used for the digestive system; iodine is used for blood vessels and kidneys.", "status": "draft"},
+			{"id": "x-ray-imaging-cat-3", "command": "State", "prompt": "State why barium is suitable as a contrast medium.", "answer": "It has a high atomic number and high density, so it absorbs X-rays strongly.", "status": "draft"},
+			{"id": "x-ray-imaging-cat-4", "command": "State", "prompt": "State the components of a CAT scanner.", "answer": "A rotating X-ray tube producing a thin fan-shaped beam, a ring of detectors, and a computer with a display.", "status": "draft"},
+			{"id": "x-ray-imaging-cat-5", "command": "State", "prompt": "State how a CAT image is formed.", "answer": "X-rays are passed through the patient from many directions as the tube and detectors rotate, and the computer combines the attenuation measurements to produce a cross-sectional image.", "status": "draft"},
+			{"id": "x-ray-imaging-cat-6", "command": "State", "prompt": "State two advantages of a CAT scan over a plain X-ray image.", "answer": "It gives a cross-sectional image with no overlapping structures, and it can distinguish between soft tissues that have similar attenuation.", "status": "draft"},
+			{"id": "x-ray-imaging-cat-7", "command": "State", "prompt": "State one disadvantage of a CAT scan compared with a plain X-ray.", "answer": "The patient receives a higher radiation dose.", "status": "draft"}
+		]
+	},
+	{
+		"id": "medical-tracers",
+		"title": "Medical tracers",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.2(a)"],
+		"questions": [
+			{"id": "medical-tracers-1", "command": "State", "prompt": "State what is meant by a medical tracer.", "answer": "A radioactive substance introduced into the body whose emitted radiation is detected outside the body to study or image an organ.", "status": "draft"},
+			{"id": "medical-tracers-2", "command": "State", "prompt": "State the tracer most commonly used with a gamma camera.", "answer": "Technetium-99m.", "status": "draft"},
+			{"id": "medical-tracers-3", "command": "State", "prompt": "State one reason why technetium-99m is suitable as a medical tracer.", "answer": "It emits gamma radiation only (no alpha or beta particles) and has a short half-life of about 6 hours.", "status": "draft"},
+			{"id": "medical-tracers-4", "command": "State", "prompt": "State why a medical tracer should emit gamma radiation rather than alpha or beta radiation.", "answer": "Gamma radiation penetrates the body and can be detected externally, whereas alpha and beta radiation are absorbed within the body.", "status": "draft"},
+			{"id": "medical-tracers-5", "command": "State", "prompt": "State why a medical tracer should have a relatively short half-life.", "answer": "Its activity falls quickly, which limits the radiation dose received by the patient.", "status": "draft"},
+			{"id": "medical-tracers-6", "command": "State", "prompt": "State the positron-emitting tracer used in PET scanning.", "answer": "Fluorine-18.", "status": "draft"},
+			{"id": "medical-tracers-7", "command": "State", "prompt": "State one property that makes fluorine-18 suitable for PET scanning.", "answer": "It is a positron emitter with a half-life of about 110 minutes, long enough for the tracer to reach the organ being studied.", "status": "draft"}
+		]
+	},
+	{
+		"id": "gamma-camera",
+		"title": "The gamma camera",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.2(b)", "6.5.2(c)"],
+		"questions": [
+			{"id": "gamma-camera-1", "command": "State", "prompt": "State the main components of a gamma camera.", "answer": "Collimator, scintillator, photomultiplier tubes, and a computer with a display.", "status": "draft"},
+			{"id": "gamma-camera-2", "command": "State", "prompt": "State the function of the collimator in a gamma camera.", "answer": "To absorb gamma rays that are not travelling in the required direction, so that only rays from a particular direction reach the scintillator.", "status": "draft"},
+			{"id": "gamma-camera-3", "command": "State", "prompt": "State the function of the scintillator in a gamma camera.", "answer": "To absorb gamma photons and produce flashes of light.", "status": "draft"},
+			{"id": "gamma-camera-4", "command": "State", "prompt": "State the function of the photomultiplier tubes in a gamma camera.", "answer": "To detect the light flashes and produce (and amplify) electrical pulses.", "status": "draft"},
+			{"id": "gamma-camera-5", "command": "State", "prompt": "State the function of the computer in a gamma camera.", "answer": "To process the signals from the photomultiplier tubes and build up the image on the display.", "status": "draft"},
+			{"id": "gamma-camera-6", "command": "Explain", "prompt": "Explain how the gamma camera determines the position of a tracer in the body.", "answer": "The collimator restricts the gamma rays reaching the scintillator to a particular direction, and the photomultiplier tubes that detect the light flash identify its position, which the computer uses to build up the image.", "status": "draft"}
+		]
+	},
+	{
+		"id": "pet-scanning",
+		"title": "Positron emission tomography",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.2(d)", "6.5.2(e)"],
+		"questions": [
+			{"id": "pet-scanning-1", "command": "State", "prompt": "State what the abbreviation PET stands for.", "answer": "Positron emission tomography.", "status": "draft"},
+			{"id": "pet-scanning-2", "command": "State", "prompt": "State what happens to a positron emitted by a tracer inside the body.", "answer": "It travels a short distance and annihilates with an electron, converting their combined mass into energy.", "status": "draft"},
+			{"id": "pet-scanning-3", "command": "State", "prompt": "State the radiation produced when a positron annihilates with an electron and the direction in which it travels.", "answer": "Two gamma-ray photons, travelling in opposite directions (180° apart).", "status": "draft"},
+			{"id": "pet-scanning-4", "command": "State", "prompt": "State why the two photons are emitted in opposite directions in PET scanning.", "answer": "To conserve momentum: the positron and electron have negligible total momentum, so the two photons must have equal and opposite momenta.", "status": "draft"},
+			{"id": "pet-scanning-5", "command": "State", "prompt": "State how the position of an annihilation event is determined in a PET scanner.", "answer": "Detectors around the patient record the two photons arriving at the same time (in coincidence); the annihilation occurred on the line joining the two detectors.", "status": "draft"},
+			{"id": "pet-scanning-6", "command": "State", "prompt": "State why PET scanning is useful in diagnosis.", "answer": "It shows the metabolic activity of tissues, so it can detect tumours (which take up more glucose) and show how organs are functioning.", "status": "draft"},
+			{"id": "pet-scanning-7", "command": "State", "prompt": "State one drawback of PET scanning.", "answer": "The positron-emitting tracers have short half-lives and must be produced close to the scanner, and the scanner itself is expensive.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ultrasound-piezoelectric",
+		"title": "Ultrasound and the piezoelectric effect",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.3(a)", "6.5.3(b)"],
+		"questions": [
+			{"id": "ultrasound-piezoelectric-1", "command": "Define", "prompt": "Define ultrasound.", "answer": "A longitudinal wave with a frequency greater than 20 kHz, above the upper limit of human hearing.", "status": "draft"},
+			{"id": "ultrasound-piezoelectric-2", "command": "State", "prompt": "State the frequency range of audible sound.", "answer": "20 Hz to 20 kHz.", "status": "draft"},
+			{"id": "ultrasound-piezoelectric-3", "command": "State", "prompt": "State what is meant by the piezoelectric effect.", "answer": "A potential difference is produced across a crystal when it is deformed, and the crystal changes shape when a potential difference is applied across it.", "status": "draft"},
+			{"id": "ultrasound-piezoelectric-4", "command": "Describe", "prompt": "Describe how a piezoelectric transducer produces ultrasound.", "answer": "An alternating potential difference is applied across the crystal, making it vibrate at the same high frequency and emit ultrasound.", "status": "draft"},
+			{"id": "ultrasound-piezoelectric-5", "command": "State", "prompt": "State how the same transducer detects reflected ultrasound.", "answer": "The arriving ultrasound wave deforms the crystal, producing a potential difference across it.", "status": "draft"},
+			{"id": "ultrasound-piezoelectric-6", "command": "Explain", "prompt": "Explain why ultrasound, rather than X-rays, is used to image a fetus.", "answer": "Ultrasound is non-ionising, so it does not damage cells; X-rays are ionising and could harm the developing fetus.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ultrasound-scans",
+		"title": "A-scans and B-scans",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.3(c)"],
+		"questions": [
+			{"id": "ultrasound-scans-1", "command": "State", "prompt": "State what is meant by an ultrasound A-scan.", "answer": "A pulse-echo scan along a single line, displaying the amplitude of each echo against time (or depth).", "status": "draft"},
+			{"id": "ultrasound-scans-2", "command": "State", "prompt": "State what is meant by an ultrasound B-scan.", "answer": "A scan in which the transducer is moved across the body and the echoes are displayed as brightness on a two-dimensional image.", "status": "draft"},
+			{"id": "ultrasound-scans-3", "command": "State", "prompt": "State what is displayed on the screen of an A-scan.", "answer": "Echo amplitude on the vertical axis against time (or distance into the body) on the horizontal axis.", "status": "draft"},
+			{"id": "ultrasound-scans-4", "command": "State", "prompt": "State what the brightness of a point on a B-scan represents.", "answer": "The intensity (amplitude) of the echo from that point.", "status": "draft"},
+			{"id": "ultrasound-scans-5", "command": "State", "prompt": "State one use of an A-scan.", "answer": "Measuring the distance to a boundary, for example the depth of an organ or the thickness of the eye.", "status": "draft"},
+			{"id": "ultrasound-scans-6", "command": "State", "prompt": "State why short pulses of ultrasound are used rather than a continuous wave.", "answer": "So that the reflected pulse can be distinguished from the transmitted wave and its time of flight measured.", "status": "draft"}
+		]
+	},
+	{
+		"id": "acoustic-impedance",
+		"title": "Acoustic impedance and reflection",
+		"topic": "Medical imaging",
+		"specRefs": ["6.5.3(d)", "6.5.3(e)"],
+		"questions": [
+			{"id": "acoustic-impedance-1", "command": "Define", "prompt": "Define the acoustic impedance of a medium.", "answer": "The product of the density of the medium and the speed of ultrasound in it, Z = ρc.", "status": "draft"},
+			{"id": "acoustic-impedance-2", "command": "State", "prompt": "State the SI unit of acoustic impedance.", "answer": "kg m⁻² s⁻¹.", "status": "draft"},
+			{"id": "acoustic-impedance-3", "command": "State", "prompt": "State the equation for the fraction of ultrasound intensity reflected at a boundary between two media.", "answer": "I_r/I₀ = (Z₂ − Z₁)² / (Z₂ + Z₁)²", "status": "draft"},
+			{"id": "acoustic-impedance-4", "command": "State", "prompt": "State what happens to the reflected intensity when the acoustic impedances of two media are equal.", "answer": "It is zero; all of the ultrasound is transmitted.", "status": "draft"},
+			{"id": "acoustic-impedance-5", "command": "State", "prompt": "State what is meant by the intensity reflection coefficient.", "answer": "The fraction of the incident ultrasound intensity that is reflected at a boundary.", "status": "draft"},
+			{"id": "acoustic-impedance-6", "command": "Explain", "prompt": "Explain why a gel is used between the ultrasound transducer and the skin.", "answer": "The gel has an acoustic impedance similar to that of skin, so it removes the air layer and reduces reflection at the skin surface, allowing more ultrasound to enter the body.", "status": "draft"},
+			{"id": "acoustic-impedance-7", "command": "State", "prompt": "State why ultrasound is almost completely reflected at a boundary between soft tissue and air.", "answer": "The acoustic impedances of soft tissue and air are very different, which gives a large reflection coefficient.", "status": "draft"}
+		]
+	}
+]

@@ -1,0 +1,244 @@
+[
+	{
+		"id": "thermal-equilibrium",
+		"title": "Temperature and thermal equilibrium",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.1"],
+		"questions": [
+			{"id": "thermal-equilibrium-1", "command": "Define", "prompt": "Define thermal equilibrium.", "answer": "The state in which two objects in thermal contact have the same temperature, so there is no net transfer of thermal energy between them.", "status": "draft"},
+			{"id": "thermal-equilibrium-2", "command": "State", "prompt": "State the property of the thermodynamic (absolute) scale of temperature that makes it independent of any particular substance.", "answer": "It does not depend on a physical property of any particular substance, such as its expansion.", "status": "draft"},
+			{"id": "thermal-equilibrium-3", "command": "State", "prompt": "State the value of absolute zero in degrees Celsius.", "answer": "−273 °C.", "status": "draft"},
+			{"id": "thermal-equilibrium-4", "command": "State", "prompt": "State the equation relating temperature T in kelvin to temperature θ in degrees Celsius.", "answer": "T = θ + 273.", "status": "draft"},
+			{"id": "thermal-equilibrium-5", "command": "Calculate", "prompt": "Convert 27 °C to kelvin.", "answer": "T = 27 + 273 = 300 K.", "status": "draft"},
+			{"id": "thermal-equilibrium-6", "command": "State", "prompt": "State the SI unit of thermodynamic temperature and its symbol.", "answer": "The kelvin (K).", "status": "draft"}
+		]
+	},
+	{
+		"id": "kinetic-model-states",
+		"title": "Solids, liquids and gases",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.2(a)", "5.1.2(b)", "5.1.2(c)"],
+		"questions": [
+			{"id": "kinetic-model-states-1", "command": "Describe", "prompt": "Describe the arrangement, spacing and motion of the particles in a solid.", "answer": "The particles are closely packed in a regular, ordered arrangement and vibrate about fixed positions.", "status": "draft"},
+			{"id": "kinetic-model-states-2", "command": "Describe", "prompt": "Describe the arrangement, spacing and motion of the particles in a liquid.", "answer": "The particles are close together but randomly arranged; they move about at random and can slide past one another.", "status": "draft"},
+			{"id": "kinetic-model-states-3", "command": "Describe", "prompt": "Describe the arrangement, spacing and motion of the particles in a gas.", "answer": "The particles are far apart and randomly arranged; they move rapidly in random directions.", "status": "draft"},
+			{"id": "kinetic-model-states-4", "command": "Name", "prompt": "Name the random motion of smoke particles suspended in air.", "answer": "Brownian motion.", "status": "draft"},
+			{"id": "kinetic-model-states-5", "command": "Explain", "prompt": "Explain Brownian motion in terms of the kinetic model of matter.", "answer": "The smoke particles are bombarded unevenly by much smaller air molecules moving rapidly at random, so the smoke particles move randomly.", "status": "draft"},
+			{"id": "kinetic-model-states-6", "command": "State", "prompt": "State what Brownian motion provides evidence for.", "answer": "That the particles of a fluid are in continuous random motion.", "status": "draft"}
+		]
+	},
+	{
+		"id": "internal-energy",
+		"title": "Internal energy and change of phase",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.2(d)", "5.1.2(e)", "5.1.2(f)", "5.1.2(g)"],
+		"questions": [
+			{"id": "internal-energy-1", "command": "Define", "prompt": "Define the internal energy of a system.", "answer": "The sum of the random distribution of kinetic and potential energies associated with the molecules of the system.", "status": "draft"},
+			{"id": "internal-energy-2", "command": "State", "prompt": "State what happens to the internal energy of a body as its temperature rises.", "answer": "The internal energy increases.", "status": "draft"},
+			{"id": "internal-energy-3", "command": "State", "prompt": "State what happens to the internal energy of a substance during a change of phase.", "answer": "The internal energy changes while the temperature remains constant.", "status": "draft"},
+			{"id": "internal-energy-4", "command": "Explain", "prompt": "Explain why the temperature of a solid remains constant while it melts, even though energy is being supplied.", "answer": "The energy supplied increases the potential energy of the molecules as bonds between them are broken; the average kinetic energy of the molecules does not change.", "status": "draft"},
+			{"id": "internal-energy-5", "command": "State", "prompt": "State why 0 K is the lowest possible temperature.", "answer": "It is the temperature at which a substance has minimum internal energy, so no more energy can be removed from it.", "status": "draft"},
+			{"id": "internal-energy-6", "command": "State", "prompt": "State the effect of boiling a liquid at constant temperature on the kinetic and potential energies of its molecules.", "answer": "The kinetic energy stays the same and the potential energy increases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "specific-heat-capacity",
+		"title": "Specific heat capacity",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.3(a)", "5.1.3(b)"],
+		"questions": [
+			{"id": "specific-heat-capacity-1", "command": "Define", "prompt": "Define specific heat capacity.", "answer": "The energy required to raise the temperature of 1 kg of a substance by 1 K (or 1 °C).", "status": "draft"},
+			{"id": "specific-heat-capacity-2", "command": "State", "prompt": "State the equation linking energy supplied, mass, specific heat capacity and temperature rise.", "answer": "E = mcΔθ, where Δθ is the temperature rise.", "status": "draft"},
+			{"id": "specific-heat-capacity-3", "command": "State", "prompt": "State the unit of specific heat capacity.", "answer": "J kg⁻¹ K⁻¹.", "status": "draft"},
+			{"id": "specific-heat-capacity-4", "command": "Calculate", "prompt": "Calculate the energy needed to raise the temperature of 2 kg of water by 10 K. The specific heat capacity of water is 4200 J kg⁻¹ K⁻¹.", "answer": "E = mcΔθ = 2 × 4200 × 10 = 84 000 J.", "status": "draft"},
+			{"id": "specific-heat-capacity-5", "command": "State", "prompt": "State one way to reduce energy losses in an electrical experiment to determine the specific heat capacity of a metal block.", "answer": "Insulate the block and use a lid, so less energy is transferred to the surroundings.", "status": "draft"},
+			{"id": "specific-heat-capacity-6", "command": "State", "prompt": "State the measurements needed to determine the specific heat capacity of a metal block by an electrical method.", "answer": "The mass of the block, the temperature rise, and the current, potential difference and time for the heater.", "status": "draft"}
+		]
+	},
+	{
+		"id": "specific-latent-heat",
+		"title": "Specific latent heat",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.3(c)", "5.1.3(d)"],
+		"questions": [
+			{"id": "specific-latent-heat-1", "command": "Define", "prompt": "Define the specific latent heat of fusion of a substance.", "answer": "The energy required to change 1 kg of the substance from solid to liquid at constant temperature.", "status": "draft"},
+			{"id": "specific-latent-heat-2", "command": "Define", "prompt": "Define the specific latent heat of vaporisation of a substance.", "answer": "The energy required to change 1 kg of the substance from liquid to gas at constant temperature.", "status": "draft"},
+			{"id": "specific-latent-heat-3", "command": "State", "prompt": "State the equation linking energy transferred and specific latent heat.", "answer": "E = mL.", "status": "draft"},
+			{"id": "specific-latent-heat-4", "command": "State", "prompt": "State the unit of specific latent heat.", "answer": "J kg⁻¹.", "status": "draft"},
+			{"id": "specific-latent-heat-5", "command": "Explain", "prompt": "Explain why energy must be supplied to melt a solid even though its temperature does not change.", "answer": "The energy is used to overcome the attractive forces between the molecules, increasing their potential energy rather than their kinetic energy.", "status": "draft"},
+			{"id": "specific-latent-heat-6", "command": "Calculate", "prompt": "Calculate the energy needed to melt 0.5 kg of ice at 0 °C. The specific latent heat of fusion of ice is 3.34 × 10⁵ J kg⁻¹.", "answer": "E = mL = 0.5 × 3.34 × 10⁵ = 1.67 × 10⁵ J.", "status": "draft"},
+			{"id": "specific-latent-heat-7", "command": "State", "prompt": "State the measurements needed to determine the specific latent heat of vaporisation of a liquid by an electrical method.", "answer": "The mass of liquid that evaporates, the energy supplied by the heater (current, potential difference and time) and the constant temperature of the liquid.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ideal-gas-equation",
+		"title": "Moles and the ideal gas equation",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.4(a)", "5.1.4(d)"],
+		"questions": [
+			{"id": "ideal-gas-equation-1", "command": "Define", "prompt": "Define one mole of a substance.", "answer": "The amount of substance that contains 6.02 × 10²³ particles.", "status": "draft"},
+			{"id": "ideal-gas-equation-2", "command": "State", "prompt": "State the value and unit of the Avogadro constant.", "answer": "6.02 × 10²³ mol⁻¹.", "status": "draft"},
+			{"id": "ideal-gas-equation-3", "command": "State", "prompt": "State the equation of state for an ideal gas, identifying what n and T represent.", "answer": "pV = nRT, where n is the number of moles and T is the thermodynamic temperature.", "status": "draft"},
+			{"id": "ideal-gas-equation-4", "command": "State", "prompt": "State Boyle's law.", "answer": "For a fixed mass of gas at constant temperature, the pressure is inversely proportional to the volume (pV = constant).", "status": "draft"},
+			{"id": "ideal-gas-equation-5", "command": "Explain", "prompt": "Explain how absolute zero is estimated from measurements of the pressure of a fixed volume of gas at different temperatures.", "answer": "Plot pressure against temperature in °C; the points lie on a straight line. Extrapolate the line to zero pressure, and the intercept on the temperature axis gives absolute zero (about −273 °C).", "status": "draft"},
+			{"id": "ideal-gas-equation-6", "command": "State", "prompt": "State the relationship between pressure and thermodynamic temperature for a fixed mass of gas at constant volume.", "answer": "Pressure is directly proportional to thermodynamic temperature (p/T = constant).", "status": "draft"},
+			{"id": "ideal-gas-equation-7", "command": "State", "prompt": "State the graph that should be plotted to verify Boyle's law for a fixed mass of gas at constant temperature.", "answer": "Plot pressure against 1/volume; a straight line through the origin shows that p ∝ 1/V.", "status": "draft"}
+		]
+	},
+	{
+		"id": "kinetic-theory-of-gases",
+		"title": "Kinetic theory and pressure",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.4(b)", "5.1.4(c)", "5.1.4(e)"],
+		"questions": [
+			{"id": "kinetic-theory-of-gases-1", "command": "State", "prompt": "State two assumptions of the kinetic theory model of a gas.", "answer": "Any two of: there are a large number of molecules in random, rapid motion; the molecules occupy negligible volume compared with the volume of the gas; all collisions are perfectly elastic; the time of a collision is negligible compared with the time between collisions; there are negligible forces between molecules except during collisions.", "status": "draft"},
+			{"id": "kinetic-theory-of-gases-2", "command": "State", "prompt": "State what is assumed about collisions between gas molecules in the kinetic theory model.", "answer": "They are perfectly elastic, so kinetic energy is conserved.", "status": "draft"},
+			{"id": "kinetic-theory-of-gases-3", "command": "Explain", "prompt": "Explain, in terms of the kinetic model, how a gas exerts a pressure on the walls of its container.", "answer": "Gas molecules collide with the walls and their momentum changes; each collision exerts a force on the wall, and many collisions per unit area give a steady pressure.", "status": "draft"},
+			{"id": "kinetic-theory-of-gases-4", "command": "State", "prompt": "State the equation relating pressure, volume and the mean square speed of the molecules of a gas.", "answer": "pV = ⅓Nmc², where N is the number of molecules, m is the mass of one molecule and c² is the mean square speed.", "status": "draft"},
+			{"id": "kinetic-theory-of-gases-5", "command": "Explain", "prompt": "Explain why the pressure of a fixed volume of gas increases when its temperature increases.", "answer": "The molecules gain kinetic energy and move faster, so they collide with the walls more frequently and each collision causes a larger change of momentum, producing a greater force and hence a greater pressure.", "status": "draft"},
+			{"id": "kinetic-theory-of-gases-6", "command": "State", "prompt": "State what is meant by the mean square speed of gas molecules.", "answer": "The average of the squares of the speeds of all the molecules.", "status": "draft"}
+		]
+	},
+	{
+		"id": "molecular-speeds",
+		"title": "R.m.s. speed, the Boltzmann constant and internal energy",
+		"topic": "Thermal physics",
+		"specRefs": ["5.1.4(f)", "5.1.4(g)", "5.1.4(h)", "5.1.4(i)"],
+		"questions": [
+			{"id": "molecular-speeds-1", "command": "Define", "prompt": "Define the root mean square (r.m.s.) speed of gas molecules.", "answer": "The square root of the mean of the squares of the speeds of the molecules.", "status": "draft"},
+			{"id": "molecular-speeds-2", "command": "State", "prompt": "State the equation relating the Boltzmann constant k to the molar gas constant R and the Avogadro constant N_A.", "answer": "k = R/N_A.", "status": "draft"},
+			{"id": "molecular-speeds-3", "command": "State", "prompt": "State the equation relating the mean kinetic energy of a gas molecule to thermodynamic temperature.", "answer": "½mc² = (3/2)kT, where c² is the mean square speed.", "status": "draft"},
+			{"id": "molecular-speeds-4", "command": "State", "prompt": "State what is meant by the internal energy of an ideal gas.", "answer": "The sum of the kinetic energies of its molecules; there is no potential energy because there are no intermolecular forces.", "status": "draft"},
+			{"id": "molecular-speeds-5", "command": "Describe", "prompt": "Describe the main features of the Maxwell–Boltzmann distribution of molecular speeds.", "answer": "It starts at the origin, rises to a peak at the most probable speed and has a long tail at high speeds; the area under the curve represents the total number of molecules.", "status": "draft"},
+			{"id": "molecular-speeds-6", "command": "State", "prompt": "State the effect of increasing the temperature of a gas on its Maxwell–Boltzmann distribution.", "answer": "The peak moves to a higher speed and becomes lower, and the curve becomes broader; the area under the curve stays the same.", "status": "draft"}
+		]
+	},
+	{
+		"id": "circular-kinematics",
+		"title": "Angles, period and angular velocity",
+		"topic": "Circular motion",
+		"specRefs": ["5.2.1"],
+		"questions": [
+			{"id": "circular-kinematics-1", "command": "Define", "prompt": "Define the radian.", "answer": "The angle subtended at the centre of a circle by an arc equal in length to the radius.", "status": "draft"},
+			{"id": "circular-kinematics-2", "command": "Define", "prompt": "Define the period of an object moving in a circle.", "answer": "The time taken for one complete revolution.", "status": "draft"},
+			{"id": "circular-kinematics-3", "command": "Define", "prompt": "Define the frequency of an object moving in a circle.", "answer": "The number of complete revolutions per unit time (per second).", "status": "draft"},
+			{"id": "circular-kinematics-4", "command": "State", "prompt": "State the relationship between period T and frequency f.", "answer": "f = 1/T.", "status": "draft"},
+			{"id": "circular-kinematics-5", "command": "State", "prompt": "State the equation for angular velocity in terms of period and frequency.", "answer": "ω = 2π/T = 2πf.", "status": "draft"},
+			{"id": "circular-kinematics-6", "command": "Calculate", "prompt": "Calculate the angular velocity of an object moving in a circle with a period of 2 s.", "answer": "ω = 2π/T = 2π/2 = π ≈ 3.1 rad s⁻¹.", "status": "draft"}
+		]
+	},
+	{
+		"id": "centripetal-acceleration",
+		"title": "Circular motion and centripetal acceleration",
+		"topic": "Circular motion",
+		"specRefs": ["5.2.2(a)", "5.2.2(b)", "5.2.2(c)"],
+		"questions": [
+			{"id": "centripetal-acceleration-1", "command": "State", "prompt": "State the direction of the resultant force on an object moving in a circle at constant speed.", "answer": "Towards the centre of the circle.", "status": "draft"},
+			{"id": "centripetal-acceleration-2", "command": "Explain", "prompt": "Explain why an object moving in a circle at constant speed is accelerating.", "answer": "Its speed is constant but its velocity is changing direction, so its velocity is changing.", "status": "draft"},
+			{"id": "centripetal-acceleration-3", "command": "State", "prompt": "State the relationship between linear speed v, angular velocity ω and radius r.", "answer": "v = ωr.", "status": "draft"},
+			{"id": "centripetal-acceleration-4", "command": "State", "prompt": "State the two equations for centripetal acceleration.", "answer": "a = v²/r and a = ω²r.", "status": "draft"},
+			{"id": "centripetal-acceleration-5", "command": "State", "prompt": "State the direction of centripetal acceleration.", "answer": "Towards the centre of the circle.", "status": "draft"},
+			{"id": "centripetal-acceleration-6", "command": "State", "prompt": "State what happens to the centripetal acceleration if the speed of an object is doubled while the radius is unchanged.", "answer": "It becomes four times larger, because a ∝ v².", "status": "draft"}
+		]
+	},
+	{
+		"id": "centripetal-force",
+		"title": "Centripetal force",
+		"topic": "Circular motion",
+		"specRefs": ["5.2.2(d)"],
+		"questions": [
+			{"id": "centripetal-force-1", "command": "Define", "prompt": "Define centripetal force.", "answer": "The resultant force acting on an object moving in a circular path, directed towards the centre of the circle.", "status": "draft"},
+			{"id": "centripetal-force-2", "command": "State", "prompt": "State the two equations for centripetal force.", "answer": "F = mv²/r and F = mω²r.", "status": "draft"},
+			{"id": "centripetal-force-3", "command": "State", "prompt": "State what provides the centripetal force for a car turning on a level road.", "answer": "Friction between the tyres and the road.", "status": "draft"},
+			{"id": "centripetal-force-4", "command": "State", "prompt": "State what provides the centripetal force for a satellite in orbit around the Earth.", "answer": "The gravitational force between the satellite and the Earth.", "status": "draft"},
+			{"id": "centripetal-force-5", "command": "State", "prompt": "State what provides the centripetal force for a charged particle moving in a circular path in a magnetic field.", "answer": "The magnetic force on the charged particle.", "status": "draft"},
+			{"id": "centripetal-force-6", "command": "Explain", "prompt": "Explain why the centripetal force does no work on an object moving at constant speed in a circle.", "answer": "The force is always perpendicular to the velocity, so there is no displacement in the direction of the force; the kinetic energy of the object does not change.", "status": "draft"},
+			{"id": "centripetal-force-7", "command": "State", "prompt": "State the measurements needed to investigate circular motion using a whirling bung.", "answer": "The mass of the bung, the radius of the circle, the tension in the string (from the hanging masses) and the time for several revolutions.", "status": "draft"}
+		]
+	},
+	{
+		"id": "shm-definitions",
+		"title": "Simple harmonic motion: definitions",
+		"topic": "Oscillations",
+		"specRefs": ["5.3.1(a)", "5.3.1(b)", "5.3.1(c)"],
+		"questions": [
+			{"id": "shm-definitions-1", "command": "Define", "prompt": "Define simple harmonic motion.", "answer": "An oscillation in which the acceleration is directly proportional to the displacement from the equilibrium position and is directed towards that position.", "status": "draft"},
+			{"id": "shm-definitions-2", "command": "State", "prompt": "State the defining equation for simple harmonic motion.", "answer": "a = −ω²x, where a and x are measured from the equilibrium position.", "status": "draft"},
+			{"id": "shm-definitions-3", "command": "Define", "prompt": "Define the amplitude of a simple harmonic oscillator.", "answer": "The maximum displacement from the equilibrium position.", "status": "draft"},
+			{"id": "shm-definitions-4", "command": "Define", "prompt": "Define the period of an oscillation.", "answer": "The time taken for one complete oscillation.", "status": "draft"},
+			{"id": "shm-definitions-5", "command": "Define", "prompt": "Define phase difference.", "answer": "The fraction of a cycle by which one oscillation leads or lags another, expressed as an angle.", "status": "draft"},
+			{"id": "shm-definitions-6", "command": "State", "prompt": "State the equation for angular frequency in terms of period and frequency.", "answer": "ω = 2π/T = 2πf.", "status": "draft"},
+			{"id": "shm-definitions-7", "command": "State", "prompt": "State how the period of a simple pendulum can be measured accurately.", "answer": "Time a large number of complete oscillations with a stopwatch and divide by the number of oscillations; repeat and average.", "status": "draft"}
+		]
+	},
+	{
+		"id": "shm-equations",
+		"title": "SHM: displacement, velocity and acceleration",
+		"topic": "Oscillations",
+		"specRefs": ["5.3.1(d)", "5.3.1(e)", "5.3.1(f)"],
+		"questions": [
+			{"id": "shm-equations-1", "command": "State", "prompt": "State the general solutions for the displacement of a simple harmonic oscillator.", "answer": "x = A cos ωt or x = A sin ωt.", "status": "draft"},
+			{"id": "shm-equations-2", "command": "State", "prompt": "State the equation for the velocity of a simple harmonic oscillator in terms of displacement.", "answer": "v = ±ω√(A² − x²).", "status": "draft"},
+			{"id": "shm-equations-3", "command": "State", "prompt": "State the maximum speed of a simple harmonic oscillator in terms of amplitude and angular frequency.", "answer": "v_max = ωA.", "status": "draft"},
+			{"id": "shm-equations-4", "command": "State", "prompt": "State where in its oscillation a simple harmonic oscillator has maximum speed.", "answer": "At the equilibrium position (x = 0).", "status": "draft"},
+			{"id": "shm-equations-5", "command": "State", "prompt": "State the velocity of a simple harmonic oscillator at its maximum displacement.", "answer": "Zero.", "status": "draft"},
+			{"id": "shm-equations-6", "command": "State", "prompt": "State what is meant by an isochronous oscillator.", "answer": "An oscillator whose period is independent of its amplitude.", "status": "draft"}
+		]
+	},
+	{
+		"id": "shm-graphs",
+		"title": "SHM graphs and phase",
+		"topic": "Oscillations",
+		"specRefs": ["5.3.1(g)"],
+		"questions": [
+			{"id": "shm-graphs-1", "command": "State", "prompt": "State what the gradient of a displacement–time graph represents for an oscillator.", "answer": "The velocity.", "status": "draft"},
+			{"id": "shm-graphs-2", "command": "State", "prompt": "State what the gradient of a velocity–time graph represents for an oscillator.", "answer": "The acceleration.", "status": "draft"},
+			{"id": "shm-graphs-3", "command": "State", "prompt": "State what the area under a velocity–time graph represents for an oscillator.", "answer": "The displacement.", "status": "draft"},
+			{"id": "shm-graphs-4", "command": "Describe", "prompt": "Describe the shape of a displacement–time graph for undamped simple harmonic motion.", "answer": "A sinusoidal curve (a sine or cosine curve).", "status": "draft"},
+			{"id": "shm-graphs-5", "command": "State", "prompt": "State the phase difference between the displacement and the acceleration of a simple harmonic oscillator.", "answer": "180° (π radians); they are in antiphase.", "status": "draft"},
+			{"id": "shm-graphs-6", "command": "State", "prompt": "State the phase difference between the displacement and the velocity of a simple harmonic oscillator.", "answer": "90° (π/2 radians); the velocity leads the displacement by a quarter of a cycle.", "status": "draft"}
+		]
+	},
+	{
+		"id": "shm-energy",
+		"title": "Energy of a simple harmonic oscillator",
+		"topic": "Oscillations",
+		"specRefs": ["5.3.2"],
+		"questions": [
+			{"id": "shm-energy-1", "command": "Describe", "prompt": "Describe how kinetic and potential energy interchange during simple harmonic motion.", "answer": "Kinetic energy is maximum at the equilibrium position and zero at maximum displacement; potential energy is maximum at maximum displacement and zero at equilibrium. The total energy remains constant if the oscillation is undamped.", "status": "draft"},
+			{"id": "shm-energy-2", "command": "State", "prompt": "State where the kinetic energy of a simple harmonic oscillator is maximum.", "answer": "At the equilibrium position.", "status": "draft"},
+			{"id": "shm-energy-3", "command": "State", "prompt": "State where the potential energy of a simple harmonic oscillator is maximum.", "answer": "At the maximum displacement (the amplitude).", "status": "draft"},
+			{"id": "shm-energy-4", "command": "State", "prompt": "State the equation for the total energy of a simple harmonic oscillator.", "answer": "E = ½mω²A².", "status": "draft"},
+			{"id": "shm-energy-5", "command": "State", "prompt": "State what happens to the total energy of a simple harmonic oscillator if its amplitude is doubled.", "answer": "It becomes four times larger, because E ∝ A².", "status": "draft"},
+			{"id": "shm-energy-6", "command": "Describe", "prompt": "Describe the shapes of the kinetic energy–displacement and potential energy–displacement graphs for a simple harmonic oscillator.", "answer": "The kinetic energy graph is an inverted parabola, maximum at x = 0 and zero at x = ±A. The potential energy graph is a parabola, minimum at x = 0 and maximum at x = ±A. The total energy is a horizontal straight line.", "status": "draft"}
+		]
+	},
+	{
+		"id": "damping",
+		"title": "Free, forced and damped oscillations",
+		"topic": "Oscillations",
+		"specRefs": ["5.3.3(a)", "5.3.3(b)"],
+		"questions": [
+			{"id": "damping-1", "command": "Define", "prompt": "Define a free oscillation.", "answer": "An oscillation with no external periodic driving force, at the natural frequency of the system.", "status": "draft"},
+			{"id": "damping-2", "command": "Define", "prompt": "Define a forced oscillation.", "answer": "An oscillation produced by an external periodic driving force.", "status": "draft"},
+			{"id": "damping-3", "command": "Define", "prompt": "Define damping.", "answer": "The reduction in amplitude of an oscillation caused by energy being transferred to the surroundings by dissipative forces.", "status": "draft"},
+			{"id": "damping-4", "command": "State", "prompt": "State two effects of damping on an oscillating system.", "answer": "The amplitude decreases over time, and the period increases slightly; the total energy of the oscillator decreases as energy is dissipated.", "status": "draft"},
+			{"id": "damping-5", "command": "Describe", "prompt": "Describe the difference between light damping and heavy damping.", "answer": "With light damping the system oscillates with gradually decreasing amplitude; with heavy damping it returns slowly to equilibrium without oscillating.", "status": "draft"},
+			{"id": "damping-6", "command": "State", "prompt": "State what is meant by critical damping.", "answer": "Damping that returns the system to its equilibrium position in the shortest possible time without oscillating.", "status": "draft"}
+		]
+	},
+	{
+		"id": "resonance",
+		"title": "Resonance",
+		"topic": "Oscillations",
+		"specRefs": ["5.3.3(c)", "5.3.3(d)", "5.3.3(e)"],
+		"questions": [
+			{"id": "resonance-1", "command": "Define", "prompt": "Define the natural frequency of an oscillating system.", "answer": "The frequency at which the system oscillates freely when it is displaced and released.", "status": "draft"},
+			{"id": "resonance-2", "command": "Define", "prompt": "Define resonance.", "answer": "The increase in amplitude of a forced oscillation when the driving frequency is equal to the natural frequency of the system.", "status": "draft"},
+			{"id": "resonance-3", "command": "State", "prompt": "State the condition for resonance to occur.", "answer": "The driving frequency must equal the natural frequency of the oscillating system.", "status": "draft"},
+			{"id": "resonance-4", "command": "Describe", "prompt": "Describe the amplitude–driving frequency graph for a forced oscillator.", "answer": "The amplitude is maximum at the natural frequency and is smaller for driving frequencies above or below it, giving a peak.", "status": "draft"},
+			{"id": "resonance-5", "command": "State", "prompt": "State the effect of increasing the damping on the resonance peak.", "answer": "The peak becomes lower and broader, and occurs at a slightly lower frequency.", "status": "draft"},
+			{"id": "resonance-6", "command": "Give", "prompt": "Give one practical example of resonance and state whether it is useful or undesirable.", "answer": "A radio receiver is tuned so that its resonant frequency matches the signal frequency, increasing the amplitude of that signal (useful).", "status": "draft"}
+		]
+	}
+]

@@ -1,0 +1,399 @@
+[
+	{
+		"id": "kinematics-quantities",
+		"title": "Displacement, speed, velocity and acceleration",
+		"topic": "Motion",
+		"specRefs": ["3.1.1(a)"],
+		"questions": [
+			{"id": "kinematics-quantities-1", "command": "Define", "prompt": "Define displacement.", "answer": "The straight-line distance from the starting point to the finishing point, in a stated direction.", "status": "draft"},
+			{"id": "kinematics-quantities-2", "command": "Define", "prompt": "Define average speed.", "answer": "Total distance travelled divided by the total time taken.", "status": "draft"},
+			{"id": "kinematics-quantities-3", "command": "Define", "prompt": "Define instantaneous speed.", "answer": "The speed of an object at a particular instant in time.", "status": "draft"},
+			{"id": "kinematics-quantities-4", "command": "Define", "prompt": "Define velocity.", "answer": "The rate of change of displacement (displacement per unit time).", "status": "draft"},
+			{"id": "kinematics-quantities-5", "command": "Define", "prompt": "Define acceleration.", "answer": "The rate of change of velocity.", "status": "draft"},
+			{"id": "kinematics-quantities-6", "command": "State", "prompt": "State the difference between speed and velocity.", "answer": "Speed is a scalar (magnitude only); velocity is a vector (magnitude and direction).", "status": "draft"}
+		]
+	},
+	{
+		"id": "motion-graphs",
+		"title": "Displacement-time and velocity-time graphs",
+		"topic": "Motion",
+		"specRefs": ["3.1.1(b)", "3.1.1(c)", "3.1.1(d)"],
+		"questions": [
+			{"id": "motion-graphs-1", "command": "State", "prompt": "State what the gradient of a displacement-time graph represents.", "answer": "Velocity.", "status": "draft"},
+			{"id": "motion-graphs-2", "command": "State", "prompt": "State what the gradient of a velocity-time graph represents.", "answer": "Acceleration.", "status": "draft"},
+			{"id": "motion-graphs-3", "command": "State", "prompt": "State what the area under a velocity-time graph represents.", "answer": "Displacement.", "status": "draft"},
+			{"id": "motion-graphs-4", "command": "State", "prompt": "State what the area under an acceleration-time graph represents.", "answer": "Change in velocity.", "status": "draft"},
+			{"id": "motion-graphs-5", "command": "State", "prompt": "State how a stationary object and an object moving at constant velocity appear on a displacement-time graph.", "answer": "Stationary: a horizontal line. Constant velocity: a straight line with a constant gradient.", "status": "draft"},
+			{"id": "motion-graphs-6", "command": "State", "prompt": "State how constant acceleration appears on a velocity-time graph.", "answer": "A straight line.", "status": "draft"}
+		]
+	},
+	{
+		"id": "equations-of-motion",
+		"title": "Equations of motion and free fall",
+		"topic": "Motion",
+		"specRefs": ["3.1.2(a)(i)", "3.1.2(b)(i)"],
+		"questions": [
+			{"id": "equations-of-motion-1", "command": "State", "prompt": "State the four equations of motion for constant acceleration in a straight line.", "answer": "v = u + at; s = ½(u + v)t; s = ut + ½at²; v² = u² + 2as.", "status": "draft"},
+			{"id": "equations-of-motion-2", "command": "State", "prompt": "State the condition for using the equations of motion.", "answer": "The acceleration must be constant (uniform) and the motion must be in a straight line.", "status": "draft"},
+			{"id": "equations-of-motion-3", "command": "State", "prompt": "State the equation of motion that does not contain displacement.", "answer": "v = u + at.", "status": "draft"},
+			{"id": "equations-of-motion-4", "command": "State", "prompt": "State the equation of motion that does not contain time.", "answer": "v² = u² + 2as.", "status": "draft"},
+			{"id": "equations-of-motion-5", "command": "State", "prompt": "State the value of the acceleration of free fall near the Earth's surface.", "answer": "9.81 m s⁻².", "status": "draft"},
+			{"id": "equations-of-motion-6", "command": "Define", "prompt": "Define free fall.", "answer": "Motion under gravity alone, with no other forces such as air resistance acting.", "status": "draft"},
+			{"id": "equations-of-motion-7", "command": "State", "prompt": "State whether the acceleration of free fall depends on the mass of the falling object.", "answer": "No; in the absence of air resistance all objects have the same acceleration.", "status": "draft"}
+		]
+	},
+	{
+		"id": "free-fall-g",
+		"title": "Determining the acceleration of free fall",
+		"topic": "Motion",
+		"specRefs": ["3.1.2(b)(ii)"],
+		"questions": [
+			{"id": "free-fall-g-1", "command": "State", "prompt": "State the apparatus used to determine g with the trapdoor and electromagnet method.", "answer": "An electromagnet, a steel ball, a trapdoor switch, a timer and a metre rule.", "status": "draft"},
+			{"id": "free-fall-g-2", "command": "State", "prompt": "State the measurements needed to find g using the trapdoor and electromagnet method.", "answer": "The height h fallen by the ball and the time t taken to fall.", "status": "draft"},
+			{"id": "free-fall-g-3", "command": "State", "prompt": "State the equation used to calculate g from the height h and time t for a ball released from rest.", "answer": "g = 2h/t².", "status": "draft"},
+			{"id": "free-fall-g-4", "command": "State", "prompt": "State one advantage of using light gates rather than a stopwatch when determining g.", "answer": "Light gates remove the effect of the experimenter's reaction time.", "status": "draft"},
+			{"id": "free-fall-g-5", "command": "State", "prompt": "State two precautions that improve the accuracy of a determination of g.", "answer": "Repeat the measurement and average; use a small dense ball to reduce air resistance; measure the height to the same point on the ball; release the ball from rest; shield the apparatus from draughts.", "status": "draft"},
+			{"id": "free-fall-g-6", "command": "State", "prompt": "State how g is calculated from the speeds u and v measured at two light gates a distance s apart.", "answer": "Use a = (v² − u²)/2s.", "status": "draft"}
+		]
+	},
+	{
+		"id": "stopping-distances",
+		"title": "Reaction time and stopping distances",
+		"topic": "Motion",
+		"specRefs": ["3.1.2(c)"],
+		"questions": [
+			{"id": "stopping-distances-1", "command": "Define", "prompt": "Define thinking distance.", "answer": "The distance travelled by a vehicle during the driver's reaction time.", "status": "draft"},
+			{"id": "stopping-distances-2", "command": "Define", "prompt": "Define braking distance.", "answer": "The distance travelled by a vehicle while the brakes are applied and it decelerates to rest.", "status": "draft"},
+			{"id": "stopping-distances-3", "command": "Define", "prompt": "Define stopping distance.", "answer": "Thinking distance plus braking distance.", "status": "draft"},
+			{"id": "stopping-distances-4", "command": "State", "prompt": "State how thinking distance depends on speed for a constant reaction time.", "answer": "It is directly proportional to speed.", "status": "draft"},
+			{"id": "stopping-distances-5", "command": "State", "prompt": "State two factors that affect braking distance.", "answer": "Speed, road surface, tyre condition, brake condition, mass of the vehicle or weather conditions.", "status": "draft"},
+			{"id": "stopping-distances-6", "command": "State", "prompt": "State how braking distance changes if the speed of a vehicle doubles, assuming a constant braking force.", "answer": "It becomes four times as large.", "status": "draft"},
+			{"id": "stopping-distances-7", "command": "State", "prompt": "State two factors that can increase a driver's reaction time.", "answer": "Alcohol, tiredness, distraction, drugs or age.", "status": "draft"}
+		]
+	},
+	{
+		"id": "projectile-motion",
+		"title": "Projectile motion",
+		"topic": "Motion",
+		"specRefs": ["3.1.3(a)", "3.1.3(b)"],
+		"questions": [
+			{"id": "projectile-motion-1", "command": "State", "prompt": "State what is meant by the independence of the horizontal and vertical motion of a projectile.", "answer": "The horizontal and vertical motions do not affect each other and can be treated separately.", "status": "draft"},
+			{"id": "projectile-motion-2", "command": "State", "prompt": "State the horizontal acceleration of a projectile when air resistance is negligible.", "answer": "Zero.", "status": "draft"},
+			{"id": "projectile-motion-3", "command": "State", "prompt": "State the vertical acceleration of a projectile.", "answer": "g downwards (9.81 m s⁻²).", "status": "draft"},
+			{"id": "projectile-motion-4", "command": "State", "prompt": "State how the horizontal velocity of a projectile changes during its flight when air resistance is negligible.", "answer": "It remains constant.", "status": "draft"},
+			{"id": "projectile-motion-5", "command": "State", "prompt": "State the vertical velocity of a projectile at its highest point.", "answer": "Zero.", "status": "draft"},
+			{"id": "projectile-motion-6", "command": "State", "prompt": "State the shape of the path of a projectile when air resistance is negligible.", "answer": "A parabola.", "status": "draft"},
+			{"id": "projectile-motion-7", "command": "Explain", "prompt": "Explain why a ball dropped from rest and a ball projected horizontally from the same height land at the same time.", "answer": "Both have zero initial vertical velocity and the same vertical acceleration g, so their vertical motions are identical.", "status": "draft"}
+		]
+	},
+	{
+		"id": "motion-experiments",
+		"title": "Investigating motion in the laboratory",
+		"topic": "Motion",
+		"specRefs": ["3.1.2(a)(ii)"],
+		"questions": [
+			{"id": "motion-experiments-1", "command": "State", "prompt": "State two pieces of apparatus used to investigate the motion of objects in the laboratory.", "answer": "Light gates, a data logger, a ticker timer or a video camera.", "status": "draft"},
+			{"id": "motion-experiments-2", "command": "State", "prompt": "State how light gates and a data logger can be used to find the acceleration of a trolley.", "answer": "Two light gates measure the trolley's speed at two positions a known distance apart; the acceleration is the change in speed divided by the time taken between the gates.", "status": "draft"},
+			{"id": "motion-experiments-3", "command": "State", "prompt": "State how the collision between two trolleys can be investigated experimentally.", "answer": "Measure the masses of the trolleys and use light gates or a ticker timer to find their velocities before and after the collision, then compare total momentum.", "status": "draft"}
+		]
+	},
+	{
+		"id": "force-mass-acceleration",
+		"title": "Force, mass and acceleration",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.1(a)", "3.2.1(b)", "3.2.1(f)"],
+		"questions": [
+			{"id": "force-mass-acceleration-1", "command": "State", "prompt": "State the equation relating resultant force, mass and acceleration.", "answer": "F = ma.", "status": "draft"},
+			{"id": "force-mass-acceleration-2", "command": "Define", "prompt": "Define the newton.", "answer": "The force that gives a mass of 1 kg an acceleration of 1 m s⁻² in the direction of the force.", "status": "draft"},
+			{"id": "force-mass-acceleration-3", "command": "State", "prompt": "State the newton in terms of S.I. base units.", "answer": "kg m s⁻².", "status": "draft"},
+			{"id": "force-mass-acceleration-4", "command": "State", "prompt": "State the direction of the acceleration caused by a resultant force.", "answer": "In the same direction as the resultant force.", "status": "draft"},
+			{"id": "force-mass-acceleration-5", "command": "State", "prompt": "State why a constant resultant force produces a constant acceleration.", "answer": "F = ma, so with constant force and constant mass the acceleration is constant.", "status": "draft"},
+			{"id": "force-mass-acceleration-6", "command": "State", "prompt": "State how the equations of motion are applied to two-dimensional motion under a constant force.", "answer": "Resolve the force and motion into two perpendicular directions and apply the equations independently in each direction.", "status": "draft"}
+		]
+	},
+	{
+		"id": "weight-and-mass",
+		"title": "Weight and gravitational field strength",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.1(c)"],
+		"questions": [
+			{"id": "weight-and-mass-1", "command": "Define", "prompt": "Define the weight of an object.", "answer": "The gravitational force acting on the object.", "status": "draft"},
+			{"id": "weight-and-mass-2", "command": "State", "prompt": "State the equation for weight and state what g represents.", "answer": "W = mg, where g is the gravitational field strength (force per unit mass).", "status": "draft"},
+			{"id": "weight-and-mass-3", "command": "State", "prompt": "State the difference between mass and weight.", "answer": "Mass is a scalar measure of the amount of matter (kg); weight is a vector force (N) due to gravity.", "status": "draft"},
+			{"id": "weight-and-mass-4", "command": "State", "prompt": "State the S.I. unit of gravitational field strength.", "answer": "N kg⁻¹ (or m s⁻²).", "status": "draft"}
+		]
+	},
+	{
+		"id": "contact-forces-free-body",
+		"title": "Tension, normal contact force, upthrust, friction and free-body diagrams",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.1(d)", "3.2.1(e)"],
+		"questions": [
+			{"id": "contact-forces-free-body-1", "command": "Define", "prompt": "Define tension.", "answer": "The pulling force transmitted through a string, wire or rod when it is stretched.", "status": "draft"},
+			{"id": "contact-forces-free-body-2", "command": "Define", "prompt": "Define the normal contact force.", "answer": "The force exerted by a surface on an object, acting perpendicular to the surface.", "status": "draft"},
+			{"id": "contact-forces-free-body-3", "command": "Define", "prompt": "Define upthrust.", "answer": "The upward force on an object in a fluid caused by the difference in pressure between its lower and upper surfaces.", "status": "draft"},
+			{"id": "contact-forces-free-body-4", "command": "Define", "prompt": "Define friction.", "answer": "The force that opposes the relative motion (or attempted motion) of two surfaces in contact.", "status": "draft"},
+			{"id": "contact-forces-free-body-5", "command": "State", "prompt": "State what a free-body diagram shows.", "answer": "All the forces acting on a single object, drawn as arrows showing direction and relative magnitude.", "status": "draft"}
+		]
+	},
+	{
+		"id": "drag-terminal-velocity",
+		"title": "Drag and terminal velocity",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.2(a)", "3.2.2(b)", "3.2.2(c)", "3.2.2(d)(i)"],
+		"questions": [
+			{"id": "drag-terminal-velocity-1", "command": "Define", "prompt": "Define drag.", "answer": "The frictional force experienced by an object moving through a fluid, acting opposite to its motion.", "status": "draft"},
+			{"id": "drag-terminal-velocity-2", "command": "State", "prompt": "State two factors that affect the drag on an object moving through air.", "answer": "Its speed, cross-sectional area, shape, surface texture, or the density of the air.", "status": "draft"},
+			{"id": "drag-terminal-velocity-3", "command": "State", "prompt": "State how the drag on an object changes as its speed through a fluid increases.", "answer": "The drag increases.", "status": "draft"},
+			{"id": "drag-terminal-velocity-4", "command": "Define", "prompt": "Define terminal velocity.", "answer": "The constant velocity reached by a falling object when the drag equals its weight, so the resultant force is zero.", "status": "draft"},
+			{"id": "drag-terminal-velocity-5", "command": "Explain", "prompt": "Explain why the acceleration of an object falling through a fluid decreases as it speeds up.", "answer": "Drag increases with speed, so the resultant force (weight minus drag) decreases and the acceleration decreases.", "status": "draft"},
+			{"id": "drag-terminal-velocity-6", "command": "Describe", "prompt": "Describe the shape of the velocity-time graph for an object falling from rest in a fluid.", "answer": "The gradient starts steep and decreases, and the graph becomes horizontal at the terminal velocity.", "status": "draft"}
+		]
+	},
+	{
+		"id": "terminal-velocity-practical",
+		"title": "Determining terminal velocity",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.2(d)(ii)"],
+		"questions": [
+			{"id": "terminal-velocity-practical-1", "command": "Describe", "prompt": "Describe how the terminal velocity of a ball bearing falling in oil can be determined.", "answer": "Mark two levels on the tube, measure the distance between them, and time the ball bearing falling between them with a stopwatch or light gates; terminal velocity = distance ÷ time.", "status": "draft"},
+			{"id": "terminal-velocity-practical-2", "command": "State", "prompt": "State why the upper mark is placed below the surface of the oil.", "answer": "To allow the ball bearing to reach terminal velocity before timing begins.", "status": "draft"},
+			{"id": "terminal-velocity-practical-3", "command": "State", "prompt": "State how it can be checked that the ball bearing has reached terminal velocity.", "answer": "Time it between successive equal intervals; the times are equal when the velocity is constant.", "status": "draft"},
+			{"id": "terminal-velocity-practical-4", "command": "State", "prompt": "State two precautions when determining terminal velocity in a fluid.", "answer": "Use a wide tube to avoid wall effects; release the ball centrally; repeat and average; measure the distance with a ruler; keep the temperature constant.", "status": "draft"}
+		]
+	},
+	{
+		"id": "moments-and-couples",
+		"title": "Moments, couples, torque and the principle of moments",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.3(a)", "3.2.3(b)", "3.2.3(c)"],
+		"questions": [
+			{"id": "moments-and-couples-1", "command": "Define", "prompt": "Define the moment of a force.", "answer": "The force multiplied by the perpendicular distance from the pivot to the line of action of the force.", "status": "draft"},
+			{"id": "moments-and-couples-2", "command": "State", "prompt": "State the equation for the moment of a force and state what x represents.", "answer": "Moment = Fx, where x is the perpendicular distance from the pivot to the line of action of the force.", "status": "draft"},
+			{"id": "moments-and-couples-3", "command": "State", "prompt": "State the S.I. unit of a moment.", "answer": "N m (newton metre).", "status": "draft"},
+			{"id": "moments-and-couples-4", "command": "Define", "prompt": "Define a couple.", "answer": "Two equal and opposite parallel forces whose lines of action do not coincide.", "status": "draft"},
+			{"id": "moments-and-couples-5", "command": "State", "prompt": "State the equation for the torque of a couple and state what d represents.", "answer": "Torque = Fd, where d is the perpendicular distance between the lines of action of the two forces.", "status": "draft"},
+			{"id": "moments-and-couples-6", "command": "State", "prompt": "State the principle of moments.", "answer": "For an object in equilibrium, the sum of the clockwise moments about any point equals the sum of the anticlockwise moments about the same point.", "status": "draft"}
+		]
+	},
+	{
+		"id": "equilibrium-centre-of-mass",
+		"title": "Centre of mass, centre of gravity and equilibrium",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.3(d)", "3.2.3(e)", "3.2.3(f)"],
+		"questions": [
+			{"id": "equilibrium-centre-of-mass-1", "command": "Define", "prompt": "Define the centre of mass of an object.", "answer": "The point at which the whole mass of the object may be considered to act.", "status": "draft"},
+			{"id": "equilibrium-centre-of-mass-2", "command": "Define", "prompt": "Define the centre of gravity of an object.", "answer": "The point at which the whole weight of the object may be considered to act.", "status": "draft"},
+			{"id": "equilibrium-centre-of-mass-3", "command": "State", "prompt": "State the position of the centre of gravity of a uniform metre rule.", "answer": "At the 50 cm mark (its midpoint).", "status": "draft"},
+			{"id": "equilibrium-centre-of-mass-4", "command": "Describe", "prompt": "Describe how the centre of gravity of an irregular lamina can be found experimentally.", "answer": "Suspend it freely from a point and draw a vertical plumb line; repeat from a different point; the intersection of the two lines is the centre of gravity.", "status": "draft"},
+			{"id": "equilibrium-centre-of-mass-5", "command": "State", "prompt": "State the two conditions for an object to be in equilibrium.", "answer": "The resultant force is zero and the resultant moment (torque) about any point is zero.", "status": "draft"},
+			{"id": "equilibrium-centre-of-mass-6", "command": "State", "prompt": "State the condition for three coplanar forces acting on an object to be in equilibrium.", "answer": "Their vector sum is zero, so they can be represented by the sides of a closed triangle, and their lines of action meet at a point.", "status": "draft"}
+		]
+	},
+	{
+		"id": "density-and-pressure",
+		"title": "Density and pressure",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.4(a)", "3.2.4(b)"],
+		"questions": [
+			{"id": "density-and-pressure-1", "command": "Define", "prompt": "Define density.", "answer": "Mass per unit volume.", "status": "draft"},
+			{"id": "density-and-pressure-2", "command": "State", "prompt": "State the equation for density.", "answer": "ρ = m/V.", "status": "draft"},
+			{"id": "density-and-pressure-3", "command": "State", "prompt": "State the S.I. unit of density.", "answer": "kg m⁻³.", "status": "draft"},
+			{"id": "density-and-pressure-4", "command": "Define", "prompt": "Define pressure.", "answer": "The force acting normally (perpendicularly) per unit area.", "status": "draft"},
+			{"id": "density-and-pressure-5", "command": "State", "prompt": "State the equation for pressure.", "answer": "p = F/A.", "status": "draft"},
+			{"id": "density-and-pressure-6", "command": "State", "prompt": "State the pascal in terms of S.I. base units.", "answer": "kg m⁻¹ s⁻².", "status": "draft"}
+		]
+	},
+	{
+		"id": "upthrust-archimedes",
+		"title": "Pressure in fluids, upthrust and Archimedes' principle",
+		"topic": "Forces in action",
+		"specRefs": ["3.2.4(c)"],
+		"questions": [
+			{"id": "upthrust-archimedes-1", "command": "State", "prompt": "State the equation for the pressure due to a column of fluid.", "answer": "p = hρg.", "status": "draft"},
+			{"id": "upthrust-archimedes-2", "command": "Explain", "prompt": "Explain why an object submerged in a fluid experiences an upward force.", "answer": "Pressure increases with depth, so the pressure on the lower surface is greater than on the upper surface, giving a resultant upward force.", "status": "draft"},
+			{"id": "upthrust-archimedes-3", "command": "State", "prompt": "State Archimedes' principle.", "answer": "The upthrust on an object in a fluid is equal to the weight of the fluid displaced by the object.", "status": "draft"},
+			{"id": "upthrust-archimedes-4", "command": "State", "prompt": "State the condition for an object to float in a fluid.", "answer": "The upthrust must equal the weight of the object.", "status": "draft"},
+			{"id": "upthrust-archimedes-5", "command": "State", "prompt": "State how the upthrust on an object changes as it is lowered into a liquid.", "answer": "It increases as more of the object becomes submerged, then stays constant once the object is fully submerged.", "status": "draft"},
+			{"id": "upthrust-archimedes-6", "command": "State", "prompt": "State how the upthrust on a fully submerged object changes if it is moved deeper in the liquid.", "answer": "It stays the same, because the volume of fluid displaced does not change.", "status": "draft"}
+		]
+	},
+	{
+		"id": "work-done-force",
+		"title": "Work done by a force",
+		"topic": "Work, energy and power",
+		"specRefs": ["3.3.1(a)", "3.3.1(b)", "3.3.1(e)"],
+		"questions": [
+			{"id": "work-done-force-1", "command": "Define", "prompt": "Define work done by a force.", "answer": "The force multiplied by the displacement of the object in the direction of the force.", "status": "draft"},
+			{"id": "work-done-force-2", "command": "State", "prompt": "State the equation for work done by a force acting at an angle to the displacement and state what θ represents.", "answer": "W = Fx cos θ, where θ is the angle between the force and the displacement.", "status": "draft"},
+			{"id": "work-done-force-3", "command": "Define", "prompt": "Define one joule.", "answer": "The work done when a force of 1 N moves an object 1 m in the direction of the force.", "status": "draft"},
+			{"id": "work-done-force-4", "command": "State", "prompt": "State the condition for a force to do no work on an object.", "answer": "The force is perpendicular to the displacement (cos 90° = 0).", "status": "draft"},
+			{"id": "work-done-force-5", "command": "State", "prompt": "State the relationship between work done and energy transferred.", "answer": "The work done on an object equals the energy transferred to or from it.", "status": "draft"},
+			{"id": "work-done-force-6", "command": "State", "prompt": "State what happens to the work done by a constant force as the angle between the force and the displacement increases from 0° to 90°.", "answer": "It decreases, because cos θ decreases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "conservation-of-energy",
+		"title": "The principle of conservation of energy",
+		"topic": "Work, energy and power",
+		"specRefs": ["3.3.1(c)", "3.3.1(d)"],
+		"questions": [
+			{"id": "conservation-of-energy-1", "command": "State", "prompt": "State the principle of conservation of energy.", "answer": "Energy cannot be created or destroyed, only transferred from one form to another; the total energy of a closed system remains constant.", "status": "draft"},
+			{"id": "conservation-of-energy-2", "command": "State", "prompt": "State what is meant by a closed system.", "answer": "A system that does not exchange energy with its surroundings.", "status": "draft"},
+			{"id": "conservation-of-energy-3", "command": "Name", "prompt": "Name four forms of energy.", "answer": "Kinetic, gravitational potential, elastic potential, thermal, chemical, nuclear or electrical energy.", "status": "draft"},
+			{"id": "conservation-of-energy-4", "command": "State", "prompt": "State the energy transfers that occur when a ball is thrown vertically upwards.", "answer": "Kinetic energy transfers to gravitational potential energy (and some to thermal energy because of air resistance).", "status": "draft"},
+			{"id": "conservation-of-energy-5", "command": "Explain", "prompt": "Explain why a swinging pendulum eventually comes to rest.", "answer": "Energy is transferred to thermal energy by friction at the pivot and by air resistance, so the total mechanical energy decreases.", "status": "draft"}
+		]
+	},
+	{
+		"id": "kinetic-gpe-exchange",
+		"title": "Kinetic and gravitational potential energy",
+		"topic": "Work, energy and power",
+		"specRefs": ["3.3.2(a)", "3.3.2(b)", "3.3.2(c)"],
+		"questions": [
+			{"id": "kinetic-gpe-exchange-1", "command": "State", "prompt": "State the equation for the kinetic energy of an object.", "answer": "Ek = ½mv².", "status": "draft"},
+			{"id": "kinetic-gpe-exchange-2", "command": "State", "prompt": "State the equation for the gravitational potential energy gained by an object in a uniform gravitational field.", "answer": "Ep = mgh.", "status": "draft"},
+			{"id": "kinetic-gpe-exchange-3", "command": "Define", "prompt": "Define gravitational potential energy.", "answer": "The energy stored by an object because of its position in a gravitational field.", "status": "draft"},
+			{"id": "kinetic-gpe-exchange-4", "command": "State", "prompt": "State the assumption about the gravitational field when using Ep = mgh.", "answer": "The field is uniform, so g is constant over the height change.", "status": "draft"},
+			{"id": "kinetic-gpe-exchange-5", "command": "State", "prompt": "State how the kinetic energy of an object changes if its speed doubles.", "answer": "It becomes four times as large.", "status": "draft"},
+			{"id": "kinetic-gpe-exchange-6", "command": "State", "prompt": "State the energy transfer that occurs as an object falls freely.", "answer": "Gravitational potential energy transfers to kinetic energy.", "status": "draft"}
+		]
+	},
+	{
+		"id": "mechanical-power-efficiency",
+		"title": "Power and efficiency",
+		"topic": "Work, energy and power",
+		"specRefs": ["3.3.3(a)", "3.3.3(b)", "3.3.3(c)"],
+		"questions": [
+			{"id": "mechanical-power-efficiency-1", "command": "Define", "prompt": "Define power.", "answer": "The rate of doing work or transferring energy.", "status": "draft"},
+			{"id": "mechanical-power-efficiency-2", "command": "State", "prompt": "State the equation for average power.", "answer": "P = W/t.", "status": "draft"},
+			{"id": "mechanical-power-efficiency-3", "command": "Define", "prompt": "Define the watt.", "answer": "The power of transferring 1 joule of energy per second (1 W = 1 J s⁻¹).", "status": "draft"},
+			{"id": "mechanical-power-efficiency-4", "command": "State", "prompt": "State the equation P = Fv and the condition under which it applies.", "answer": "Power = force × velocity, when the force and velocity are in the same direction.", "status": "draft"},
+			{"id": "mechanical-power-efficiency-5", "command": "State", "prompt": "State the equation for the efficiency of a mechanical system.", "answer": "Efficiency = (useful output energy ÷ total input energy) × 100%.", "status": "draft"},
+			{"id": "mechanical-power-efficiency-6", "command": "State", "prompt": "State what is meant by an efficiency of 20%.", "answer": "20% of the input energy is transferred usefully and 80% is transferred to other, unwanted forms.", "status": "draft"},
+			{"id": "mechanical-power-efficiency-7", "command": "State", "prompt": "State why the efficiency of a machine cannot exceed 100%.", "answer": "Energy cannot be created, so the useful output energy cannot be greater than the total input energy.", "status": "draft"}
+		]
+	},
+	{
+		"id": "hookes-law-springs",
+		"title": "Hooke's law and the force constant",
+		"topic": "Materials",
+		"specRefs": ["3.4.1(a)", "3.4.1(b)", "3.4.1(c)", "3.4.1(d)(i)"],
+		"questions": [
+			{"id": "hookes-law-springs-1", "command": "State", "prompt": "State the difference between tensile and compressive deformation.", "answer": "Tensile deformation is stretching (extension); compressive deformation is squashing (compression).", "status": "draft"},
+			{"id": "hookes-law-springs-2", "command": "State", "prompt": "State Hooke's law.", "answer": "The extension of an object is directly proportional to the force applied, provided the limit of proportionality is not exceeded.", "status": "draft"},
+			{"id": "hookes-law-springs-3", "command": "State", "prompt": "State the equation for Hooke's law and state what x represents.", "answer": "F = kx, where x is the extension (the change in length), not the total length.", "status": "draft"},
+			{"id": "hookes-law-springs-4", "command": "Define", "prompt": "Define the force constant of a spring and state its unit.", "answer": "The force per unit extension; its unit is N m⁻¹.", "status": "draft"},
+			{"id": "hookes-law-springs-5", "command": "State", "prompt": "State what the gradient of the straight-line section of a force-extension graph represents.", "answer": "The force constant k.", "status": "draft"},
+			{"id": "hookes-law-springs-6", "command": "State", "prompt": "State what is meant by the limit of proportionality.", "answer": "The point beyond which the extension is no longer directly proportional to the applied force.", "status": "draft"},
+			{"id": "hookes-law-springs-7", "command": "State", "prompt": "State what is meant by the elastic limit.", "answer": "The maximum deformation for which the object returns to its original shape when the force is removed; beyond it, plastic deformation occurs.", "status": "draft"}
+		]
+	},
+	{
+		"id": "spring-force-extension-practical",
+		"title": "Investigating force-extension characteristics",
+		"topic": "Materials",
+		"specRefs": ["3.4.1(d)(ii)"],
+		"questions": [
+			{"id": "spring-force-extension-practical-1", "command": "Describe", "prompt": "Describe how the force-extension characteristic of a spring can be investigated.", "answer": "Clamp the spring vertically, hang masses from it, measure the extension with a ruler for each added mass, then plot force against extension.", "status": "draft"},
+			{"id": "spring-force-extension-practical-2", "command": "State", "prompt": "State the measurements needed to plot a force-extension graph for a spring.", "answer": "The force applied (from the masses) and the corresponding extension of the spring.", "status": "draft"},
+			{"id": "spring-force-extension-practical-3", "command": "State", "prompt": "State one precaution that improves the accuracy of a force-extension experiment.", "answer": "Measure the extension from the same point on the spring each time; use a set square to avoid parallax; add masses gently; repeat and average.", "status": "draft"},
+			{"id": "spring-force-extension-practical-4", "command": "State", "prompt": "State why the spring should not be stretched beyond its elastic limit.", "answer": "It would be permanently deformed, so the extension would no longer be proportional to the force.", "status": "draft"}
+		]
+	},
+	{
+		"id": "stress-strain-young-modulus",
+		"title": "Stress, strain and the Young modulus",
+		"topic": "Materials",
+		"specRefs": ["3.4.2(c)", "3.4.2(d)"],
+		"questions": [
+			{"id": "stress-strain-young-modulus-1", "command": "Define", "prompt": "Define tensile stress.", "answer": "The force applied per unit cross-sectional area: σ = F/A.", "status": "draft"},
+			{"id": "stress-strain-young-modulus-2", "command": "Define", "prompt": "Define tensile strain.", "answer": "The extension per unit original length: ε = Δx/x.", "status": "draft"},
+			{"id": "stress-strain-young-modulus-3", "command": "Explain", "prompt": "Explain why strain has no unit.", "answer": "It is the ratio of two lengths, so the units cancel.", "status": "draft"},
+			{"id": "stress-strain-young-modulus-4", "command": "Define", "prompt": "Define the ultimate tensile strength of a material.", "answer": "The maximum stress the material can withstand before it breaks.", "status": "draft"},
+			{"id": "stress-strain-young-modulus-5", "command": "Define", "prompt": "Define the Young modulus and state its equation.", "answer": "The ratio of tensile stress to tensile strain in the linear region: E = stress/strain = Fl/(AΔx).", "status": "draft"},
+			{"id": "stress-strain-young-modulus-6", "command": "State", "prompt": "State the S.I. unit of the Young modulus.", "answer": "The pascal (Pa), i.e. N m⁻².", "status": "draft"},
+			{"id": "stress-strain-young-modulus-7", "command": "State", "prompt": "State the measurements needed to determine the Young modulus of a metal wire.", "answer": "The original length of the wire, its diameter (to find the cross-sectional area), the applied force and the extension.", "status": "draft"}
+		]
+	},
+	{
+		"id": "material-stress-strain-graphs",
+		"title": "Stress-strain graphs and elastic and plastic deformation",
+		"topic": "Materials",
+		"specRefs": ["3.4.2(e)", "3.4.2(f)"],
+		"questions": [
+			{"id": "material-stress-strain-graphs-1", "command": "State", "prompt": "State one feature of the stress-strain graph of a brittle material.", "answer": "It is a straight line up to fracture, with little or no plastic deformation.", "status": "draft"},
+			{"id": "material-stress-strain-graphs-2", "command": "State", "prompt": "State one feature of the stress-strain graph of a ductile material.", "answer": "It shows a large plastic region, with the material stretching considerably before fracture.", "status": "draft"},
+			{"id": "material-stress-strain-graphs-3", "command": "State", "prompt": "State one feature of the stress-strain graph of a polymeric material such as rubber.", "answer": "The curve is non-linear, it can undergo very large strains, and loading and unloading follow different paths (hysteresis).", "status": "draft"},
+			{"id": "material-stress-strain-graphs-4", "command": "Define", "prompt": "Define elastic deformation.", "answer": "Deformation in which the object returns to its original shape and size when the force is removed.", "status": "draft"},
+			{"id": "material-stress-strain-graphs-5", "command": "Define", "prompt": "Define plastic deformation.", "answer": "Deformation in which the object does not return to its original shape when the force is removed, leaving a permanent change.", "status": "draft"},
+			{"id": "material-stress-strain-graphs-6", "command": "State", "prompt": "State what is meant by necking.", "answer": "The local thinning of a ductile material under tension just before it fractures.", "status": "draft"}
+		]
+	},
+	{
+		"id": "elastic-potential-energy",
+		"title": "Elastic potential energy",
+		"topic": "Materials",
+		"specRefs": ["3.4.2(a)", "3.4.2(b)"],
+		"questions": [
+			{"id": "elastic-potential-energy-1", "command": "State", "prompt": "State what the area under a force-extension graph represents.", "answer": "The work done in stretching the object, equal to the elastic potential energy stored.", "status": "draft"},
+			{"id": "elastic-potential-energy-2", "command": "State", "prompt": "State the equations for the elastic potential energy stored in a spring.", "answer": "E = ½Fx or E = ½kx².", "status": "draft"},
+			{"id": "elastic-potential-energy-3", "command": "State", "prompt": "State the condition under which E = ½kx² applies.", "answer": "Hooke's law is obeyed (the force-extension graph is a straight line through the origin).", "status": "draft"},
+			{"id": "elastic-potential-energy-4", "command": "Define", "prompt": "Define elastic potential energy.", "answer": "The energy stored in an object when it is stretched or compressed.", "status": "draft"},
+			{"id": "elastic-potential-energy-5", "command": "State", "prompt": "State how the elastic potential energy stored in a spring changes if its extension doubles.", "answer": "It becomes four times as large.", "status": "draft"}
+		]
+	},
+	{
+		"id": "newtons-three-laws",
+		"title": "Newton's three laws of motion",
+		"topic": "Newton's laws of motion and momentum",
+		"specRefs": ["3.5.1(a)"],
+		"questions": [
+			{"id": "newtons-three-laws-1", "command": "State", "prompt": "State Newton's first law of motion.", "answer": "An object remains at rest or moves at constant velocity unless acted on by a resultant force.", "status": "draft"},
+			{"id": "newtons-three-laws-2", "command": "State", "prompt": "State Newton's second law of motion in terms of momentum.", "answer": "The resultant force on an object is equal to the rate of change of its momentum: F = Δp/Δt.", "status": "draft"},
+			{"id": "newtons-three-laws-3", "command": "State", "prompt": "State Newton's third law of motion.", "answer": "If object A exerts a force on object B, then object B exerts an equal and opposite force on object A.", "status": "draft"},
+			{"id": "newtons-three-laws-4", "command": "State", "prompt": "State what is meant by inertia.", "answer": "The resistance of an object to a change in its motion.", "status": "draft"},
+			{"id": "newtons-three-laws-5", "command": "Explain", "prompt": "Explain why the forces in a Newton's third law pair do not cancel out.", "answer": "They act on two different objects, so each object experiences only one of the pair.", "status": "draft"},
+			{"id": "newtons-three-laws-6", "command": "State", "prompt": "State the condition under which F = ma is a special case of Newton's second law.", "answer": "The mass of the object is constant.", "status": "draft"}
+		]
+	},
+	{
+		"id": "momentum-and-impulse",
+		"title": "Momentum and impulse",
+		"topic": "Newton's laws of motion and momentum",
+		"specRefs": ["3.5.1(b)", "3.5.1(c)", "3.5.1(d)", "3.5.1(e)"],
+		"questions": [
+			{"id": "momentum-and-impulse-1", "command": "Define", "prompt": "Define linear momentum.", "answer": "The product of an object's mass and velocity: p = mv.", "status": "draft"},
+			{"id": "momentum-and-impulse-2", "command": "State", "prompt": "State the S.I. unit of momentum.", "answer": "kg m s⁻¹ (or N s).", "status": "draft"},
+			{"id": "momentum-and-impulse-3", "command": "State", "prompt": "State Newton's second law in the form F = Δp/Δt.", "answer": "The resultant force equals the rate of change of momentum.", "status": "draft"},
+			{"id": "momentum-and-impulse-4", "command": "Define", "prompt": "Define the impulse of a force.", "answer": "The force multiplied by the time for which it acts; it equals the change in momentum.", "status": "draft"},
+			{"id": "momentum-and-impulse-5", "command": "State", "prompt": "State what the area under a force-time graph represents.", "answer": "The impulse, which equals the change in momentum.", "status": "draft"},
+			{"id": "momentum-and-impulse-6", "command": "State", "prompt": "State two ways of reducing the force experienced by an object in a collision.", "answer": "Increase the time of the collision (e.g. using a crumple zone or airbag) or reduce the change in momentum.", "status": "draft"}
+		]
+	},
+	{
+		"id": "conservation-of-momentum",
+		"title": "Conservation of momentum",
+		"topic": "Newton's laws of motion and momentum",
+		"specRefs": ["3.5.2(a)", "3.5.2(b)"],
+		"questions": [
+			{"id": "conservation-of-momentum-1", "command": "State", "prompt": "State the principle of conservation of momentum.", "answer": "The total momentum of a system before a collision or interaction equals the total momentum after it, provided no external resultant force acts.", "status": "draft"},
+			{"id": "conservation-of-momentum-2", "command": "State", "prompt": "State the condition for momentum to be conserved in a collision.", "answer": "No external resultant force acts on the system.", "status": "draft"},
+			{"id": "conservation-of-momentum-3", "command": "State", "prompt": "State the direction of the momentum of an object.", "answer": "In the same direction as its velocity.", "status": "draft"},
+			{"id": "conservation-of-momentum-4", "command": "State", "prompt": "State how the conservation of momentum is applied to a collision in one dimension.", "answer": "Choose a positive direction, then equate the total momentum before the collision to the total momentum after it.", "status": "draft"},
+			{"id": "conservation-of-momentum-5", "command": "State", "prompt": "State how the conservation of momentum is applied to a collision in two dimensions.", "answer": "Resolve the momenta into two perpendicular directions and conserve momentum independently in each direction.", "status": "draft"}
+		]
+	},
+	{
+		"id": "elastic-inelastic-collisions",
+		"title": "Elastic and inelastic collisions",
+		"topic": "Newton's laws of motion and momentum",
+		"specRefs": ["3.5.2(c)"],
+		"questions": [
+			{"id": "elastic-inelastic-collisions-1", "command": "Define", "prompt": "Define a perfectly elastic collision.", "answer": "A collision in which both momentum and kinetic energy are conserved.", "status": "draft"},
+			{"id": "elastic-inelastic-collisions-2", "command": "Define", "prompt": "Define an inelastic collision.", "answer": "A collision in which momentum is conserved but kinetic energy is not conserved.", "status": "draft"},
+			{"id": "elastic-inelastic-collisions-3", "command": "State", "prompt": "State whether kinetic energy is conserved in an inelastic collision.", "answer": "No; some kinetic energy is transferred to other forms such as thermal or sound energy.", "status": "draft"},
+			{"id": "elastic-inelastic-collisions-4", "command": "State", "prompt": "State whether momentum is conserved in an inelastic collision.", "answer": "Yes, provided no external resultant force acts.", "status": "draft"}
+		]
+	}
+]

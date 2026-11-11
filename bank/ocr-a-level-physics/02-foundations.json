@@ -1,0 +1,130 @@
+[
+	{
+		"id": "physical-quantities-estimates",
+		"title": "Physical quantities and estimates",
+		"topic": "Physical quantities and units",
+		"specRefs": ["2.1.1(a)", "2.1.1(b)"],
+		"questions": [
+			{"id": "physical-quantities-estimates-1", "command": "Define", "prompt": "Define a physical quantity.", "answer": "A quantity that has a numerical value (magnitude) and a unit.", "status": "draft"},
+			{"id": "physical-quantities-estimates-2", "command": "State", "prompt": "State what is needed to fully give the value of a physical quantity.", "answer": "Its numerical value together with its unit.", "status": "draft"},
+			{"id": "physical-quantities-estimates-3", "command": "State", "prompt": "State an estimate for the mass of an adult.", "answer": "About 70 kg (accept 50–100 kg).", "status": "draft"},
+			{"id": "physical-quantities-estimates-4", "command": "State", "prompt": "State an estimate for the speed of a person walking.", "answer": "About 1.5 m s⁻¹ (accept 1–2 m s⁻¹).", "status": "draft"},
+			{"id": "physical-quantities-estimates-5", "command": "State", "prompt": "State an estimate for the density of water.", "answer": "About 1000 kg m⁻³.", "status": "draft"},
+			{"id": "physical-quantities-estimates-6", "command": "State", "prompt": "State an estimate for atmospheric pressure at sea level.", "answer": "About 1 × 10⁵ Pa.", "status": "draft"}
+		]
+	},
+	{
+		"id": "si-base-quantities",
+		"title": "S.I. base quantities and units",
+		"topic": "Physical quantities and units",
+		"specRefs": ["2.1.2(a)"],
+		"questions": [
+			{"id": "si-base-quantities-1", "command": "State", "prompt": "State the six S.I. base quantities and their units.", "answer": "Mass (kg), length (m), time (s), electric current (A), thermodynamic temperature (K) and amount of substance (mol).", "status": "draft"},
+			{"id": "si-base-quantities-2", "command": "State", "prompt": "State the S.I. base unit of mass.", "answer": "The kilogram (kg).", "status": "draft"},
+			{"id": "si-base-quantities-3", "command": "State", "prompt": "State the S.I. base unit of electric current.", "answer": "The ampere (A).", "status": "draft"},
+			{"id": "si-base-quantities-4", "command": "State", "prompt": "State the S.I. base unit of thermodynamic temperature.", "answer": "The kelvin (K).", "status": "draft"},
+			{"id": "si-base-quantities-5", "command": "Name", "prompt": "Name the S.I. base quantity measured in moles.", "answer": "Amount of substance.", "status": "draft"},
+			{"id": "si-base-quantities-6", "command": "State", "prompt": "State the symbol for the S.I. base unit of length.", "answer": "m (the metre).", "status": "draft"}
+		]
+	},
+	{
+		"id": "derived-units-homogeneity",
+		"title": "Derived units and homogeneity",
+		"topic": "Physical quantities and units",
+		"specRefs": ["2.1.2(b)", "2.1.2(c)", "2.1.2(d)"],
+		"questions": [
+			{"id": "derived-units-homogeneity-1", "command": "Define", "prompt": "Define a derived unit.", "answer": "A unit formed by combining S.I. base units.", "status": "draft"},
+			{"id": "derived-units-homogeneity-2", "command": "State", "prompt": "State the newton in terms of S.I. base units.", "answer": "kg m s⁻².", "status": "draft"},
+			{"id": "derived-units-homogeneity-3", "command": "State", "prompt": "State the joule in terms of S.I. base units.", "answer": "kg m² s⁻².", "status": "draft"},
+			{"id": "derived-units-homogeneity-4", "command": "State", "prompt": "State the watt in terms of S.I. base units.", "answer": "kg m² s⁻³.", "status": "draft"},
+			{"id": "derived-units-homogeneity-5", "command": "State", "prompt": "State the pascal in terms of S.I. base units.", "answer": "kg m⁻¹ s⁻².", "status": "draft"},
+			{"id": "derived-units-homogeneity-6", "command": "State", "prompt": "State what is meant by checking the homogeneity of a physical equation using S.I. base units.", "answer": "Checking that the base units of both sides of the equation are identical.", "status": "draft"},
+			{"id": "derived-units-homogeneity-7", "command": "Explain", "prompt": "Explain why an equation cannot be correct if the units on each side are different.", "answer": "The two sides must be equal, so they must have the same units; different units mean the equation is not dimensionally consistent.", "status": "draft"}
+		]
+	},
+	{
+		"id": "si-prefixes-graph-conventions",
+		"title": "Prefixes and graph labelling conventions",
+		"topic": "Physical quantities and units",
+		"specRefs": ["2.1.2(e)", "2.1.2(f)"],
+		"questions": [
+			{"id": "si-prefixes-graph-conventions-1", "command": "State", "prompt": "State the symbol and value of the prefixes pico, nano and micro.", "answer": "pico (p) = 10⁻¹², nano (n) = 10⁻⁹, micro (μ) = 10⁻⁶.", "status": "draft"},
+			{"id": "si-prefixes-graph-conventions-2", "command": "State", "prompt": "State the symbol and value of the prefixes milli, centi and deci.", "answer": "milli (m) = 10⁻³, centi (c) = 10⁻², deci (d) = 10⁻¹.", "status": "draft"},
+			{"id": "si-prefixes-graph-conventions-3", "command": "State", "prompt": "State the symbol and value of the prefixes kilo, mega, giga and tera.", "answer": "kilo (k) = 10³, mega (M) = 10⁶, giga (G) = 10⁹, tera (T) = 10¹².", "status": "draft"},
+			{"id": "si-prefixes-graph-conventions-4", "command": "State", "prompt": "State the convention for labelling a graph axis.", "answer": "Write the quantity divided by its unit, e.g. speed / m s⁻¹.", "status": "draft"},
+			{"id": "si-prefixes-graph-conventions-5", "command": "State", "prompt": "State the convention for a table column heading.", "answer": "Write the quantity divided by its unit, e.g. time / s.", "status": "draft"},
+			{"id": "si-prefixes-graph-conventions-6", "command": "State", "prompt": "State how the unit of the gradient of a graph is found from its axes.", "answer": "Divide the unit of the quantity on the y-axis by the unit of the quantity on the x-axis.", "status": "draft"}
+		]
+	},
+	{
+		"id": "measurement-errors",
+		"title": "Systematic and random errors, precision and accuracy",
+		"topic": "Making measurements and analysing data",
+		"specRefs": ["2.2.1(a)", "2.2.1(b)"],
+		"questions": [
+			{"id": "measurement-errors-1", "command": "Define", "prompt": "Define a systematic error.", "answer": "A constant offset that shifts every reading by the same amount in the same direction, e.g. a zero error.", "status": "draft"},
+			{"id": "measurement-errors-2", "command": "Define", "prompt": "Define a random error.", "answer": "An unpredictable variation in readings about the true value, differing in size and sign each time.", "status": "draft"},
+			{"id": "measurement-errors-3", "command": "State", "prompt": "State how random errors can be reduced.", "answer": "Take repeated readings and calculate the average.", "status": "draft"},
+			{"id": "measurement-errors-4", "command": "Define", "prompt": "Define precision.", "answer": "How close repeated measurements are to each other (the size of the random spread).", "status": "draft"},
+			{"id": "measurement-errors-5", "command": "Define", "prompt": "Define accuracy.", "answer": "How close a measured value is to the true value.", "status": "draft"},
+			{"id": "measurement-errors-6", "command": "State", "prompt": "State the effect of a systematic error on accuracy and precision.", "answer": "It reduces accuracy but not precision; all readings are shifted by the same amount.", "status": "draft"}
+		]
+	},
+	{
+		"id": "combining-uncertainties",
+		"title": "Absolute and percentage uncertainties",
+		"topic": "Making measurements and analysing data",
+		"specRefs": ["2.2.1(c)"],
+		"questions": [
+			{"id": "combining-uncertainties-1", "command": "Define", "prompt": "Define absolute uncertainty.", "answer": "The uncertainty in a measurement expressed in the same units as the measurement, e.g. 2.0 ± 0.1 cm.", "status": "draft"},
+			{"id": "combining-uncertainties-2", "command": "State", "prompt": "State how percentage uncertainty is calculated from absolute uncertainty.", "answer": "Percentage uncertainty = (absolute uncertainty ÷ measured value) × 100%.", "status": "draft"},
+			{"id": "combining-uncertainties-3", "command": "State", "prompt": "State the rule for combining uncertainties when two quantities are added or subtracted.", "answer": "Add their absolute uncertainties.", "status": "draft"},
+			{"id": "combining-uncertainties-4", "command": "State", "prompt": "State the rule for combining uncertainties when two quantities are multiplied or divided.", "answer": "Add their percentage uncertainties.", "status": "draft"},
+			{"id": "combining-uncertainties-5", "command": "State", "prompt": "State the rule for combining uncertainties when a quantity is raised to a power.", "answer": "Multiply the percentage uncertainty by the power.", "status": "draft"},
+			{"id": "combining-uncertainties-6", "command": "Calculate", "prompt": "A length is measured as 20.0 ± 0.5 cm. Calculate its percentage uncertainty.", "answer": "2.5%.", "status": "draft"}
+		]
+	},
+	{
+		"id": "uncertainty-graphs",
+		"title": "Graphical treatment of uncertainties",
+		"topic": "Making measurements and analysing data",
+		"specRefs": ["2.2.1(d)"],
+		"questions": [
+			{"id": "uncertainty-graphs-1", "command": "State", "prompt": "State what the error bars on a graph represent.", "answer": "The range of uncertainty of each data point.", "status": "draft"},
+			{"id": "uncertainty-graphs-2", "command": "State", "prompt": "State what is meant by the line of best fit.", "answer": "A line drawn so that data points are balanced above and below it and it passes through as many error bars as possible.", "status": "draft"},
+			{"id": "uncertainty-graphs-3", "command": "State", "prompt": "State what is meant by the worst line on a graph.", "answer": "The steepest or shallowest line that is still consistent with all the error bars.", "status": "draft"},
+			{"id": "uncertainty-graphs-4", "command": "State", "prompt": "State how the uncertainty in a gradient is estimated from a graph.", "answer": "Take half the difference between the gradients of the steepest and shallowest acceptable lines.", "status": "draft"},
+			{"id": "uncertainty-graphs-5", "command": "State", "prompt": "State how percentage difference between an experimental value and an accepted value is calculated.", "answer": "Percentage difference = (difference between the values ÷ accepted value) × 100%.", "status": "draft"},
+			{"id": "uncertainty-graphs-6", "command": "State", "prompt": "State what is meant by an anomalous result and what should be done with it.", "answer": "A point that does not fit the trend; it should be ignored when drawing the line of best fit.", "status": "draft"}
+		]
+	},
+	{
+		"id": "scalars-and-vectors",
+		"title": "Scalars, vectors and vector addition",
+		"topic": "Nature of quantities",
+		"specRefs": ["2.3.1(a)", "2.3.1(b)"],
+		"questions": [
+			{"id": "scalars-and-vectors-1", "command": "Define", "prompt": "Define a scalar quantity.", "answer": "A quantity with magnitude only.", "status": "draft"},
+			{"id": "scalars-and-vectors-2", "command": "Define", "prompt": "Define a vector quantity.", "answer": "A quantity with both magnitude and direction.", "status": "draft"},
+			{"id": "scalars-and-vectors-3", "command": "Give", "prompt": "Give two examples of scalar quantities and two examples of vector quantities.", "answer": "Scalars: e.g. speed, mass, energy, time. Vectors: e.g. velocity, force, displacement, acceleration.", "status": "draft"},
+			{"id": "scalars-and-vectors-4", "command": "State", "prompt": "State the difference between distance and displacement.", "answer": "Distance is a scalar and is the total path length; displacement is a vector and is the straight-line distance from start to finish with its direction.", "status": "draft"},
+			{"id": "scalars-and-vectors-5", "command": "State", "prompt": "State how two vectors are added to find their resultant.", "answer": "Place them tip to tail; the resultant is the vector from the tail of the first to the head of the second.", "status": "draft"},
+			{"id": "scalars-and-vectors-6", "command": "State", "prompt": "State how a vector is subtracted from another vector.", "answer": "Reverse the direction of the vector being subtracted, then add it tip to tail.", "status": "draft"}
+		]
+	},
+	{
+		"id": "vector-resolution",
+		"title": "Vector triangles and resolving vectors",
+		"topic": "Nature of quantities",
+		"specRefs": ["2.3.1(c)", "2.3.1(d)"],
+		"questions": [
+			{"id": "vector-resolution-1", "command": "State", "prompt": "State how a vector triangle is used to find the resultant of two coplanar vectors.", "answer": "Draw the two vectors tip to tail; the resultant is the third side, from the tail of the first vector to the head of the second.", "status": "draft"},
+			{"id": "vector-resolution-2", "command": "State", "prompt": "State the equation for the horizontal component of a force F acting at an angle θ to the horizontal.", "answer": "Fx = F cos θ.", "status": "draft"},
+			{"id": "vector-resolution-3", "command": "State", "prompt": "State the equation for the vertical component of a force F acting at an angle θ to the horizontal.", "answer": "Fy = F sin θ.", "status": "draft"},
+			{"id": "vector-resolution-4", "command": "State", "prompt": "State what θ represents in the equation Fx = F cos θ.", "answer": "The angle between the force and the horizontal (x-axis).", "status": "draft"},
+			{"id": "vector-resolution-5", "command": "Define", "prompt": "Define resolving a vector.", "answer": "Splitting a vector into two perpendicular components.", "status": "draft"},
+			{"id": "vector-resolution-6", "command": "State", "prompt": "State how the magnitude of the resultant of two perpendicular components is calculated.", "answer": "Using Pythagoras: R = √(Fx² + Fy²).", "status": "draft"},
+			{"id": "vector-resolution-7", "command": "State", "prompt": "State how the magnitude of the resultant of two forces changes as the angle between them increases.", "answer": "It decreases (for forces of fixed magnitude).", "status": "draft"}
+		]
+	}
+]
