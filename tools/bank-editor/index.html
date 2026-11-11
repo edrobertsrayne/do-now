@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Bank editor</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			:root {
+				color-scheme: light dark;
+				--b: #8886;
+				--accent: #2563eb;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				font:
+					15px/1.4 system-ui,
+					sans-serif;
+				margin: 0;
+			}
+			header {
+				position: sticky;
+				top: 0;
+				z-index: 2;
+				display: flex;
+				gap: 0.75rem;
+				align-items: center;
+				flex-wrap: wrap;
+				padding: 0.6rem 1rem;
+				background: Canvas;
+				border-bottom: 1px solid var(--b);
+			}
+			header h1 {
+				font-size: 1.05rem;
+				margin: 0 0.5rem 0 0;
+			}
+			input,
+			select,
+			textarea,
+			button {
+				font: inherit;
+				color: inherit;
+				background: Field;
+				border: 1px solid var(--b);
+				border-radius: 6px;
+				padding: 0.3rem 0.5rem;
+			}
+			button {
+				cursor: pointer;
+			}
+			button:hover {
+				border-color: var(--accent);
+			}
+			button.primary {
+				background: var(--accent);
+				border-color: var(--accent);
+				color: #fff;
+			}
+			button.danger:hover {
+				border-color: #dc2626;
+				color: #dc2626;
+			}
+			#search {
+				min-width: 18rem;
+			}
+			#count {
+				margin-left: auto;
+				opacity: 0.7;
+			}
+			main {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 1rem;
+			}
+			details.skill {
+				border: 1px solid var(--b);
+				border-radius: 8px;
+				margin-bottom: 0.75rem;
+			}
+			details.skill > summary {
+				cursor: pointer;
+				padding: 0.6rem 0.8rem;
+				display: flex;
+				gap: 0.6rem;
+				align-items: baseline;
+				list-style: none;
+			}
+			details.skill > summary::-webkit-details-marker {
+				display: none;
+			}
+			details.skill > summary::before {
+				content: '▸';
+				opacity: 0.6;
+			}
+			details.skill[open] > summary::before {
+				content: '▾';
+			}
+			.skill-title {
+				font-weight: 600;
+			}
+			.meta {
+				opacity: 0.65;
+				font-size: 0.85em;
+			}
+			.questions {
+				border-top: 1px solid var(--b);
+			}
+			.q {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				gap: 0.5rem 0.75rem;
+				padding: 0.6rem 0.8rem;
+				border-bottom: 1px solid var(--b);
+			}
+			.q:last-child {
+				border-bottom: 0;
+			}
+			.cmd {
+				font-weight: 600;
+				white-space: nowrap;
+			}
+			.prompt {
+				margin: 0;
+			}
+			.answer {
+				margin: 0.2rem 0 0;
+				opacity: 0.75;
+			}
+			.id {
+				font-size: 0.75em;
+				opacity: 0.5;
+				font-family: monospace;
+			}
+			.actions {
+				display: flex;
+				gap: 0.3rem;
+				align-items: flex-start;
+			}
+			.badge {
+				cursor: pointer;
+				font-size: 0.75em;
+				padding: 0.1rem 0.5rem;
+				border-radius: 999px;
+				border: 1px solid var(--b);
+			}
+			.badge.reviewed {
+				background: #16a34a22;
+				border-color: #16a34a;
+				color: #16a34a;
+			}
+			.badge.draft {
+				background: #d9770622;
+				border-color: #d97706;
+				color: #d97706;
+			}
+			.edit {
+				grid-column: 1 / -1;
+				display: grid;
+				gap: 0.5rem;
+			}
+			.edit label {
+				display: grid;
+				gap: 0.2rem;
+				font-size: 0.85em;
+				opacity: 0.9;
+			}
+			.edit textarea {
+				min-height: 4.5rem;
+				resize: vertical;
+			}
+			.edit .row {
+				display: flex;
+				gap: 0.5rem;
+				align-items: end;
+			}
+			.edit .row label {
+				flex: 0 0 auto;
+			}
+			.add {
+				padding: 0.6rem 0.8rem;
+			}
+			#toast {
+				position: fixed;
+				bottom: 1rem;
+				right: 1rem;
+				padding: 0.6rem 1rem;
+				border-radius: 8px;
+				background: #dc2626;
+				color: #fff;
+				display: none;
+				max-width: 40rem;
+			}
+			#toast.ok {
+				background: #16a34a;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Question bank</h1>
+			<input id="search" type="search" placeholder="Search prompt, answer, command, id…" />
+			<select id="status">
+				<option value="">All statuses</option>
+				<option value="draft">Draft</option>
+				<option value="reviewed">Reviewed</option>
+			</select>
+			<span id="count"></span>
+		</header>
+		<main id="app"></main>
+		<div id="toast"></div>
+
+		<script>
+			const app = document.getElementById('app');
+			const search = document.getElementById('search');
+			const statusSel = document.getElementById('status');
+			const countEl = document.getElementById('count');
+			const toastEl = document.getElementById('toast');
+
+			let files = [];
+			/** Ids/skills being edited. key: question id, or "new:<skillId>" for an add form. */
+			const editing = new Set();
+			const openSkills = new Set();
+			let toastTimer;
+
+			function toast(msg, ok = false) {
+				toastEl.textContent = msg;
+				toastEl.className = ok ? 'ok' : '';
+				toastEl.style.display = 'block';
+				clearTimeout(toastTimer);
+				toastTimer = setTimeout(() => (toastEl.style.display = 'none'), ok ? 1500 : 6000);
+			}
+
+			async function api(method, url, body) {
+				const res = await fetch(url, {
+					method,
+					headers: body ? { 'content-type': 'application/json' } : {},
+					body: body ? JSON.stringify(body) : undefined
+				});
+				const data = res.status === 204 ? null : await res.json();
+				if (!res.ok) throw new Error(data?.error ?? res.statusText);
+				return data;
+			}
+
+			async function load() {
+				files = await api('GET', '/api/bank');
+				render();
+			}
+
+			function el(tag, props = {}, ...kids) {
+				const e = document.createElement(tag);
+				for (const [k, v] of Object.entries(props)) {
+					if (k === 'class') e.className = v;
+					else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+					else e[k] = v;
+				}
+				e.append(...kids.flat().filter((k) => k != null));
+				return e;
+			}
+
+			function matches(q, term, st) {
+				if (st && q.status !== st) return false;
+				if (!term) return true;
+				return [q.id, q.command, q.prompt, q.answer].some((s) => s.toLowerCase().includes(term));
+			}
+
+			function editForm(key, q, skill) {
+				const isNew = !q;
+				const command = el('input', { value: q?.command ?? '', required: true, size: 12 });
+				const status = el(
+					'select',
+					{},
+					el('option', { value: 'draft', textContent: 'Draft' }),
+					el('option', { value: 'reviewed', textContent: 'Reviewed' })
+				);
+				status.value = q?.status ?? 'draft';
+				const prompt = el('textarea', { value: q?.prompt ?? '' });
+				const answer = el('textarea', { value: q?.answer ?? '' });
+				const save = el('button', {
+					class: 'primary',
+					textContent: isNew ? 'Add question' : 'Save'
+				});
+				const cancel = el('button', {
+					textContent: 'Cancel',
+					onclick: () => {
+						editing.delete(key);
+						render();
+					}
+				});
+
+				const submit = async () => {
+					const body = {
+						command: command.value,
+						prompt: prompt.value,
+						answer: answer.value,
+						status: status.value
+					};
+					try {
+						if (isNew) await api('POST', '/api/questions', { skillId: skill.id, ...body });
+						else await api('PUT', `/api/questions/${encodeURIComponent(q.id)}`, body);
+						editing.delete(key);
+						toast('Saved', true);
+						await load();
+					} catch (e) {
+						toast(e.message);
+					}
+				};
+				save.onclick = submit;
+				const onKey = (e) => {
+					if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') submit();
+					if (e.key === 'Escape') cancel.click();
+				};
+
+				const form = el(
+					'div',
+					{ class: 'edit', onkeydown: onKey },
+					el(
+						'div',
+						{ class: 'row' },
+						el('label', {}, 'Command word', command),
+						el('label', {}, 'Status', status)
+					),
+					el('label', {}, 'Prompt', prompt),
+					el('label', {}, 'Answer', answer),
+					el(
+						'div',
+						{ class: 'row' },
+						save,
+						cancel,
+						el('span', { class: 'meta', textContent: 'Ctrl+Enter saves, Esc cancels' })
+					)
+				);
+				queueMicrotask(() => (isNew ? command : prompt).focus());
+				return form;
+			}
+
+			function questionRow(q, skill) {
+				if (editing.has(q.id)) return el('div', { class: 'q' }, editForm(q.id, q, skill));
+				const badge = el('button', {
+					class: `badge ${q.status}`,
+					textContent: q.status,
+					title: 'Toggle draft / reviewed',
+					onclick: async () => {
+						try {
+							await api('PUT', `/api/questions/${encodeURIComponent(q.id)}`, {
+								...q,
+								status: q.status === 'draft' ? 'reviewed' : 'draft'
+							});
+							await load();
+						} catch (e) {
+							toast(e.message);
+						}
+					}
+				});
+				return el(
+					'div',
+					{ class: 'q' },
+					el('div', { class: 'cmd', textContent: q.command }),
+					el(
+						'div',
+						{},
+						el('p', { class: 'prompt', textContent: q.prompt }),
+						el('p', { class: 'answer', textContent: q.answer }),
+						el('span', { class: 'id', textContent: q.id })
+					),
+					el(
+						'div',
+						{ class: 'actions' },
+						badge,
+						el('button', {
+							textContent: 'Edit',
+							onclick: () => {
+								editing.add(q.id);
+								render();
+							}
+						}),
+						el('button', {
+							class: 'danger',
+							textContent: 'Delete',
+							onclick: async () => {
+								if (!confirm(`Delete ${q.id}?\n\n${q.prompt}`)) return;
+								try {
+									await api('DELETE', `/api/questions/${encodeURIComponent(q.id)}`);
+									toast('Deleted', true);
+									await load();
+								} catch (e) {
+									toast(e.message);
+								}
+							}
+						})
+					)
+				);
+			}
+
+			function render() {
+				const term = search.value.trim().toLowerCase();
+				const st = statusSel.value;
+				const filtering = Boolean(term || st);
+				const frag = document.createDocumentFragment();
+				let shown = 0,
+					total = 0;
+
+				for (const f of files)
+					for (const skill of f.skills) {
+						total += skill.questions.length;
+						const qs = skill.questions.filter((q) => matches(q, term, st));
+						shown += qs.length;
+						const adding = editing.has(`new:${skill.id}`);
+						if (filtering && qs.length === 0 && !adding) continue;
+
+						const d = el('details', { class: 'skill' });
+						d.open = filtering || adding || openSkills.has(skill.id);
+						d.addEventListener('toggle', () => {
+							if (!filtering) d.open ? openSkills.add(skill.id) : openSkills.delete(skill.id);
+						});
+						d.append(
+							el(
+								'summary',
+								{},
+								el('span', { class: 'skill-title', textContent: skill.title }),
+								el('span', {
+									class: 'meta',
+									textContent: `${skill.topic} · ${skill.specRefs.join(', ')} · ${qs.length}${filtering ? `/${skill.questions.length}` : ''} questions · ${f.file}`
+								})
+							)
+						);
+						const list = el(
+							'div',
+							{ class: 'questions' },
+							qs.map((q) => questionRow(q, skill))
+						);
+						list.append(
+							el(
+								'div',
+								{ class: 'add' },
+								adding
+									? editForm(`new:${skill.id}`, null, skill)
+									: el('button', {
+											textContent: '+ Add question',
+											onclick: () => {
+												editing.add(`new:${skill.id}`);
+												openSkills.add(skill.id);
+												render();
+											}
+										})
+							)
+						);
+						d.append(list);
+						frag.append(d);
+					}
+				app.replaceChildren(frag);
+				countEl.textContent = filtering ? `${shown} of ${total} questions` : `${total} questions`;
+			}
+
+			search.addEventListener('input', render);
+			statusSel.addEventListener('change', render);
+			load().catch((e) => toast(e.message));
+		</script>
+	</body>
+</html>
