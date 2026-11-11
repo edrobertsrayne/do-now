@@ -11,7 +11,7 @@ import type {
 } from './types.ts';
 
 export const DEFAULT_CONFIG: Config = {
-	intervals: [1, 3, 6, 12, 24],
+	intervals: [1, 2, 4, 8, 16, 32],
 	size: 5,
 	fillToSize: true
 };
