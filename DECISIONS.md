@@ -23,8 +23,8 @@ unblock v1; change freely, but update this file).
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | 8   | Time is counted in **lessons**, not calendar days.                                                                                                                                                                                                                                                                                                                   | agreed                |
 | 9   | One generated Do Now = one lesson. The lesson counter advances only when a Do Now is generated.                                                                                                                                                                                                                                                                      | agreed                |
-| 10  | A skill is due `x` lessons after it was last practised (or taught, for the first practice), where `x` doubles after the first steps: 1, 3, 6, 12, 24, ...                                                                                                                                                                                                            | agreed                |
-| 11  | The interval list is capped at **24** and the last value repeats until the exam: `[1, 3, 6, 12, 24]`. The list is a config value (per class later).                                                                                                                                                                                                                  | default               |
+| 10  | A skill is due `x` lessons after it was last practised (or taught, for the first practice), where `x` doubles each time: 1, 2, 4, 8, 16, 32. (Was 1, 3, 6, 12, 24; changed after simulation, see below.)                                                                                                                                                             | agreed                |
+| 11  | The interval list is capped at **32** and the last value repeats until the exam: `[1, 2, 4, 8, 16, 32]`. The list is a config value (per class later).                                                                                                                                                                                                               | agreed                |
 | 12  | No RAG feedback in v1. The schedule is a pure function of the practice count.                                                                                                                                                                                                                                                                                        | agreed                |
 | 13  | A Do Now has **5** questions by default; the teacher can choose 4-6 (config `size`). The owner's own Do Nows use 5, sometimes 6.                                                                                                                                                                                                                                     | agreed                |
 | 14  | Selection: reserve one slot for a newly taught skill (never practised, from the latest teaching batch), then fill by most overdue first.                                                                                                                                                                                                                             | agreed                |
@@ -35,6 +35,23 @@ unblock v1; change freely, but update this file).
 | 19  | Question rotation within a skill: never-used-by-this-class first, then least recently used, then bank order.                                                                                                                                                                                                                                                         | agreed (unseen first) |
 | 20  | A teacher can untick a skill on the checklist. This deletes its schedule state. Re-ticking starts it from scratch.                                                                                                                                                                                                                                                   | default               |
 | 21  | When a skill is taught, `taughtAt` is the current lesson counter. If ticked after generating Do Now N, it is first due at N+1.                                                                                                                                                                                                                                       | default               |
+
+Interval comparison (AQA bank, 228 lessons, size 5, one skill taught every 2 lessons):
+
+| Intervals                 | Due items / lesson | Padding slots | Avg / max overdue | Practices per skill (min / median / max) |
+| ------------------------- | ------------------ | ------------- | ----------------- | ---------------------------------------- |
+| `[1, 2, 4, 8, 16, 32]`    | 3.28               | 33%           | 0.07 / 1          | 5 / 8 / 11                               |
+| `[1, 3, 6, 12, 24]` (was) | 3.45               | 30%           | 0.11 / 2          | 4 / 8 / 12                               |
+| `[1, 3, 6, 12]`           | 4.10               | 17%           | 3.48 / 10         | 3 / 9 / 18                               |
+| `[1, 3, 6, 12, 24, 48]`   | 2.70               | 45%           | 0.03 / 1          | 4 / 6 / 8                                |
+
+A cap of 12 or less backs up (items run 10+ lessons late); a cap of 48 wastes about half the
+slots on padding. `[1, 2, 4, 8, 16, 32]` adds an early check one lesson after the first
+practice and gives the least-practised skill one more practice than the old list.
+
+Adaptive algorithms (SM-2, FSRS, Leitner boxes) were considered and rejected for v1: each needs
+a grade after every question, which decision 12 rules out. Without feedback they reduce to a
+fixed interval list, which this already is. Revisit only if class RAG feedback is added.
 
 Known risks to watch in the simulation (`npm run simulate`):
 
