@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { resolve } from '$app/paths';
+	import { SvelteMap } from 'svelte/reactivity';
 
 	let { data, form } = $props();
 
 	const groups = $derived.by(() => {
-		const byTopic = new Map<string, typeof data.skills>();
+		const byTopic = new SvelteMap<string, typeof data.skills>();
 		for (const skill of data.skills) {
 			byTopic.set(skill.topic, [...(byTopic.get(skill.topic) ?? []), skill]);
 		}
@@ -18,7 +20,10 @@
 <div class="page">
 	<h1>Class <code>{data.code}</code></h1>
 	<p class="muted">
-		Anyone with this code or link can edit this class. Bookmark this page. {data.lesson} Do Now{data.lesson === 1 ? '' : 's'}
+		Anyone with this code or link can edit this class. Bookmark this page. {data.lesson} Do Now{data.lesson ===
+		1
+			? ''
+			: 's'}
 		generated so far.
 	</p>
 
@@ -29,8 +34,12 @@
 		<form method="POST" action="?/size" use:enhance class="row">
 			<label>
 				Questions
-				<select name="size" value={String(data.size)} onchange={(e) => e.currentTarget.form?.requestSubmit()}>
-					{#each [4, 5, 6] as n}<option value={String(n)}>{n}</option>{/each}
+				<select
+					name="size"
+					value={String(data.size)}
+					onchange={(e) => e.currentTarget.form?.requestSubmit()}
+				>
+					{#each [4, 5, 6] as n (n)}<option value={String(n)}>{n}</option>{/each}
 				</select>
 			</label>
 			<noscript><button type="submit">Set</button></noscript>
@@ -41,9 +50,13 @@
 		{#if data.doNowLesson !== null}
 			<p>
 				Do Now {data.doNowLesson}:
-				<a class="btn" href="/c/{data.code}/project">Projector</a>
-				<a class="btn secondary" href="/c/{data.code}/print">Print sheet</a>
-				<a class="btn secondary" href="/c/{data.code}/key">Answer key (teacher)</a>
+				<a class="btn" href={resolve('/c/[code]/project', { code: data.code })}>Projector</a>
+				<a class="btn secondary" href={resolve('/c/[code]/print', { code: data.code })}
+					>Print sheet</a
+				>
+				<a class="btn secondary" href={resolve('/c/[code]/key', { code: data.code })}
+					>Answer key (teacher)</a
+				>
 			</p>
 		{/if}
 	</section>
@@ -51,7 +64,7 @@
 	<section>
 		<h2>Skills taught</h2>
 		<p class="muted">Tick a skill when you teach it. Unticking resets its schedule.</p>
-		{#each groups as [topic, skills]}
+		{#each groups as [topic, skills] (topic)}
 			<h3>{topic}</h3>
 			<ul class="skills">
 				{#each skills as skill (skill.id)}

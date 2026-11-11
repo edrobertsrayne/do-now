@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { tick } from 'svelte';
 
 	type Item = { n: number; prompt: string; answer: string };
@@ -128,7 +129,9 @@
 		const list = root.querySelector<HTMLElement>('.list');
 		if (list) {
 			const rows = [...list.children] as HTMLElement[];
-			const start = ({ 4: 3.8, 5: 3.4, 6: 3.0 } as Record<number, number>)[Math.min(Math.max(count, 4), 6)] ?? 3.4;
+			const start =
+				({ 4: 3.8, 5: 3.4, 6: 3.0 } as Record<number, number>)[Math.min(Math.max(count, 4), 6)] ??
+				3.4;
 			run(list, start, 2.2, () => rows.some((r) => r.scrollHeight > r.clientHeight + 1));
 		}
 		const card = root.querySelector<HTMLElement>('.card');
@@ -139,7 +142,11 @@
 		if (ov) {
 			const lis = [...ov.children] as HTMLElement[];
 			run(ov, 2.4, 1.6, () =>
-				lis.some((li) => [...li.querySelectorAll<HTMLElement>('.q,.a')].some((e) => e.offsetHeight > li.clientHeight - 2))
+				lis.some((li) =>
+					[...li.querySelectorAll<HTMLElement>('.q,.a')].some(
+						(e) => e.offsetHeight > li.clientHeight - 2
+					)
+				)
 			);
 		}
 	}
@@ -156,7 +163,9 @@
 
 {#if count === 0}
 	<div class="page">
-		<p>No Do Now yet. <a href="/c/{data.code}">Generate one</a> first.</p>
+		<p>
+			No Do Now yet. <a href={resolve('/c/[code]', { code: data.code })}>Generate one</a> first.
+		</p>
 	</div>
 {:else}
 	<div class="stage" data-phase={phase} bind:this={root}>
@@ -164,7 +173,12 @@
 			<h1>Do Now</h1>
 			<div class="spacer"></div>
 			{#if phase === 'think'}
-				<button class="ring" type="button" onclick={toggleTimer} aria-label={running ? 'Pause timer' : 'Start timer'}>
+				<button
+					class="ring"
+					type="button"
+					onclick={toggleTimer}
+					aria-label={running ? 'Pause timer' : 'Start timer'}
+				>
 					<svg viewBox="0 0 100 100" aria-hidden="true">
 						<circle class="track" cx="50" cy="50" r="45" />
 						<circle

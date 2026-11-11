@@ -63,7 +63,11 @@ test('with fillToSize, early skills pad the quiz soonest-due first and are marke
 	assert.deepEqual(doNow.items.map((i) => i.skillId).sort(), ['s1', 's2', 's3', 's4']);
 	assert.ok(doNow.items.every((i) => i.reason !== 'early'));
 
-	const small = markTaught(bank, generateDoNow(bank, markTaught(bank, newClass(), 's0'), SIZE4).state, 's1');
+	const small = markTaught(
+		bank,
+		generateDoNow(bank, markTaught(bank, newClass(), 's0'), SIZE4).state,
+		's1'
+	);
 	const padded = generateDoNow(bank, small, SIZE4).doNow; // s1 due, s0 early
 	assert.deepEqual(
 		padded.items.map((i) => [i.skillId, i.reason]),
@@ -202,7 +206,9 @@ test('reviewedOnly drops draft questions and skills left empty', () => {
 		specRefs: ['4.1'],
 		questions: [{ id: `${id}-1`, command: 'State', prompt: 'p', answer: 'a', status }]
 	});
-	const bank = buildBank([{ file: 'f.json', data: [mk('a', 'reviewed'), mk('b', 'draft')] }], { reviewedOnly: true });
+	const bank = buildBank([{ file: 'f.json', data: [mk('a', 'reviewed'), mk('b', 'draft')] }], {
+		reviewedOnly: true
+	});
 	assert.deepEqual(
 		bank.skills.map((s) => s.id),
 		['a']

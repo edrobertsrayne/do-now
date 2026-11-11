@@ -16,7 +16,13 @@
 	<form method="POST" action="?/join">
 		<label>
 			Class code
-			<input name="code" value={form?.code ?? ''} autocomplete="off" autocapitalize="characters" required />
+			<input
+				name="code"
+				value={form?.code ?? ''}
+				autocomplete="off"
+				autocapitalize="characters"
+				required
+			/>
 		</label>
 		<button type="submit">Open</button>
 		{#if form?.message}<p class="error" role="alert">{form.message}</p>{/if}

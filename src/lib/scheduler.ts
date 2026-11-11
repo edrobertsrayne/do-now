@@ -1,4 +1,14 @@
-import type { Bank, ClassState, Config, DoNow, DoNowItem, Question, Reason, Skill, SkillState } from './types.ts';
+import type {
+	Bank,
+	ClassState,
+	Config,
+	DoNow,
+	DoNowItem,
+	Question,
+	Reason,
+	Skill,
+	SkillState
+} from './types.ts';
 
 export const DEFAULT_CONFIG: Config = {
 	intervals: [1, 3, 6, 12, 24],
@@ -13,7 +23,8 @@ export function newClass(): ClassState {
 export function intervalAfter(config: Config, practices: number): number {
 	const last = config.intervals.length - 1;
 	const value = config.intervals[Math.min(practices, last)];
-	if (value === undefined || value < 1) throw new Error('config.intervals must be a non-empty list of integers >= 1');
+	if (value === undefined || value < 1)
+		throw new Error('config.intervals must be a non-empty list of integers >= 1');
 	return value;
 }
 
@@ -27,7 +38,10 @@ export function markTaught(bank: Bank, state: ClassState, skillId: string): Clas
 	if (state.skills[skillId]) return state;
 	return {
 		...state,
-		skills: { ...state.skills, [skillId]: { taughtAt: state.lesson, practices: 0, lastPracticed: state.lesson } }
+		skills: {
+			...state.skills,
+			[skillId]: { taughtAt: state.lesson, practices: 0, lastPracticed: state.lesson }
+		}
 	};
 }
 
@@ -88,10 +102,15 @@ export function generateDoNow(
 	candidates.sort(byPriority);
 
 	const latestTaught = Math.max(...candidates.map((c) => c.s.taughtAt));
-	const reserved = candidates.find((c) => c.overdue >= 0 && c.s.practices === 0 && c.s.taughtAt === latestTaught);
-	const lastShown = (c: Candidate) => Math.max(...c.skill.questions.map((q) => state.lastUsed[q.id] ?? -Infinity));
+	const reserved = candidates.find(
+		(c) => c.overdue >= 0 && c.s.practices === 0 && c.s.taughtAt === latestTaught
+	);
+	const lastShown = (c: Candidate) =>
+		Math.max(...c.skill.questions.map((q) => state.lastUsed[q.id] ?? -Infinity));
 	const early = config.fillToSize
-		? candidates.filter((c) => c.overdue < 0).sort((a, b) => lastShown(a) - lastShown(b) || byPriority(a, b))
+		? candidates
+				.filter((c) => c.overdue < 0)
+				.sort((a, b) => lastShown(a) - lastShown(b) || byPriority(a, b))
 		: [];
 
 	const picked: { c: Candidate; reason: Reason }[] = [];
@@ -113,8 +132,15 @@ export function generateDoNow(
 	const items: DoNowItem[] = [];
 	for (const { c, reason } of picked) {
 		const question = pickQuestion(c.skill, state.lastUsed)!;
-		items.push({ skillId: c.skill.id, question, reason, overdue: c.overdue, priorPractices: c.s.practices });
-		if (reason !== 'early') skills[c.skill.id] = { ...c.s, practices: c.s.practices + 1, lastPracticed: lesson };
+		items.push({
+			skillId: c.skill.id,
+			question,
+			reason,
+			overdue: c.overdue,
+			priorPractices: c.s.practices
+		});
+		if (reason !== 'early')
+			skills[c.skill.id] = { ...c.s, practices: c.s.practices + 1, lastPracticed: lesson };
 		lastUsed[question.id] = lesson;
 	}
 	return { state: { lesson, skills, lastUsed }, doNow: { lesson, items } };

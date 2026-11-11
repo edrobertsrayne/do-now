@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	let { data } = $props();
 </script>
 
@@ -7,7 +8,9 @@
 <div class="page">
 	<h1>Answer key (teacher only)</h1>
 	{#if data.items.length === 0}
-		<p>No Do Now yet. <a href="/c/{data.code}">Generate one</a> first.</p>
+		<p>
+			No Do Now yet. <a href={resolve('/c/[code]', { code: data.code })}>Generate one</a> first.
+		</p>
 	{:else}
 		<p class="muted">Do Now {data.lesson}. Questions marked draft have not been reviewed.</p>
 		<table>
@@ -22,8 +25,10 @@
 						<td><strong>{it.answer}</strong></td>
 						<td class="muted">
 							{it.skill} ({it.topic}; {it.specRefs.join(', ')})
-							{#if it.reason !== 'due'} · {it.reason}{/if}
-							{#if it.status === 'draft'} · draft{/if}
+							{#if it.reason !== 'due'}
+								· {it.reason}{/if}
+							{#if it.status === 'draft'}
+								· draft{/if}
 						</td>
 					</tr>
 				{/each}

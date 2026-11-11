@@ -10,7 +10,9 @@ let store: Store | undefined;
 let bank: Bank | undefined;
 
 export function getStore(): Store {
-	return (store ??= createStore(process.env.DB_PATH ?? join(process.cwd(), 'data', 'retrieval.db')));
+	return (store ??= createStore(
+		process.env.DB_PATH ?? join(process.cwd(), 'data', 'retrieval.db')
+	));
 }
 
 export function getBank(): Bank {

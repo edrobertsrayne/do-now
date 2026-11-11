@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	let { data } = $props();
 </script>
 
@@ -6,7 +7,9 @@
 
 {#if data.items.length === 0}
 	<div class="page">
-		<p>No Do Now yet. <a href="/c/{data.code}">Generate one</a> first.</p>
+		<p>
+			No Do Now yet. <a href={resolve('/c/[code]', { code: data.code })}>Generate one</a> first.
+		</p>
 	</div>
 {:else}
 	<div class="sheet">
@@ -53,7 +56,13 @@
 	}
 	.lines {
 		height: 22mm;
-		background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 10mm, #999 10mm, #999 10.3mm);
+		background-image: repeating-linear-gradient(
+			to bottom,
+			transparent 0,
+			transparent 10mm,
+			#999 10mm,
+			#999 10.3mm
+		);
 	}
 	@media print {
 		.noprint {

@@ -12,7 +12,8 @@ export const actions = {
 	join: async ({ request }: { request: Request }) => {
 		const raw = String((await request.formData()).get('code') ?? '');
 		const code = normaliseCode(raw);
-		if (!code || !getStore().get(code)) return fail(404, { message: 'No class with that code.', code: raw });
+		if (!code || !getStore().get(code))
+			return fail(404, { message: 'No class with that code.', code: raw });
 		redirect(303, `/c/${code}`);
 	}
 };

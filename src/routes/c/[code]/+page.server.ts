@@ -30,7 +30,9 @@ export const actions = {
 		const skillId = String(form.get('skill') ?? '');
 		try {
 			const state =
-				form.get('taught') === '1' ? markTaught(getBank(), doc.state, skillId) : unmarkTaught(doc.state, skillId);
+				form.get('taught') === '1'
+					? markTaught(getBank(), doc.state, skillId)
+					: unmarkTaught(doc.state, skillId);
 			getStore().save(code, { ...doc, state });
 		} catch {
 			return fail(400, { message: `Unknown skill: ${skillId}` });
@@ -39,7 +41,8 @@ export const actions = {
 	size: async ({ params, request }: Event) => {
 		const { code, doc } = openClass(params.code);
 		const size = Number((await request.formData()).get('size'));
-		if (!Number.isInteger(size) || size < 4 || size > 6) return fail(400, { message: 'A Do Now has 4 to 6 questions.' });
+		if (!Number.isInteger(size) || size < 4 || size > 6)
+			return fail(400, { message: 'A Do Now has 4 to 6 questions.' });
 		getStore().save(code, { ...doc, size });
 	},
 	generate: async ({ params }: Event) => {
@@ -47,7 +50,10 @@ export const actions = {
 		if (Object.keys(doc.state.skills).length === 0) {
 			return fail(400, { message: 'Tick at least one skill you have taught first.' });
 		}
-		const { state, doNow } = generateDoNow(getBank(), doc.state, { ...DEFAULT_CONFIG, size: doc.size });
+		const { state, doNow } = generateDoNow(getBank(), doc.state, {
+			...DEFAULT_CONFIG,
+			size: doc.size
+		});
 		getStore().save(code, { ...doc, state, doNow });
 	}
 };

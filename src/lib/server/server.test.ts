@@ -12,7 +12,10 @@ test('class codes are 8 characters from the unambiguous alphabet', () => {
 	for (let i = 0; i < 200; i++) {
 		const code = generateCode();
 		assert.equal(code.length, CODE_LENGTH);
-		assert.ok([...code].every((c) => CODE_ALPHABET.includes(c)), code);
+		assert.ok(
+			[...code].every((c) => CODE_ALPHABET.includes(c)),
+			code
+		);
 		assert.equal(normaliseCode(code), code);
 	}
 });

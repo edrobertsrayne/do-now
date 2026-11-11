@@ -20,7 +20,9 @@ const { values } = parseArgs({
 const lessons = Number(values.lessons);
 const teachEvery = Number(values['teach-every']);
 const config = { ...DEFAULT_CONFIG, size: Number(values.size) };
-const bank = loadBank(new URL('../bank', import.meta.url).pathname, { reviewedOnly: values['reviewed-only'] });
+const bank = loadBank(new URL('../bank', import.meta.url).pathname, {
+	reviewedOnly: values['reviewed-only']
+});
 
 let state = newClass();
 let nextSkill = 0;
@@ -54,13 +56,17 @@ for (let lesson = 1; lesson <= lessons; lesson++) {
 		console.log(`Lesson ${result.doNow.lesson}${taught ? `  (taught: ${taught})` : ''}`);
 		for (const item of items) {
 			const tag = `${item.reason}${item.overdue > 0 ? ` +${item.overdue}` : ''}`;
-			console.log(`  [${tag.padEnd(7)}] ${item.skillId} #${item.priorPractices + 1}  ${item.question.prompt}`);
+			console.log(
+				`  [${tag.padEnd(7)}] ${item.skillId} #${item.priorPractices + 1}  ${item.question.prompt}`
+			);
 		}
 	}
 }
 
 const practices = Object.entries(state.skills).map(([id, s]) => `${id}=${s.practices}`);
-console.log(`\nAfter ${lessons} lessons (${nextSkill}/${bank.skills.length} skills taught, one every ${teachEvery}):`);
+console.log(
+	`\nAfter ${lessons} lessons (${nextSkill}/${bank.skills.length} skills taught, one every ${teachEvery}):`
+);
 console.log(`  Do Nows shorter than ${config.size}: ${short}`);
 console.log(`  Early (padding) items: ${padded}`);
 console.log(`  Max lessons overdue when picked: ${maxOverdue}`);

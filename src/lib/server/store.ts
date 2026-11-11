@@ -19,7 +19,9 @@ export function createStore(path: string): Store {
 		'CREATE TABLE IF NOT EXISTS classes (code TEXT PRIMARY KEY, doc TEXT NOT NULL, updated_at INTEGER NOT NULL)'
 	);
 	const select = db.prepare('SELECT doc FROM classes WHERE code = ?');
-	const insert = db.prepare('INSERT OR IGNORE INTO classes (code, doc, updated_at) VALUES (?, ?, ?)');
+	const insert = db.prepare(
+		'INSERT OR IGNORE INTO classes (code, doc, updated_at) VALUES (?, ?, ?)'
+	);
 	const update = db.prepare('UPDATE classes SET doc = ?, updated_at = ? WHERE code = ?');
 	return {
 		get(code) {
