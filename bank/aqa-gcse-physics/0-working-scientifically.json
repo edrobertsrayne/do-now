@@ -79,5 +79,21 @@
 			{"id": "ws-planning-conclusions-5", "command": "Define", "prompt": "Define validity.", "answer": "The suitability of the investigative procedure to answer the question being asked.", "status": "draft"},
 			{"id": "ws-planning-conclusions-6", "command": "Define", "prompt": "Define a valid conclusion.", "answer": "A conclusion supported by valid data, obtained from an appropriate experimental design and based on sound reasoning.", "status": "draft"}
 		]
+	},
+	{
+		"id": "ws-proportionality",
+		"title": "Direct and inverse proportion",
+		"topic": "Working scientifically",
+		"specRefs": ["WS 1.3"],
+		"questions": [
+			{"id": "ws-proportionality-1", "command": "Define", "prompt": "Define directly proportional.", "answer": "Two quantities are directly proportional if, when one is multiplied by a number, the other is multiplied by the same number (e.g. doubling one doubles the other). Their ratio y/x is constant, so y = kx.", "status": "draft"},
+			{"id": "ws-proportionality-2", "command": "Define", "prompt": "Define inversely proportional.", "answer": "Two quantities are inversely proportional if, when one is multiplied by a number, the other is divided by the same number (e.g. doubling one halves the other). Their product xy is constant, so y = k/x.", "status": "draft"},
+			{"id": "ws-proportionality-3", "command": "Describe", "prompt": "Describe how a graph shows that two quantities are directly proportional.", "answer": "A straight line through the origin (0, 0).", "status": "draft"},
+			{"id": "ws-proportionality-4", "command": "State", "prompt": "State why a straight line graph that does not pass through the origin does not show direct proportionality.", "answer": "The quantities are linearly related, but y is not zero when x is zero, so doubling x does not double y.", "status": "draft"},
+			{"id": "ws-proportionality-5", "command": "Describe", "prompt": "Describe the graph of two quantities that are inversely proportional.", "answer": "A curve that slopes downwards, with y decreasing as x increases. It never touches either axis.", "status": "draft"},
+			{"id": "ws-proportionality-6", "command": "State", "prompt": "State how the gradient of a direct proportion graph is related to the constant of proportionality.", "answer": "The gradient (y/x) is equal to the constant of proportionality, k.", "status": "draft"},
+			{"id": "ws-proportionality-7", "command": "Describe", "prompt": "Describe how a graph can be used to show that two quantities are inversely proportional.", "answer": "Plot y against 1/x. A straight line through the origin shows that y is inversely proportional to x.", "status": "draft"},
+			{"id": "ws-proportionality-8", "command": "State", "prompt": "State what a graph that is a straight line sloping downwards shows about the two quantities.", "answer": "They are linearly related (a negative linear relationship), but not inversely proportional.", "status": "draft"}
+		]
 	}
 ]
