@@ -5,13 +5,7 @@
 
 import { parseArgs } from 'node:util';
 import { loadLibrary } from '../src/lib/bank.ts';
-import {
-	DEFAULT_CONFIG,
-	dueLesson,
-	generateDoNow,
-	markTaught,
-	newClass
-} from '../src/lib/scheduler.ts';
+import { DEFAULT_CONFIG, generateDoNow, markTaught, newClass } from '../src/lib/scheduler.ts';
 
 const { values } = parseArgs({
 	options: {
@@ -46,6 +40,7 @@ let nextSkill = 0;
 let padded = 0;
 let short = 0;
 let maxOverdue = 0;
+const repeats: Record<string, number> = {};
 
 for (let lesson = 1; lesson <= lessons; lesson++) {
 	let taught = '';
@@ -67,37 +62,25 @@ for (let lesson = 1; lesson <= lessons; lesson++) {
 	for (const item of items) {
 		if (item.reason === 'early') padded++;
 		maxOverdue = Math.max(maxOverdue, item.overdue);
+		if (item.priorPractices >= 3) repeats[item.question.id] = (repeats[item.question.id] ?? 0) + 1;
 	}
 	if (!values.quiet) {
 		console.log(`Lesson ${result.doNow.lesson}${taught ? `  (taught: ${taught})` : ''}`);
 		for (const item of items) {
 			const tag = `${item.reason}${item.overdue > 0 ? ` +${item.overdue}` : ''}`;
 			console.log(
-				`  [${tag.padEnd(7)}] ${item.question.id} #${item.priorPractices + 1}  ${item.question.prompt}`
+				`  [${tag.padEnd(7)}] ${item.skillId} #${item.priorPractices + 1}  ${item.question.prompt}`
 			);
 		}
 	}
 }
 
-const histogram: Record<number, number> = {};
-let overdueQuestions = 0;
-for (const skill of bank.skills) {
-	const taughtAt = state.taught[skill.id];
-	if (taughtAt === undefined) continue;
-	for (const question of skill.questions) {
-		const q = state.questions[question.id] ?? { practices: 0, lastPracticed: taughtAt };
-		histogram[q.practices] = (histogram[q.practices] ?? 0) + 1;
-		if (lessons + 1 - dueLesson(q, config) > 0) overdueQuestions++;
-	}
-}
-const counts = Object.entries(histogram)
-	.sort(([a], [b]) => Number(a) - Number(b))
-	.map(([n, count]) => `${n}=${count}`);
+const practices = Object.entries(state.skills).map(([id, s]) => `${id}=${s.practices}`);
 console.log(
 	`\nAfter ${lessons} lessons (${nextSkill}/${bank.skills.length} skills taught, one every ${teachEvery}):`
 );
 console.log(`  Do Nows shorter than ${config.size}: ${short}`);
 console.log(`  Early (padding) items: ${padded}`);
 console.log(`  Max lessons overdue when picked: ${maxOverdue}`);
-console.log(`  Questions by practice count: ${counts.join(' ')}`);
-console.log(`  Overdue questions after last lesson: ${overdueQuestions}`);
+console.log(`  Questions shown at 4th+ practice (repeats): ${Object.keys(repeats).length}`);
+console.log(`  Practice counts: ${practices.join(' ')}`);
