@@ -1,0 +1,83 @@
+[
+	{
+		"id": "ws-accuracy-precision",
+		"title": "Accuracy, precision and resolution",
+		"topic": "Working scientifically",
+		"specRefs": ["WS 1.4"],
+		"questions": [
+			{"id": "ws-accuracy-precision-1", "command": "Define", "prompt": "Define accuracy.", "answer": "A measurement is accurate if it is close to the true value.", "status": "draft"},
+			{"id": "ws-accuracy-precision-2", "command": "Define", "prompt": "Define precision.", "answer": "Precise measurements have very little spread about the mean value.", "status": "draft"},
+			{"id": "ws-accuracy-precision-3", "command": "Define", "prompt": "Define true value.", "answer": "The value that would be obtained in an ideal measurement.", "status": "draft"},
+			{"id": "ws-accuracy-precision-4", "command": "Define", "prompt": "Define resolution.", "answer": "The smallest change in the quantity being measured that gives a perceptible change in the reading of an instrument.", "status": "draft"},
+			{"id": "ws-accuracy-precision-5", "command": "State", "prompt": "State what precision depends on.", "answer": "Only the extent of random errors. It gives no indication of how close results are to the true value.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ws-error-uncertainty",
+		"title": "Error and uncertainty",
+		"topic": "Working scientifically",
+		"specRefs": ["WS 1.3", "WS 1.4"],
+		"questions": [
+			{"id": "ws-error-uncertainty-1", "command": "Define", "prompt": "Define measurement error.", "answer": "The difference between a measured value and the true value.", "status": "draft"},
+			{"id": "ws-error-uncertainty-2", "command": "Define", "prompt": "Define random error.", "answer": "An error that causes readings to be spread about the true value, varying in an unpredictable way from one measurement to the next.", "status": "draft"},
+			{"id": "ws-error-uncertainty-3", "command": "Define", "prompt": "Define systematic error.", "answer": "An error that causes readings to differ from the true value by a consistent amount each time a measurement is made.", "status": "draft"},
+			{"id": "ws-error-uncertainty-4", "command": "Define", "prompt": "Define zero error.", "answer": "A false reading from a measuring instrument when the true value of the quantity is zero, e.g. an ammeter needle not returning to zero when no current flows.", "status": "draft"},
+			{"id": "ws-error-uncertainty-5", "command": "Define", "prompt": "Define uncertainty.", "answer": "The interval within which the true value can be expected to lie.", "status": "draft"},
+			{"id": "ws-error-uncertainty-6", "command": "State", "prompt": "State how the effect of random errors can be reduced.", "answer": "Make more measurements and calculate a new mean.", "status": "draft"},
+			{"id": "ws-error-uncertainty-7", "command": "State", "prompt": "State what should be done if a systematic error is suspected.", "answer": "Repeat the data collection using a different technique or different equipment and compare the results (simple repeats do not help).", "status": "draft"},
+			{"id": "ws-error-uncertainty-8", "command": "Define", "prompt": "Define calibration.", "answer": "Marking a scale on a measuring instrument by establishing the relationship between its readings and a standard or reference value, e.g. checking a thermometer reads zero in melting ice.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ws-anomalies-data",
+		"title": "Anomalies, data and evidence",
+		"topic": "Working scientifically",
+		"specRefs": ["WS 1.3"],
+		"questions": [
+			{"id": "ws-anomalies-data-1", "command": "Define", "prompt": "Define an anomaly.", "answer": "A value in a set of results that is judged not to be part of the variation caused by random uncertainty.", "status": "draft"},
+			{"id": "ws-anomalies-data-2", "command": "Define", "prompt": "Define data.", "answer": "Information, either qualitative or quantitative, that has been collected.", "status": "draft"},
+			{"id": "ws-anomalies-data-3", "command": "Define", "prompt": "Define evidence.", "answer": "Data which has been shown to be valid.", "status": "draft"},
+			{"id": "ws-anomalies-data-4", "command": "Define", "prompt": "Define a sketch graph.", "answer": "A line graph, not necessarily on a grid, showing the general shape of the relationship between two variables. It has labelled axes but no plotted points, and the axes may not be scaled.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ws-repeatable-reproducible",
+		"title": "Repeatable and reproducible results",
+		"topic": "Working scientifically",
+		"specRefs": ["WS 1.2", "WS 1.4"],
+		"questions": [
+			{"id": "ws-repeatable-reproducible-1", "command": "Define", "prompt": "Define repeatable.", "answer": "A measurement is repeatable if the original experimenter repeats the investigation using the same method and equipment and obtains the same results.", "status": "draft"},
+			{"id": "ws-repeatable-reproducible-2", "command": "Define", "prompt": "Define reproducible.", "answer": "A measurement is reproducible if the investigation is repeated by another person, or using different equipment or techniques, and the same results are obtained.", "status": "draft"},
+			{"id": "ws-repeatable-reproducible-3", "command": "State", "prompt": "State the difference between a repeatable and a reproducible result.", "answer": "Repeatable: same experimenter, same method and equipment. Reproducible: a different person, or different equipment or technique.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ws-variables",
+		"title": "Variables",
+		"topic": "Working scientifically",
+		"specRefs": ["WS 1.2", "WS 1.4"],
+		"questions": [
+			{"id": "ws-variables-1", "command": "Define", "prompt": "Define a variable.", "answer": "A physical, chemical or biological quantity or characteristic.", "status": "draft"},
+			{"id": "ws-variables-2", "command": "Define", "prompt": "Define the independent variable.", "answer": "The variable whose values are changed or selected by the investigator.", "status": "draft"},
+			{"id": "ws-variables-3", "command": "Define", "prompt": "Define the dependent variable.", "answer": "The variable that is measured for each and every change in the independent variable.", "status": "draft"},
+			{"id": "ws-variables-4", "command": "Define", "prompt": "Define a control variable.", "answer": "A variable that may, as well as the independent variable, affect the outcome, so it has to be kept constant or at least monitored.", "status": "draft"},
+			{"id": "ws-variables-5", "command": "Define", "prompt": "Define a categoric variable.", "answer": "A variable whose values are labels, e.g. names of plants or types of material.", "status": "draft"},
+			{"id": "ws-variables-6", "command": "Define", "prompt": "Define a continuous variable.", "answer": "A variable whose values are quantities, given a magnitude by counting or by measurement, e.g. light intensity or flow rate.", "status": "draft"},
+			{"id": "ws-variables-7", "command": "Define", "prompt": "Define a fair test.", "answer": "A test in which only the independent variable is allowed to affect the dependent variable.", "status": "draft"}
+		]
+	},
+	{
+		"id": "ws-planning-conclusions",
+		"title": "Hypotheses, predictions and validity",
+		"topic": "Working scientifically",
+		"specRefs": ["WS 1.1", "WS 1.2", "WS 1.3"],
+		"questions": [
+			{"id": "ws-planning-conclusions-1", "command": "Define", "prompt": "Define a hypothesis.", "answer": "A proposal intended to explain certain facts or observations.", "status": "draft"},
+			{"id": "ws-planning-conclusions-2", "command": "Define", "prompt": "Define a prediction.", "answer": "A statement suggesting what will happen in the future, based on observation, experience or a hypothesis.", "status": "draft"},
+			{"id": "ws-planning-conclusions-3", "command": "Define", "prompt": "Define range (of a variable).", "answer": "The maximum and minimum values of the independent or dependent variable.", "status": "draft"},
+			{"id": "ws-planning-conclusions-4", "command": "Define", "prompt": "Define interval.", "answer": "The quantity between readings, e.g. 11 readings equally spaced over 1 m give an interval of 10 cm.", "status": "draft"},
+			{"id": "ws-planning-conclusions-5", "command": "Define", "prompt": "Define validity.", "answer": "The suitability of the investigative procedure to answer the question being asked.", "status": "draft"},
+			{"id": "ws-planning-conclusions-6", "command": "Define", "prompt": "Define a valid conclusion.", "answer": "A conclusion supported by valid data, obtained from an appropriate experimental design and based on sound reasoning.", "status": "draft"}
+		]
+	}
+]

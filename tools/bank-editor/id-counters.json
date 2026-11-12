@@ -96,5 +96,11 @@
 	"aqa-gcse-physics/star-formation": 3,
 	"aqa-gcse-physics/star-life-cycle": 4,
 	"aqa-gcse-physics/orbits-satellites": 4,
-	"aqa-gcse-physics/red-shift": 6
+	"aqa-gcse-physics/red-shift": 6,
+	"aqa-gcse-physics/ws-accuracy-precision": 5,
+	"aqa-gcse-physics/ws-error-uncertainty": 8,
+	"aqa-gcse-physics/ws-anomalies-data": 4,
+	"aqa-gcse-physics/ws-repeatable-reproducible": 3,
+	"aqa-gcse-physics/ws-variables": 7,
+	"aqa-gcse-physics/ws-planning-conclusions": 6
 }
