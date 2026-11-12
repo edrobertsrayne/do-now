@@ -35,21 +35,20 @@ export interface Library {
 	courses: Course[];
 }
 
-export interface QuestionState {
-	/** Times the question has been practised (shown as `new`/`due`, not `early`). */
+export interface SkillState {
+	/** Lesson counter value when the teacher ticked the skill as taught. */
+	taughtAt: number;
+	/** Times the skill has appeared in a Do Now. */
 	practices: number;
-	/** Lesson of last practice. */
+	/** Lesson of last practice, or `taughtAt` if never practised. */
 	lastPracticed: number;
 }
 
 export interface ClassState {
 	/** Number of Do Nows generated so far. */
 	lesson: number;
-	/** Skill id -> lesson counter value when the teacher ticked it as taught. */
-	taught: Record<string, number>;
-	/** Question id -> schedule. Absent = never practised: treated as { practices: 0, lastPracticed: taughtAt of its skill }. */
-	questions: Record<string, QuestionState>;
-	/** Question id -> lesson it was last shown (any reason, including early). */
+	skills: Record<string, SkillState>;
+	/** Question id -> lesson it was last shown. */
 	lastUsed: Record<string, number>;
 }
 
@@ -57,7 +56,7 @@ export interface Config {
 	/** Lessons to wait after practice n. Practice counts past the end reuse the last value. */
 	intervals: number[];
 	size: number;
-	/** Pad with not-yet-due questions when fewer than `size` are due. */
+	/** Pad with not-yet-due skills when fewer than `size` are due. */
 	fillToSize: boolean;
 }
 
@@ -69,7 +68,7 @@ export interface DoNowItem {
 	reason: Reason;
 	/** Lessons past due (negative if early). */
 	overdue: number;
-	/** How many times the question had been practised before this item. */
+	/** How many times the skill had been practised before this item. */
 	priorPractices: number;
 }
 

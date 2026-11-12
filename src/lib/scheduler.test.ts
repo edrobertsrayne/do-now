@@ -25,27 +25,27 @@ function makeBank(n: number, questionsPerSkill = 3): Bank {
 	};
 }
 
-/** Run `lessons` Do Nows, returning the lessons each question appeared in. */
+/** Run `lessons` Do Nows, returning the lessons each skill appeared in. */
 function appearances(bank: Bank, state: ClassState, lessons: number, config: Config) {
 	const seen: Record<string, number[]> = {};
 	for (let i = 0; i < lessons; i++) {
 		const r = generateDoNow(bank, state, config);
 		state = r.state;
-		for (const item of r.doNow.items) (seen[item.question.id] ??= []).push(r.doNow.lesson);
+		for (const item of r.doNow.items) (seen[item.skillId] ??= []).push(r.doNow.lesson);
 	}
 	return seen;
 }
 
-test('a single question follows 1, 2, 4, 8, 16, 32 then repeats 32', () => {
-	const bank = makeBank(1, 1);
+test('a single skill follows 1, 2, 4, 8, 16, 32 then repeats 32', () => {
+	const bank = makeBank(1);
 	const state = markTaught(bank, newClass(), 's0');
 	const seen = appearances(bank, state, 100, { ...DEFAULT_CONFIG, fillToSize: false });
 	// taught at 0: due at 1, then +2, +4, +8, +16, +32, +32
-	assert.deepEqual(seen['s0-q0'], [1, 3, 7, 15, 31, 63, 95]);
+	assert.deepEqual(seen.s0, [1, 3, 7, 15, 31, 63, 95]);
 });
 
 test('padding with early skills is off when fillToSize is false', () => {
-	const bank = makeBank(1, 1);
+	const bank = makeBank(1);
 	const state = markTaught(bank, newClass(), 's0');
 	const first = generateDoNow(bank, state, { ...DEFAULT_CONFIG, fillToSize: false });
 	const second = generateDoNow(bank, first.state, { ...DEFAULT_CONFIG, fillToSize: false });
@@ -54,7 +54,7 @@ test('padding with early skills is off when fillToSize is false', () => {
 });
 
 test('with fillToSize, early skills pad the quiz soonest-due first and are marked early', () => {
-	const bank = makeBank(6, 1);
+	const bank = makeBank(6);
 	let state = newClass();
 	state = markTaught(bank, state, 's0');
 	state = generateDoNow(bank, state, SIZE4).state; // lesson 1: s0 practised, next due lesson 3
@@ -79,7 +79,7 @@ test('with fillToSize, early skills pad the quiz soonest-due first and are marke
 });
 
 test('early padding does not advance a skill schedule and rotates by least recently shown', () => {
-	const bank = makeBank(6, 1);
+	const bank = makeBank(6);
 	// Pinned so skills practised in lesson 1 are not due again until lesson 4.
 	const config: Config = { ...SIZE4, intervals: [1, 3] };
 	let state = newClass();
@@ -90,7 +90,7 @@ test('early padding does not advance a skill schedule and rotates by least recen
 	const { state: after, doNow } = generateDoNow(bank, state, config); // lesson 3: only early items
 	assert.ok(doNow.items.every((i) => i.reason === 'early'));
 	for (const item of doNow.items) {
-		assert.deepEqual(after.questions[item.question.id], before.questions[item.question.id]);
+		assert.deepEqual(after.skills[item.skillId], before.skills[item.skillId]);
 	}
 	const shown = new Set(doNow.items.map((i) => i.skillId));
 	assert.equal(shown.size, 4);
@@ -100,7 +100,7 @@ test('early padding does not advance a skill schedule and rotates by least recen
 });
 
 test('a newly taught skill gets a slot even when older skills are more overdue', () => {
-	const bank = makeBank(8, 1);
+	const bank = makeBank(8);
 	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], size: 4 };
 	let state = newClass();
 	for (let i = 0; i < 6; i++) state = markTaught(bank, state, `s${i}`);
@@ -117,7 +117,7 @@ test('a newly taught skill gets a slot even when older skills are more overdue',
 });
 
 test('most overdue is chosen first, then earlier taught, then bank order', () => {
-	const bank = makeBank(5, 1);
+	const bank = makeBank(5);
 	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], size: 2, fillToSize: false };
 	let state = newClass();
 	state = markTaught(bank, state, 's3'); // taught at 0
@@ -134,40 +134,17 @@ test('most overdue is chosen first, then earlier taught, then bank order', () =>
 	);
 });
 
-test('each question of a taught skill is scheduled on its own', () => {
+test('rotation shows unseen questions first, then the least recently used', () => {
 	const bank = makeBank(1, 3);
-	const config: Config = { ...DEFAULT_CONFIG, intervals: [1, 3], size: 2, fillToSize: false };
+	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], fillToSize: false };
 	let state = markTaught(bank, newClass(), 's0');
-	const run = () => {
+	const shown: (string | undefined)[] = [];
+	for (let i = 0; i < 7; i++) {
 		const r = generateDoNow(bank, state, config);
 		state = r.state;
-		return r.doNow.items;
-	};
-	assert.deepEqual(
-		run().map((i) => [i.question.id, i.reason]),
-		[
-			['s0-q0', 'new'],
-			['s0-q1', 'due']
-		]
-	);
-	const second = run();
-	assert.deepEqual(
-		second.map((i) => [i.question.id, i.overdue]),
-		[['s0-q2', 1]]
-	);
-	assert.equal(run().length, 0);
-	const fourth = run();
-	assert.deepEqual(
-		fourth.map((i) => [i.question.id, i.priorPractices]),
-		[
-			['s0-q0', 1],
-			['s0-q1', 1]
-		]
-	);
-	assert.deepEqual(
-		run().map((i) => i.question.id),
-		['s0-q2']
-	);
+		shown.push(r.doNow.items[0]?.question.id);
+	}
+	assert.deepEqual(shown, ['s0-q0', 's0-q1', 's0-q2', 's0-q0', 's0-q1', 's0-q2', 's0-q0']);
 });
 
 test('no taught skills: empty quiz and the lesson counter does not advance', () => {
@@ -179,15 +156,13 @@ test('no taught skills: empty quiz and the lesson counter does not advance', () 
 	assert.equal(r.state, state);
 });
 
-test('never more than size; questions of one skill may share a Do Now', () => {
+test('never more than one question per skill and never more than size', () => {
 	const bank = makeBank(10);
 	let state = newClass();
 	for (const s of bank.skills) state = markTaught(bank, state, s.id);
 	const { doNow } = generateDoNow(bank, state, SIZE4);
-	assert.deepEqual(
-		doNow.items.map((i) => i.question.id),
-		['s0-q0', 's0-q1', 's0-q2', 's1-q0']
-	);
+	assert.equal(doNow.items.length, 4);
+	assert.equal(new Set(doNow.items.map((i) => i.skillId)).size, 4);
 });
 
 test('state transitions are immutable', () => {
@@ -198,19 +173,14 @@ test('state transitions are immutable', () => {
 	assert.deepEqual(a, snapshot);
 });
 
-test('unticking a skill drops its schedules; re-ticking restarts from the current lesson', () => {
+test('unticking a skill drops its schedule; re-ticking restarts from the current lesson', () => {
 	const bank = makeBank(1);
 	let state = markTaught(bank, newClass(), 's0');
 	state = generateDoNow(bank, state).state;
-	state = unmarkTaught(bank, state, 's0');
-	assert.equal(state.taught.s0, undefined);
-	assert.equal(state.questions['s0-q0'], undefined);
+	state = unmarkTaught(state, 's0');
+	assert.equal(state.skills.s0, undefined);
 	state = markTaught(bank, state, 's0');
-	assert.equal(state.taught.s0, 1);
-	const first = generateDoNow(bank, state).doNow.items[0];
-	assert.equal(first?.question.id, 's0-q0');
-	assert.equal(first.reason, 'new');
-	assert.equal(first.priorPractices, 0);
+	assert.deepEqual(state.skills.s0, { taughtAt: 1, practices: 0, lastPracticed: 1 });
 });
 
 test('markTaught rejects unknown skills', () => {

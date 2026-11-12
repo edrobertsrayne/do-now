@@ -20,19 +20,23 @@ export interface Store {
 	save(code: string, doc: ClassDoc): boolean;
 }
 
-interface LegacyClassState {
+interface PerQuestionClassState {
 	lesson: number;
-	skills: Record<string, { taughtAt: number }>;
+	taught: Record<string, number>;
 	lastUsed: Record<string, number>;
 }
 
-/** Class states saved before per-question scheduling held one schedule per skill: keep the ticks, restart every question unpractised. */
-function upgradeState(state: ClassState | LegacyClassState): ClassState {
-	if (!('skills' in state)) return state;
+/** Briefly, classes were saved with per-question schedules: keep the ticks, restart every skill unpractised. */
+function downgradeState(state: ClassState | PerQuestionClassState): ClassState {
+	if (!('taught' in state)) return state;
 	return {
 		lesson: state.lesson,
-		taught: Object.fromEntries(Object.entries(state.skills).map(([id, s]) => [id, s.taughtAt])),
-		questions: {},
+		skills: Object.fromEntries(
+			Object.entries(state.taught).map(([id, at]) => [
+				id,
+				{ taughtAt: at, practices: 0, lastPracticed: at }
+			])
+		),
 		lastUsed: state.lastUsed
 	};
 }
@@ -48,9 +52,9 @@ export function createStore(path: string): Store {
 			if (!row) return null;
 			const doc = JSON.parse(row.doc) as Omit<ClassDoc, 'state' | 'course'> & {
 				course?: string;
-				state: ClassState | LegacyClassState;
+				state: ClassState | PerQuestionClassState;
 			};
-			return { course: LEGACY_COURSE_ID, ...doc, state: upgradeState(doc.state) };
+			return { course: LEGACY_COURSE_ID, ...doc, state: downgradeState(doc.state) };
 		},
 		create(code, doc) {
 			const res = db
