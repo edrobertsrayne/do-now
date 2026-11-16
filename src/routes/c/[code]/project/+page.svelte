@@ -17,8 +17,8 @@
 	const count = $derived(items.length);
 	const defaultSeconds = $derived(Math.max(1, count) * SECONDS_PER_QUESTION);
 
-	/* Step model: 0 = Think. Check question i (0-based): step 1+2i = answer hidden, 2+2i = revealed.
-	   Last step (2*count+1) = summary of every question with its answer. */
+	/* Step model: 0 = Think. Check question i (0-based): step 1+i, answer shown immediately.
+	   Last step (count+1) = summary of every question with its answer. */
 	let step = $state(0);
 	let overview = $state(false);
 	let secs = $state(untrack(() => defaultSeconds));
@@ -27,34 +27,26 @@
 	let timerId: ReturnType<typeof setInterval> | undefined;
 	let root: HTMLElement | undefined = $state();
 
-	const lastStep = $derived(2 * count + 1);
+	const lastStep = $derived(count + 1);
 	const phase = $derived(step === 0 ? 'think' : 'check');
 	const isSummary = $derived(step === lastStep);
-	const checkIndex = $derived(Math.floor((step - 1) / 2));
-	const revealed = (i: number) => step >= 2 + 2 * i;
+	const checkIndex = $derived(step - 1);
+	const revealed = (i: number) => step >= 1 + i;
 	const view = $derived(
 		phase === 'think' ? 'think' : isSummary ? 'list' : overview ? 'list' : 'question'
 	);
 	const current = $derived(items[checkIndex]);
 	/* Re-keys the view so it animates in only when the visible content changes. */
-	const viewKey = $derived(
-		view === 'question'
-			? `q${checkIndex}${revealed(checkIndex) ? 'r' : ''}`
-			: isSummary
-				? 'sum'
-				: view
-	);
+	const viewKey = $derived(view === 'question' ? `q${checkIndex}` : isSummary ? 'sum' : view);
 	const currentPip = $derived(overview || isSummary ? -1 : checkIndex);
 	const cta = $derived(
 		step === 0
 			? 'Start checking'
 			: isSummary
 				? 'Back to start'
-				: revealed(checkIndex)
-					? checkIndex === count - 1
-						? 'Finish'
-						: 'Next question'
-					: 'Reveal answer'
+				: checkIndex === count - 1
+					? 'Finish'
+					: 'Next question'
 	);
 
 	const CIRCUMFERENCE = 2 * Math.PI * 44;
@@ -75,7 +67,7 @@
 	}
 	function jump(i: number) {
 		overview = false;
-		setStep(revealed(i) ? 2 + 2 * i : 1 + 2 * i);
+		setStep(1 + i);
 	}
 	function toggleOverview() {
 		if (phase === 'think') return;
@@ -288,17 +280,10 @@
 							{/if}
 							<p class="prompt">{current.prompt}</p>
 							<div class="answer-slot">
-								{#if revealed(checkIndex)}
-									<div class="answer shown" style:background={current.tint}>
-										<span class="label" style:color={current.ink}>Answer</span>
-										<p class="text">{current.answer}</p>
-									</div>
-								{:else}
-									<div class="answer hidden">
-										<span class="label">Answer</span>
-										<p class="think">Think first&hellip;</p>
-									</div>
-								{/if}
+								<div class="answer shown" style:background={current.tint}>
+									<span class="label" style:color={current.ink}>Answer</span>
+									<p class="text">{current.answer}</p>
+								</div>
 							</div>
 						</div>
 					</section>
@@ -633,10 +618,6 @@
 		min-height: 0;
 		overflow: hidden;
 	}
-	.answer.hidden {
-		border: calc(var(--u) * 0.23) dashed var(--line-3);
-		color: var(--muted);
-	}
 	.answer.shown {
 		animation: rise 0.3s ease both;
 	}
@@ -651,10 +632,6 @@
 		font-size: var(--pf);
 		font-weight: 800;
 		line-height: 1.2;
-	}
-	.answer .think {
-		margin: 0;
-		font-size: calc(var(--u) * 2.2);
 	}
 
 	/* OVERVIEW / SUMMARY: the Think list, showing answers */
