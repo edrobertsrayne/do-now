@@ -59,6 +59,16 @@ interface Candidate {
 	overdue: number;
 }
 
+/** Fisher-Yates shuffle into a new array. */
+function shuffled<T>(items: T[], rng: () => number): T[] {
+	const out = [...items];
+	for (let i = out.length - 1; i > 0; i--) {
+		const j = Math.floor(rng() * (i + 1));
+		[out[i], out[j]] = [out[j] as T, out[i] as T];
+	}
+	return out;
+}
+
 function byPriority(a: Candidate, b: Candidate): number {
 	return b.overdue - a.overdue || a.s.taughtAt - b.s.taughtAt || a.index - b.index;
 }
@@ -83,13 +93,19 @@ function pickQuestion(skill: Skill, lastUsed: Record<string, number>): Question 
  * so the lesson counter does not advance. If skills are taught but none is due
  * (and padding is off) the lesson still advances with an empty quiz.
  *
+ * When more skills are due than there are slots, the due skills are sampled
+ * uniformly at random without replacement (after the reserved new skill), so
+ * practice is interleaved as well as spaced. `rng` returns [0, 1); inject a
+ * seeded one for reproducible output.
+ *
  * Padding ("early") items are bonus retrieval: they rotate by least recently
  * shown and do not advance the skill's schedule, so spacing is not collapsed.
  */
 export function generateDoNow(
 	bank: Bank,
 	state: ClassState,
-	config: Config = DEFAULT_CONFIG
+	config: Config = DEFAULT_CONFIG,
+	rng: () => number = Math.random
 ): { state: ClassState; doNow: DoNow } {
 	const lesson = state.lesson + 1;
 	const candidates: Candidate[] = [];
@@ -115,9 +131,13 @@ export function generateDoNow(
 
 	const picked: { c: Candidate; reason: Reason }[] = [];
 	if (reserved) picked.push({ c: reserved, reason: 'new' });
-	for (const c of candidates) {
+	const due = shuffled(
+		candidates.filter((c) => c.overdue >= 0 && c !== reserved),
+		rng
+	);
+	for (const c of due) {
 		if (picked.length >= config.size) break;
-		if (c.overdue >= 0 && c !== reserved) picked.push({ c, reason: 'due' });
+		picked.push({ c, reason: 'due' });
 	}
 	for (const c of early) {
 		if (picked.length >= config.size) break;

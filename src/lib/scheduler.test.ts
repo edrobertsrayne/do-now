@@ -7,6 +7,17 @@ import type { Bank, ClassState, Config } from './types.ts';
 /** Several tests reason about exactly four slots; the default size is 5. */
 const SIZE4: Config = { ...DEFAULT_CONFIG, size: 4 };
 
+/** Small deterministic PRNG (mulberry32) for reproducible random tests. */
+function seeded(seed: number): () => number {
+	let a = seed;
+	return () => {
+		a = (a + 0x6d2b79f5) | 0;
+		let t = Math.imul(a ^ (a >>> 15), 1 | a);
+		t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+		return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+	};
+}
+
 function makeBank(n: number, questionsPerSkill = 3): Bank {
 	return {
 		skills: Array.from({ length: n }, (_, i) => ({
@@ -84,8 +95,12 @@ test('early padding does not advance a skill schedule and rotates by least recen
 	const config: Config = { ...SIZE4, intervals: [1, 3] };
 	let state = newClass();
 	for (const s of bank.skills) state = markTaught(bank, state, s.id);
-	state = generateDoNow(bank, state, config).state; // lesson 1: s0..s3 practised, s4/s5 not
-	state = generateDoNow(bank, state, config).state; // lesson 2: s4, s5 due; s0, s1 padded early
+	const l1 = generateDoNow(bank, state, config, seeded(3)); // lesson 1: 4 of 6 practised at random
+	const l1Ids = new Set(l1.doNow.items.map((i) => i.skillId));
+	const l2 = generateDoNow(bank, l1.state, config); // lesson 2: the other two due, two padded early
+	state = l2.state;
+	const l2Early = new Set(l2.doNow.items.filter((i) => i.reason === 'early').map((i) => i.skillId));
+	assert.equal(l2Early.size, 2);
 	const before = structuredClone(state);
 	const { state: after, doNow } = generateDoNow(bank, state, config); // lesson 3: only early items
 	assert.ok(doNow.items.every((i) => i.reason === 'early'));
@@ -94,9 +109,8 @@ test('early padding does not advance a skill schedule and rotates by least recen
 	}
 	const shown = new Set(doNow.items.map((i) => i.skillId));
 	assert.equal(shown.size, 4);
-	// s2 and s3 were last shown in lesson 1; s0, s1, s4, s5 in lesson 2. Oldest first.
-	assert.ok(shown.has('s2') && shown.has('s3'));
-	assert.ok(!shown.has('s4') && !shown.has('s5'));
+	// Skills last shown in lesson 1 (not padded in lesson 2) come first, oldest first.
+	for (const id of l1Ids) if (!l2Early.has(id)) assert.ok(shown.has(id));
 });
 
 test('a newly taught skill gets a slot even when older skills are more overdue', () => {
@@ -104,33 +118,55 @@ test('a newly taught skill gets a slot even when older skills are more overdue',
 	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], size: 4 };
 	let state = newClass();
 	for (let i = 0; i < 6; i++) state = markTaught(bank, state, `s${i}`);
-	// Skip 3 lessons of nothing by never generating: all six are overdue by the same amount.
-	// Tick two more skills later; they become the latest batch.
 	state = generateDoNow(bank, state, config).state; // lesson 1: 4 of the 6 practised
 	state = markTaught(bank, state, 's6');
-	const { doNow } = generateDoNow(bank, state, config); // lesson 2
-	assert.equal(doNow.items.length, 4);
-	assert.ok(doNow.items.some((i) => i.skillId === 's6' && i.reason === 'new'));
-	// The other three are the most overdue: the two skills skipped in lesson 1 come first.
-	const others = doNow.items.filter((i) => i.skillId !== 's6').map((i) => i.skillId);
-	assert.deepEqual(others.slice(0, 2).sort(), ['s4', 's5']);
+	for (let seed = 1; seed <= 20; seed++) {
+		const { doNow } = generateDoNow(bank, state, config, seeded(seed)); // lesson 2
+		assert.equal(doNow.items.length, 4);
+		assert.ok(doNow.items.some((i) => i.skillId === 's6' && i.reason === 'new'));
+	}
 });
 
-test('most overdue is chosen first, then earlier taught, then bank order', () => {
+test('when more skills are due than slots, the due ones are sampled randomly without duplicates', () => {
+	const bank = makeBank(8);
+	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], size: 3, fillToSize: false };
+	let state = newClass();
+	for (const s of bank.skills) state = markTaught(bank, state, s.id);
+	const chosen = new Set<string>();
+	for (let seed = 1; seed <= 60; seed++) {
+		const { doNow } = generateDoNow(bank, state, config, seeded(seed));
+		const ids = doNow.items.map((i) => i.skillId);
+		assert.equal(ids.length, 3);
+		assert.equal(new Set(ids).size, 3);
+		for (const id of ids) chosen.add(id);
+	}
+	// Not just the first N in bank order: every due skill gets picked sometimes.
+	assert.equal(chosen.size, 8);
+});
+
+test('same rng seed gives the same Do Now', () => {
+	const bank = makeBank(8);
+	let state = newClass();
+	for (const s of bank.skills) state = markTaught(bank, state, s.id);
+	const ids = (seed: number) =>
+		generateDoNow(bank, state, SIZE4, seeded(seed)).doNow.items.map((i) => i.skillId);
+	assert.deepEqual(ids(7), ids(7));
+});
+
+test('items in a Do Now are ordered most overdue first, then earlier taught, then bank order', () => {
 	const bank = makeBank(5);
-	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], size: 2, fillToSize: false };
+	const config: Config = { ...DEFAULT_CONFIG, intervals: [1], size: 4, fillToSize: false };
 	let state = newClass();
 	state = markTaught(bank, state, 's3'); // taught at 0
 	state = generateDoNow(bank, state, config).state; // lesson 1 (s3 practised)
 	state = markTaught(bank, state, 's1'); // taught at 1
 	state = markTaught(bank, state, 's0'); // taught at 1
 	state = markTaught(bank, state, 's2'); // taught at 1
-	// lesson 2: s3 overdue 0 (due 2), s0/s1/s2 overdue 0 (due 2). Reserved new slot: first by order => s0.
+	// lesson 2: all four due with overdue 0, so all four fit.
 	const { doNow } = generateDoNow(bank, state, config);
-	assert.equal(doNow.items.length, 2);
 	assert.deepEqual(
 		doNow.items.map((i) => i.skillId),
-		['s3', 's0']
+		['s3', 's0', 's1', 's2']
 	);
 });
 
