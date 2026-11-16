@@ -164,7 +164,18 @@
 						{#each data.doNowItems as q (q.n)}
 							<li>
 								<span class="chip" style:background={q.chip}>{q.n}</span>
-								<span>{q.prompt}</span>
+								<span class="prompt">{q.prompt}</span>
+								{#if data.canReplace}
+									<form method="POST" action="?/replace" use:enhance>
+										<input type="hidden" name="index" value={String(q.n - 1)} />
+										<button
+											class="swap"
+											type="submit"
+											aria-label="Replace question {q.n}"
+											title="Replace this question">Replace</button
+										>
+									</form>
+								{/if}
 							</li>
 						{/each}
 					</ol>
@@ -503,6 +514,24 @@
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
+	}
+	.qs .prompt {
+		flex-grow: 1;
+	}
+	.swap {
+		font: inherit;
+		font-size: 13px;
+		font-weight: 700;
+		color: #fff;
+		background: transparent;
+		border: 1px solid rgba(255, 255, 255, 0.6);
+		border-radius: 999px;
+		min-height: 32px;
+		padding: 0 12px;
+		cursor: pointer;
+	}
+	.swap:hover {
+		background: rgba(255, 255, 255, 0.15);
 	}
 	.qs li {
 		display: flex;
