@@ -49,6 +49,9 @@
 					: 'Next question'
 	);
 
+	/* Timer has run out while the questions are on screen: swap ground and primary colours. */
+	const timeUp = $derived(phase === 'think' && secs === 0);
+
 	const CIRCUMFERENCE = 2 * Math.PI * 44;
 	const fraction = $derived(total ? Math.max(0, secs / total) : 0);
 	const clock = $derived(`${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}`);
@@ -176,7 +179,7 @@
 		</div>
 	</div>
 {:else}
-	<div class="stage" data-phase={phase} bind:this={root}>
+	<div class="stage" class:up={timeUp} data-phase={phase} bind:this={root}>
 		<header>
 			{#if phase === 'think'}
 				<h1 class="badge">Do Now</h1>
@@ -310,7 +313,9 @@
 
 		<footer>
 			{#if phase === 'think'}
-				<span class="lead">Think on your own, in silence.</span>
+				<span class="lead"
+					>{timeUp ? 'Time’s up. Pens down.' : 'Think on your own, in silence.'}</span
+				>
 				<div class="spacer"></div>
 				<span class="keys" aria-hidden="true">
 					<kbd>Space</kbd>check answers <kbd>T</kbd>timer <kbd>F</kbd>fullscreen
@@ -346,6 +351,53 @@
 		color: var(--ink);
 		background: var(--ground);
 		overflow: hidden;
+	}
+
+	/* Time up: ground and primary colours swap, with a short flash that then holds steady. */
+	.stage.up {
+		background: var(--accent);
+		animation: flash 0.6s ease-in-out 3;
+	}
+	.up .badge {
+		color: var(--accent-deep);
+		background: #fff;
+	}
+	.up .today,
+	.up footer {
+		color: rgb(255 255 255 / 0.8);
+	}
+	.up .lead {
+		color: #fff;
+	}
+	.up .timer {
+		animation: pulse 1.2s ease-out 3;
+	}
+	.up .ring output {
+		color: var(--accent-deep);
+	}
+	.up .ring .bar {
+		stroke-dashoffset: 0;
+	}
+	.up .cta {
+		background: #fff;
+		color: var(--accent-deep);
+	}
+	.up kbd {
+		background: rgb(255 255 255 / 0.18);
+		color: #fff;
+	}
+	@keyframes flash {
+		50% {
+			background: #7a6be0;
+		}
+	}
+	@keyframes pulse {
+		from {
+			box-shadow: 0 0 0 0 rgb(255 255 255 / 0.9);
+		}
+		to {
+			box-shadow: 0 0 0 calc(var(--u) * 3) rgb(255 255 255 / 0);
+		}
 	}
 	button {
 		font: inherit;
