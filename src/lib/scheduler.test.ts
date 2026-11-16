@@ -1,7 +1,14 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { buildBank } from './bank.ts';
-import { DEFAULT_CONFIG, generateDoNow, markTaught, newClass, unmarkTaught } from './scheduler.ts';
+import {
+	DEFAULT_CONFIG,
+	generateDoNow,
+	markTaught,
+	newClass,
+	replaceItem,
+	unmarkTaught
+} from './scheduler.ts';
 import type { Bank, ClassState, Config } from './types.ts';
 
 /** Several tests reason about exactly four slots; the default size is 5. */
@@ -215,4 +222,50 @@ test('reviewedOnly drops draft questions and skills left empty', () => {
 		bank.skills.map((s) => s.id),
 		['a']
 	);
+});
+
+test('replacing a question rolls back the old skill and counts the new one', () => {
+	const bank = makeBank(8);
+	let state = newClass();
+	for (let i = 0; i < 6; i++) state = markTaught(bank, state, `s${i}`);
+	const gen = generateDoNow(bank, state, SIZE4);
+	const oldItem = gen.doNow.items[1];
+	assert.ok(oldItem);
+	const r = replaceItem(bank, gen.state, gen.doNow, 1, SIZE4);
+	assert.ok(r);
+	const next = r.doNow.items[1];
+	assert.ok(next);
+	assert.notEqual(next.skillId, oldItem.skillId);
+	assert.equal(r.doNow.items.length, 4);
+	// Old skill is back to its pre-generation schedule and question rotation.
+	assert.deepEqual(r.state.skills[oldItem.skillId], state.skills[oldItem.skillId]);
+	assert.equal(r.state.lastUsed[oldItem.question.id], undefined);
+	// New skill is counted exactly once, as if it had been generated.
+	const before = gen.doNow.base?.skills[next.skillId];
+	assert.equal(r.state.skills[next.skillId]?.practices, (before?.practices ?? NaN) + 1);
+	assert.equal(r.state.lastUsed[next.question.id], gen.doNow.lesson);
+	// The swapped-out skill is not offered back.
+	const again = replaceItem(bank, r.state, r.doNow, 1, SIZE4);
+	assert.ok(again);
+	assert.ok(!again.doNow.items.some((it) => it.skillId === oldItem.skillId));
+});
+
+test('replacing falls back to another question of the same skill, keeping counts', () => {
+	const bank = makeBank(1);
+	const state = markTaught(bank, newClass(), 's0');
+	const cfg = { ...DEFAULT_CONFIG, fillToSize: false };
+	const gen = generateDoNow(bank, state, cfg);
+	const r = replaceItem(bank, gen.state, gen.doNow, 0, cfg);
+	assert.ok(r);
+	assert.notEqual(r.doNow.items[0]?.question.id, gen.doNow.items[0]?.question.id);
+	assert.deepEqual(r.state.skills, gen.state.skills);
+});
+
+test('replacing returns null when nothing else is available or base is missing', () => {
+	const bank = makeBank(1, 1);
+	const state = markTaught(bank, newClass(), 's0');
+	const gen = generateDoNow(bank, state);
+	assert.equal(replaceItem(bank, gen.state, gen.doNow, 0), null);
+	const { base: _base, ...legacy } = gen.doNow;
+	assert.equal(replaceItem(bank, gen.state, legacy, 0), null);
 });

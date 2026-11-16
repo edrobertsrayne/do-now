@@ -98,7 +98,8 @@ export function generateDoNow(
 		if (!s || skill.questions.length === 0) return;
 		candidates.push({ skill, index, s, overdue: lesson - dueLesson(s, config) });
 	});
-	if (candidates.length === 0) return { state, doNow: { lesson: state.lesson, items: [] } };
+	if (candidates.length === 0)
+		return { state, doNow: { lesson: state.lesson, items: [], base: state } };
 	candidates.sort(byPriority);
 
 	const latestTaught = Math.max(...candidates.map((c) => c.s.taughtAt));
@@ -125,7 +126,8 @@ export function generateDoNow(
 	}
 	picked.sort((a, b) => byPriority(a.c, b.c));
 
-	if (picked.length === 0) return { state: { ...state, lesson }, doNow: { lesson, items: [] } };
+	if (picked.length === 0)
+		return { state: { ...state, lesson }, doNow: { lesson, items: [], base: state } };
 
 	const skills = { ...state.skills };
 	const lastUsed = { ...state.lastUsed };
@@ -145,5 +147,90 @@ export function generateDoNow(
 			skills[c.skill.id] = { ...c.s, practices: c.s.practices + 1, lastPracticed: lesson };
 		lastUsed[question.id] = lesson;
 	}
-	return { state: { lesson, skills, lastUsed }, doNow: { lesson, items } };
+	return { state: { lesson, skills, lastUsed }, doNow: { lesson, items, base: state } };
+}
+
+/**
+ * Replace one question of a generated Do Now with the next-best skill's question.
+ * Pure. The removed item's practice is rolled back (practice count, last-practised
+ * lesson and question rotation) and the replacement is counted as practised exactly
+ * as in generation, so schedules stay consistent. `state` is the class state after
+ * generation. Returns null if there is nothing suitable to swap in, or the Do Now
+ * predates replacement support.
+ */
+export function replaceItem(
+	bank: Bank,
+	state: ClassState,
+	doNow: DoNow,
+	index: number,
+	config: Config = DEFAULT_CONFIG
+): { state: ClassState; doNow: DoNow } | null {
+	const { base, lesson } = doNow;
+	const old = doNow.items[index];
+	if (!base || !old) return null;
+
+	// Undo the old item.
+	const skills = { ...state.skills };
+	const { [old.question.id]: _shown, ...otherUsed } = state.lastUsed;
+	const lastUsed = otherUsed;
+	const current = skills[old.skillId];
+	if (current && old.reason !== 'early' && current.practices === old.priorPractices + 1) {
+		skills[old.skillId] = {
+			...current,
+			practices: old.priorPractices,
+			lastPracticed: base.skills[old.skillId]?.lastPracticed ?? current.taughtAt
+		};
+	}
+	const baseUsed = base.lastUsed[old.question.id];
+	if (baseUsed !== undefined) lastUsed[old.question.id] = baseUsed;
+
+	const dismissed = [...new Set([...(doNow.dismissed ?? []), old.skillId])];
+	const excluded = new Set([...dismissed, ...doNow.items.map((it) => it.skillId)]);
+	const candidates: Candidate[] = [];
+	bank.skills.forEach((skill, i) => {
+		const s = skills[skill.id];
+		if (!s || skill.questions.length === 0 || excluded.has(skill.id)) return;
+		candidates.push({ skill, index: i, s, overdue: lesson - dueLesson(s, config) });
+	});
+	const lastShown = (c: Candidate) =>
+		Math.max(...c.skill.questions.map((q) => lastUsed[q.id] ?? -Infinity));
+	const due = candidates.filter((c) => c.overdue >= 0).sort(byPriority);
+	const early = config.fillToSize
+		? candidates
+				.filter((c) => c.overdue < 0)
+				.sort((a, b) => lastShown(a) - lastShown(b) || byPriority(a, b))
+		: [];
+	const next = due[0] ?? early[0];
+
+	let item: DoNowItem;
+	if (next) {
+		const reason: Reason = next.overdue < 0 ? 'early' : next.s.practices === 0 ? 'new' : 'due';
+		const question = pickQuestion(next.skill, lastUsed);
+		if (!question) return null;
+		item = {
+			skillId: next.skill.id,
+			question,
+			reason,
+			overdue: next.overdue,
+			priorPractices: next.s.practices
+		};
+		if (reason !== 'early')
+			skills[next.skill.id] = { ...next.s, practices: next.s.practices + 1, lastPracticed: lesson };
+	} else {
+		// No other skill to offer: try a different question for the same skill.
+		const skill = bank.skills.find((s) => s.id === old.skillId);
+		const alternatives = skill?.questions.filter((q) => q.id !== old.question.id) ?? [];
+		if (!skill || alternatives.length === 0) return null;
+		const question = pickQuestion({ ...skill, questions: alternatives }, lastUsed);
+		if (!question) return null;
+		item = { ...old, question };
+		// Same skill again: its practice is unchanged, so undo the rollback.
+		if (current) skills[old.skillId] = current;
+		dismissed.length = 0;
+		dismissed.push(...(doNow.dismissed ?? []));
+	}
+	lastUsed[item.question.id] = lesson;
+
+	const items = doNow.items.map((it, i) => (i === index ? item : it));
+	return { state: { ...state, skills, lastUsed }, doNow: { ...doNow, items, dismissed } };
 }

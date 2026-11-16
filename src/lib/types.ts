@@ -77,6 +77,10 @@ export interface DoNow {
 	/** Teacher-supplied lesson title, shown on the projector. Absent on Do Nows made before titles existed. */
 	title?: string;
 	items: DoNowItem[];
+	/** Class state before this Do Now was generated. Lets single questions be replaced; absent on older Do Nows. */
+	base?: ClassState;
+	/** Skills swapped out of this Do Now, so a replacement never brings one back. */
+	dismissed?: string[];
 }
 
 /** Everything persisted for one class, stored as a single JSON document. */

@@ -2,7 +2,13 @@ import { fail } from '@sveltejs/kit';
 import { getBank, getCourse, getStore, openClass } from '#lib/server/app.ts';
 import { formString } from '#lib/server/form.ts';
 import { chipColour, topicColours } from '#lib/palette.ts';
-import { DEFAULT_CONFIG, generateDoNow, markTaught, unmarkTaught } from '#lib/scheduler.ts';
+import {
+	DEFAULT_CONFIG,
+	generateDoNow,
+	markTaught,
+	replaceItem,
+	unmarkTaught
+} from '#lib/scheduler.ts';
 
 type Event = { params: { code: string }; request: Request };
 
@@ -17,6 +23,7 @@ export function load({ params }: { params: { code: string } }) {
 		size: doc.size,
 		doNowLesson: doc.doNow?.lesson ?? null,
 		doNowTitle: doc.doNow?.title ?? '',
+		canReplace: !!doc.doNow?.base,
 		doNowItems: (doc.doNow?.items ?? []).map((it, i) => ({
 			n: i + 1,
 			prompt: it.question.prompt,
@@ -72,5 +79,17 @@ export const actions = {
 			size: doc.size
 		});
 		getStore().save(code, { ...doc, state, doNow: { ...doNow, title } });
+	},
+	replace: async ({ params, request }: Event) => {
+		const index = Number(formString(await request.formData(), 'index'));
+		const { code, doc } = openClass(params.code);
+		if (!doc.doNow || !Number.isInteger(index))
+			return fail(400, { message: 'There is no question to replace.' });
+		const result = replaceItem(getBank(doc.course), doc.state, doc.doNow, index, {
+			...DEFAULT_CONFIG,
+			size: doc.size
+		});
+		if (!result) return fail(400, { message: 'No other question is available to swap in.' });
+		getStore().save(code, { ...doc, ...result });
 	}
 };
