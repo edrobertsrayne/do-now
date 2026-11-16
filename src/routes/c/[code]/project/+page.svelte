@@ -37,13 +37,7 @@
 	);
 	const current = $derived(items[checkIndex]);
 	/* Re-keys the view so it animates in only when the visible content changes. */
-	const viewKey = $derived(
-		view === 'question'
-			? `q${checkIndex}`
-			: isSummary
-				? 'sum'
-				: view
-	);
+	const viewKey = $derived(view === 'question' ? `q${checkIndex}` : isSummary ? 'sum' : view);
 	const currentPip = $derived(overview || isSummary ? -1 : checkIndex);
 	const cta = $derived(
 		step === 0
