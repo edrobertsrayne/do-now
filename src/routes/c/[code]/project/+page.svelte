@@ -21,6 +21,7 @@
 	   Last step (count+1) = summary of every question with its answer. */
 	let step = $state(0);
 	let overview = $state(false);
+	let showAll = $state(false);
 	let secs = $state(untrack(() => defaultSeconds));
 	let total = $state(untrack(() => defaultSeconds));
 	let running = $state(false);
@@ -31,7 +32,7 @@
 	const phase = $derived(step === 0 ? 'think' : 'check');
 	const isSummary = $derived(step === lastStep);
 	const checkIndex = $derived(step - 1);
-	const revealed = (i: number) => step >= 1 + i;
+	const revealed = (i: number) => showAll || step >= 1 + i;
 	const view = $derived(
 		phase === 'think' ? 'think' : isSummary ? 'list' : overview ? 'list' : 'question'
 	);
@@ -59,6 +60,7 @@
 	function setStep(s: number) {
 		step = Math.max(0, Math.min(lastStep, s));
 		if (step === 0 || isSummary) overview = false;
+		if (step === 0) showAll = false;
 	}
 	function next() {
 		if (isSummary) setStep(0);
@@ -76,6 +78,17 @@
 		if (phase === 'think') return;
 		if (isSummary) setStep(lastStep - 1);
 		else overview = !overview;
+	}
+	/* Reveal every answer and show them on the overview; from there it toggles. */
+	function revealAll() {
+		if (isSummary) return;
+		if (overview && showAll) {
+			showAll = false;
+			return;
+		}
+		if (step === 0) setStep(1);
+		overview = true;
+		showAll = true;
 	}
 
 	function adjust(d: number) {
@@ -121,7 +134,8 @@
 		} else if (k === 'ArrowLeft' || k === 'Backspace' || k === 'PageUp') {
 			e.preventDefault();
 			back();
-		} else if (k === 'o' || k === 'O') toggleOverview();
+		} else if (k === 'a' || k === 'A') revealAll();
+		else if (k === 'o' || k === 'O') toggleOverview();
 		else if (k === 'Escape' && overview) overview = false;
 		else if (k === 't' || k === 'T') toggleTimer();
 		else if (k === '+' || k === '=') adjust(30);
@@ -319,7 +333,8 @@
 				>
 				<div class="spacer"></div>
 				<span class="keys" aria-hidden="true">
-					<kbd>Space</kbd>check answers <kbd>T</kbd>timer <kbd>F</kbd>fullscreen
+					<kbd>Space</kbd>check answers <kbd>A</kbd>reveal all <kbd>T</kbd>timer
+					<kbd>F</kbd>fullscreen
 				</span>
 			{:else}
 				<button class="ghost" type="button" onclick={back}>Back</button>
@@ -329,8 +344,16 @@
 					onclick={toggleOverview}
 					aria-pressed={overview || isSummary}>All questions</button
 				>
+				{#if !isSummary}
+					<button class="ghost" type="button" onclick={revealAll} aria-pressed={overview && showAll}
+						>{overview && showAll ? 'Hide answers' : 'Reveal all answers'}</button
+					>
+				{/if}
 				<div class="spacer"></div>
-				<span class="keys" aria-hidden="true"><kbd>O</kbd>overview</span>
+				<span class="keys" aria-hidden="true">
+					{#if !isSummary}<kbd>A</kbd>{overview && showAll ? 'hide answers' : 'reveal all'}{/if}
+					<kbd>O</kbd>overview
+				</span>
 			{/if}
 			<button class="cta" type="button" onclick={next}>{cta}</button>
 		</footer>
