@@ -126,6 +126,7 @@
 		else if (k === 't' || k === 'T') toggleTimer();
 		else if (k === '+' || k === '=') adjust(30);
 		else if (k === '-' || k === '_') adjust(-30);
+		else if (phase === 'check' && /^[1-9]$/.test(k) && +k <= count) jump(+k - 1);
 		else if (k === '0') resetTimer();
 		else if (k === 'f' || k === 'F') toggleFullscreen();
 	}
