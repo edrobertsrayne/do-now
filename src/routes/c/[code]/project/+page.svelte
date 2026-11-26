@@ -350,7 +350,7 @@
 				{/if}
 				<div class="spacer"></div>
 				<span class="keys" aria-hidden="true">
-					{#if !isSummary}<kbd>A</kbd>reveal all{/if}
+					{#if !isSummary}<kbd>A</kbd>{overview && showAll ? 'hide answers' : 'reveal all'}{/if}
 					<kbd>O</kbd>overview
 				</span>
 			{/if}
